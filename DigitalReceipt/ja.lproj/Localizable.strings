@@ -1,0 +1,18 @@
+/* 
+  Localizable.strings
+  DigitalReceipt
+
+  Created by liqc on 2018/08/22.
+  Copyright © 2018年 liqc. All rights reserved.
+*/
+
+"home" = "ホーム";
+"receipt" = "レシート";
+"gift" = "おとく";
+"setting" = "その他";
+"login" = "ログイン";
+"signup" = "登録";
+"email" = "メールアドレス";
+"password" = "パスワード";
+
+"msg1" = "あなた専用のスマートレシートID";
