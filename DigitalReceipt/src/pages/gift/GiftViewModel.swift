@@ -12,11 +12,11 @@ import SVProgressHUD
 import SwiftyJSON
 
 class GiftViewModel {
-    let gifts = [GiftData]()
+    var gifts = [GiftData]()
     
     func getGifts(completion : @escaping (String?)-> Void) {
         SVProgressHUD.show()
-        Alamofire.request(giftAPI, method: .get).responseJSON { response in
+        Alamofire.request(giftAPI, method: .get).responseJSON { [weak self] response in
             SVProgressHUD.dismiss()
             if let error = response.error {
                 return completion(error.localizedDescription)
@@ -27,7 +27,8 @@ class GiftViewModel {
             }
             
             let json = JSON(data)
-            print(json)
+            self?.gifts = json.arrayValue.map{GiftData(data: $0)}
+            return completion(nil)
         }
     }
 }

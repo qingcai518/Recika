@@ -16,7 +16,7 @@ class GiftController: ViewController {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
         setSubViews()
-        getData()
+        self.getData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,6 +34,8 @@ class GiftController: ViewController {
         collectionView = UICollectionView(frame: frame, collectionViewLayout: layout)
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.backgroundColor = UIColor.orange
+        collectionView.register(GiftCell.self, forCellWithReuseIdentifier: GiftCell.id)
         view.addSubview(collectionView)
         
         collectionView.snp.makeConstraints { make in
@@ -44,12 +46,11 @@ class GiftController: ViewController {
     }
     
     private func getData() {
-        viewModel.getGifts { [weak self] msg in
+        viewModel.getGifts { msg in
             if let msg = msg {
-                self?.showToast(text: msg)
+                self.showToast(text: msg)
             } else {
-                self?.collectionView.reloadData()
-                print("reload data of collectioNView")
+                self.collectionView.reloadData()
             }
         }
     }
