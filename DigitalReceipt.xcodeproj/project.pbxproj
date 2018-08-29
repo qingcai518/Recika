@@ -42,6 +42,8 @@
 		4B3EBCAA21352C84002C34C5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3EBCA921352C84002C34C5 /* ViewController.swift */; };
 		4B3EBCAC21353EAA002C34C5 /* UDKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3EBCAB21353EAA002C34C5 /* UDKeys.swift */; };
 		4B3EBCAE213543FD002C34C5 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3EBCAD213543FD002C34C5 /* LoginViewModel.swift */; };
+		4B3EBCB221363828002C34C5 /* GiftViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3EBCB121363828002C34C5 /* GiftViewModel.swift */; };
+		4B3EBCB421363854002C34C5 /* GiftData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3EBCB321363854002C34C5 /* GiftData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,6 +111,8 @@
 		4B3EBCA921352C84002C34C5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4B3EBCAB21353EAA002C34C5 /* UDKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UDKeys.swift; sourceTree = "<group>"; };
 		4B3EBCAD213543FD002C34C5 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		4B3EBCB121363828002C34C5 /* GiftViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftViewModel.swift; sourceTree = "<group>"; };
+		4B3EBCB321363854002C34C5 /* GiftData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -267,6 +271,7 @@
 			isa = PBXGroup;
 			children = (
 				4B3EBC90212D425F002C34C5 /* SettingData.swift */,
+				4B3EBCB321363854002C34C5 /* GiftData.swift */,
 			);
 			path = data;
 			sourceTree = "<group>";
@@ -291,6 +296,7 @@
 			isa = PBXGroup;
 			children = (
 				4B3EBC78212D2187002C34C5 /* GiftController.swift */,
+				4B3EBCB121363828002C34C5 /* GiftViewModel.swift */,
 			);
 			path = gift;
 			sourceTree = "<group>";
@@ -520,9 +526,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				4B3EBCA2212E6626002C34C5 /* SignupViewModel.swift in Sources */,
+				4B3EBCB221363828002C34C5 /* GiftViewModel.swift in Sources */,
 				4B3EBC7B212D2192002C34C5 /* SettingController.swift in Sources */,
 				4B3EBCAE213543FD002C34C5 /* LoginViewModel.swift in Sources */,
 				4B171E9D212BE85100753EA8 /* TopController.swift in Sources */,
+				4B3EBCB421363854002C34C5 /* GiftData.swift in Sources */,
 				4B3EBC8D212D2A91002C34C5 /* AppUtility.swift in Sources */,
 				4B3EBC93212D4288002C34C5 /* SettingViewModel.swift in Sources */,
 				4B3EBCAC21353EAA002C34C5 /* UDKeys.swift in Sources */,
