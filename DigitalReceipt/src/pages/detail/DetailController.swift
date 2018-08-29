@@ -70,5 +70,21 @@ class DetailController: ViewController {
             make.top.equalTo(imgView.snp.bottom).offset(12)
             make.left.right.equalToSuperview().inset(16)
         }
+        
+        // exchange button.
+        exchangeBtn.setTitle("こちらの商品を交換する", for: .normal)
+        exchangeBtn.setTitleColor(UIColor.black, for: .normal)
+        exchangeBtn.layer.cornerRadius = 12
+        exchangeBtn.clipsToBounds = true
+        exchangeBtn.layer.borderColor = UIColor.lightGray.cgColor
+        exchangeBtn.layer.borderWidth = 1
+        self.contentView.addSubview(exchangeBtn)
+        exchangeBtn.snp.makeConstraints { make in
+            make.top.equalTo(detailLbl.snp.bottom).offset(24)
+            make.left.right.equalToSuperview().inset(36)
+            make.height.equalTo(60)
+        }
+        
+        
     }
 }
