@@ -17,13 +17,17 @@ class GiftCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        thumbnailView.contentMode = .scaleAspectFit
+        thumbnailView.contentMode = .scaleAspectFill
         thumbnailView.clipsToBounds = true
         
         priceLbl.frame = CGRect(x: 0, y: 0, width: screenWidth, height: 18)
-        priceLbl.textColor = UIColor.orange
-        priceLbl.textAlignment = .center
+        priceLbl.textColor = UIColor.white
+        priceLbl.textAlignment = .right
         priceLbl.font = UIFont.systemFont(ofSize: 12)
+        priceLbl.backgroundColor = UIColor.black
+        priceLbl.alpha = 0.5
+        priceLbl.layer.cornerRadius = 8
+        priceLbl.clipsToBounds = true
         
         self.contentView.addSubview(thumbnailView)
         self.contentView.addSubview(priceLbl)

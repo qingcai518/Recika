@@ -27,7 +27,9 @@ class GiftViewModel {
             }
             
             let json = JSON(data)
-            self?.gifts = json.arrayValue.map{GiftData(data: $0)}
+            let gifts = json.arrayValue.map{GiftData(json: $0)}
+            print(gifts)
+            self?.gifts = gifts
             return completion(nil)
         }
     }

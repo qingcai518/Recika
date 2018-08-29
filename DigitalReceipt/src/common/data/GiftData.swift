@@ -10,16 +10,17 @@ import Foundation
 import SwiftyJSON
 
 struct GiftData {
+    let id: Int
     let name: String
     let detail: String
     let thumbnail: String
     let price: Double
     
-    init(data: Any) {
-        let json = JSON(data)
-        name = json["name"].stringValue
-        detail = json["detail"].stringValue
-        thumbnail = json["thumbnail"].stringValue
-        price = json["price"].doubleValue
+    init(json: JSON) {
+        id = json["Id"].intValue
+        name = json["Name"].stringValue
+        detail = json["Detail"].stringValue
+        thumbnail = json["Thumbnail"].stringValue
+        price = json["Price"].doubleValue
     }
 }
