@@ -34,8 +34,8 @@ class HomeController: ViewController {
         titleLbl.text = msg1
         bkView.addSubview(titleLbl)
         
+        print("生成二维码")
         let qrCodeView = UIImageView()
-        print("重新生成二维码 name = \(userName)")
         qrCodeView.image = generateQR(from: "\(userName)\n\(ownerPubKey)\n\(activePubKey)\n\(memoPubKey)\n")
         bkView.addSubview(qrCodeView)
         
