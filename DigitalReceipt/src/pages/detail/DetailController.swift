@@ -91,13 +91,24 @@ class DetailController: ViewController {
         exchangeBtn.clipsToBounds = true
         exchangeBtn.layer.borderColor = UIColor.lightGray.cgColor
         exchangeBtn.layer.borderWidth = 1
-        self.contentView.addSubview(exchangeBtn)
+        contentView.addSubview(exchangeBtn)
         exchangeBtn.snp.makeConstraints { make in
-            make.top.equalTo(detailLbl.snp.bottom).offset(24)
+            make.top.equalTo(priceLbl.snp.bottom).offset(16)
             make.left.right.equalToSuperview().inset(36)
             make.height.equalTo(60)
         }
         
-        
+        //  exchange button tap event.
+        exchangeBtn.rx.tap.bind { [weak self] in
+            let alert = UIAlertController(title: "交換", message: "交換します、よろしいですか", preferredStyle: .actionSheet)
+            let action1 = UIAlertAction(title: "はい", style: .default, handler: { action in
+                print("do exchange")
+            })
+            
+            let action2 = UIAlertAction(title: "いいえ", style: .cancel, handler: nil)
+            alert.addAction(action1)
+            alert.addAction(action2)
+            self?.present(alert, animated: true, completion: nil)
+        }.disposed(by: disposeBag)
     }
 }
