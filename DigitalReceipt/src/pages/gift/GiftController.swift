@@ -28,13 +28,15 @@ class GiftController: ViewController {
         let margin: CGFloat = 2
         layout.scrollDirection = .vertical
         layout.sectionInset = UIEdgeInsets(top: 0, left: margin, bottom: margin, right: margin)
+        layout.minimumLineSpacing = margin
+        layout.minimumInteritemSpacing = margin
         let width = (screenWidth - 4 * margin) / 3
         layout.itemSize = CGSize(width: width, height: width)
         let frame = CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight)
         collectionView = UICollectionView(frame: frame, collectionViewLayout: layout)
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.backgroundColor = UIColor.orange
+        collectionView.backgroundColor = UIColor.white
         collectionView.register(GiftCell.self, forCellWithReuseIdentifier: GiftCell.id)
         view.addSubview(collectionView)
         

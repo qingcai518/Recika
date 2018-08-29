@@ -20,14 +20,14 @@ class GiftCell: UICollectionViewCell {
         thumbnailView.contentMode = .scaleAspectFill
         thumbnailView.clipsToBounds = true
         
-        priceLbl.frame = CGRect(x: 0, y: 0, width: screenWidth, height: 18)
+        priceLbl.frame = CGRect(x: 8, y: 0, width: screenWidth - 2 * 8, height: 18)
         priceLbl.textColor = UIColor.white
-        priceLbl.textAlignment = .right
-        priceLbl.font = UIFont.systemFont(ofSize: 12)
+        priceLbl.textAlignment = .center
+        priceLbl.font = UIFont.boldSystemFont(ofSize: 12)
         priceLbl.backgroundColor = UIColor.black
-        priceLbl.alpha = 0.5
         priceLbl.layer.cornerRadius = 8
         priceLbl.clipsToBounds = true
+        priceLbl.alpha = 0.8
         
         self.contentView.addSubview(thumbnailView)
         self.contentView.addSubview(priceLbl)
