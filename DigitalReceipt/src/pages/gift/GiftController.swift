@@ -55,11 +55,13 @@ class GiftController: ViewController {
     }
     
     private func getData() {
-        viewModel.getGifts { msg in
+        viewModel.getGifts { [weak self] msg in
+            self?.collectionView.es.stopPullToRefresh()
+            
             if let msg = msg {
-                self.showToast(text: msg)
+                self?.showToast(text: msg)
             } else {
-                self.collectionView.reloadData()
+                self?.collectionView.reloadData()
             }
         }
     }
