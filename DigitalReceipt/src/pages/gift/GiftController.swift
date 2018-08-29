@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ESPullToRefresh
 
 class GiftController: ViewController {
     var collectionView: UICollectionView!
@@ -39,6 +40,11 @@ class GiftController: ViewController {
         collectionView.backgroundColor = UIColor.white
         collectionView.register(GiftCell.self, forCellWithReuseIdentifier: GiftCell.id)
         view.addSubview(collectionView)
+        
+        // add pull header and footer.
+        collectionView.es.addPullToRefresh { [weak self] in
+            self?.getData()
+        }
         
         collectionView.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
