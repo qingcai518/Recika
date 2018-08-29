@@ -71,18 +71,12 @@ class DetailController: ViewController {
             make.left.right.equalToSuperview().inset(16)
         }
         
-        // price label.
-        if let price = data?.price {
-            priceLbl.text = "¥\(price)"
-        }
-        priceLbl.textColor = UIColor.black
-        priceLbl.textAlignment = .center
-        contentView.addSubview(priceLbl)
-        priceLbl.snp.makeConstraints { make in
-            make.top.equalTo(detailLbl.snp.bottom).offset(24)
-            make.left.right.equalToSuperview().inset(24)
-            make.height.equalTo(24)
-        }
+//        contentView.addSubview(priceLbl)
+//        priceLbl.snp.makeConstraints { make in
+//            make.top.equalTo(detailLbl.snp.bottom).offset(24)
+//            make.left.right.equalToSuperview().inset(24)
+//            make.height.equalTo(24)
+//        }
         
         // exchange button.
         exchangeBtn.setTitle("こちらの商品を交換する", for: .normal)
@@ -94,29 +88,36 @@ class DetailController: ViewController {
         view.addSubview(exchangeBtn)
         
         exchangeBtn.snp.makeConstraints { make in
-            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(24)
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).inset(24)
             make.left.right.equalToSuperview().inset(36)
             make.height.equalTo(60)
         }
         
         exchangeBtn.rx.tap.bind { [weak self] in
-            print("111111")
-        }
+            let alert = UIAlertController(title: "交換", message: "交換します、よろしいですか", preferredStyle: .actionSheet)
+            let action1 = UIAlertAction(title: "はい", style: .default, handler: { action in
+                print("do exchange")
+            })
+            
+            print("222222")
+            
+            let action2 = UIAlertAction(title: "いいえ", style: .cancel, handler: nil)
+            alert.addAction(action1)
+            alert.addAction(action2)
+            self?.present(alert, animated: true, completion: nil)
+        }.disposed(by: disposeBag)
         
-//        //  exchange button tap event.
-//        exchangeBtn.rx.tap.bind { [weak self] in
-//            print("111111")
-//            let alert = UIAlertController(title: "交換", message: "交換します、よろしいですか", preferredStyle: .actionSheet)
-//            let action1 = UIAlertAction(title: "はい", style: .default, handler: { action in
-//                print("do exchange")
-//            })
-//
-//            print("222222")
-//
-//            let action2 = UIAlertAction(title: "いいえ", style: .cancel, handler: nil)
-//            alert.addAction(action1)
-//            alert.addAction(action2)
-//            self?.present(alert, animated: true, completion: nil)
-//        }.disposed(by: disposeBag)
+        // price label.
+        if let price = data?.price {
+            priceLbl.text = "¥\(price)"
+        }
+        priceLbl.textColor = UIColor.black
+        priceLbl.textAlignment = .center
+        view.addSubview(priceLbl)
+        priceLbl.snp.makeConstraints { make in
+            make.bottom.equalTo(exchangeBtn.snp.top).inset(16)
+            make.left.right.equalToSuperview().inset(24)
+            make.height.equalTo(24)
+        }
     }
 }
