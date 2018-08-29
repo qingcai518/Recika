@@ -92,8 +92,9 @@ class DetailController: ViewController {
         exchangeBtn.layer.borderColor = UIColor.lightGray.cgColor
         exchangeBtn.layer.borderWidth = 1
         view.addSubview(exchangeBtn)
+        
         exchangeBtn.snp.makeConstraints { make in
-            make.bottom.equalToSuperview().inset(24)
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(24)
             make.left.right.equalToSuperview().inset(36)
             make.height.equalTo(60)
         }
