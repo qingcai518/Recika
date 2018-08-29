@@ -70,8 +70,10 @@ class GiftController: ViewController {
 extension GiftController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
-        let name = viewModel.gifts[indexPath.item]
-        print("select to show detail for \(name)")
+        let gift = viewModel.gifts[indexPath.item]
+        let next = DetailController()
+        self.navigationController?.pushViewController(next, animated: true)
+        next.setParam(data: gift)
     }
 }
 

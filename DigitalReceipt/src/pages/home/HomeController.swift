@@ -13,7 +13,6 @@ class HomeController: ViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.yellow
         
         setSubViews()
     }
@@ -23,6 +22,8 @@ class HomeController: ViewController {
     }
     
     private func setSubViews() {
+        view.backgroundColor = UIColor.white
+        
         let bkView = UIView()
         bkView.backgroundColor = UIColor.white
         view.addSubview(bkView)
