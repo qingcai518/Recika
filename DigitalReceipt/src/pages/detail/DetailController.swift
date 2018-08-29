@@ -115,7 +115,7 @@ class DetailController: ViewController {
         priceLbl.textAlignment = .center
         view.addSubview(priceLbl)
         priceLbl.snp.makeConstraints { make in
-            make.bottom.equalTo(exchangeBtn.snp.top).inset(16)
+            make.bottom.equalTo(exchangeBtn.snp.top).offset(-12)
             make.left.right.equalToSuperview().inset(24)
             make.height.equalTo(24)
         }
