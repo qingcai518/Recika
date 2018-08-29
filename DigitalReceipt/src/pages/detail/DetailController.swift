@@ -36,6 +36,7 @@ class DetailController: ViewController {
         self.title = data?.name
         
         // scrollView
+        scrollView.delaysContentTouches = false
         view.addSubview(scrollView)
         scrollView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
@@ -96,10 +97,6 @@ class DetailController: ViewController {
             make.top.equalTo(priceLbl.snp.bottom).offset(16)
             make.left.right.equalToSuperview().inset(36)
             make.height.equalTo(60)
-        }
-        
-        exchangeBtn.rx.tap.bind {
-            print("111111111")
         }
         
 //        //  exchange button tap event.
