@@ -71,6 +71,19 @@ class DetailController: ViewController {
             make.left.right.equalToSuperview().inset(16)
         }
         
+        // price label.
+        if let price = data?.price {
+            priceLbl.text = "¥\(price)"
+        }
+        priceLbl.textColor = UIColor.black
+        priceLbl.textAlignment = .center
+        contentView.addSubview(priceLbl)
+        priceLbl.snp.makeConstraints { make in
+            make.top.equalTo(detailLbl.snp.bottom).offset(24)
+            make.left.right.equalToSuperview().inset(24)
+            make.height.equalTo(24)
+        }
+        
         // exchange button.
         exchangeBtn.setTitle("こちらの商品を交換する", for: .normal)
         exchangeBtn.setTitleColor(UIColor.black, for: .normal)
