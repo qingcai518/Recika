@@ -39,6 +39,7 @@ class GiftController: ViewController {
         collectionView.dataSource = self
         collectionView.backgroundColor = UIColor.white
         collectionView.register(GiftCell.self, forCellWithReuseIdentifier: GiftCell.id)
+        collectionView.alwaysBounceVertical = true
         view.addSubview(collectionView)
         
         // add pull header and footer.
