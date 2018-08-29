@@ -44,6 +44,7 @@
 		4B3EBCAE213543FD002C34C5 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3EBCAD213543FD002C34C5 /* LoginViewModel.swift */; };
 		4B3EBCB221363828002C34C5 /* GiftViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3EBCB121363828002C34C5 /* GiftViewModel.swift */; };
 		4B3EBCB421363854002C34C5 /* GiftData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3EBCB321363854002C34C5 /* GiftData.swift */; };
+		4B3EBCB721366992002C34C5 /* GiftCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3EBCB621366992002C34C5 /* GiftCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +114,7 @@
 		4B3EBCAD213543FD002C34C5 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		4B3EBCB121363828002C34C5 /* GiftViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftViewModel.swift; sourceTree = "<group>"; };
 		4B3EBCB321363854002C34C5 /* GiftData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftData.swift; sourceTree = "<group>"; };
+		4B3EBCB621366992002C34C5 /* GiftCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -295,6 +297,7 @@
 		4B3EBC72212D214A002C34C5 /* gift */ = {
 			isa = PBXGroup;
 			children = (
+				4B3EBCB52136696C002C34C5 /* cell */,
 				4B3EBC78212D2187002C34C5 /* GiftController.swift */,
 				4B3EBCB121363828002C34C5 /* GiftViewModel.swift */,
 			);
@@ -365,6 +368,14 @@
 				4B3EBCA921352C84002C34C5 /* ViewController.swift */,
 			);
 			path = ui;
+			sourceTree = "<group>";
+		};
+		4B3EBCB52136696C002C34C5 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				4B3EBCB621366992002C34C5 /* GiftCell.swift */,
+			);
+			path = cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -549,6 +560,7 @@
 				4B3EBC9D212E4B83002C34C5 /* LoginController.swift in Sources */,
 				4B3EBC79212D2187002C34C5 /* GiftController.swift in Sources */,
 				4B3EBC8F212D2B4E002C34C5 /* User.swift in Sources */,
+				4B3EBCB721366992002C34C5 /* GiftCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,7 +7,26 @@
 //
 
 import Foundation
+import Alamofire
+import SVProgressHUD
 
 class GiftViewModel {
-    let gifts = GiftData()
+    let gifts = [GiftData]()
+    
+    func getGifts(completion : @escaping (String?)-> Void) {
+        SVProgressHUD.show()
+        Alamofire.request(giftAPI, method: .get).responseJSON { response in
+            SVProgressHUD.dismiss()
+            if let error = response.error {
+                return completion(error.localizedDescription)
+            }
+            
+            guard let data = response.data else {
+                return completion("have no data")
+            }
+            
+            let json = JSON(data)
+            print(json)
+        }
+    }
 }

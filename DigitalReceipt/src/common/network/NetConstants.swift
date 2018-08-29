@@ -21,3 +21,6 @@ let signupAPI = cybexDomain + v1 + "signup"
 // ユーザー
 let userAPI = domain + v1 + "user/"
 let loginAPI = userAPI + "login"
+
+// 商品.
+let giftAPI = domain + v1 + "gift/"
