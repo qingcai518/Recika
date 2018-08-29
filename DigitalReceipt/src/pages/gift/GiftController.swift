@@ -16,6 +16,7 @@ class GiftController: ViewController {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
         setSubViews()
+        getData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -41,10 +42,25 @@ class GiftController: ViewController {
             make.left.right.equalToSuperview()
         }
     }
+    
+    private func getData() {
+        viewModel.getGifts { [weak self] msg in
+            if let msg = msg {
+                self?.showToast(text: msg)
+            } else {
+                self?.collectionView.reloadData()
+                print("reload data of collectioNView")
+            }
+        }
+    }
 }
 
 extension GiftController: UICollectionViewDelegate {
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
+        let name = viewModel.gifts[indexPath.item]
+        print("select to show detail for \(name)")
+    }
 }
 
 extension GiftController: UICollectionViewDataSource {

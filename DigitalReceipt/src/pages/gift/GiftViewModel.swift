@@ -9,6 +9,7 @@
 import Foundation
 import Alamofire
 import SVProgressHUD
+import SwiftyJSON
 
 class GiftViewModel {
     let gifts = [GiftData]()
