@@ -36,7 +36,6 @@ class DetailController: ViewController {
         self.title = data?.name
         
         // scrollView
-        scrollView.delaysContentTouches = false
         view.addSubview(scrollView)
         scrollView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
@@ -92,11 +91,15 @@ class DetailController: ViewController {
         exchangeBtn.clipsToBounds = true
         exchangeBtn.layer.borderColor = UIColor.lightGray.cgColor
         exchangeBtn.layer.borderWidth = 1
-        contentView.addSubview(exchangeBtn)
+        view.addSubview(exchangeBtn)
         exchangeBtn.snp.makeConstraints { make in
-            make.top.equalTo(priceLbl.snp.bottom).offset(16)
+            make.bottom.equalToSuperview().inset(24)
             make.left.right.equalToSuperview().inset(36)
             make.height.equalTo(60)
+        }
+        
+        exchangeBtn.rx.tap.bind { [weak self] in
+            print("111111")
         }
         
 //        //  exchange button tap event.
