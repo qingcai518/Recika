@@ -9,11 +9,13 @@
 import UIKit
 
 class DetailController: ViewController {
-    var scrollView = UIScrollView()
-    var detailLbl = UILabel()
-    var imgView = UIImageView()
-    var priceLbl = UILabel()
-    var exchangeBtn = UIButton()
+    let scrollView = UIScrollView()
+    let contentView = UIView()
+    let detailLbl = UILabel()
+    let imgView = UIImageView()
+    let priceLbl = UILabel()
+    let exchangeBtn = UIButton()
+    
     var data: GiftData?
     
     func setParam(data: GiftData) {
@@ -33,35 +35,39 @@ class DetailController: ViewController {
         view.backgroundColor = UIColor.white
         self.title = data?.name
         
-        // set scrollView.
-        scrollView.frame = CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight)
-        scrollView.contentSize = CGSize(width: screenWidth, height: screenHeight)
-        scrollView.backgroundColor = UIColor.white
+        // scrollView
         view.addSubview(scrollView)
+        scrollView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
         
-        // add parts to scrollView.
+        // contentView
+        scrollView.addSubview(contentView)
+        contentView.snp.makeConstraints { make in
+            make.top.bottom.equalToSuperview()
+            make.left.right.equalTo(view)  // 垂直滚动。
+        }
+        
+        // imageView
         imgView.contentMode = .scaleAspectFill
         imgView.clipsToBounds = true
         if let thumbnail = data?.thumbnail {
             imgView.kf.setImage(with: URL(string: thumbnail))
         }
-        scrollView.addSubview(imgView)
-        
-        detailLbl.textColor = UIColor.black
-        detailLbl.numberOfLines = 0
-        detailLbl.font = UIFont.systemFont(ofSize: 14)
-        detailLbl.text = data?.detail
-        scrollView.addSubview(detailLbl)
-        
-        // set constraint.
+        contentView.addSubview(imgView)
         imgView.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
-            make.left.right.equalToSuperview()
+            make.left.right.top.equalToSuperview()
             make.height.equalTo(300)
         }
         
+        // detailLbl
+        detailLbl.textColor = UIColor.black
+        detailLbl.text = data?.detail
+        detailLbl.font = UIFont.systemFont(ofSize: 16)
+        detailLbl.numberOfLines = 0
+        contentView.addSubview(detailLbl)
         detailLbl.snp.makeConstraints { make in
-            make.top.equalTo(imgView.snp.bottom).offset(24)
+            make.top.equalTo(imgView.snp.bottom).offset(12)
             make.left.right.equalToSuperview().inset(16)
         }
     }
