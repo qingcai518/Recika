@@ -27,13 +27,13 @@ class HomeController: ViewController {
         let bkView = UIView()
         bkView.backgroundColor = UIColor.white
         view.addSubview(bkView)
-        
+    
         let contentLbl = UILabel()
         contentLbl.textColor = UIColor.black
         contentLbl.text = "あなたのコイン数は：100 DRPです。"
         contentLbl.numberOfLines = 0
         contentLbl.textAlignment = .center
-        contentLbl.font = UIFont.boldSystemFont(ofSize: 24)
+        contentLbl.font = UIFont.boldSystemFont(ofSize: 20)
         view.addSubview(contentLbl)
         contentLbl.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top).inset(24)
