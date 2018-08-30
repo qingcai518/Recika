@@ -28,6 +28,18 @@ class HomeController: ViewController {
         bkView.backgroundColor = UIColor.white
         view.addSubview(bkView)
         
+        let contentLbl = UILabel()
+        contentLbl.textColor = UIColor.black
+        contentLbl.text = "あなたのコイン数は：100 DRPです。"
+        contentLbl.textAlignment = .center
+        contentLbl.font = UIFont.boldSystemFont(ofSize: 24)
+        view.addSubview(contentLbl)
+        contentLbl.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).inset(24)
+            make.left.right.equalToSuperview().inset(24)
+            make.height.equalTo(30)
+        }
+        
         let titleLbl = UILabel()
         titleLbl.textColor = UIColor.white
         titleLbl.textAlignment = .center
