@@ -8,8 +8,10 @@
 
 import UIKit
 import SnapKit
+import RxSwift
 
 class HomeController: ViewController {
+    let viewModel = HomeViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +42,9 @@ class HomeController: ViewController {
             make.left.right.equalToSuperview().inset(24)
         }
         
+        // コイン数を設定する.
+        viewModel.balance.asObservable().map{"あなたのコイン数は：\($0)\(symbol)です。"}.bind(to: contentLbl.rx.text).disposed(by: disposeBag)
+
         let titleLbl = UILabel()
         titleLbl.textColor = UIColor.white
         titleLbl.textAlignment = .center

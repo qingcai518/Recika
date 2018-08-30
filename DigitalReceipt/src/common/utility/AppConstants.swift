@@ -12,6 +12,8 @@ import UIKit
 let screenWidth = UIScreen.main.bounds.width
 let screenHeight = UIScreen.main.bounds.height
 
+let symbol = "CYB"  // ユーザーのToken数
+
 enum ToastPosition {
     case center
     case top

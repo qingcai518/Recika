@@ -18,6 +18,9 @@ let v1 = "/v1/"
 // ユーザー登録API (Python API)
 let signupAPI = cybexDomain + v1 + "signup"
 
+// ユーザーbalance取得.
+let balanceAPI = cybexDomain + v1 + "balance"
+
 // ユーザー
 let userAPI = domain + v1 + "user/"
 let loginAPI = userAPI + "login"
