@@ -48,6 +48,8 @@
 		4BF0D9B021367EC6005D9AF1 /* ESPullToRefresh.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BF0D9AF21367EC6005D9AF1 /* ESPullToRefresh.framework */; };
 		4BF0D9B321368135005D9AF1 /* DetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0D9B221368135005D9AF1 /* DetailController.swift */; };
 		4BF0D9B521378042005D9AF1 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0D9B421378042005D9AF1 /* HomeViewModel.swift */; };
+		4BF0D9B82137BC6C005D9AF1 /* AssociateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0D9B72137BC6C005D9AF1 /* AssociateController.swift */; };
+		4BF0D9BA2137BC79005D9AF1 /* AssociateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0D9B92137BC79005D9AF1 /* AssociateViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,6 +123,8 @@
 		4BF0D9AF21367EC6005D9AF1 /* ESPullToRefresh.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ESPullToRefresh.framework; path = Carthage/Build/iOS/ESPullToRefresh.framework; sourceTree = "<group>"; };
 		4BF0D9B221368135005D9AF1 /* DetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailController.swift; sourceTree = "<group>"; };
 		4BF0D9B421378042005D9AF1 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		4BF0D9B72137BC6C005D9AF1 /* AssociateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssociateController.swift; sourceTree = "<group>"; };
+		4BF0D9B92137BC79005D9AF1 /* AssociateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssociateViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -258,6 +262,7 @@
 		4B3EBC55212BF2AA002C34C5 /* pages */ = {
 			isa = PBXGroup;
 			children = (
+				4BF0D9B62137BC56005D9AF1 /* associate */,
 				4B3EBC9E212E56F9002C34C5 /* signup */,
 				4B3EBC9B212E4B69002C34C5 /* login */,
 				4B3EBC56212BF2FB002C34C5 /* top */,
@@ -394,6 +399,15 @@
 				4BF0D9B221368135005D9AF1 /* DetailController.swift */,
 			);
 			path = detail;
+			sourceTree = "<group>";
+		};
+		4BF0D9B62137BC56005D9AF1 /* associate */ = {
+			isa = PBXGroup;
+			children = (
+				4BF0D9B72137BC6C005D9AF1 /* AssociateController.swift */,
+				4BF0D9B92137BC79005D9AF1 /* AssociateViewModel.swift */,
+			);
+			path = associate;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -567,6 +581,8 @@
 				4B3EBCAC21353EAA002C34C5 /* UDKeys.swift in Sources */,
 				4BF0D9B521378042005D9AF1 /* HomeViewModel.swift in Sources */,
 				4B3EBC98212D4812002C34C5 /* SettingType1Cell.swift in Sources */,
+				4BF0D9BA2137BC79005D9AF1 /* AssociateViewModel.swift in Sources */,
+				4BF0D9B82137BC6C005D9AF1 /* AssociateController.swift in Sources */,
 				4B3EBC77212D217C002C34C5 /* ReceiptController.swift in Sources */,
 				4B3EBC91212D425F002C34C5 /* SettingData.swift in Sources */,
 				4B3EBCA521350BA3002C34C5 /* NetConstants.swift in Sources */,
