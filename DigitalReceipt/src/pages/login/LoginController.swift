@@ -98,8 +98,9 @@ class LoginController: ViewController {
         cybexBtn.setTitleColor(UIColor.blue, for: .normal)
         cybexBtn.titleLabel?.font = UIFont.systemFont(ofSize: 12)
         view.addSubview(cybexBtn)
+        
         cybexBtn.snp.makeConstraints { make in
-            make.top.equalTo(loginBtn).offset(16)
+            make.top.equalTo(loginBtn.snp.bottom).offset(16)
             make.left.right.equalToSuperview().inset(24)
             make.height.equalTo(14)
         }
