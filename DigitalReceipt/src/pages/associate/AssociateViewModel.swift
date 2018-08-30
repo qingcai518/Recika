@@ -33,11 +33,10 @@ class AssociateViewModel {
             }
             
             let json = JSON(data)
-            let msg = json["msg"]
+            let msg = json["msg"].stringValue
             if msg != "" {
                 return completion(msg)
             }
-            
             return completion(nil)
         }
     }

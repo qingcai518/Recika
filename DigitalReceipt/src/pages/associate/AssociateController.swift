@@ -84,7 +84,7 @@ class AssociateController: ViewController {
         cancelBtn.clipsToBounds = true
         view.addSubview(cancelBtn)
         cancelBtn.snp.makeConstraints { make in
-            make.top.equalTo(confirmBtn.snp.bottom).inset(12)
+            make.top.equalTo(confirmBtn.snp.bottom).offset(16)
             make.left.right.equalToSuperview().inset(36)
             make.height.equalTo(50)
         }
@@ -103,6 +103,6 @@ class AssociateController: ViewController {
         
         cancelBtn.rx.tap.bind { [weak self] in
             self?.dismiss(animated: true, completion: nil)
-        }
+        }.disposed(by: disposeBag)
     }
 }
