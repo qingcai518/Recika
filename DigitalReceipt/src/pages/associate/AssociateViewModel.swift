@@ -15,12 +15,17 @@ import SVProgressHUD
 class AssociateViewModel {
     func associate(name: String?, password: String?, completion: @escaping (String?) -> Void) {
         guard let name = name else {return completion("名前を指定してください")}
-        guard let pw = password else {return completion("パスワードを指定してください")}
+        guard let password = password else {return completion("パスワードを指定してください")}
         
         let headers = ["Content-type": "application/json"]
-        let params = ["name": name, "passowrd": pw]
+        let params = ["name": name, "password": password]
+        
+        print(params)
         
         guard let api = URLComponents(string: associateAPI) else {return completion(nil)}
+        
+        print(api)
+        
         SVProgressHUD.show()
         Alamofire.request(api, method: .post, parameters: params, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
             SVProgressHUD.dismiss()
