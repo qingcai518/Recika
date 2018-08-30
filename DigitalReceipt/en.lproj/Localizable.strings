@@ -12,7 +12,7 @@
 "setting" = "setting";
 "login" = "Login";
 "signup" = "Sign up";
-"email" = "Email";
+"name" = "User name";
 "password" = "Password";
 "associate" = "Associate to Cybex acount";
 

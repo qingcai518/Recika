@@ -12,7 +12,7 @@
 "setting" = "その他";
 "login" = "ログイン";
 "signup" = "登録";
-"email" = "メールアドレス";
+"name" = "ユーザー名";
 "password" = "パスワード";
 "associate" = "Cybexアカウントと関連する";
 

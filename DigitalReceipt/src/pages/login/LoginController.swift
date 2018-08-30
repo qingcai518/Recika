@@ -62,7 +62,7 @@ class LoginController: ViewController {
         view.addSubview(toSignupBtn)
         
         titleLbl.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).inset(36)
             make.left.right.equalToSuperview().inset(24)
             make.height.equalTo(24)
             make.centerX.equalToSuperview()
