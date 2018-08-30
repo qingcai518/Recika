@@ -17,6 +17,7 @@ class HomeController: ViewController {
         super.viewDidLoad()
         
         setSubViews()
+        viewModel.getBalance()
     }
 
     override func didReceiveMemoryWarning() {

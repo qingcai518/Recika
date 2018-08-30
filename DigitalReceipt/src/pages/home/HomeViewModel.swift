@@ -28,7 +28,9 @@ class HomeViewModel {
             let json = JSON(data)
             print(json)
             let amount = json["amount"].stringValue
-            balance.value = amount
+            if amount != "" {
+                self.balance.value = amount
+            }
         }
     }
 }
