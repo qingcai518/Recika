@@ -61,6 +61,12 @@ class SignupController: ViewController {
         signupBtn.setTitleColor(UIColor.gray, for: .highlighted)
         view.addSubview(signupBtn)
         
+        // 管理那cybex按钮.
+        let connectBtn = UIButton()
+        connectBtn.setTitleColor(UIColor.orange, for: .normal)
+        connectBtn.setTitle(str_associate, for: .normal)
+        self.view.addSubView(connectBtn)
+        
         titleLbl.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
             make.left.right.equalToSuperview().inset(24)
