@@ -9,27 +9,66 @@
 import UIKit
 
 class AssociateController: ViewController {
+    let viewModel = AssociateViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        setSubViews()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    private func setSubViews() {
+        let titleLbl = UILabel()
+        titleLbl.textColor = UIColor.black
+        titleLbl.text = "Cybexのクラウドウォレットアカウントと連携します¥nクラウドウェレットではないアカウントとの連携ができません。ご注意ください。"
+        titleLbl.font = UIFont.systemFont(ofSize: 16)
+        titleLbl.numberOfLines = 0
+        view.addSubview(titleLbl)
+        titleLbl.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(36)
+            make.left.right.equalToSuperview().inset(24)
+        }
+        
+        let nameTF = UITextField()
+        nameTF.textColor = UIColor.black
+        nameTF.placeholder = str_email
+        nameTF.borderStyle = .roundedRect
+        view.addSubview(nameTF)
+        nameTF.snp.makeConstraints { make in
+            make.top.equalTo(titleLbl.snp.bottom).offset(36)
+            make.left.right.equalToSuperview().inset(36)
+            make.height.equalTo(50)
+        }
+        
+        let passwordTF = UITextField()
+        passwordTF.textColor = UIColor.black
+        passwordTF.placeholder = str_password
+        passwordTF.borderStyle = .roundedRect
+        passwordTF.isSecureTextEntry = true
+        view.addSubview(passwordTF)
+        passwordTF.snp.makeConstraints { make in
+            make.top.equalTo(nameTF.snp.bottom).offset(12)
+            make.left.right.equalToSuperview().inset(36)
+            make.height.equalTo(50)
+        }
+        
+        let confirmBtn = UIButton()
+        confirmBtn.setTitle("連携する", for: .normal)
+        confirmBtn.setTitleColor(UIColor.orange, for: .normal)
+        confirmBtn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        confirmBtn.layer.cornerRadius = 12
+        confirmBtn.layer.borderColor = UIColor.lightGray.cgColor
+        confirmBtn.layer.borderWidth = 1
+        confirmBtn.clipsToBounds = true
+        view.addSubview(confirmBtn)
+        confirmBtn.snp.makeConstraints { make in
+            make.top.equalTo(passwordTF.snp.bottom).offset(24)
+            make.left.right.equalToSuperview().inset(36)
+            make.height.equalTo(50)
+        }
     }
-    */
-
 }

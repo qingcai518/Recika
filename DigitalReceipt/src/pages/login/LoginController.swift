@@ -122,5 +122,10 @@ class LoginController: ViewController {
                 }
             })
         }.disposed(by: disposeBag)
+        
+        cybexBtn.rx.tap.bind { [weak self] in
+            let next = AssociateController()
+            self?.present(next, animated: true, completion: nil)
+        }.disposed(by: disposeBag)
     }
 }
