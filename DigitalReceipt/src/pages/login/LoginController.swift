@@ -80,16 +80,16 @@ class LoginController: ViewController {
             make.height.equalTo(50)
         }
         
-        loginBtn.snp.makeConstraints { make in
-            make.left.right.equalToSuperview().inset(24)
-            make.top.equalTo(passwordTF.snp.bottom).offset(24)
-            make.height.equalTo(50)
-        }
-        
         toSignupBtn.snp.makeConstraints { make in
             make.left.equalToSuperview().inset(24)
             make.top.equalTo(passwordTF.snp.bottom).offset(24)
             make.width.equalTo(100)
+        }
+        
+        loginBtn.snp.makeConstraints { make in
+            make.left.right.equalToSuperview().inset(24)
+            make.top.equalTo(toSignupBtn.snp.bottom).offset(16)
+            make.height.equalTo(50)
         }
         
         toSignupBtn.rx.tap.asObservable().bind {
