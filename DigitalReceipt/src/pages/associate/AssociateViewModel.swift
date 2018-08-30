@@ -10,6 +10,7 @@
 import Foundation
 import Alamofire
 import SwiftyJSON
+import SVProgressHUD
 
 class AssociateViewModel {
     func associate(name: String?, password: String?, completion: @escaping (String?) -> Void) {
@@ -20,7 +21,9 @@ class AssociateViewModel {
         let params = ["name": name, "passowrd": pw]
         
         guard let api = URLComponents(string: associateAPI) else {return completion(nil)}
+        SVProgressHUD.show()
         Alamofire.request(api, method: .post, parameters: params, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+            SVProgressHUD.dismiss()
             if let error = response.error {
                 return completion(error.localizedDescription)
             }

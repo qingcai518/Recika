@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RxSwift
 
 class AssociateController: ViewController {
     let viewModel = AssociateViewModel()
@@ -22,6 +23,8 @@ class AssociateController: ViewController {
     }
     
     private func setSubViews() {
+        view.backgroundColor = UIColor.white
+        
         let titleLbl = UILabel()
         titleLbl.textColor = UIColor.black
         titleLbl.text = "Cybexのクラウドウォレットアカウントと連携します¥nクラウドウェレットではないアカウントとの連携ができません。ご注意ください。"
@@ -69,6 +72,37 @@ class AssociateController: ViewController {
             make.top.equalTo(passwordTF.snp.bottom).offset(24)
             make.left.right.equalToSuperview().inset(36)
             make.height.equalTo(50)
+        }
+        
+        let cancelBtn = UIButton()
+        cancelBtn.setTitle("キャンセル　", for: .normal)
+        cancelBtn.setTitleColor(UIColor.gray, for: .normal)
+        cancelBtn.titleLabel?.font = UIFont.systemFont(ofSize: 16)
+        cancelBtn.layer.cornerRadius = 12
+        cancelBtn.layer.borderColor = UIColor.lightGray.cgColor
+        cancelBtn.layer.borderWidth = 1
+        cancelBtn.clipsToBounds = true
+        view.addSubview(cancelBtn)
+        cancelBtn.snp.makeConstraints { make in
+            make.top.equalTo(confirmBtn.snp.bottom).inset(12)
+            make.left.right.equalToSuperview().inset(36)
+            make.height.equalTo(50)
+        }
+        
+        // 按钮动作.
+        confirmBtn.rx.tap.bind { [weak self] in
+            self?.viewModel.associate(name: nameTF.text, password: passwordTF.text, completion: { msg in
+                if let msg = msg {
+                    self?.showToast(text: msg)
+                } else {
+                    self?.showToast(text: "連携が完了しました。")
+                    self?.dismiss(animated: true, completion: nil)
+                }
+            })
+        }.disposed(by: disposeBag)
+        
+        cancelBtn.rx.tap.bind { [weak self] in
+            self?.dismiss(animated: true, completion: nil)
         }
     }
 }
