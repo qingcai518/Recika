@@ -49,6 +49,10 @@ class LoginController: ViewController {
         loginBtn.setTitle(str_login, for: .normal)
         loginBtn.setTitleColor(UIColor.orange, for: .normal)
         loginBtn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
+        loginBtn.layer.cornerRadius = 12
+        loginBtn.layer.borderColor = UIColor.lightGray.cgColor
+        loginBtn.layer.borderWidth = 1
+        loginBtn.clipsToBounds = true
         view.addSubview(loginBtn)
         
         let toSignupBtn = UIButton()
