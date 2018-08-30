@@ -19,12 +19,11 @@ class AssociateViewModel {
         
         let headers = ["Content-type": "application/json"]
         let params = ["name": name, "password": password]
-        
-        print(params)
-        
         guard let api = URLComponents(string: associateAPI) else {return completion(nil)}
         
         print(api)
+        print(params)
+        print(headers)
         
         SVProgressHUD.show()
         Alamofire.request(api, method: .post, parameters: params, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
