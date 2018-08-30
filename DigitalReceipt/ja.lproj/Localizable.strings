@@ -14,5 +14,6 @@
 "signup" = "登録";
 "email" = "メールアドレス";
 "password" = "パスワード";
+"associate" = "Cybexアカウントと関連する";
 
 "msg1" = "あなた専用のスマートレシートID";

@@ -6,7 +6,14 @@
   Copyright © 2018年 liqc. All rights reserved.
 */
 
-"home" = "home";
-"receipt" = "receipt";
-"gift" = "gift";
-"setting" = "setting";
+"home" = "主页";
+"receipt" = "我的发票";
+"gift" = "礼物";
+"setting" = "设置";
+"login" = "登陆";
+"signup" = "注册";
+"email" = "邮箱";
+"password" = "密码";
+"associate" = "关联赛贝帐户";
+
+"msg1" = "您的专属电子发票ID";

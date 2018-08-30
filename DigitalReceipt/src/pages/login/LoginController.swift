@@ -89,9 +89,22 @@ class LoginController: ViewController {
         loginBtn.snp.makeConstraints { make in
             make.left.right.equalToSuperview().inset(24)
             make.top.equalTo(toSignupBtn.snp.bottom).offset(16)
-            make.height.equalTo(50)
+            make.height.equalTo(60)
         }
         
+        // 关联cybex按钮.
+        let cybexBtn = UIButton()
+        cybexBtn.setTitle(str_associate, for: .normal)
+        cybexBtn.setTitleColor(UIColor.blue, for: .normal)
+        cybexBtn.titleLabel?.font = UIFont.systemFont(ofSize: 12)
+        view.addSubview(cybexBtn)
+        cybexBtn.snp.makeConstraints { make in
+            make.top.equalTo(loginBtn).offset(16)
+            make.left.right.equalToSuperview().inset(24)
+            make.height.equalTo(14)
+        }
+        
+        // 按钮点击动作.
         toSignupBtn.rx.tap.asObservable().bind {
             UIApplication.shared.keyWindow?.rootViewController = SignupController()
         }.disposed(by: disposeBag)
