@@ -21,6 +21,9 @@ let signupAPI = cybexDomain + v1 + "signup"
 // ユーザーbalance取得.
 let balanceAPI = cybexDomain + v1 + "balance"
 
+// Cybexアカウントと関連する
+let associateAPI = cybexDomain + v1 + "associate"
+
 // ユーザー
 let userAPI = domain + v1 + "user/"
 let loginAPI = userAPI + "login"
