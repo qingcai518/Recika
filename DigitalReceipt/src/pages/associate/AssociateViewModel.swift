@@ -33,12 +33,10 @@ class AssociateViewModel {
             }
             
             let json = JSON(data)
-            print(json)
-            let ownerKey = json["owner_key"].stringValue
-            let activeKey = json["active_key"].stringValue
-            let memoKey = json["memo_key"].stringValue
-            
-            saveUser(name: name, ownerKey: ownerKey, activeKey: activeKey, memoKey: memoKey)
+            let msg = json["msg"]
+            if msg != "" {
+                return completion(msg)
+            }
             
             return completion(nil)
         }
