@@ -30,22 +30,34 @@ class HomeController: ViewController {
         let bkView = UIView()
         bkView.backgroundColor = UIColor.white
         view.addSubview(bkView)
-    
-        let contentLbl = UILabel()
-        contentLbl.textColor = UIColor.black
-        contentLbl.text = "あなたのコイン数は：100 DRPです。"
-        contentLbl.numberOfLines = 0
-        contentLbl.textAlignment = .center
-        contentLbl.font = UIFont.boldSystemFont(ofSize: 20)
-        view.addSubview(contentLbl)
-        contentLbl.snp.makeConstraints { make in
+        
+        let balanceTitleLbl = UILabel()
+        balanceTitleLbl.textColor = UIColor.black
+        balanceTitleLbl.text = "あなたのコイン数"
+        balanceTitleLbl.textAlignment = .center
+        balanceTitleLbl.font = UIFont.boldSystemFont(ofSize: 20)
+        view.addSubview(balanceTitleLbl)
+        balanceTitleLbl.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top).inset(24)
             make.left.right.equalToSuperview().inset(24)
+            make.height.equalTo(24)
         }
         
+        let balanceLbl = UILabel()
+        balanceLbl.textColor = UIColor.orange
+        balanceLbl.textAlignment = .center
+        balanceLbl.font = UIFont.boldSystemFont(ofSize: 24)
+        view.addSubview(balanceLbl)
+        balanceLbl.snp.makeConstraints { make in
+            make.top.equalTo(balanceTitleLbl.snp.bottom).offset(12)
+            make.left.right.equalToSuperview().inset(24)
+            make.height.equalTo(30)
+        }
+    
         // コイン数を設定する.
-        viewModel.balance.asObservable().map{"あなたのコイン数は：\($0)\(symbol)です。"}.bind(to: contentLbl.rx.text).disposed(by: disposeBag)
-
+        viewModel.balance.asObservable().map{"\($0) \(symbol)"}.bind(to: balanceLbl.rx.text).disposed(by: disposeBag)
+        
+        // 下方二维码的view
         let titleLbl = UILabel()
         titleLbl.textColor = UIColor.white
         titleLbl.textAlignment = .center
