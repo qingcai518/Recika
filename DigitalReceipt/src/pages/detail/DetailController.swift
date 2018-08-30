@@ -94,13 +94,11 @@ class DetailController: ViewController {
         }
         
         exchangeBtn.rx.tap.bind { [weak self] in
-            let alert = UIAlertController(title: "交換", message: "交換します、よろしいですか", preferredStyle: .actionSheet)
+            guard let price = self?.data?.price else {return}
+            let alert = UIAlertController(title: nil, message: "\(price)を利用して交換します。\nよろしいですか？", preferredStyle: .actionSheet)
             let action1 = UIAlertAction(title: "はい", style: .default, handler: { action in
                 print("do exchange")
             })
-            
-            print("222222")
-            
             let action2 = UIAlertAction(title: "いいえ", style: .cancel, handler: nil)
             alert.addAction(action1)
             alert.addAction(action2)
