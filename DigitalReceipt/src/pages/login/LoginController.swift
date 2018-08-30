@@ -141,8 +141,15 @@ class LoginController: ViewController {
         }.disposed(by: disposeBag)
         
         touchBtn.rx.tap.bind {
-            print("do touch ID auth.")
-            touchID()
+            touchID(completion: { [weak self] msg in
+                if let msg = msg {
+                    self?.showToast(text: msg)
+                } else {
+                    DispatchQueue.main.async {
+                        UIApplication.shared.keyWindow?.rootViewController = TopController()
+                    }
+                }
+            })
         }.disposed(by: disposeBag)
     }
 }

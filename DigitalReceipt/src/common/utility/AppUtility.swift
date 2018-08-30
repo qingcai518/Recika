@@ -48,42 +48,23 @@ func getHeight(width: CGFloat, text: NSAttributedString) -> CGFloat {
     return tempLbl.frame.height
 }
 
-func touchID() {
+func touchID(completion: @escaping (String?) -> Void) {
     let context = LAContext()
     var error : NSError?
     let check = context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error)
-    if !check {return}
+    if !check {
+        return completion("指纹识别没有开启")
+    }
+    
     context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: "请用指纹解锁") { success, error in
         if let error = error {
-            print(error.localizedDescription)
-            return
+            return completion(error.localizedDescription)
         }
-        if success {
-            print("successful.")
-        } else {
-            print(error?.localizedDescription)
-//            guard let err = error else {return}
-//            print(err.code)
-//            switch err.code {
-//            case LAError.appCancel.rawValue:
-//                print("Authenticatijon was cancelled by application")
-//            case LAError.authenticationFailed.rawValue:
-//                print("The user failed to provide valid credentials")
-//            case LAError.invalidContext.rawValue:
-//                print("The context is invalid")
-//            case LAError.passcodeNotSet.rawValue:
-//                print("Passcode is not set")
-//            case LAError.systemCancel.rawValue:
-//                print("Authentication was cancelled by the system")
-//            case LAError.touchIDLockout.rawValue:
-//                print("Too many fail attemps")
-//            case LAError.touchIDNotAvailable.rawValue:
-//                print("touche id is not avaliable on the device")
-//            case LAError.touchIDNotEnrolled.rawValue:
-//                print("touch id is not enrolled")
-//            case LAError.userCancel.rawValue:
-//                print("the user id cancel.")
-//            }
+        
+        if !success {
+            return completion("指纹识别未成功")
         }
+        
+        return completion(nil)
     }
 }
