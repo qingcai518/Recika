@@ -105,6 +105,18 @@ class LoginController: ViewController {
             make.height.equalTo(14)
         }
         
+        // touch id.
+        let touchBtn = UIButton()
+        touchBtn.setTitle("指纹认证", for: .normal)
+        touchBtn.setTitleColor(UIColor.orange, for: .normal)
+        touchBtn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
+        view.addSubview(touchBtn)
+        touchBtn.snp.makeConstraints { make in
+            make.top.equalTo(cybexBtn.snp.bottom).offset(24)
+            make.left.right.equalToSuperview().inset(36)
+            make.height.equalTo(40)
+        }
+        
         // 按钮点击动作.
         toSignupBtn.rx.tap.asObservable().bind {
             UIApplication.shared.keyWindow?.rootViewController = SignupController()
@@ -126,6 +138,11 @@ class LoginController: ViewController {
         cybexBtn.rx.tap.bind { [weak self] in
             let next = AssociateController()
             self?.present(next, animated: true, completion: nil)
+        }.disposed(by: disposeBag)
+        
+        touchBtn.rx.tap.bind {
+            print("do touch ID auth.")
+            touchID()
         }.disposed(by: disposeBag)
     }
 }

@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import LocalAuthentication
 
 func generateQR(from content: String) -> UIImage? {
     guard let data = content.data(using: String.Encoding.utf8) else {return nil}
@@ -45,4 +46,44 @@ func getHeight(width: CGFloat, text: NSAttributedString) -> CGFloat {
     tempLbl.numberOfLines = 0
     tempLbl.sizeToFit()
     return tempLbl.frame.height
+}
+
+func touchID() {
+    let context = LAContext()
+    var error : NSError?
+    let check = context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error)
+    if !check {return}
+    context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: "请用指纹解锁") { success, error in
+        if let error = error {
+            print(error.localizedDescription)
+            return
+        }
+        if success {
+            print("successful.")
+        } else {
+            print(error?.localizedDescription)
+//            guard let err = error else {return}
+//            print(err.code)
+//            switch err.code {
+//            case LAError.appCancel.rawValue:
+//                print("Authenticatijon was cancelled by application")
+//            case LAError.authenticationFailed.rawValue:
+//                print("The user failed to provide valid credentials")
+//            case LAError.invalidContext.rawValue:
+//                print("The context is invalid")
+//            case LAError.passcodeNotSet.rawValue:
+//                print("Passcode is not set")
+//            case LAError.systemCancel.rawValue:
+//                print("Authentication was cancelled by the system")
+//            case LAError.touchIDLockout.rawValue:
+//                print("Too many fail attemps")
+//            case LAError.touchIDNotAvailable.rawValue:
+//                print("touche id is not avaliable on the device")
+//            case LAError.touchIDNotEnrolled.rawValue:
+//                print("touch id is not enrolled")
+//            case LAError.userCancel.rawValue:
+//                print("the user id cancel.")
+//            }
+        }
+    }
 }
