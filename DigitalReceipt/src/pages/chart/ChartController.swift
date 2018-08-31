@@ -10,7 +10,7 @@ import UIKit
 import Charts
 
 class ChartController: ViewController {
-    let chartView = LineChartView()
+    var chartView = OKKLineView()
     let viewModel = ChartViewModel()
 
     override func viewDidLoad() {
@@ -25,14 +25,15 @@ class ChartController: ViewController {
     
     private func setSubViews() {
         view.backgroundColor = UIColor.white
+        chartView.doubleTapHandle = { () -> Void in
+            self.dismiss(animated: true, completion: nil)
+        }
         
         view.addSubview(chartView)
         chartView.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(24)
-            make.left.right.equalToSuperview()
-            make.height.equalTo(400)
+            make.edges.equalTo(OKEdgeInsets(top: 0, left: 0, bottom: 0, right: 0))
         }
         
-        chartView.data = viewModel.getChartData()
+        viewModel.fetchData()
     }
 }
