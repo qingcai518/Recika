@@ -40,8 +40,7 @@ class ReceiptViewModel {
             receipt8,
             receipt9,
             receipt10,
-            receipt11,
-            receipt12
+            receipt11
         ]
     }
 }
