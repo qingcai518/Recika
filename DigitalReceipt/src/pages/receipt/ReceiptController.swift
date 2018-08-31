@@ -53,8 +53,13 @@ extension ReceiptController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
+        return viewModel.receipts.count
     }
     
-    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "", for: indexPath)
+        let data = viewModel.receipts[indexPath.row]
+        cell.configure(woith : receiptdata)
+        return cell
+    }
 }
