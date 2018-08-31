@@ -40,8 +40,6 @@ class SectionHeaderView: UIView {
             make.width.equalTo(30)
         }
         
-        //        self.buttonSet.frame = CGRect(x: 0, y: 1, width: 30, height: 20)
-        
         self.labelTitle = UILabel()
         self.labelTitle.textColor = UIColor.white
         self.labelTitle.font = UIFont.systemFont(ofSize: 10)
