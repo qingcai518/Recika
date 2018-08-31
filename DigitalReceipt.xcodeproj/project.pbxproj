@@ -57,25 +57,6 @@
 		4BF0D9C62138D1B3005D9AF1 /* ChartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0D9C52138D1B3005D9AF1 /* ChartController.swift */; };
 		4BF0D9C82138D623005D9AF1 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BF0D9C72138D622005D9AF1 /* Charts.framework */; };
 		4BF0D9CC2138D783005D9AF1 /* ChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0D9CB2138D783005D9AF1 /* ChartViewModel.swift */; };
-		4BF0D9EB2138DF5B005D9AF1 /* OKConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0D9D02138DF5B005D9AF1 /* OKConfiguration.swift */; };
-		4BF0D9EC2138DF5B005D9AF1 /* OKPlatform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0D9D12138DF5B005D9AF1 /* OKPlatform.swift */; };
-		4BF0D9ED2138DF5B005D9AF1 /* OKMALineBrush.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0D9D32138DF5B005D9AF1 /* OKMALineBrush.swift */; };
-		4BF0D9EE2138DF5B005D9AF1 /* OKLineBrush.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0D9D42138DF5B005D9AF1 /* OKLineBrush.swift */; };
-		4BF0D9EF2138DF5B005D9AF1 /* OKEMAVOLUMEModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0D9D72138DF5B005D9AF1 /* OKEMAVOLUMEModel.swift */; };
-		4BF0D9F02138DF5B005D9AF1 /* OKKDJModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0D9D82138DF5B005D9AF1 /* OKKDJModel.swift */; };
-		4BF0D9F12138DF5B005D9AF1 /* OKEMAModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0D9D92138DF5B005D9AF1 /* OKEMAModel.swift */; };
-		4BF0D9F22138DF5B005D9AF1 /* OKMAVOLUMEModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0D9DA2138DF5B005D9AF1 /* OKMAVOLUMEModel.swift */; };
-		4BF0D9F32138DF5B005D9AF1 /* OKMACDModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0D9DB2138DF5B005D9AF1 /* OKMACDModel.swift */; };
-		4BF0D9F42138DF5B005D9AF1 /* OKMAModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0D9DC2138DF5B005D9AF1 /* OKMAModel.swift */; };
-		4BF0D9F52138DF5B005D9AF1 /* OKBOLLModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0D9DD2138DF5B005D9AF1 /* OKBOLLModel.swift */; };
-		4BF0D9F62138DF5B005D9AF1 /* OKKLineModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0D9DE2138DF5B005D9AF1 /* OKKLineModel.swift */; };
-		4BF0D9F72138DF5B005D9AF1 /* OKKLineDrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0D9E02138DF5B005D9AF1 /* OKKLineDrawView.swift */; };
-		4BF0D9F82138DF5B005D9AF1 /* OKKLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0D9E12138DF5B005D9AF1 /* OKKLineView.swift */; };
-		4BF0D9F92138DF5B005D9AF1 /* OKKLineAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0D9E32138DF5B005D9AF1 /* OKKLineAccessoryView.swift */; };
-		4BF0D9FA2138DF5B005D9AF1 /* OKValueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0D9E42138DF5B005D9AF1 /* OKValueView.swift */; };
-		4BF0D9FB2138DF5B005D9AF1 /* OKKLineVolumeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0D9E62138DF5B005D9AF1 /* OKKLineVolumeView.swift */; };
-		4BF0D9FC2138DF5B005D9AF1 /* OKKLineMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0D9E82138DF5B005D9AF1 /* OKKLineMainView.swift */; };
-		4BF0D9FD2138DF5B005D9AF1 /* OKSegmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0D9EA2138DF5B005D9AF1 /* OKSegmentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -158,25 +139,6 @@
 		4BF0D9C52138D1B3005D9AF1 /* ChartController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartController.swift; sourceTree = "<group>"; };
 		4BF0D9C72138D622005D9AF1 /* Charts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Charts.framework; path = Carthage/Build/iOS/Charts.framework; sourceTree = "<group>"; };
 		4BF0D9CB2138D783005D9AF1 /* ChartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewModel.swift; sourceTree = "<group>"; };
-		4BF0D9D02138DF5B005D9AF1 /* OKConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OKConfiguration.swift; sourceTree = "<group>"; };
-		4BF0D9D12138DF5B005D9AF1 /* OKPlatform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OKPlatform.swift; sourceTree = "<group>"; };
-		4BF0D9D32138DF5B005D9AF1 /* OKMALineBrush.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OKMALineBrush.swift; sourceTree = "<group>"; };
-		4BF0D9D42138DF5B005D9AF1 /* OKLineBrush.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OKLineBrush.swift; sourceTree = "<group>"; };
-		4BF0D9D72138DF5B005D9AF1 /* OKEMAVOLUMEModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OKEMAVOLUMEModel.swift; sourceTree = "<group>"; };
-		4BF0D9D82138DF5B005D9AF1 /* OKKDJModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OKKDJModel.swift; sourceTree = "<group>"; };
-		4BF0D9D92138DF5B005D9AF1 /* OKEMAModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OKEMAModel.swift; sourceTree = "<group>"; };
-		4BF0D9DA2138DF5B005D9AF1 /* OKMAVOLUMEModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OKMAVOLUMEModel.swift; sourceTree = "<group>"; };
-		4BF0D9DB2138DF5B005D9AF1 /* OKMACDModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OKMACDModel.swift; sourceTree = "<group>"; };
-		4BF0D9DC2138DF5B005D9AF1 /* OKMAModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OKMAModel.swift; sourceTree = "<group>"; };
-		4BF0D9DD2138DF5B005D9AF1 /* OKBOLLModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OKBOLLModel.swift; sourceTree = "<group>"; };
-		4BF0D9DE2138DF5B005D9AF1 /* OKKLineModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OKKLineModel.swift; sourceTree = "<group>"; };
-		4BF0D9E02138DF5B005D9AF1 /* OKKLineDrawView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OKKLineDrawView.swift; sourceTree = "<group>"; };
-		4BF0D9E12138DF5B005D9AF1 /* OKKLineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OKKLineView.swift; sourceTree = "<group>"; };
-		4BF0D9E32138DF5B005D9AF1 /* OKKLineAccessoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OKKLineAccessoryView.swift; sourceTree = "<group>"; };
-		4BF0D9E42138DF5B005D9AF1 /* OKValueView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OKValueView.swift; sourceTree = "<group>"; };
-		4BF0D9E62138DF5B005D9AF1 /* OKKLineVolumeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OKKLineVolumeView.swift; sourceTree = "<group>"; };
-		4BF0D9E82138DF5B005D9AF1 /* OKKLineMainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OKKLineMainView.swift; sourceTree = "<group>"; };
-		4BF0D9EA2138DF5B005D9AF1 /* OKSegmentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OKSegmentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -238,7 +200,6 @@
 		4B171E99212BE85100753EA8 /* DigitalReceipt */ = {
 			isa = PBXGroup;
 			children = (
-				4BF0D9CD2138DF28005D9AF1 /* lib */,
 				4B3EBC53212BF290002C34C5 /* src */,
 				4B3EBC51212BF280002C34C5 /* assets */,
 			);
@@ -487,112 +448,6 @@
 			path = chart;
 			sourceTree = "<group>";
 		};
-		4BF0D9CD2138DF28005D9AF1 /* lib */ = {
-			isa = PBXGroup;
-			children = (
-				4BF0D9CE2138DF5B005D9AF1 /* OKKLineSwift */,
-			);
-			path = lib;
-			sourceTree = "<group>";
-		};
-		4BF0D9CE2138DF5B005D9AF1 /* OKKLineSwift */ = {
-			isa = PBXGroup;
-			children = (
-				4BF0D9CF2138DF5B005D9AF1 /* Configuration */,
-				4BF0D9D22138DF5B005D9AF1 /* Tools */,
-				4BF0D9D52138DF5B005D9AF1 /* Models */,
-				4BF0D9DF2138DF5B005D9AF1 /* Views */,
-			);
-			path = OKKLineSwift;
-			sourceTree = "<group>";
-		};
-		4BF0D9CF2138DF5B005D9AF1 /* Configuration */ = {
-			isa = PBXGroup;
-			children = (
-				4BF0D9D02138DF5B005D9AF1 /* OKConfiguration.swift */,
-				4BF0D9D12138DF5B005D9AF1 /* OKPlatform.swift */,
-			);
-			path = Configuration;
-			sourceTree = "<group>";
-		};
-		4BF0D9D22138DF5B005D9AF1 /* Tools */ = {
-			isa = PBXGroup;
-			children = (
-				4BF0D9D32138DF5B005D9AF1 /* OKMALineBrush.swift */,
-				4BF0D9D42138DF5B005D9AF1 /* OKLineBrush.swift */,
-			);
-			path = Tools;
-			sourceTree = "<group>";
-		};
-		4BF0D9D52138DF5B005D9AF1 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				4BF0D9D62138DF5B005D9AF1 /* Indicators */,
-				4BF0D9DE2138DF5B005D9AF1 /* OKKLineModel.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		4BF0D9D62138DF5B005D9AF1 /* Indicators */ = {
-			isa = PBXGroup;
-			children = (
-				4BF0D9D72138DF5B005D9AF1 /* OKEMAVOLUMEModel.swift */,
-				4BF0D9D82138DF5B005D9AF1 /* OKKDJModel.swift */,
-				4BF0D9D92138DF5B005D9AF1 /* OKEMAModel.swift */,
-				4BF0D9DA2138DF5B005D9AF1 /* OKMAVOLUMEModel.swift */,
-				4BF0D9DB2138DF5B005D9AF1 /* OKMACDModel.swift */,
-				4BF0D9DC2138DF5B005D9AF1 /* OKMAModel.swift */,
-				4BF0D9DD2138DF5B005D9AF1 /* OKBOLLModel.swift */,
-			);
-			path = Indicators;
-			sourceTree = "<group>";
-		};
-		4BF0D9DF2138DF5B005D9AF1 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				4BF0D9E02138DF5B005D9AF1 /* OKKLineDrawView.swift */,
-				4BF0D9E12138DF5B005D9AF1 /* OKKLineView.swift */,
-				4BF0D9E22138DF5B005D9AF1 /* AccessoryView */,
-				4BF0D9E42138DF5B005D9AF1 /* OKValueView.swift */,
-				4BF0D9E52138DF5B005D9AF1 /* VolumeView */,
-				4BF0D9E72138DF5B005D9AF1 /* MainView */,
-				4BF0D9E92138DF5B005D9AF1 /* SegmentView */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		4BF0D9E22138DF5B005D9AF1 /* AccessoryView */ = {
-			isa = PBXGroup;
-			children = (
-				4BF0D9E32138DF5B005D9AF1 /* OKKLineAccessoryView.swift */,
-			);
-			path = AccessoryView;
-			sourceTree = "<group>";
-		};
-		4BF0D9E52138DF5B005D9AF1 /* VolumeView */ = {
-			isa = PBXGroup;
-			children = (
-				4BF0D9E62138DF5B005D9AF1 /* OKKLineVolumeView.swift */,
-			);
-			path = VolumeView;
-			sourceTree = "<group>";
-		};
-		4BF0D9E72138DF5B005D9AF1 /* MainView */ = {
-			isa = PBXGroup;
-			children = (
-				4BF0D9E82138DF5B005D9AF1 /* OKKLineMainView.swift */,
-			);
-			path = MainView;
-			sourceTree = "<group>";
-		};
-		4BF0D9E92138DF5B005D9AF1 /* SegmentView */ = {
-			isa = PBXGroup;
-			children = (
-				4BF0D9EA2138DF5B005D9AF1 /* OKSegmentView.swift */,
-			);
-			path = SegmentView;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -754,56 +609,37 @@
 			buildActionMask = 2147483647;
 			files = (
 				4B3EBCA2212E6626002C34C5 /* SignupViewModel.swift in Sources */,
-				4BF0D9F42138DF5B005D9AF1 /* OKMAModel.swift in Sources */,
-				4BF0D9FB2138DF5B005D9AF1 /* OKKLineVolumeView.swift in Sources */,
 				4B3EBCB221363828002C34C5 /* GiftViewModel.swift in Sources */,
-				4BF0D9F92138DF5B005D9AF1 /* OKKLineAccessoryView.swift in Sources */,
-				4BF0D9EE2138DF5B005D9AF1 /* OKLineBrush.swift in Sources */,
-				4BF0D9F82138DF5B005D9AF1 /* OKKLineView.swift in Sources */,
-				4BF0D9FC2138DF5B005D9AF1 /* OKKLineMainView.swift in Sources */,
 				4B3EBC7B212D2192002C34C5 /* SettingController.swift in Sources */,
 				4B3EBCAE213543FD002C34C5 /* LoginViewModel.swift in Sources */,
-				4BF0D9F72138DF5B005D9AF1 /* OKKLineDrawView.swift in Sources */,
 				4B171E9D212BE85100753EA8 /* TopController.swift in Sources */,
 				4B3EBCB421363854002C34C5 /* GiftData.swift in Sources */,
 				4BF0D9BE2138C995005D9AF1 /* ReceiptData.swift in Sources */,
 				4B3EBC8D212D2A91002C34C5 /* AppUtility.swift in Sources */,
-				4BF0D9F62138DF5B005D9AF1 /* OKKLineModel.swift in Sources */,
 				4B3EBC93212D4288002C34C5 /* SettingViewModel.swift in Sources */,
 				4BF0D9B321368135005D9AF1 /* DetailController.swift in Sources */,
 				4B3EBCAC21353EAA002C34C5 /* UDKeys.swift in Sources */,
 				4BF0D9B521378042005D9AF1 /* HomeViewModel.swift in Sources */,
 				4B3EBC98212D4812002C34C5 /* SettingType1Cell.swift in Sources */,
-				4BF0D9EC2138DF5B005D9AF1 /* OKPlatform.swift in Sources */,
-				4BF0D9ED2138DF5B005D9AF1 /* OKMALineBrush.swift in Sources */,
 				4BF0D9BA2137BC79005D9AF1 /* AssociateViewModel.swift in Sources */,
-				4BF0D9F22138DF5B005D9AF1 /* OKMAVOLUMEModel.swift in Sources */,
 				4BF0D9B82137BC6C005D9AF1 /* AssociateController.swift in Sources */,
 				4B3EBC77212D217C002C34C5 /* ReceiptController.swift in Sources */,
 				4B3EBC91212D425F002C34C5 /* SettingData.swift in Sources */,
 				4B3EBCA521350BA3002C34C5 /* NetConstants.swift in Sources */,
-				4BF0D9F12138DF5B005D9AF1 /* OKEMAModel.swift in Sources */,
 				4BF0D9C02138C9EC005D9AF1 /* ItemData.swift in Sources */,
 				4B3EBC75212D216D002C34C5 /* HomeController.swift in Sources */,
-				4BF0D9FD2138DF5B005D9AF1 /* OKSegmentView.swift in Sources */,
-				4BF0D9EF2138DF5B005D9AF1 /* OKEMAVOLUMEModel.swift in Sources */,
 				4BF0D9CC2138D783005D9AF1 /* ChartViewModel.swift in Sources */,
 				4BF0D9C62138D1B3005D9AF1 /* ChartController.swift in Sources */,
 				4BF0D9C32138CDE1005D9AF1 /* ReceiptCell.swift in Sources */,
 				4B3EBCA0212E5706002C34C5 /* SignupController.swift in Sources */,
 				4B3EBC9A212D482B002C34C5 /* SettingType2Cell.swift in Sources */,
 				4B3EBC61212BFC80002C34C5 /* AppConstants.swift in Sources */,
-				4BF0D9F32138DF5B005D9AF1 /* OKMACDModel.swift in Sources */,
 				4B3EBC7E212D23B0002C34C5 /* AppImage.swift in Sources */,
-				4BF0D9F02138DF5B005D9AF1 /* OKKDJModel.swift in Sources */,
 				4B3EBCAA21352C84002C34C5 /* ViewController.swift in Sources */,
-				4BF0D9FA2138DF5B005D9AF1 /* OKValueView.swift in Sources */,
 				4BF0D9BC2137F690005D9AF1 /* ReceiptViewModel.swift in Sources */,
 				4B3EBC8B212D2631002C34C5 /* AppLocalize.swift in Sources */,
-				4BF0D9EB2138DF5B005D9AF1 /* OKConfiguration.swift in Sources */,
 				4B171E9B212BE85100753EA8 /* AppDelegate.swift in Sources */,
 				4B3EBC9D212E4B83002C34C5 /* LoginController.swift in Sources */,
-				4BF0D9F52138DF5B005D9AF1 /* OKBOLLModel.swift in Sources */,
 				4B3EBC79212D2187002C34C5 /* GiftController.swift in Sources */,
 				4B3EBC8F212D2B4E002C34C5 /* User.swift in Sources */,
 				4B3EBCB721366992002C34C5 /* GiftCell.swift in Sources */,
