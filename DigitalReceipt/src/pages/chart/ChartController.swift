@@ -75,9 +75,9 @@ class ChartController: ViewController {
         view.addSubview(styleBtn)
         
         chartView.snp.makeConstraints { make in
-            make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).offset(24)
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
             make.left.right.equalToSuperview()
-            make.height.equalTo(400)
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
         }
         
         
