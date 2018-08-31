@@ -22,6 +22,7 @@ class TopController: UITabBarController {
         
         let vc3 = UINavigationController(rootViewController: ChartController())
         let item3 = UITabBarItem(title: str_chart, image: tabIcon3, tag: 2)
+        vc3.tabBarItem = item3
         
         let vc4 = UINavigationController(rootViewController: GiftController())
         let item4 = UITabBarItem(title: str_gift, image: tabIcon4, tag: 3)

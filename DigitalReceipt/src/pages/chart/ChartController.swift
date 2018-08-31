@@ -11,8 +11,7 @@ class ChartController: ViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        setSubViews()
     }
 
     override func didReceiveMemoryWarning() {
@@ -20,4 +19,18 @@ class ChartController: ViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    private func setSubViews() {
+        let titleLbl = UILabel()
+        titleLbl.textColor = UIColor.black
+        titleLbl.numberOfLines = 0
+        titleLbl.textColor = UIColor.orange
+        titleLbl.text = "コンテント"
+        titleLbl.font = UIFont.systemFont(ofSize: 12)
+        self.view.addSubview(titleLbl)
+        titleLbl.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(24)
+            make.left.right.equalToSuperview().inset(24)
+            make.height.equalTo(20)
+        }
+    }
 }
