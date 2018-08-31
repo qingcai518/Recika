@@ -53,6 +53,8 @@
 		4BF0D9BC2137F690005D9AF1 /* ReceiptViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0D9BB2137F690005D9AF1 /* ReceiptViewModel.swift */; };
 		4BF0D9BE2138C995005D9AF1 /* ReceiptData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0D9BD2138C995005D9AF1 /* ReceiptData.swift */; };
 		4BF0D9C02138C9EC005D9AF1 /* ItemData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0D9BF2138C9EC005D9AF1 /* ItemData.swift */; };
+		4BF0D9C32138CDE1005D9AF1 /* ReceiptCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0D9C22138CDE1005D9AF1 /* ReceiptCell.swift */; };
+		4BF0D9C62138D1B3005D9AF1 /* ChartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0D9C52138D1B3005D9AF1 /* ChartController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,6 +133,8 @@
 		4BF0D9BB2137F690005D9AF1 /* ReceiptViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptViewModel.swift; sourceTree = "<group>"; };
 		4BF0D9BD2138C995005D9AF1 /* ReceiptData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptData.swift; sourceTree = "<group>"; };
 		4BF0D9BF2138C9EC005D9AF1 /* ItemData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemData.swift; sourceTree = "<group>"; };
+		4BF0D9C22138CDE1005D9AF1 /* ReceiptCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptCell.swift; sourceTree = "<group>"; };
+		4BF0D9C52138D1B3005D9AF1 /* ChartController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -273,6 +277,7 @@
 				4B3EBC9B212E4B69002C34C5 /* login */,
 				4B3EBC56212BF2FB002C34C5 /* top */,
 				4B3EBC70212D2139002C34C5 /* home */,
+				4BF0D9C42138D19F005D9AF1 /* chart */,
 				4B3EBC71212D2144002C34C5 /* receipt */,
 				4B3EBC72212D214A002C34C5 /* gift */,
 				4BF0D9B1213680F9005D9AF1 /* detail */,
@@ -312,6 +317,7 @@
 		4B3EBC71212D2144002C34C5 /* receipt */ = {
 			isa = PBXGroup;
 			children = (
+				4BF0D9C12138CDCE005D9AF1 /* cell */,
 				4B3EBC76212D217C002C34C5 /* ReceiptController.swift */,
 				4BF0D9BB2137F690005D9AF1 /* ReceiptViewModel.swift */,
 			);
@@ -417,6 +423,22 @@
 				4BF0D9B92137BC79005D9AF1 /* AssociateViewModel.swift */,
 			);
 			path = associate;
+			sourceTree = "<group>";
+		};
+		4BF0D9C12138CDCE005D9AF1 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				4BF0D9C22138CDE1005D9AF1 /* ReceiptCell.swift */,
+			);
+			path = cell;
+			sourceTree = "<group>";
+		};
+		4BF0D9C42138D19F005D9AF1 /* chart */ = {
+			isa = PBXGroup;
+			children = (
+				4BF0D9C52138D1B3005D9AF1 /* ChartController.swift */,
+			);
+			path = chart;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -598,6 +620,8 @@
 				4B3EBCA521350BA3002C34C5 /* NetConstants.swift in Sources */,
 				4BF0D9C02138C9EC005D9AF1 /* ItemData.swift in Sources */,
 				4B3EBC75212D216D002C34C5 /* HomeController.swift in Sources */,
+				4BF0D9C62138D1B3005D9AF1 /* ChartController.swift in Sources */,
+				4BF0D9C32138CDE1005D9AF1 /* ReceiptCell.swift in Sources */,
 				4B3EBCA0212E5706002C34C5 /* SignupController.swift in Sources */,
 				4B3EBC9A212D482B002C34C5 /* SettingType2Cell.swift in Sources */,
 				4B3EBC61212BFC80002C34C5 /* AppConstants.swift in Sources */,

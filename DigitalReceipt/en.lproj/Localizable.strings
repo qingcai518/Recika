@@ -8,6 +8,7 @@
 
 "home" = "home";
 "receipt" = "receipt";
+"chart" = "chart";
 "gift" = "gift";
 "setting" = "setting";
 "login" = "Login";

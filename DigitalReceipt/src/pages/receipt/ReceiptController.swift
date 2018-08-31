@@ -39,6 +39,7 @@ class ReceiptController: ViewController {
         
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.register(ReceiptCell.self, forCellWithReuseIdentifier: ReceiptCell.id)
     }
     
 }
@@ -57,9 +58,11 @@ extension ReceiptController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "", for: indexPath)
         let data = viewModel.receipts[indexPath.row]
-        cell.configure(woith : receiptdata)
+        cell.configre(with: data)
         return cell
     }
 }

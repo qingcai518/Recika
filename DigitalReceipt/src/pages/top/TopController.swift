@@ -20,14 +20,17 @@ class TopController: UITabBarController {
         let item2 = UITabBarItem(title: str_receipt, image: tabIcon2, tag: 1)
         vc2.tabBarItem = item2
         
-        let vc3 = UINavigationController(rootViewController: GiftController())
-        let item3 = UITabBarItem(title: str_gift, image: tabIcon3, tag: 2)
-        vc3.tabBarItem = item3
+        let vc3 = UINavigationController(rootViewController: ChartController())
+        let item3 = UITabBarItem(title: str_chart, image: tabIcon3, tag: 2)
         
-        let vc4 = UINavigationController(rootViewController: SettingController())
-        let item4 = UITabBarItem(title: str_setting, image: tabIcon4, tag: 3)
+        let vc4 = UINavigationController(rootViewController: GiftController())
+        let item4 = UITabBarItem(title: str_gift, image: tabIcon4, tag: 3)
         vc4.tabBarItem = item4
         
-        viewControllers = [vc1, vc2, vc3, vc4]
+        let vc5 = UINavigationController(rootViewController: SettingController())
+        let item5 = UITabBarItem(title: str_setting, image: tabIcon5, tag: 4)
+        vc5.tabBarItem = item5
+        
+        viewControllers = [vc1, vc2, vc3, vc4, vc5]
     }
 }
