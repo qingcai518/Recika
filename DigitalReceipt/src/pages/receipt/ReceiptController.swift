@@ -16,6 +16,7 @@ class ReceiptController: ViewController {
         super.viewDidLoad()
         
         setSubViews()
+        getData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,11 +38,16 @@ class ReceiptController: ViewController {
         collectionView = UICollectionView(frame: rect, collectionViewLayout: layout)
         view.addSubview(collectionView)
         
+        collectionView.backgroundColor = UIColor.clear
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(ReceiptCell.self, forCellWithReuseIdentifier: ReceiptCell.id)
     }
     
+    private func getData() {
+        viewModel.getReceipts()
+        collectionView.reloadData()
+    }
 }
 
 extension ReceiptController : UICollectionViewDelegate {

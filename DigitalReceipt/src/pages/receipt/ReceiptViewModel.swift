@@ -29,5 +29,19 @@ class ReceiptViewModel {
         let receipt9 = ReceiptData(id: 9, name: "Receipt009", time: "2018-09-09 12:3-0:30", items: [item3], totalPrice: 1000)
         let receipt10 = ReceiptData(id: 10, name: "Receipt010", time: "2018-09-10 12:3-0:30", items: [item3, item5], totalPrice: 1300)
         let receipt11 = ReceiptData(id: 11, name: "Receipt011", time: "2018-09-11 12:3-0:30", items: [item4, item5], totalPrice: 200)
+        receipts = [
+            receipt1,
+            receipt2,
+            receipt3,
+            receipt4,
+            receipt5,
+            receipt6,
+            receipt7,
+            receipt8,
+            receipt9,
+            receipt10,
+            receipt11,
+            receipt12
+        ]
     }
 }
