@@ -49,12 +49,12 @@
 		4BCE985D2138FDD200DFC4B5 /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCE985C2138FDD200DFC4B5 /* TestData.swift */; };
 		4BCE985E21390D1000DFC4B5 /* CHKLineChartKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BCE985A2138EC0700DFC4B5 /* CHKLineChartKit.framework */; };
 		4BCE985F21390D1000DFC4B5 /* CHKLineChartKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4BCE985A2138EC0700DFC4B5 /* CHKLineChartKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		4BCE986221390FD800DFC4B5 /* ChartCustomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCE986121390FD800DFC4B5 /* ChartCustomViewController.swift */; };
-		4BCE98642139100400DFC4B5 /* ChartDatasFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCE98632139100400DFC4B5 /* ChartDatasFetcher.swift */; };
-		4BCE98672139107800DFC4B5 /* TickerTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCE98662139107800DFC4B5 /* TickerTopView.swift */; };
 		4BCE986A213910DC00DFC4B5 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCE9869213910DC00DFC4B5 /* UIColor.swift */; };
-		4BCE986C2139130700DFC4B5 /* KlineChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCE986B2139130700DFC4B5 /* KlineChartData.swift */; };
-		4BCE986E2139136400DFC4B5 /* SeriesParam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCE986D2139136400DFC4B5 /* SeriesParam.swift */; };
+		4BCE9870213914D700DFC4B5 /* ChartStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCE986F213914D700DFC4B5 /* ChartStyles.swift */; };
+		4BCE987321391DD900DFC4B5 /* SeriesParam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCE987221391DD900DFC4B5 /* SeriesParam.swift */; };
+		4BCE987521391E3600DFC4B5 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCE987421391E3600DFC4B5 /* Double.swift */; };
+		4BCE987721391EE000DFC4B5 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCE987621391EE000DFC4B5 /* String.swift */; };
+		4BCE987921391F1300DFC4B5 /* KlineChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCE987821391F1300DFC4B5 /* KlineChartData.swift */; };
 		4BF0D9B021367EC6005D9AF1 /* ESPullToRefresh.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BF0D9AF21367EC6005D9AF1 /* ESPullToRefresh.framework */; };
 		4BF0D9B321368135005D9AF1 /* DetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0D9B221368135005D9AF1 /* DetailController.swift */; };
 		4BF0D9B521378042005D9AF1 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0D9B421378042005D9AF1 /* HomeViewModel.swift */; };
@@ -153,12 +153,12 @@
 		4B3EBCB621366992002C34C5 /* GiftCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftCell.swift; sourceTree = "<group>"; };
 		4BCE985A2138EC0700DFC4B5 /* CHKLineChartKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CHKLineChartKit.framework; sourceTree = "<group>"; };
 		4BCE985C2138FDD200DFC4B5 /* TestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
-		4BCE986121390FD800DFC4B5 /* ChartCustomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartCustomViewController.swift; sourceTree = "<group>"; };
-		4BCE98632139100400DFC4B5 /* ChartDatasFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartDatasFetcher.swift; sourceTree = "<group>"; };
-		4BCE98662139107800DFC4B5 /* TickerTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TickerTopView.swift; sourceTree = "<group>"; };
 		4BCE9869213910DC00DFC4B5 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
-		4BCE986B2139130700DFC4B5 /* KlineChartData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KlineChartData.swift; sourceTree = "<group>"; };
-		4BCE986D2139136400DFC4B5 /* SeriesParam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesParam.swift; sourceTree = "<group>"; };
+		4BCE986F213914D700DFC4B5 /* ChartStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartStyles.swift; sourceTree = "<group>"; };
+		4BCE987221391DD900DFC4B5 /* SeriesParam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesParam.swift; sourceTree = "<group>"; };
+		4BCE987421391E3600DFC4B5 /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
+		4BCE987621391EE000DFC4B5 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		4BCE987821391F1300DFC4B5 /* KlineChartData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KlineChartData.swift; sourceTree = "<group>"; };
 		4BF0D9AF21367EC6005D9AF1 /* ESPullToRefresh.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ESPullToRefresh.framework; path = Carthage/Build/iOS/ESPullToRefresh.framework; sourceTree = "<group>"; };
 		4BF0D9B221368135005D9AF1 /* DetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailController.swift; sourceTree = "<group>"; };
 		4BF0D9B421378042005D9AF1 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -459,24 +459,31 @@
 			path = lib;
 			sourceTree = "<group>";
 		};
-		4BCE98652139105C00DFC4B5 /* example */ = {
+		4BCE98652139105C00DFC4B5 /* style */ = {
 			isa = PBXGroup;
 			children = (
-				4BCE986121390FD800DFC4B5 /* ChartCustomViewController.swift */,
-				4BCE98632139100400DFC4B5 /* ChartDatasFetcher.swift */,
-				4BCE98662139107800DFC4B5 /* TickerTopView.swift */,
-				4BCE986B2139130700DFC4B5 /* KlineChartData.swift */,
-				4BCE986D2139136400DFC4B5 /* SeriesParam.swift */,
+				4BCE986F213914D700DFC4B5 /* ChartStyles.swift */,
 			);
-			path = example;
+			path = style;
 			sourceTree = "<group>";
 		};
 		4BCE9868213910CF00DFC4B5 /* extension */ = {
 			isa = PBXGroup;
 			children = (
 				4BCE9869213910DC00DFC4B5 /* UIColor.swift */,
+				4BCE987421391E3600DFC4B5 /* Double.swift */,
+				4BCE987621391EE000DFC4B5 /* String.swift */,
 			);
 			path = extension;
+			sourceTree = "<group>";
+		};
+		4BCE987121391DCC00DFC4B5 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				4BCE987821391F1300DFC4B5 /* KlineChartData.swift */,
+				4BCE987221391DD900DFC4B5 /* SeriesParam.swift */,
+			);
+			path = models;
 			sourceTree = "<group>";
 		};
 		4BF0D9B1213680F9005D9AF1 /* detail */ = {
@@ -507,7 +514,8 @@
 		4BF0D9C42138D19F005D9AF1 /* chart */ = {
 			isa = PBXGroup;
 			children = (
-				4BCE98652139105C00DFC4B5 /* example */,
+				4BCE987121391DCC00DFC4B5 /* models */,
+				4BCE98652139105C00DFC4B5 /* style */,
 				4BF0D9C52138D1B3005D9AF1 /* ChartController.swift */,
 				4BF0D9CB2138D783005D9AF1 /* ChartViewModel.swift */,
 			);
@@ -675,26 +683,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4BCE986E2139136400DFC4B5 /* SeriesParam.swift in Sources */,
 				4B3EBCA2212E6626002C34C5 /* SignupViewModel.swift in Sources */,
 				4B3EBCB221363828002C34C5 /* GiftViewModel.swift in Sources */,
+				4BCE987721391EE000DFC4B5 /* String.swift in Sources */,
 				4B3EBC7B212D2192002C34C5 /* SettingController.swift in Sources */,
 				4B3EBCAE213543FD002C34C5 /* LoginViewModel.swift in Sources */,
 				4B171E9D212BE85100753EA8 /* TopController.swift in Sources */,
 				4B3EBCB421363854002C34C5 /* GiftData.swift in Sources */,
+				4BCE987321391DD900DFC4B5 /* SeriesParam.swift in Sources */,
 				4BF0D9BE2138C995005D9AF1 /* ReceiptData.swift in Sources */,
 				4B3EBC8D212D2A91002C34C5 /* AppUtility.swift in Sources */,
 				4B3EBC93212D4288002C34C5 /* SettingViewModel.swift in Sources */,
 				4BF0D9B321368135005D9AF1 /* DetailController.swift in Sources */,
-				4BCE986221390FD800DFC4B5 /* ChartCustomViewController.swift in Sources */,
 				4B3EBCAC21353EAA002C34C5 /* UDKeys.swift in Sources */,
 				4BF0D9B521378042005D9AF1 /* HomeViewModel.swift in Sources */,
 				4B3EBC98212D4812002C34C5 /* SettingType1Cell.swift in Sources */,
 				4BF0D9BA2137BC79005D9AF1 /* AssociateViewModel.swift in Sources */,
 				4BF0D9B82137BC6C005D9AF1 /* AssociateController.swift in Sources */,
 				4B3EBC77212D217C002C34C5 /* ReceiptController.swift in Sources */,
+				4BCE9870213914D700DFC4B5 /* ChartStyles.swift in Sources */,
+				4BCE987521391E3600DFC4B5 /* Double.swift in Sources */,
 				4B3EBC91212D425F002C34C5 /* SettingData.swift in Sources */,
-				4BCE98672139107800DFC4B5 /* TickerTopView.swift in Sources */,
 				4B3EBCA521350BA3002C34C5 /* NetConstants.swift in Sources */,
 				4BF0D9C02138C9EC005D9AF1 /* ItemData.swift in Sources */,
 				4B3EBC75212D216D002C34C5 /* HomeController.swift in Sources */,
@@ -712,11 +721,10 @@
 				4B171E9B212BE85100753EA8 /* AppDelegate.swift in Sources */,
 				4B3EBC9D212E4B83002C34C5 /* LoginController.swift in Sources */,
 				4B3EBC79212D2187002C34C5 /* GiftController.swift in Sources */,
-				4BCE98642139100400DFC4B5 /* ChartDatasFetcher.swift in Sources */,
 				4B3EBC8F212D2B4E002C34C5 /* User.swift in Sources */,
 				4BCE985D2138FDD200DFC4B5 /* TestData.swift in Sources */,
+				4BCE987921391F1300DFC4B5 /* KlineChartData.swift in Sources */,
 				4B3EBCB721366992002C34C5 /* GiftCell.swift in Sources */,
-				4BCE986C2139130700DFC4B5 /* KlineChartData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,16 +1,15 @@
 //
 //  KlineChartData.swift
-//  Example
+//  DigitalReceipt
 //
-//  Created by Chance on 2018/2/27.
-//  Copyright © 2018年 Chance. All rights reserved.
+//  Created by liqc on 2018/08/31.
+//  Copyright © 2018年 liqc. All rights reserved.
 //
 
-import UIKit
+import Foundation
 import SwiftyJSON
 
 class KlineChartData: NSObject, Codable {
-    
     var time: Int = 0
     var lowPrice: Double = 0
     var highPrice: Double = 0
@@ -35,13 +34,9 @@ class KlineChartData: NSObject, Codable {
         self.vol = json[5].doubleValue
         
         //振幅
-        if openPrice > 0 {
-            amplitude = closePrice - openPrice
-            amplitudeRatio = amplitude / openPrice * 100
+        if self.openPrice > 0 {
+            self.amplitude = self.closePrice - self.openPrice
+            self.amplitudeRatio = self.amplitude / self.openPrice * 100
         }
     }
-    
 }
-
-
-

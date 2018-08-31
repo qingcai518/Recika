@@ -1,9 +1,9 @@
 //
-//  ChartIndex.swift
-//  Example
+//  SeriesParam.swift
+//  DigitalReceipt
 //
-//  Created by Chance on 2018/3/1.
-//  Copyright © 2018年 Chance. All rights reserved.
+//  Created by liqc on 2018/08/31.
+//  Copyright © 2018年 liqc. All rights reserved.
 //
 
 import Foundation
@@ -413,6 +413,3 @@ extension SeriesParamList {
     }
     
 }
-
-
-
