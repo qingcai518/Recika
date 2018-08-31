@@ -55,6 +55,7 @@
 		4BF0D9C02138C9EC005D9AF1 /* ItemData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0D9BF2138C9EC005D9AF1 /* ItemData.swift */; };
 		4BF0D9C32138CDE1005D9AF1 /* ReceiptCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0D9C22138CDE1005D9AF1 /* ReceiptCell.swift */; };
 		4BF0D9C62138D1B3005D9AF1 /* ChartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0D9C52138D1B3005D9AF1 /* ChartController.swift */; };
+		4BF0D9C82138D623005D9AF1 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BF0D9C72138D622005D9AF1 /* Charts.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -135,6 +136,7 @@
 		4BF0D9BF2138C9EC005D9AF1 /* ItemData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemData.swift; sourceTree = "<group>"; };
 		4BF0D9C22138CDE1005D9AF1 /* ReceiptCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptCell.swift; sourceTree = "<group>"; };
 		4BF0D9C52138D1B3005D9AF1 /* ChartController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartController.swift; sourceTree = "<group>"; };
+		4BF0D9C72138D622005D9AF1 /* Charts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Charts.framework; path = Carthage/Build/iOS/Charts.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +144,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4BF0D9C82138D623005D9AF1 /* Charts.framework in Frameworks */,
 				4BF0D9B021367EC6005D9AF1 /* ESPullToRefresh.framework in Frameworks */,
 				4B3EBCA721351DE2002C34C5 /* SwiftyJSON.framework in Frameworks */,
 				4B3EBC63212C01E5002C34C5 /* SnapKit.framework in Frameworks */,
@@ -222,6 +225,7 @@
 		4B3EBC40212BF253002C34C5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4BF0D9C72138D622005D9AF1 /* Charts.framework */,
 				4BF0D9AF21367EC6005D9AF1 /* ESPullToRefresh.framework */,
 				4B3EBCA621351DE2002C34C5 /* SwiftyJSON.framework */,
 				4B3EBC62212C01E5002C34C5 /* SnapKit.framework */,
@@ -586,6 +590,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/SnapKit.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/ESPullToRefresh.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Charts.framework",
 			);
 			outputPaths = (
 			);
