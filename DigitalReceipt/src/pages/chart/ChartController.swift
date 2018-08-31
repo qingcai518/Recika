@@ -25,6 +25,12 @@ class ChartController: ViewController {
     
     private func setSubViews() {
         view.backgroundColor = UIColor.white
+        
+        let chart = ChartViewCOntroller89()
+        chart.frame = CGRect
+        
+        addSubView (chart)
+        
         chartView.doubleTapHandle = { () -> Void in
             self.dismiss(animated: true, completion: nil)
         }
