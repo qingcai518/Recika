@@ -10,6 +10,7 @@ import UIKit
 import Charts
 
 class ChartController: ViewController {
+    let chartView = CombinedChartView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +23,13 @@ class ChartController: ViewController {
     }
     
     private func setSubViews() {
+        view.backgroundColor = UIColor.white
+        
+        // add charts.
+        let chartData = CombinedChartData()
+        chartData.lineData
+         = generateLineData()
+        
         let titleLbl = UILabel()
         titleLbl.textColor = UIColor.black
         titleLbl.numberOfLines = 0

@@ -56,6 +56,7 @@
 		4BF0D9C32138CDE1005D9AF1 /* ReceiptCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0D9C22138CDE1005D9AF1 /* ReceiptCell.swift */; };
 		4BF0D9C62138D1B3005D9AF1 /* ChartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0D9C52138D1B3005D9AF1 /* ChartController.swift */; };
 		4BF0D9C82138D623005D9AF1 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BF0D9C72138D622005D9AF1 /* Charts.framework */; };
+		4BF0D9CC2138D783005D9AF1 /* ChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0D9CB2138D783005D9AF1 /* ChartViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -137,6 +138,7 @@
 		4BF0D9C22138CDE1005D9AF1 /* ReceiptCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptCell.swift; sourceTree = "<group>"; };
 		4BF0D9C52138D1B3005D9AF1 /* ChartController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartController.swift; sourceTree = "<group>"; };
 		4BF0D9C72138D622005D9AF1 /* Charts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Charts.framework; path = Carthage/Build/iOS/Charts.framework; sourceTree = "<group>"; };
+		4BF0D9CB2138D783005D9AF1 /* ChartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -441,6 +443,7 @@
 			isa = PBXGroup;
 			children = (
 				4BF0D9C52138D1B3005D9AF1 /* ChartController.swift */,
+				4BF0D9CB2138D783005D9AF1 /* ChartViewModel.swift */,
 			);
 			path = chart;
 			sourceTree = "<group>";
@@ -625,6 +628,7 @@
 				4B3EBCA521350BA3002C34C5 /* NetConstants.swift in Sources */,
 				4BF0D9C02138C9EC005D9AF1 /* ItemData.swift in Sources */,
 				4B3EBC75212D216D002C34C5 /* HomeController.swift in Sources */,
+				4BF0D9CC2138D783005D9AF1 /* ChartViewModel.swift in Sources */,
 				4BF0D9C62138D1B3005D9AF1 /* ChartController.swift in Sources */,
 				4BF0D9C32138CDE1005D9AF1 /* ReceiptCell.swift in Sources */,
 				4B3EBCA0212E5706002C34C5 /* SignupController.swift in Sources */,
