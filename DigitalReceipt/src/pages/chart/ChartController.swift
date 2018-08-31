@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Charts
+
 class ChartController: ViewController {
 
     override func viewDidLoad() {
