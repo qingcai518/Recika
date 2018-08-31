@@ -12,4 +12,14 @@ struct ReceiptData {
     let id : Int
     let name : String
     let time : String
+    let items = [ItemData]()
+    let totalPrice :Double
+    
+    init(id: Int, name: String, time: String, items:[ItemData], totalPrice: Double) {
+        self.id = id
+        self.name = name
+        self.time = time
+        self.items = items
+        self.totalPrice = totalPrice
+    }
 }
