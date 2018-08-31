@@ -49,6 +49,11 @@ class ReceiptCell : UICollectionViewCell {
             make.left.right.equalToSuperview().inset(24)
             make.height.equalTo(20)
         }
+        
+        contentView.layer.cornerRadius = 12
+        contentView.layer.borderColor = UIColor.lightGray.cgColor
+        contentView.layer.borderWidth = 1
+        contentView.clipsToBounds = true
     }
     
     required init?(coder aDecoder: NSCoder) {
