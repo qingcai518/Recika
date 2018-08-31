@@ -9,14 +9,30 @@
 import UIKit
 
 class ReceiptController: ViewController {
+    var collectionView : UICollectionView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = UIColor.green
+        setSubViews()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    private func setSubViews() {
+        view.backgroundColor = UIColor.white
+        
+        let frame = CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight)
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
+        layout.minimumLineSpacing = 10
+        layout.minimumInteritemSpacing = 10
+        layout.sectionInset = UIEdgeInsetsMake(0, 10, 0, 10)
+        let width = (screenWidth - 3 * 10) / 2
+        let height 
+        layout.itemSize = CGSize(width: width, height: )
+        collectionView = UICollectionView(frame: , collectionViewLayout: <#T##UICollectionViewLayout#>)
     }
 }

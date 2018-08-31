@@ -50,6 +50,7 @@
 		4BF0D9B521378042005D9AF1 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0D9B421378042005D9AF1 /* HomeViewModel.swift */; };
 		4BF0D9B82137BC6C005D9AF1 /* AssociateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0D9B72137BC6C005D9AF1 /* AssociateController.swift */; };
 		4BF0D9BA2137BC79005D9AF1 /* AssociateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0D9B92137BC79005D9AF1 /* AssociateViewModel.swift */; };
+		4BF0D9BC2137F690005D9AF1 /* ReceiptViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0D9BB2137F690005D9AF1 /* ReceiptViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -125,6 +126,7 @@
 		4BF0D9B421378042005D9AF1 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		4BF0D9B72137BC6C005D9AF1 /* AssociateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssociateController.swift; sourceTree = "<group>"; };
 		4BF0D9B92137BC79005D9AF1 /* AssociateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssociateViewModel.swift; sourceTree = "<group>"; };
+		4BF0D9BB2137F690005D9AF1 /* ReceiptViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -305,6 +307,7 @@
 			isa = PBXGroup;
 			children = (
 				4B3EBC76212D217C002C34C5 /* ReceiptController.swift */,
+				4BF0D9BB2137F690005D9AF1 /* ReceiptViewModel.swift */,
 			);
 			path = receipt;
 			sourceTree = "<group>";
@@ -592,6 +595,7 @@
 				4B3EBC61212BFC80002C34C5 /* AppConstants.swift in Sources */,
 				4B3EBC7E212D23B0002C34C5 /* AppImage.swift in Sources */,
 				4B3EBCAA21352C84002C34C5 /* ViewController.swift in Sources */,
+				4BF0D9BC2137F690005D9AF1 /* ReceiptViewModel.swift in Sources */,
 				4B3EBC8B212D2631002C34C5 /* AppLocalize.swift in Sources */,
 				4B171E9B212BE85100753EA8 /* AppDelegate.swift in Sources */,
 				4B3EBC9D212E4B83002C34C5 /* LoginController.swift in Sources */,

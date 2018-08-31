@@ -6,3 +6,4 @@ github "SoySauceLab/CollectionKit"
 github "SnapKit/SnapKit" ~> 4.0.0
 github "SwiftyJSON/SwiftyJSON" ~> 4.0
 github "eggswift/pull-to-refresh"
+github "danielgindi/Charts" ~> 3.1.1
