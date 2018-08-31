@@ -80,7 +80,6 @@ class ChartController: ViewController {
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
         }
         
-        
         handleChartIndexChanged()
         fetchData()
     }

@@ -49,6 +49,8 @@
 		4BCE985D2138FDD200DFC4B5 /* KlineChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCE985C2138FDD200DFC4B5 /* KlineChartData.swift */; };
 		4BCE985E21390D1000DFC4B5 /* CHKLineChartKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BCE985A2138EC0700DFC4B5 /* CHKLineChartKit.framework */; };
 		4BCE985F21390D1000DFC4B5 /* CHKLineChartKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4BCE985A2138EC0700DFC4B5 /* CHKLineChartKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4BCE986221390FD800DFC4B5 /* ChartCustomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCE986121390FD800DFC4B5 /* ChartCustomViewController.swift */; };
+		4BCE98642139100400DFC4B5 /* ChartDatasFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCE98632139100400DFC4B5 /* ChartDatasFetcher.swift */; };
 		4BF0D9B021367EC6005D9AF1 /* ESPullToRefresh.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BF0D9AF21367EC6005D9AF1 /* ESPullToRefresh.framework */; };
 		4BF0D9B321368135005D9AF1 /* DetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0D9B221368135005D9AF1 /* DetailController.swift */; };
 		4BF0D9B521378042005D9AF1 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0D9B421378042005D9AF1 /* HomeViewModel.swift */; };
@@ -147,6 +149,8 @@
 		4B3EBCB621366992002C34C5 /* GiftCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftCell.swift; sourceTree = "<group>"; };
 		4BCE985A2138EC0700DFC4B5 /* CHKLineChartKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CHKLineChartKit.framework; sourceTree = "<group>"; };
 		4BCE985C2138FDD200DFC4B5 /* KlineChartData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KlineChartData.swift; sourceTree = "<group>"; };
+		4BCE986121390FD800DFC4B5 /* ChartCustomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartCustomViewController.swift; sourceTree = "<group>"; };
+		4BCE98632139100400DFC4B5 /* ChartDatasFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartDatasFetcher.swift; sourceTree = "<group>"; };
 		4BF0D9AF21367EC6005D9AF1 /* ESPullToRefresh.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ESPullToRefresh.framework; path = Carthage/Build/iOS/ESPullToRefresh.framework; sourceTree = "<group>"; };
 		4BF0D9B221368135005D9AF1 /* DetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailController.swift; sourceTree = "<group>"; };
 		4BF0D9B421378042005D9AF1 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -476,6 +480,8 @@
 			children = (
 				4BF0D9C52138D1B3005D9AF1 /* ChartController.swift */,
 				4BF0D9CB2138D783005D9AF1 /* ChartViewModel.swift */,
+				4BCE986121390FD800DFC4B5 /* ChartCustomViewController.swift */,
+				4BCE98632139100400DFC4B5 /* ChartDatasFetcher.swift */,
 			);
 			path = chart;
 			sourceTree = "<group>";
@@ -651,6 +657,7 @@
 				4B3EBC8D212D2A91002C34C5 /* AppUtility.swift in Sources */,
 				4B3EBC93212D4288002C34C5 /* SettingViewModel.swift in Sources */,
 				4BF0D9B321368135005D9AF1 /* DetailController.swift in Sources */,
+				4BCE986221390FD800DFC4B5 /* ChartCustomViewController.swift in Sources */,
 				4B3EBCAC21353EAA002C34C5 /* UDKeys.swift in Sources */,
 				4BF0D9B521378042005D9AF1 /* HomeViewModel.swift in Sources */,
 				4B3EBC98212D4812002C34C5 /* SettingType1Cell.swift in Sources */,
@@ -674,6 +681,7 @@
 				4B171E9B212BE85100753EA8 /* AppDelegate.swift in Sources */,
 				4B3EBC9D212E4B83002C34C5 /* LoginController.swift in Sources */,
 				4B3EBC79212D2187002C34C5 /* GiftController.swift in Sources */,
+				4BCE98642139100400DFC4B5 /* ChartDatasFetcher.swift in Sources */,
 				4B3EBC8F212D2B4E002C34C5 /* User.swift in Sources */,
 				4BCE985D2138FDD200DFC4B5 /* KlineChartData.swift in Sources */,
 				4B3EBCB721366992002C34C5 /* GiftCell.swift in Sources */,
