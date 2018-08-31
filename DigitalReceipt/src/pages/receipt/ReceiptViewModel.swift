@@ -9,5 +9,15 @@
 import Foundation
 
 class ReceiptViewModel {
-    var receipt = [ReceiptData]()
+    var receipts = [ReceiptData]()
+    
+    func getReceipts() {
+        let item 1 = ItemData(id: 1, name: "Item001", price: 100, count: 1)
+        let item 2 = ItemData(id: 2, name: "Item001", price: 100, count: 1)
+        let item 3 = ItemData(id: 3, name: "Item001", price: 100, count: 1)
+        let item 4 = ItemData(id: 4, name: "Item001", price: 100, count: 1)
+        let item 5 = ItemData(id: 5, name: "Item001", price: 100, count: 1)
+        
+        let receipt = ReceiptData(id: 1, name: <#T##String#>, time: <#T##String#>, items: <#T##[ItemData]#>, totalPrice: <#T##Double#>)
+    }
 }

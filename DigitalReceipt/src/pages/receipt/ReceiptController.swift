@@ -53,7 +53,7 @@ extension ReceiptController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.receipts()
+        
     }
     
     
