@@ -9,5 +9,5 @@
 import Foundation
 
 class ReceiptViewModel {
-    
+    var receipt = [ReceiptData]()
 }

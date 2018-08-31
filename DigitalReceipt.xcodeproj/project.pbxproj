@@ -51,6 +51,8 @@
 		4BF0D9B82137BC6C005D9AF1 /* AssociateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0D9B72137BC6C005D9AF1 /* AssociateController.swift */; };
 		4BF0D9BA2137BC79005D9AF1 /* AssociateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0D9B92137BC79005D9AF1 /* AssociateViewModel.swift */; };
 		4BF0D9BC2137F690005D9AF1 /* ReceiptViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0D9BB2137F690005D9AF1 /* ReceiptViewModel.swift */; };
+		4BF0D9BE2138C995005D9AF1 /* ReceiptData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0D9BD2138C995005D9AF1 /* ReceiptData.swift */; };
+		4BF0D9C02138C9EC005D9AF1 /* ItemData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0D9BF2138C9EC005D9AF1 /* ItemData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,6 +129,8 @@
 		4BF0D9B72137BC6C005D9AF1 /* AssociateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssociateController.swift; sourceTree = "<group>"; };
 		4BF0D9B92137BC79005D9AF1 /* AssociateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssociateViewModel.swift; sourceTree = "<group>"; };
 		4BF0D9BB2137F690005D9AF1 /* ReceiptViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptViewModel.swift; sourceTree = "<group>"; };
+		4BF0D9BD2138C995005D9AF1 /* ReceiptData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptData.swift; sourceTree = "<group>"; };
+		4BF0D9BF2138C9EC005D9AF1 /* ItemData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -290,6 +294,8 @@
 			children = (
 				4B3EBC90212D425F002C34C5 /* SettingData.swift */,
 				4B3EBCB321363854002C34C5 /* GiftData.swift */,
+				4BF0D9BD2138C995005D9AF1 /* ReceiptData.swift */,
+				4BF0D9BF2138C9EC005D9AF1 /* ItemData.swift */,
 			);
 			path = data;
 			sourceTree = "<group>";
@@ -578,6 +584,7 @@
 				4B3EBCAE213543FD002C34C5 /* LoginViewModel.swift in Sources */,
 				4B171E9D212BE85100753EA8 /* TopController.swift in Sources */,
 				4B3EBCB421363854002C34C5 /* GiftData.swift in Sources */,
+				4BF0D9BE2138C995005D9AF1 /* ReceiptData.swift in Sources */,
 				4B3EBC8D212D2A91002C34C5 /* AppUtility.swift in Sources */,
 				4B3EBC93212D4288002C34C5 /* SettingViewModel.swift in Sources */,
 				4BF0D9B321368135005D9AF1 /* DetailController.swift in Sources */,
@@ -589,6 +596,7 @@
 				4B3EBC77212D217C002C34C5 /* ReceiptController.swift in Sources */,
 				4B3EBC91212D425F002C34C5 /* SettingData.swift in Sources */,
 				4B3EBCA521350BA3002C34C5 /* NetConstants.swift in Sources */,
+				4BF0D9C02138C9EC005D9AF1 /* ItemData.swift in Sources */,
 				4B3EBC75212D216D002C34C5 /* HomeController.swift in Sources */,
 				4B3EBCA0212E5706002C34C5 /* SignupController.swift in Sources */,
 				4B3EBC9A212D482B002C34C5 /* SettingType2Cell.swift in Sources */,

@@ -10,6 +10,7 @@ import UIKit
 
 class ReceiptController: ViewController {
     var collectionView : UICollectionView!
+    let viewModel = ReceiptViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,5 +36,25 @@ class ReceiptController: ViewController {
         let rect = CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight)
         collectionView = UICollectionView(frame: rect, collectionViewLayout: layout)
         view.addSubview(collectionView)
+        
+        collectionView.delegate = self
+        collectionView.dataSource = self
     }
+    
+}
+
+extension ReceiptController : UICollectionViewDelegate {
+    
+}
+
+extension ReceiptController: UICollectionViewDataSource {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return viewModel.receipts()
+    }
+    
+    
 }
