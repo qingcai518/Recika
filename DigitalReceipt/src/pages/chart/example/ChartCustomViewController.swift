@@ -669,16 +669,16 @@ extension ChartCustomViewController {
     }
 }
 
-extension ChartCustomViewController: SettingListViewDelegate {
-    
-    func didCompletedParamsSetting() {
-        self.updateUserStyle()
-    }
-}
-
-extension ChartCustomViewController: ChartStyleSettingViewDelegate {
-    
-    func didChartStyleChanged(styleParam: StyleParam) {
-        self.updateUserStyle()
-    }
-}
+//extension ChartCustomViewController: SettingListViewDelegate {
+//
+//    func didCompletedParamsSetting() {
+//        self.updateUserStyle()
+//    }
+//}
+//
+//extension ChartCustomViewController: ChartStyleSettingViewDelegate {
+//
+//    func didChartStyleChanged(styleParam: StyleParam) {
+//        self.updateUserStyle()
+//    }
+//}

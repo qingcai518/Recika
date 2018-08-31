@@ -9,7 +9,7 @@
 import UIKit
 import SwiftyJSON
 
-struct KlineChartData {
+struct TestData {
     var time: Int = 0
     var lowPrice: Double = 0
     var highPrice : Double = 0
