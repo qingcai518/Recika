@@ -11,6 +11,7 @@ import Charts
 
 class ChartController: ViewController {
     let chartView = LineChartView()
+    let viewModel = ChartViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,5 +33,6 @@ class ChartController: ViewController {
             make.height.equalTo(400)
         }
         
+        chartView.data = viewModel.getChartData()
     }
 }

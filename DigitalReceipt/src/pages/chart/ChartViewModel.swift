@@ -10,7 +10,7 @@ import Foundation
 import Charts
 
 class ChartViewModel {
-    func setChartData() {
+    func getChartData() -> LineChartData {
         let data:[Double] = [0, 1, 1, 2, 3, 5, 8, 13]
         var chartEntrys = [ChartDataEntry]()
         for (i, d) in data.enumerated() {
