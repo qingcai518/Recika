@@ -74,6 +74,13 @@ class ChartController: ViewController {
         view.addSubview(indexBtn)
         view.addSubview(styleBtn)
         
+        chartView.snp.makeConstraints { make in
+            make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).offset(24)
+            make.left.right.equalToSuperview()
+            make.height.equalTo(400)
+        }
+        
+        
         handleChartIndexChanged()
         fetchData()
     }
@@ -83,7 +90,7 @@ class ChartController: ViewController {
     }
     
     private func handleChartIndexChanged() {
-        let linKey = viewModel.masterLine[viewModel.selectedMasterLine]
+        let lineKey = viewModel.masterLine[viewModel.selectedMasterLine]
         let masterKey = viewModel.masterIndex[viewModel.selectedMasterindex]
         let assistKey = viewModel.assistIndex[viewModel.selectedAssistIndex]
         let assist2key = viewModel.assistIndex[viewModel.selectedAssistIndex2]
@@ -108,5 +115,41 @@ class ChartController: ViewController {
 extension ChartController: CHKLineChartDelegate {
     func numberOfPointsInKLineChart(chart: CHKLineChartView) -> Int {
         return viewModel.klineDatas.count
+    }
+    
+    func kLineChart(chart: CHKLineChartView, valueForPointAtIndex index: Int) -> CHChartItem {
+        let data = viewModel.klineDatas[index]
+        let item = CHChartItem()
+        item.time = data.time
+        item.openPrice = CGFloat(data.openPrice)
+        item.highPrice = CGFloat(data.highPrice)
+        item.lowPrice = CGFloat(data.lowPrice)
+        item.closePrice = CGFloat(data.closePrice)
+        item.vol = CGFloat(data.vol)
+        return item
+    }
+    
+    func kLineChart(chart: CHKLineChartView, labelOnYAxisForValue value: CGFloat, atIndex index: Int, section: CHSection) -> String {
+        return "\(value)"
+    }
+    
+    func kLineChart(chart: CHKLineChartView, labelOnXAxisForIndex index: Int) -> String {
+        let data = viewModel.klineDatas[index]
+        let timestamp = data.time
+        let dayText = Date.ch_getTimeByStamp(timestamp, format: "MM-dd")
+        let timeText = Date.ch_getTimeByStamp(timestamp, format: "HH:mm")
+        var text = ""
+        if dayText != viewModel.chartXAxisPrevDay && index > 0 {
+            text = dayText
+        } else {
+            text = timeText
+        }
+        
+        viewModel.chartXAxisPrevDay = dayText
+        return text
+    }
+    
+    func kLineChart(chart: CHKLineChartView, decimalAt section: Int) -> Int {
+        return 2
     }
 }
