@@ -47,6 +47,8 @@
 		4B3EBCB721366992002C34C5 /* GiftCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3EBCB621366992002C34C5 /* GiftCell.swift */; };
 		4BCE985B2138EC0700DFC4B5 /* CHKLineChartKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BCE985A2138EC0700DFC4B5 /* CHKLineChartKit.framework */; };
 		4BCE985D2138FDD200DFC4B5 /* KlineChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCE985C2138FDD200DFC4B5 /* KlineChartData.swift */; };
+		4BCE985E21390D1000DFC4B5 /* CHKLineChartKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BCE985A2138EC0700DFC4B5 /* CHKLineChartKit.framework */; };
+		4BCE985F21390D1000DFC4B5 /* CHKLineChartKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4BCE985A2138EC0700DFC4B5 /* CHKLineChartKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4BF0D9B021367EC6005D9AF1 /* ESPullToRefresh.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BF0D9AF21367EC6005D9AF1 /* ESPullToRefresh.framework */; };
 		4BF0D9B321368135005D9AF1 /* DetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0D9B221368135005D9AF1 /* DetailController.swift */; };
 		4BF0D9B521378042005D9AF1 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0D9B421378042005D9AF1 /* HomeViewModel.swift */; };
@@ -77,6 +79,20 @@
 			remoteInfo = OurFitness;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		4BCE986021390D1000DFC4B5 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				4BCE985F21390D1000DFC4B5 /* CHKLineChartKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		4B171E97212BE85100753EA8 /* DigitalReceipt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DigitalReceipt.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -151,6 +167,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4BF0D9C82138D623005D9AF1 /* Charts.framework in Frameworks */,
+				4BCE985E21390D1000DFC4B5 /* CHKLineChartKit.framework in Frameworks */,
 				4BF0D9B021367EC6005D9AF1 /* ESPullToRefresh.framework in Frameworks */,
 				4B3EBCA721351DE2002C34C5 /* SwiftyJSON.framework in Frameworks */,
 				4B3EBC63212C01E5002C34C5 /* SnapKit.framework in Frameworks */,
@@ -474,6 +491,7 @@
 				4B171E94212BE85100753EA8 /* Frameworks */,
 				4B171E95212BE85100753EA8 /* Resources */,
 				4B3EBC5F212BF8F4002C34C5 /* ShellScript */,
+				4BCE986021390D1000DFC4B5 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
