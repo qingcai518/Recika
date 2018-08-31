@@ -149,7 +149,7 @@ extension OKKLineAccessoryView {
         let drawAttrsString = NSMutableAttributedString()
         switch configuration.accessory.indicatorType {
         case .MACD:
-            let attrs: [String : Any] = [
+            let attrs: [NSAttributedStringKey : Any] = [
                 .foregroundColor : configuration.main.assistTextColor,
                 .font : configuration.main.assistTextFont
             ]
@@ -157,7 +157,7 @@ extension OKKLineAccessoryView {
             
             
             if let dif = drawModel.DIF {
-                let difAttrs: [String : Any] = [
+                let difAttrs: [NSAttributedStringKey : Any] = [
                     .foregroundColor : configuration.theme.DIFColor,
                     .font : configuration.main.assistTextFont
                 ]
@@ -165,7 +165,7 @@ extension OKKLineAccessoryView {
                 drawAttrsString.append(difAttrsStr)
             }
             if let dea = drawModel.DEA {
-                let deaAttrs: [String : Any] = [
+                let deaAttrs: [NSAttributedStringKey : Any] = [
                     .foregroundColor : configuration.theme.DEAColor,
                     .font : configuration.main.assistTextFont
                 ]
@@ -174,7 +174,7 @@ extension OKKLineAccessoryView {
             }
             if let macd = drawModel.MACD {
                 
-                let macdAttrs: [String : Any] = [
+                let macdAttrs: [NSAttributedStringKey : Any] = [
                     .foregroundColor : configuration.theme.MACDColor,
                     .font : configuration.main.assistTextFont
                 ]
@@ -184,14 +184,14 @@ extension OKKLineAccessoryView {
             
         case .KDJ:
             
-            let attrs: [String : Any] = [
+            let attrs: [NSAttributedStringKey : Any] = [
                 .foregroundColor : configuration.main.assistTextColor,
                 .font : configuration.main.assistTextFont
             ]
             drawAttrsString.append(NSAttributedString(string: "KDJ(9,3,3) ", attributes: attrs))
             
             if let value = drawModel.KDJ_K {
-                let kAttrs: [String : Any] = [
+                let kAttrs: [NSAttributedStringKey : Any] = [
                     .foregroundColor : configuration.theme.KDJ_KColor,
                     .font : configuration.main.assistTextFont
                 ]
@@ -199,7 +199,7 @@ extension OKKLineAccessoryView {
                 drawAttrsString.append(kAttrsStr)
             }
             if let value = drawModel.KDJ_D {
-                let dAttrs: [String : Any] = [
+                let dAttrs: [NSAttributedStringKey : Any] = [
                     .foregroundColor : configuration.theme.KDJ_DColor,
                     .font : configuration.main.assistTextFont
                 ]
@@ -207,7 +207,7 @@ extension OKKLineAccessoryView {
                 drawAttrsString.append(dAttrsStr)
             }
             if let value = drawModel.KDJ_J {
-                let jAttrs: [String : Any] = [
+                let jAttrs: [NSAttributedStringKey : Any] = [
                     .foregroundColor : configuration.theme.KDJ_JColor,
                     .font : configuration.main.assistTextFont
                 ]

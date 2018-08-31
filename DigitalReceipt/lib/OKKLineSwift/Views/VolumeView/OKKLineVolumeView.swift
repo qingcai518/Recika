@@ -157,7 +157,7 @@ extension OKKLineVolumeView {
         let drawAttrsString = NSMutableAttributedString()
         let volumeStr = String(format: "VOLUME %.2f  ", drawModel.volume)
         
-        let volumeAttrs = [
+        let volumeAttrs: [NSAttributedStringKey: Any] = [
             .foregroundColor : configuration.main.assistTextColor,
             .font : configuration.main.assistTextFont
         ]
@@ -169,7 +169,7 @@ extension OKKLineVolumeView {
             
             for (idx, day) in days.enumerated() {
                 
-                let attrs = [
+                let attrs: [NSAttributedStringKey: Any] = [
                     .foregroundColor: configuration.theme.MAColor(day: day),
                     .font : configuration.main.assistTextFont
                 ]
@@ -182,7 +182,7 @@ extension OKKLineVolumeView {
         case .EMA_VOLUME(let days):
             for (idx, day) in days.enumerated() {
                 
-                let attrs: [String : Any] = [
+                let attrs: [NSAttributedStringKey : Any] = [
                     .foregroundColor: configuration.theme.EMAColor(day: day),
                     .font : configuration.main.assistTextFont
                 ]

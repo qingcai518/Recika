@@ -26,20 +26,15 @@ class ChartController: ViewController {
     private func setSubViews() {
         view.backgroundColor = UIColor.white
         
-        let chart = ChartViewCOntroller89()
-        chart.frame = CGRect
-        
-        addSubView (chart)
-        
-        chartView.doubleTapHandle = { () -> Void in
-            self.dismiss(animated: true, completion: nil)
-        }
-        
-        view.addSubview(chartView)
-        chartView.snp.makeConstraints { make in
-            make.edges.equalTo(OKEdgeInsets(top: 0, left: 0, bottom: 0, right: 0))
-        }
-        
-        viewModel.fetchData()
+//        chartView.doubleTapHandle = { () -> Void in
+//            self.dismiss(animated: true, completion: nil)
+//        }
+//        
+//        view.addSubview(chartView)
+//        chartView.snp.makeConstraints { make in
+//            make.edges.equalTo(OKEdgeInsets(top: 0, left: 0, bottom: 0, right: 0))
+//        }
+//        
+//        viewModel.fetchData()
     }
 }
