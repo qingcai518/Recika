@@ -10,6 +10,7 @@ import UIKit
 
 class PairController: ViewController {
     var tabView : UICollectionView!
+    let viewModel = PairViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,5 +35,30 @@ class PairController: ViewController {
         view.addSubview(tabView)
         
         tabView.backgroundColor = UIColor.red
+        tabView.delegate = self
+        tabView.dataSource = self
+        tabView.register(PairTabCell.self, forCellWithReuseIdentifier: PairTabCell.id)
+    }
+}
+
+extension PairController : UICollectionViewDelegate {
+    
+}
+
+extension PairController: UICollectionViewDataSource {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return viewModel.titles.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PairTabCell.id, for: indexPath) as! PairTabCell
+        let title = viewModel.titles[indexPath.item]
+        let isSelected = viewModel.selected == indexPath.item
+        cell.configure(with: title, isSelected: isSelected)
+        return cell
     }
 }

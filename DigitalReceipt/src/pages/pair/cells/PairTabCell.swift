@@ -18,6 +18,10 @@ class PairTabCell: UICollectionViewCell {
         setupSubViews()
     }
     
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     private func setupSubViews() {
         titleLbl.textColor = UIColor.black
         titleLbl.textAlignment = .center
