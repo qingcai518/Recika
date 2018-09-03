@@ -143,36 +143,36 @@ class ChartCustomViewController: UIViewController {
         return view
     }()
     
-    ///周期弹出窗
-    lazy var selectionViewForTime: SelectionPopView = {
-        let view = SelectionPopView() {
-            (vc, indexPath) in
-            self.selectedTime = indexPath.row
-            self.fetchChartDatas()
-        }
-        return view
-    }()
-    
-    ///市场弹出窗
-    lazy var selectionViewForMarket: SelectionPopView = {
-        let view = SelectionPopView() {
-            (vc, indexPath) in
-            let symbol = self.exPairs[indexPath.row]
-            self.selectedSymbol = indexPath.row
-            self.buttonMarket.setTitle(symbol + "📈", for: .normal)
-            self.fetchChartDatas()
-        }
-        return view
-    }()
-    
-    ///指标弹出窗
-    lazy var selectionViewForIndex: SelectionPopView = {
-        let view = SelectionPopView() {
-            (vc, indexPath) in
-            self.didSelectChartIndex(indexPath: indexPath)
-        }
-        return view
-    }()
+//    ///周期弹出窗
+//    lazy var selectionViewForTime: SelectionPopView = {
+//        let view = SelectionPopView() {
+//            (vc, indexPath) in
+//            self.selectedTime = indexPath.row
+//            self.fetchChartDatas()
+//        }
+//        return view
+//    }()
+//
+//    ///市场弹出窗
+//    lazy var selectionViewForMarket: SelectionPopView = {
+//        let view = SelectionPopView() {
+//            (vc, indexPath) in
+//            let symbol = self.exPairs[indexPath.row]
+//            self.selectedSymbol = indexPath.row
+//            self.buttonMarket.setTitle(symbol + "📈", for: .normal)
+//            self.fetchChartDatas()
+//        }
+//        return view
+//    }()
+//
+//    ///指标弹出窗
+//    lazy var selectionViewForIndex: SelectionPopView = {
+//        let view = SelectionPopView() {
+//            (vc, indexPath) in
+//            self.didSelectChartIndex(indexPath: indexPath)
+//        }
+//        return view
+//    }()
     
     lazy var loadingView: UIActivityIndicatorView = {
         let v = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
@@ -303,21 +303,23 @@ extension ChartCustomViewController {
     
     /// 选择周期
     @objc func handleShowTimeSelection() {
-        let view = self.selectionViewForTime
-        view.clear()
-        view.addItems(section: "Time", items: self.times, selectedIndex: self.selectedTime)
-        view.show(from: self)
+        print("select time.")
+//        let view = self.selectionViewForTime
+//        view.clear()
+//        view.addItems(section: "Time", items: self.times, selectedIndex: self.selectedTime)
+//        view.show(from: self)
     }
     
     /// 选择指标
     @objc func handleShowIndex() {
-        let view = self.selectionViewForIndex
-        view.clear()
-        view.addItems(section: "Chart Line", items: self.masterLine, selectedIndex: self.selectedMasterLine)
-        view.addItems(section: "Master Index", items: self.masterIndex, selectedIndex: self.selectedMasterIndex)
-        view.addItems(section: "Assist Index 1", items: self.assistIndex, selectedIndex: self.selectedAssistIndex)
-        view.addItems(section: "Assist Index 2", items: self.assistIndex, selectedIndex: self.selectedAssistIndex2)
-        view.show(from: self)
+        print("select index")
+//        let view = self.selectionViewForIndex
+//        view.clear()
+//        view.addItems(section: "Chart Line", items: self.masterLine, selectedIndex: self.selectedMasterLine)
+//        view.addItems(section: "Master Index", items: self.masterIndex, selectedIndex: self.selectedMasterIndex)
+//        view.addItems(section: "Assist Index 1", items: self.assistIndex, selectedIndex: self.selectedAssistIndex)
+//        view.addItems(section: "Assist Index 2", items: self.assistIndex, selectedIndex: self.selectedAssistIndex2)
+//        view.show(from: self)
     }
     
     func didSelectChartIndex(indexPath: IndexPath) {
@@ -384,10 +386,11 @@ extension ChartCustomViewController {
     }
     
     @IBAction func handleTitlePress(_ sender: Any) {
-        let view = self.selectionViewForMarket
-        view.clear()
-        view.addItems(section: "Markets", items: self.exPairs, selectedIndex: self.selectedSymbol)
-        view.show(from: self)
+        print("select market")
+//        let view = self.selectionViewForMarket
+//        view.clear()
+//        view.addItems(section: "Markets", items: self.exPairs, selectedIndex: self.selectedSymbol)
+//        view.show(from: self)
     }
 }
 
