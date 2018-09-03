@@ -66,6 +66,7 @@
 		4BCE988C213CB91B00DFC4B5 /* SettingDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCE988B213CB91B00DFC4B5 /* SettingDetailViewController.swift */; };
 		4BCE988E213CB95A00DFC4B5 /* ChartStyleSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCE988D213CB95A00DFC4B5 /* ChartStyleSettingViewController.swift */; };
 		4BCE9892213CBA5F00DFC4B5 /* ChartDatasFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCE9891213CBA5F00DFC4B5 /* ChartDatasFetcher.swift */; };
+		4BCE9895213CC7BF00DFC4B5 /* PairController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCE9894213CC7BF00DFC4B5 /* PairController.swift */; };
 		4BF0D9B021367EC6005D9AF1 /* ESPullToRefresh.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BF0D9AF21367EC6005D9AF1 /* ESPullToRefresh.framework */; };
 		4BF0D9B321368135005D9AF1 /* DetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0D9B221368135005D9AF1 /* DetailController.swift */; };
 		4BF0D9B521378042005D9AF1 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0D9B421378042005D9AF1 /* HomeViewModel.swift */; };
@@ -181,6 +182,7 @@
 		4BCE988B213CB91B00DFC4B5 /* SettingDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingDetailViewController.swift; sourceTree = "<group>"; };
 		4BCE988D213CB95A00DFC4B5 /* ChartStyleSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartStyleSettingViewController.swift; sourceTree = "<group>"; };
 		4BCE9891213CBA5F00DFC4B5 /* ChartDatasFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartDatasFetcher.swift; sourceTree = "<group>"; };
+		4BCE9894213CC7BF00DFC4B5 /* PairController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairController.swift; sourceTree = "<group>"; };
 		4BF0D9AF21367EC6005D9AF1 /* ESPullToRefresh.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ESPullToRefresh.framework; path = Carthage/Build/iOS/ESPullToRefresh.framework; sourceTree = "<group>"; };
 		4BF0D9B221368135005D9AF1 /* DetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailController.swift; sourceTree = "<group>"; };
 		4BF0D9B421378042005D9AF1 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -341,7 +343,8 @@
 				4B3EBC9B212E4B69002C34C5 /* login */,
 				4B3EBC56212BF2FB002C34C5 /* top */,
 				4B3EBC70212D2139002C34C5 /* home */,
-				4BF0D9C42138D19F005D9AF1 /* chart */,
+				4BCE9893213CBBD200DFC4B5 /* pair */,
+				4BF0D9C42138D19F005D9AF1 /* ChartCustom */,
 				4B3EBC71212D2144002C34C5 /* receipt */,
 				4B3EBC72212D214A002C34C5 /* gift */,
 				4BF0D9B1213680F9005D9AF1 /* detail */,
@@ -521,6 +524,14 @@
 			path = views;
 			sourceTree = "<group>";
 		};
+		4BCE9893213CBBD200DFC4B5 /* pair */ = {
+			isa = PBXGroup;
+			children = (
+				4BCE9894213CC7BF00DFC4B5 /* PairController.swift */,
+			);
+			path = pair;
+			sourceTree = "<group>";
+		};
 		4BF0D9B1213680F9005D9AF1 /* detail */ = {
 			isa = PBXGroup;
 			children = (
@@ -546,7 +557,7 @@
 			path = cell;
 			sourceTree = "<group>";
 		};
-		4BF0D9C42138D19F005D9AF1 /* chart */ = {
+		4BF0D9C42138D19F005D9AF1 /* ChartCustom */ = {
 			isa = PBXGroup;
 			children = (
 				4BCE987A213921DF00DFC4B5 /* views */,
@@ -560,7 +571,7 @@
 				4BCE988B213CB91B00DFC4B5 /* SettingDetailViewController.swift */,
 				4BCE988D213CB95A00DFC4B5 /* ChartStyleSettingViewController.swift */,
 			);
-			path = chart;
+			path = ChartCustom;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -738,6 +749,7 @@
 				4BF0D9BE2138C995005D9AF1 /* ReceiptData.swift in Sources */,
 				4B3EBC8D212D2A91002C34C5 /* AppUtility.swift in Sources */,
 				4BCE987E2139220F00DFC4B5 /* SectionHeaderView.swift in Sources */,
+				4BCE9895213CC7BF00DFC4B5 /* PairController.swift in Sources */,
 				4BCE988221392BB000DFC4B5 /* SeriesSettingCell.swift in Sources */,
 				4B3EBC93212D4288002C34C5 /* SettingViewModel.swift in Sources */,
 				4BF0D9B321368135005D9AF1 /* DetailController.swift in Sources */,
