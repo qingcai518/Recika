@@ -58,6 +58,12 @@
 		4BCE987C213921EA00DFC4B5 /* KChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCE987B213921EA00DFC4B5 /* KChartCell.swift */; };
 		4BCE987E2139220F00DFC4B5 /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCE987D2139220F00DFC4B5 /* SectionHeaderView.swift */; };
 		4BCE9880213922F000DFC4B5 /* TickerTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCE987F213922F000DFC4B5 /* TickerTopView.swift */; };
+		4BCE988221392BB000DFC4B5 /* SeriesSettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCE988121392BB000DFC4B5 /* SeriesSettingCell.swift */; };
+		4BCE988421392BCA00DFC4B5 /* SeriesSettingDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCE988321392BCA00DFC4B5 /* SeriesSettingDetailCell.swift */; };
+		4BCE988621392BF100DFC4B5 /* ChartCustomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCE988521392BF100DFC4B5 /* ChartCustomViewController.swift */; };
+		4BCE9888213CB6E900DFC4B5 /* ChartCustom.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BCE9887213CB6E900DFC4B5 /* ChartCustom.storyboard */; };
+		4BCE988A213CB8E800DFC4B5 /* SettingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCE9889213CB8E800DFC4B5 /* SettingListViewController.swift */; };
+		4BCE988C213CB91B00DFC4B5 /* SettingDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCE988B213CB91B00DFC4B5 /* SettingDetailViewController.swift */; };
 		4BF0D9B021367EC6005D9AF1 /* ESPullToRefresh.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BF0D9AF21367EC6005D9AF1 /* ESPullToRefresh.framework */; };
 		4BF0D9B321368135005D9AF1 /* DetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0D9B221368135005D9AF1 /* DetailController.swift */; };
 		4BF0D9B521378042005D9AF1 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0D9B421378042005D9AF1 /* HomeViewModel.swift */; };
@@ -165,6 +171,12 @@
 		4BCE987B213921EA00DFC4B5 /* KChartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KChartCell.swift; sourceTree = "<group>"; };
 		4BCE987D2139220F00DFC4B5 /* SectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
 		4BCE987F213922F000DFC4B5 /* TickerTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TickerTopView.swift; sourceTree = "<group>"; };
+		4BCE988121392BB000DFC4B5 /* SeriesSettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesSettingCell.swift; sourceTree = "<group>"; };
+		4BCE988321392BCA00DFC4B5 /* SeriesSettingDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesSettingDetailCell.swift; sourceTree = "<group>"; };
+		4BCE988521392BF100DFC4B5 /* ChartCustomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartCustomViewController.swift; sourceTree = "<group>"; };
+		4BCE9887213CB6E900DFC4B5 /* ChartCustom.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChartCustom.storyboard; sourceTree = "<group>"; };
+		4BCE9889213CB8E800DFC4B5 /* SettingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingListViewController.swift; sourceTree = "<group>"; };
+		4BCE988B213CB91B00DFC4B5 /* SettingDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingDetailViewController.swift; sourceTree = "<group>"; };
 		4BF0D9AF21367EC6005D9AF1 /* ESPullToRefresh.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ESPullToRefresh.framework; path = Carthage/Build/iOS/ESPullToRefresh.framework; sourceTree = "<group>"; };
 		4BF0D9B221368135005D9AF1 /* DetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailController.swift; sourceTree = "<group>"; };
 		4BF0D9B421378042005D9AF1 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -498,6 +510,8 @@
 				4BCE987B213921EA00DFC4B5 /* KChartCell.swift */,
 				4BCE987D2139220F00DFC4B5 /* SectionHeaderView.swift */,
 				4BCE987F213922F000DFC4B5 /* TickerTopView.swift */,
+				4BCE988121392BB000DFC4B5 /* SeriesSettingCell.swift */,
+				4BCE988321392BCA00DFC4B5 /* SeriesSettingDetailCell.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -535,6 +549,10 @@
 				4BCE98652139105C00DFC4B5 /* style */,
 				4BF0D9C52138D1B3005D9AF1 /* ChartController.swift */,
 				4BF0D9CB2138D783005D9AF1 /* ChartViewModel.swift */,
+				4BCE988521392BF100DFC4B5 /* ChartCustomViewController.swift */,
+				4BCE9887213CB6E900DFC4B5 /* ChartCustom.storyboard */,
+				4BCE9889213CB8E800DFC4B5 /* SettingListViewController.swift */,
+				4BCE988B213CB91B00DFC4B5 /* SettingDetailViewController.swift */,
 			);
 			path = chart;
 			sourceTree = "<group>";
@@ -650,6 +668,7 @@
 				4B171EA5212BE85200753EA8 /* LaunchScreen.storyboard in Resources */,
 				4B3EBC85212D2578002C34C5 /* Localizable.strings in Resources */,
 				4B171EA2212BE85200753EA8 /* Assets.xcassets in Resources */,
+				4BCE9888213CB6E900DFC4B5 /* ChartCustom.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -713,6 +732,7 @@
 				4BF0D9BE2138C995005D9AF1 /* ReceiptData.swift in Sources */,
 				4B3EBC8D212D2A91002C34C5 /* AppUtility.swift in Sources */,
 				4BCE987E2139220F00DFC4B5 /* SectionHeaderView.swift in Sources */,
+				4BCE988221392BB000DFC4B5 /* SeriesSettingCell.swift in Sources */,
 				4B3EBC93212D4288002C34C5 /* SettingViewModel.swift in Sources */,
 				4BF0D9B321368135005D9AF1 /* DetailController.swift in Sources */,
 				4B3EBCAC21353EAA002C34C5 /* UDKeys.swift in Sources */,
@@ -726,6 +746,7 @@
 				4B3EBC91212D425F002C34C5 /* SettingData.swift in Sources */,
 				4B3EBCA521350BA3002C34C5 /* NetConstants.swift in Sources */,
 				4BF0D9C02138C9EC005D9AF1 /* ItemData.swift in Sources */,
+				4BCE988421392BCA00DFC4B5 /* SeriesSettingDetailCell.swift in Sources */,
 				4B3EBC75212D216D002C34C5 /* HomeController.swift in Sources */,
 				4BF0D9CC2138D783005D9AF1 /* ChartViewModel.swift in Sources */,
 				4BF0D9C62138D1B3005D9AF1 /* ChartController.swift in Sources */,
@@ -736,9 +757,12 @@
 				4B3EBC7E212D23B0002C34C5 /* AppImage.swift in Sources */,
 				4BCE986A213910DC00DFC4B5 /* UIColor.swift in Sources */,
 				4B3EBCAA21352C84002C34C5 /* ViewController.swift in Sources */,
+				4BCE988621392BF100DFC4B5 /* ChartCustomViewController.swift in Sources */,
 				4BF0D9BC2137F690005D9AF1 /* ReceiptViewModel.swift in Sources */,
+				4BCE988C213CB91B00DFC4B5 /* SettingDetailViewController.swift in Sources */,
 				4B3EBC8B212D2631002C34C5 /* AppLocalize.swift in Sources */,
 				4B171E9B212BE85100753EA8 /* AppDelegate.swift in Sources */,
+				4BCE988A213CB8E800DFC4B5 /* SettingListViewController.swift in Sources */,
 				4B3EBC9D212E4B83002C34C5 /* LoginController.swift in Sources */,
 				4B3EBC79212D2187002C34C5 /* GiftController.swift in Sources */,
 				4B3EBC8F212D2B4E002C34C5 /* User.swift in Sources */,
