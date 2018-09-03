@@ -32,68 +32,76 @@ class PairController: ViewController {
         layout.minimumInteritemSpacing = 0
         layout.itemSize = CGSize(width: 64, height: 44)
         
-        tabView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
-        tabView.backgroundColor = UIColor.clear
+        print(self.view.frame)
+        print(screenWidth)
+        print(screenHeight)
+        let frame = CGRect(x: 0, y: safeArea.top, width: screenWidth, height: screenHeight - safeArea.top - safeArea.bottom)
+        tabView = UICollectionView(frame: frame, collectionViewLayout: layout)
+        tabView.backgroundColor = UIColor.red
         view.addSubview(tabView)
         
-        tabView.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
-            make.left.right.equalToSuperview()
-            make.height.equalTo(44)
-        }
         
-        tabView.delegate = self
-        tabView.dataSource = self
-        tabView.register(PairTabCell.self, forCellWithReuseIdentifier: PairTabCell.id)
         
-        // set line view.
-        let lineView = UIView(frame: CGRect.zero)
-        lineView.backgroundColor = UIColor.lightGray
-        view.addSubview(lineView)
-        lineView.snp.makeConstraints { make in
-            make.top.equalTo(tabView.snp.bottom)
-            make.left.right.equalToSuperview()
-            make.height.equalTo(1)
-        }
-        
-        // set current View
-        current.backgroundColor = UIColor.red
-        view.addSubview(current)
-        current.snp.makeConstraints { make in
-            make.top.equalTo(tabView.snp.bottom).offset(-1)
-            make.left.equalToSuperview().inset(12)
-            make.height.equalTo(2)
-            make.width.equalTo(20)
-        }
-        
-        // add contentView
-        let scrollView = UIScrollView()
-        view.addSubview(scrollView)
-        scrollView.snp.makeConstraints { make in
-            make.top.equalTo(current.snp.bottom)
-            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
-            make.left.right.equalToSuperview()
-        }
-        
-        print("scroll view frame = \(scrollView.frame)")
-        
-//        scrollView.contentSize = CGSize(width: CGFloat(viewModel.titles.count) * scrollView.frame.width, height: scrollView.frame.height)
-        scrollView.backgroundColor = UIColor.yellow
-        scrollView.contentSize = CGSize(width: CGFloat(viewModel.titles.count) * screenWidth, height: scrollView.frame.height)
-        scrollView.isPagingEnabled = true
-        
-        let dummy = [UIColor.white, UIColor.red, UIColor.blue, UIColor.green]
-        
-        for i in 0..<viewModel.titles.count {
-            let title = viewModel.titles[i]
-            let tableView = UITableView()
-            tableView.frame = CGRect(x: CGFloat(i) * screenWidth, y: 0, width: screenWidth, height: 200)
-//            tableView.frame = CGRect(x: CGFloat(i) * screenWidth, y: 0, width: scrollView.frame.width, height: scrollView.frame.height)
-            tableView.backgroundColor = dummy[i]
-//            tableView.delegate = self
-//            tableView.dataSource = self
-            scrollView.addSubview(tableView)
-        }
+//        let layout = UICollectionViewFlowLayout()
+//        layout.scrollDirection = .horizontal
+//        layout.minimumLineSpacing = 0
+//        layout.minimumInteritemSpacing = 0
+//        layout.itemSize = CGSize(width: 64, height: 44)
+//
+//        tabView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
+//        tabView.backgroundColor = UIColor.clear
+//        view.addSubview(tabView)
+//
+//        tabView.snp.makeConstraints { make in
+//            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+//            make.left.right.equalToSuperview()
+//            make.height.equalTo(44)
+//        }
+//
+//        tabView.delegate = self
+//        tabView.dataSource = self
+//        tabView.register(PairTabCell.self, forCellWithReuseIdentifier: PairTabCell.id)
+//
+//        // set line view.
+//        let lineView = UIView(frame: CGRect.zero)
+//        lineView.backgroundColor = UIColor.lightGray
+//        view.addSubview(lineView)
+//        lineView.snp.makeConstraints { make in
+//            make.top.equalTo(tabView.snp.bottom)
+//            make.left.right.equalToSuperview()
+//            make.height.equalTo(1)
+//        }
+//
+//        // set current View
+//        current.backgroundColor = UIColor.red
+//        view.addSubview(current)
+//        current.snp.makeConstraints { make in
+//            make.top.equalTo(tabView.snp.bottom).offset(-1)
+//            make.left.equalToSuperview().inset(12)
+//            make.height.equalTo(2)
+//            make.width.equalTo(20)
+//        }
+//
+//        print(lineView.frame)
+//
+//        // add scrollView
+//        let scrollView = UIScrollView()
+//        scrollView.frame = CGRect(x: 0, y: lineView.frame.maxY, width: screenWidth, height: view.frame.height - lineView.frame.maxY)
+//        scrollView.backgroundColor = UIColor.yellow
+//        scrollView.contentSize = CGSize(width: CGFloat(viewModel.titles.count) * screenWidth, height: scrollView.frame.height)
+//        scrollView.isPagingEnabled = true
+//        view.addSubview(scrollView)
+//
+//        let dummy = [UIColor.white, UIColor.red, UIColor.blue, UIColor.green]
+//
+//        for i in 0..<viewModel.titles.count {
+//            let title = viewModel.titles[i]
+//            let tableView = UITableView()
+//            tableView.frame = scrollView.frame
+//            tableView.frame.origin.x = CGFloat(i) * scrollView.frame.width
+//            tableView.backgroundColor = dummy[i]
+//            scrollView.addSubview(tableView)
+//        }
     }
 }
 
