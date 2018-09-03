@@ -26,11 +26,17 @@ class ReceiptController: ViewController {
     private func setSubViews() {
         view.backgroundColor = UIColor.white
         
+        // title button.
+        let scanBtn = UIButton(type: .custom)
+        scanBtn.setImage(scanIcon, for: .normal)
+        let barItem = UIBarButtonItem(customView: scanBtn)
+        navigationItem.rightBarButtonItems = [barItem]
+        
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         layout.minimumLineSpacing = 10
         layout.minimumInteritemSpacing = 10
-        layout.sectionInset = UIEdgeInsetsMake(0, 10, 0, 10)
+        layout.sectionInset = UIEdgeInsetsMake(12, 10, 12, 10)
         let width = (screenWidth - 3 * 10) / 2
         let height = width * 5 / 3
         layout.itemSize = CGSize(width: width, height: height)

@@ -15,3 +15,4 @@ let tabIcon4 = UIImage(named: "gift")!
 let tabIcon5 = UIImage(named: "setting")!
 
 let rightIcon = UIImage(named: "right")!
+let scanIcon = UIImage(named: "camera")!
