@@ -10,6 +10,7 @@ import UIKit
 
 class PairController: ViewController {
     var tabView : UICollectionView!
+    lazy var current = UIView()
     let viewModel = PairViewModel()
 
     override func viewDidLoad() {
@@ -44,6 +45,26 @@ class PairController: ViewController {
         tabView.delegate = self
         tabView.dataSource = self
         tabView.register(PairTabCell.self, forCellWithReuseIdentifier: PairTabCell.id)
+        
+        // set line view.
+        let lineView = UIView(frame: CGRect.zero)
+        lineView.backgroundColor = UIColor.lightGray
+        view.addSubview(lineView)
+        lineView.snp.makeConstraints { make in
+            make.top.equalTo(tabView.snp.bottom)
+            make.left.right.equalToSuperview()
+            make.height.equalTo(1)
+        }
+        
+        // set current View
+        current.backgroundColor = UIColor.red
+        view.addSubview(current)
+        current.snp.makeConstraints { make in
+            make.top.equalTo(tabView.snp.bottom).offset(-1)
+            make.left.equalToSuperview().inset(12)
+            make.height.equalTo(2)
+            make.width.equalTo(20)
+        }
     }
 }
 
