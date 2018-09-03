@@ -23,9 +23,7 @@ class PairTabCell: UICollectionViewCell {
     }
     
     private func setupSubViews() {
-        titleLbl.textColor = UIColor.black
         titleLbl.textAlignment = .center
-        titleLbl.font = UIFont.systemFont(ofSize: 14, weight: UIFont.Weight.semibold)
         titleLbl.numberOfLines = 1
         contentView.addSubview(titleLbl)
         
@@ -37,5 +35,6 @@ class PairTabCell: UICollectionViewCell {
     func configure(with title: String, isSelected: Bool) {
         self.titleLbl.text = title
         self.titleLbl.textColor = isSelected ? UIColor.red : UIColor.black
+        self.titleLbl.font = isSelected ? UIFont.systemFont(ofSize: 14, weight: .semibold) : UIFont.systemFont(ofSize: 14)
     }
 }

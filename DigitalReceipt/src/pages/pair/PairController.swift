@@ -29,17 +29,18 @@ class PairController: ViewController {
         layout.scrollDirection = .horizontal
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
-        layout.itemSize = CGSize(width: 120, height: 44)
+        layout.itemSize = CGSize(width: 64, height: 44)
         
         tabView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
+        tabView.backgroundColor = UIColor.clear
         view.addSubview(tabView)
         
         tabView.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
-            make.left.right.bottom.equalToSuperview()
+            make.left.right.equalToSuperview()
+            make.height.equalTo(44)
         }
         
-        tabView.backgroundColor = UIColor.red
         tabView.delegate = self
         tabView.dataSource = self
         tabView.register(PairTabCell.self, forCellWithReuseIdentifier: PairTabCell.id)
