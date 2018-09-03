@@ -65,6 +65,15 @@ class PairController: ViewController {
             make.height.equalTo(2)
             make.width.equalTo(20)
         }
+        
+        // add contentView
+        let scrollView = UIScrollView()
+        view.addSubview(scrollView)
+        scrollView.snp.makeConstraints { make in
+            make.top.equalTo(current.snp.bottom)
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
+            make.left.right.equalToSuperview()
+        }
     }
 }
 
