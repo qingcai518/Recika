@@ -74,6 +74,26 @@ class PairController: ViewController {
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
             make.left.right.equalToSuperview()
         }
+        
+        print("scroll view frame = \(scrollView.frame)")
+        
+//        scrollView.contentSize = CGSize(width: CGFloat(viewModel.titles.count) * scrollView.frame.width, height: scrollView.frame.height)
+        scrollView.backgroundColor = UIColor.yellow
+        scrollView.contentSize = CGSize(width: CGFloat(viewModel.titles.count) * screenWidth, height: scrollView.frame.height)
+        scrollView.isPagingEnabled = true
+        
+        let dummy = [UIColor.white, UIColor.red, UIColor.blue, UIColor.green]
+        
+        for i in 0..<viewModel.titles.count {
+            let title = viewModel.titles[i]
+            let tableView = UITableView()
+            tableView.frame = CGRect(x: CGFloat(i) * screenWidth, y: 0, width: screenWidth, height: 200)
+//            tableView.frame = CGRect(x: CGFloat(i) * screenWidth, y: 0, width: scrollView.frame.width, height: scrollView.frame.height)
+            tableView.backgroundColor = dummy[i]
+//            tableView.delegate = self
+//            tableView.dataSource = self
+            scrollView.addSubview(tableView)
+        }
     }
 }
 
@@ -98,3 +118,20 @@ extension PairController: UICollectionViewDataSource {
         return cell
     }
 }
+
+extension PairController: UITableViewDelegate {
+    
+}
+
+//extension PairController: UITableViewDataSource {
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return viewModel.tables[indexPath.item]
+//    }
+//
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        let cell = tableView.dequeueReusableCell(withIdentifier: self, for: indexPath)
+//        let ata = viewModel.data[indexPath.item]
+//        cell.configure(with: data)
+//        return cell
+//    }
+//}
