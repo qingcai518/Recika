@@ -9,6 +9,7 @@
 import UIKit
 
 class PairController: ViewController {
+    let tabView = UICollectionView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
