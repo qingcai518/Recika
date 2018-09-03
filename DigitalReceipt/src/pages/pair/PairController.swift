@@ -29,10 +29,15 @@ class PairController: ViewController {
         layout.scrollDirection = .horizontal
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
-        layout.itemSize = CGSize(width: 120, height: 40)
-        let rect = CGRect(x: 0, y: 0, width: screenWidth, height: 40)
-        tabView = UICollectionView(frame: rect, collectionViewLayout: layout)
+        layout.itemSize = CGSize(width: 120, height: 44)
+        
+        tabView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
         view.addSubview(tabView)
+        
+        tabView.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+            make.left.right.bottom.equalToSuperview()
+        }
         
         tabView.backgroundColor = UIColor.red
         tabView.delegate = self
