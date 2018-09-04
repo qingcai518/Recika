@@ -121,7 +121,7 @@ extension PairController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: PriceCell.id, for: indexPath) as! PriceCell
-        let priceData = PriceData(tokenName: "JCT", price: 200.0)
+        let priceData = viewModel.prices[indexPath.item]
         cell.configure(with: priceData)
         return cell
     }

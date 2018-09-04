@@ -18,4 +18,11 @@ class PairViewModel {
         PairTabData(title: "ETH", isSelected: false),
         PairTabData(title: "CYB", isSelected: false)
     ]
+    
+    let prices = {
+        PriceData(tokenName: "JCT", price: 200.002),
+        PriceData(tokenName: "BTC", price: 2000.19888),
+        PriceData(tokenName: "ETH", price: 200),
+        PriceData(tokenName: "CYB", price: 123.8888)
+    }
 }
