@@ -64,16 +64,14 @@ class PairController: ViewController {
         contentView.delegate = self
         self.view.addSubview(contentView)
         
-        let dummyColor = [UIColor.orange, UIColor.blue, UIColor.yellow, UIColor.green]
-        
         for i in 0..<viewModel.titles.count {
-            let title = viewModel.titles[i]
             let tableView = UITableView()
+            tableView.rowHeight = UITableViewAutomaticDimension
             tableView.frame = CGRect(x: CGFloat(i) * screenWidth, y: 0, width: screenWidth, height: contentView.frame.height)
-            tableView.backgroundColor = dummyColor[i]
             tableView.register(PriceCell.self, forCellReuseIdentifier: PriceCell.id)
-            tableView.dataSource = self
             tableView.delegate = self
+            tableView.dataSource = self
+            tableView.tableFooterView = UIView()
             contentView.addSubview(tableView)
         }
 

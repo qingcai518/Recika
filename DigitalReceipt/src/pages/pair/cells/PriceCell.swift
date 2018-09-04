@@ -31,10 +31,9 @@ class PriceCell: UITableViewCell {
         tokenLbl.font = UIFont.boldSystemFont(ofSize: 18)
         self.contentView.addSubview(tokenLbl)
         tokenLbl.snp.makeConstraints { make in
-            make.left.equalToSuperview().inset(24)
-            make.top.equalToSuperview().inset(16)
-            make.height.equalTo(24)
-            make.width.equalTo(44)
+            make.left.equalToSuperview().inset(16)
+            make.top.bottom.equalToSuperview().inset(24)
+            make.width.equalTo(120)
         }
         
         riseView.layer.cornerRadius = 8
