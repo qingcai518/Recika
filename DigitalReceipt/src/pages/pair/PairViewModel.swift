@@ -9,20 +9,35 @@
 
 import Foundation
 import RxSwift
+import SwiftyJSON
+import Alamofire
 
 class PairViewModel {
-    var selected = Variable(0)
-    let titles = [
-        PairTabData(title: "USDT", isSelected: true),
-        PairTabData(title: "BTC", isSelected: false),
-        PairTabData(title: "ETH", isSelected: false),
-        PairTabData(title: "CYB", isSelected: false)
-    ]
+    var titles = [PairTabData]()
+    var prices = [PriceData]()
     
-    let prices = [
-        PriceData(tokenName: "JCT", price: 200.002),
-        PriceData(tokenName: "BTC", price: 2000.19888),
-        PriceData(tokenName: "ETH", price: 200),
-        PriceData(tokenName: "CYB", price: 123.8888)
-    ]
+    func getPairs(completion: @escaping (String?) -> Void) {
+        guard let api = URLComponents(string: pairsAPI) else {return}
+        Alamofire.request(api, method: .get).responseJSON { [weak self] response in
+            if let error = response.error {
+                return completion(error.localizedDescription)
+            }
+            guard let data = response.data else {
+                return completion("can not get assets pairs.")
+            }
+            
+            let json = JSON(data)
+            let assetDic = json.dictionaryValue
+            
+            for key in assetDic.keys {
+                let titleData = PairTabData(title: key)
+                self?.titles.append(titleData)
+                
+                if let values = assetDic[key]?.arrayValue {
+                    self?.prices = values.map{PriceData(tokenName: $0.stringValue)}
+                }
+            }
+            self?.titles.first?.selected.value = true
+        }
+    }
 }

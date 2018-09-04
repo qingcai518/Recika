@@ -44,7 +44,7 @@ class PriceCell: UITableViewCell {
             make.centerY.equalToSuperview()
             make.right.equalToSuperview().inset(16)
             make.height.equalTo(40)
-            make.width.equalTo(120)
+            make.width.equalTo(80)
         }
         
         riseLbl.textColor = UIColor.black
@@ -70,6 +70,6 @@ class PriceCell: UITableViewCell {
     func configure(with data: PriceData) {
         self.tokenLbl.text = data.tokenName
         self.priceLbl.text = "\(data.price)"
-        self.riseLbl.text = "dummy rise text"
+        self.riseLbl.text = "0.83%"
     }
 }

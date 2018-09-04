@@ -30,3 +30,6 @@ let loginAPI = userAPI + "login"
 
 // 商品.
 let giftAPI = domain + v1 + "gift/"
+
+// get pairs.
+let pairsAPI = cybexDomain + v1 + "pairs"

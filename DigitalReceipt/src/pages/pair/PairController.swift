@@ -18,6 +18,7 @@ class PairController: ViewController {
         super.viewDidLoad()
         
         setSubViews()
+        getData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -74,7 +75,16 @@ class PairController: ViewController {
             tableView.tableFooterView = UIView()
             contentView.addSubview(tableView)
         }
-
+    }
+    
+    private func getData() {
+        viewModel.getPairs { [weak self] msg in
+            if let msg = msg {
+                self?.showToast(text: msg)
+            } else {
+                self?.tabView.reloadData()
+            }
+        }
     }
     
     fileprivate func resetSelection(index: Int) {

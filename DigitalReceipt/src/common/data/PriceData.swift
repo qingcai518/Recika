@@ -12,7 +12,7 @@ struct PriceData {
     let tokenName: String
     let price: Double
     
-    init(tokenName: String, price: Double) {
+    init(tokenName: String, price: Double = 0.0) {
         self.tokenName = tokenName
         self.price = price
     }

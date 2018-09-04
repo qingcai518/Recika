@@ -13,7 +13,7 @@ struct PairTabData {
     let title: String
     var selected = Variable(false)
     
-    init(title: String, isSelected: Bool) {
+    init(title: String, isSelected: Bool = false) {
         self.title = title
         self.selected.value = isSelected
     }
