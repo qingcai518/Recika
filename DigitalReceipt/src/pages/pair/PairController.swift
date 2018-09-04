@@ -69,12 +69,13 @@ class PairController: ViewController {
         for i in 0..<viewModel.titles.count {
             let title = viewModel.titles[i]
             let tableView = UITableView()
-            tableView.backgroundColor = dummyColor[i]
             tableView.frame = CGRect(x: CGFloat(i) * screenWidth, y: 0, width: screenWidth, height: contentView.frame.height)
+            tableView.backgroundColor = dummyColor[i]
             tableView.delegate = self
-            tableView.register(PriceCell.self, forCellReuseIdentifier: PriceCell.id)
+            tableView.dataSource = self
             contentView.addSubview(tableView)
         }
+
     }
     
     fileprivate func resetSelection(index: Int) {
