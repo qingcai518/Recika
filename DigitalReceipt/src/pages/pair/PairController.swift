@@ -39,7 +39,7 @@ class PairController: ViewController {
         
         let frame = CGRect(x: 0, y: navi + safeArea.top, width: screenWidth, height: 44)
         tabView = UICollectionView(frame: frame, collectionViewLayout: layout)
-        tabView.backgroundColor = UIColor.red
+        tabView.backgroundColor = UIColor.white
         tabView.delegate = self
         tabView.dataSource = self
         tabView.register(PairTabCell.self, forCellWithReuseIdentifier: PairTabCell.id)
@@ -47,7 +47,7 @@ class PairController: ViewController {
         
         let scrollView = UIScrollView()
         scrollView.frame = CGRect(x: 0, y: tabView.frame.maxY, width: screenWidth, height: screenHeight - tab - tabView.frame.maxY)
-        scrollView.backgroundColor = UIColor.yellow
+        scrollView.isPagingEnabled = true
         scrollView.backgroundColor = UIColor.white
         scrollView.contentSize = CGSize(width: screenWidth * CGFloat(viewModel.titles.count), height: scrollView.frame.height)
         self.view.addSubview(scrollView)
@@ -57,70 +57,10 @@ class PairController: ViewController {
         for i in 0..<viewModel.titles.count {
             let title = viewModel.titles[i]
             let tableView = UITableView()
+            tableView.backgroundColor = dummyColor[i]
             tableView.frame = CGRect(x: CGFloat(i) * screenWidth, y: 0, width: screenWidth, height: scrollView.frame.height)
             scrollView.addSubview(tableView)
         }
-        
-//        let layout = UICollectionViewFlowLayout()
-//        layout.scrollDirection = .horizontal
-//        layout.minimumLineSpacing = 0
-//        layout.minimumInteritemSpacing = 0
-//        layout.itemSize = CGSize(width: 64, height: 44)
-//
-//        tabView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
-//        tabView.backgroundColor = UIColor.clear
-//        view.addSubview(tabView)
-//
-//        tabView.snp.makeConstraints { make in
-//            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
-//            make.left.right.equalToSuperview()
-//            make.height.equalTo(44)
-//        }
-//
-//        tabView.delegate = self
-//        tabView.dataSource = self
-//        tabView.register(PairTabCell.self, forCellWithReuseIdentifier: PairTabCell.id)
-//
-//        // set line view.
-//        let lineView = UIView(frame: CGRect.zero)
-//        lineView.backgroundColor = UIColor.lightGray
-//        view.addSubview(lineView)
-//        lineView.snp.makeConstraints { make in
-//            make.top.equalTo(tabView.snp.bottom)
-//            make.left.right.equalToSuperview()
-//            make.height.equalTo(1)
-//        }
-//
-//        // set current View
-//        current.backgroundColor = UIColor.red
-//        view.addSubview(current)
-//        current.snp.makeConstraints { make in
-//            make.top.equalTo(tabView.snp.bottom).offset(-1)
-//            make.left.equalToSuperview().inset(12)
-//            make.height.equalTo(2)
-//            make.width.equalTo(20)
-//        }
-//
-//        print(lineView.frame)
-//
-//        // add scrollView
-//        let scrollView = UIScrollView()
-//        scrollView.frame = CGRect(x: 0, y: lineView.frame.maxY, width: screenWidth, height: view.frame.height - lineView.frame.maxY)
-//        scrollView.backgroundColor = UIColor.yellow
-//        scrollView.contentSize = CGSize(width: CGFloat(viewModel.titles.count) * screenWidth, height: scrollView.frame.height)
-//        scrollView.isPagingEnabled = true
-//        view.addSubview(scrollView)
-//
-//        let dummy = [UIColor.white, UIColor.red, UIColor.blue, UIColor.green]
-//
-//        for i in 0..<viewModel.titles.count {
-//            let title = viewModel.titles[i]
-//            let tableView = UITableView()
-//            tableView.frame = scrollView.frame
-//            tableView.frame.origin.x = CGFloat(i) * scrollView.frame.width
-//            tableView.backgroundColor = dummy[i]
-//            scrollView.addSubview(tableView)
-//        }
     }
 }
 
@@ -150,15 +90,3 @@ extension PairController: UITableViewDelegate {
     
 }
 
-//extension PairController: UITableViewDataSource {
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return viewModel.tables[indexPath.item]
-//    }
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: self, for: indexPath)
-//        let ata = viewModel.data[indexPath.item]
-//        cell.configure(with: data)
-//        return cell
-//    }
-//}
