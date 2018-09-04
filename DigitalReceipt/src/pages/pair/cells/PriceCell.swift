@@ -43,15 +43,15 @@ class PriceCell: UITableViewCell {
         riseView.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
             make.right.equalToSuperview().inset(16)
-            make.height.equalTo(44)
-            make.width.equalTo(64)
+            make.height.equalTo(40)
+            make.width.equalTo(120)
         }
         
         riseLbl.textColor = UIColor.black
         riseLbl.textAlignment = .center
         riseLbl.font = UIFont.boldSystemFont(ofSize: 14)
         riseLbl.numberOfLines = 1
-        self.contentView.addSubview(riseLbl)
+        riseView.addSubview(riseLbl)
         riseLbl.snp.makeConstraints { make in
             make.top.left.bottom.right.equalToSuperview()
         }
@@ -61,7 +61,7 @@ class PriceCell: UITableViewCell {
         priceLbl.font = UIFont.systemFont(ofSize: 16)
         self.contentView.addSubview(priceLbl)
         priceLbl.snp.makeConstraints { make in
-            make.right.equalTo(riseView.snp.left).offset(12)
+            make.right.equalTo(riseView.snp.left).offset(-12)
             make.centerY.equalToSuperview()
             make.height.equalTo(24)
         }
