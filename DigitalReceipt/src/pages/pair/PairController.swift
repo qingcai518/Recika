@@ -72,6 +72,7 @@ class PairController: ViewController {
             tableView.backgroundColor = dummyColor[i]
             tableView.frame = CGRect(x: CGFloat(i) * screenWidth, y: 0, width: screenWidth, height: contentView.frame.height)
             tableView.delegate = self
+            tableView.register(PriceCell.self, forCellReuseIdentifier: PriceCell.id)
             contentView.addSubview(tableView)
         }
     }
