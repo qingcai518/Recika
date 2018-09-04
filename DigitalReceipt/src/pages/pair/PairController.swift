@@ -10,6 +10,7 @@ import UIKit
 
 class PairController: ViewController {
     var tabView : UICollectionView!
+    lazy var contentView = UIScrollView()
     lazy var current = UIView()
     let viewModel = PairViewModel()
 
@@ -45,12 +46,23 @@ class PairController: ViewController {
         tabView.register(PairTabCell.self, forCellWithReuseIdentifier: PairTabCell.id)
         self.view.addSubview(tabView)
         
-        let scrollView = UIScrollView()
-        scrollView.frame = CGRect(x: 0, y: tabView.frame.maxY, width: screenWidth, height: screenHeight - tab - tabView.frame.maxY)
-        scrollView.isPagingEnabled = true
-        scrollView.backgroundColor = UIColor.white
-        scrollView.contentSize = CGSize(width: screenWidth * CGFloat(viewModel.titles.count), height: scrollView.frame.height)
-        self.view.addSubview(scrollView)
+        // line
+        let line = UIView()
+        line.backgroundColor = UIColor.lightGray
+        line.frame = CGRect(x: 0, y: tabView.frame.maxY, width: screenWidth, height: 1)
+        self.view.addSubview(line)
+        
+        // current View.
+        current.backgroundColor = UIColor.red
+        current.frame = CGRect(x: 0, y: line.frame.minY - 1, width: 64, height: 2)
+        self.view.addSubview(current)
+        
+        contentView.frame = CGRect(x: 0, y: tabView.frame.maxY, width: screenWidth, height: screenHeight - tab - tabView.frame.maxY)
+        contentView.isPagingEnabled = true
+        contentView.backgroundColor = UIColor.white
+        contentView.contentSize = CGSize(width: screenWidth * CGFloat(viewModel.titles.count), height: contentView.frame.height)
+        contentView.delegate = self
+        self.view.addSubview(contentView)
         
         let dummyColor = [UIColor.orange, UIColor.blue, UIColor.yellow, UIColor.green]
         
@@ -58,35 +70,63 @@ class PairController: ViewController {
             let title = viewModel.titles[i]
             let tableView = UITableView()
             tableView.backgroundColor = dummyColor[i]
-            tableView.frame = CGRect(x: CGFloat(i) * screenWidth, y: 0, width: screenWidth, height: scrollView.frame.height)
-            scrollView.addSubview(tableView)
+            tableView.frame = CGRect(x: CGFloat(i) * screenWidth, y: 0, width: screenWidth, height: contentView.frame.height)
+            tableView.delegate = self
+            contentView.addSubview(tableView)
         }
+    }
+    
+    fileprivate func resetSelection(index: Int) {
+        let _ = viewModel.titles.map{$0.selected.value = false}
+        viewModel.titles[index].selected.value = true
     }
 }
 
 extension PairController : UICollectionViewDelegate {
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        resetSelection(index: indexPath.item)
+        contentView.scrollToPage(indexPath.item)
+    }
 }
 
 extension PairController: UICollectionViewDataSource {
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.titles.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PairTabCell.id, for: indexPath) as! PairTabCell
-        let title = viewModel.titles[indexPath.item]
-        let isSelected = viewModel.selected == indexPath.item
-        cell.configure(with: title, isSelected: isSelected)
+        let data = viewModel.titles[indexPath.item]
+        cell.configure(with: data)
         return cell
     }
 }
 
 extension PairController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        print("111111")
+    }
 }
 
+extension PairController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView != self.contentView {return}
+        let offset = scrollView.contentOffset.x
+        
+        // 现在选择的位置.
+        let page = Int(offset / screenWidth)
+        print("current page = \(page)")
+        
+        // 选择位置移动.
+        let originX = 64 * offset / screenWidth
+        current.frame.origin.x = originX
+        
+        // 颜色.
+        resetSelection(index: page)
+        
+        // 颜色变化.
+        let origin = 64 / offset
+        print(origin)
+    }
+}

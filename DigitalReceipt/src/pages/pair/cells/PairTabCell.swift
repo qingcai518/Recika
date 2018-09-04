@@ -7,8 +7,10 @@
 //
 
 import UIKit
+import RxSwift
 
 class PairTabCell: UICollectionViewCell {
+    var disposeBag = DisposeBag()
     static let id = "PairTabCell"
     let titleLbl = UILabel()
     
@@ -25,6 +27,7 @@ class PairTabCell: UICollectionViewCell {
     private func setupSubViews() {
         titleLbl.textAlignment = .center
         titleLbl.numberOfLines = 1
+        titleLbl.font = UIFont.boldSystemFont(ofSize: 14)
         contentView.addSubview(titleLbl)
         
         titleLbl.snp.makeConstraints { make in
@@ -32,9 +35,10 @@ class PairTabCell: UICollectionViewCell {
         }
     }
     
-    func configure(with title: String, isSelected: Bool) {
-        self.titleLbl.text = title
-        self.titleLbl.textColor = isSelected ? UIColor.red : UIColor.black
-        self.titleLbl.font = isSelected ? UIFont.systemFont(ofSize: 14, weight: .semibold) : UIFont.systemFont(ofSize: 14)
+    func configure(with data: PairTabData) {
+        self.titleLbl.text = data.title
+        data.selected.asObservable().bind { [weak self] value in
+            self?.titleLbl.textColor = value ? UIColor.red : UIColor.black
+        }.disposed(by: disposeBag)
     }
 }

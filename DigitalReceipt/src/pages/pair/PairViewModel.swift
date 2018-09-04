@@ -8,8 +8,14 @@
 //
 
 import Foundation
+import RxSwift
 
 class PairViewModel {
-    var selected = 0
-    let titles = ["USDT", "ETH", "BTC", "CYB"]
+    var selected = Variable(0)
+    let titles = [
+        PairTabData(title: "USDT", isSelected: true),
+        PairTabData(title: "BTC", isSelected: false),
+        PairTabData(title: "ETH", isSelected: false),
+        PairTabData(title: "CYB", isSelected: false)
+    ]
 }

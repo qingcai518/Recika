@@ -69,6 +69,8 @@
 		4BCE989E213D065300DFC4B5 /* ScanController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCE989D213D065300DFC4B5 /* ScanController.swift */; };
 		4BCE98A7213D0C3000DFC4B5 /* PairTabCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCE98A6213D0C3000DFC4B5 /* PairTabCell.swift */; };
 		4BCE98AA213D116100DFC4B5 /* PairViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCE98A9213D116100DFC4B5 /* PairViewModel.swift */; };
+		4BCE98AC213E407A00DFC4B5 /* UIScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCE98AB213E407A00DFC4B5 /* UIScrollView.swift */; };
+		4BCE98AE213E420200DFC4B5 /* PairTabData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCE98AD213E420200DFC4B5 /* PairTabData.swift */; };
 		4BF0D9B021367EC6005D9AF1 /* ESPullToRefresh.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BF0D9AF21367EC6005D9AF1 /* ESPullToRefresh.framework */; };
 		4BF0D9B321368135005D9AF1 /* DetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0D9B221368135005D9AF1 /* DetailController.swift */; };
 		4BF0D9B521378042005D9AF1 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0D9B421378042005D9AF1 /* HomeViewModel.swift */; };
@@ -189,6 +191,8 @@
 		4BCE989F213D073400DFC4B5 /* DigitalReceipt-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DigitalReceipt-Bridging-Header.h"; sourceTree = "<group>"; };
 		4BCE98A6213D0C3000DFC4B5 /* PairTabCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairTabCell.swift; sourceTree = "<group>"; };
 		4BCE98A9213D116100DFC4B5 /* PairViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairViewModel.swift; sourceTree = "<group>"; };
+		4BCE98AB213E407A00DFC4B5 /* UIScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScrollView.swift; sourceTree = "<group>"; };
+		4BCE98AD213E420200DFC4B5 /* PairTabData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairTabData.swift; sourceTree = "<group>"; };
 		4BF0D9AF21367EC6005D9AF1 /* ESPullToRefresh.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ESPullToRefresh.framework; path = Carthage/Build/iOS/ESPullToRefresh.framework; sourceTree = "<group>"; };
 		4BF0D9B221368135005D9AF1 /* DetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailController.swift; sourceTree = "<group>"; };
 		4BF0D9B421378042005D9AF1 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -377,6 +381,7 @@
 				4BF0D9BD2138C995005D9AF1 /* ReceiptData.swift */,
 				4BF0D9BF2138C9EC005D9AF1 /* ItemData.swift */,
 				4BCE985C2138FDD200DFC4B5 /* TestData.swift */,
+				4BCE98AD213E420200DFC4B5 /* PairTabData.swift */,
 			);
 			path = data;
 			sourceTree = "<group>";
@@ -507,6 +512,7 @@
 				4BCE9869213910DC00DFC4B5 /* UIColor.swift */,
 				4BCE987421391E3600DFC4B5 /* Double.swift */,
 				4BCE987621391EE000DFC4B5 /* String.swift */,
+				4BCE98AB213E407A00DFC4B5 /* UIScrollView.swift */,
 			);
 			path = extension;
 			sourceTree = "<group>";
@@ -768,6 +774,7 @@
 				4B3EBCB221363828002C34C5 /* GiftViewModel.swift in Sources */,
 				4BCE987721391EE000DFC4B5 /* String.swift in Sources */,
 				4B3EBC7B212D2192002C34C5 /* SettingController.swift in Sources */,
+				4BCE98AC213E407A00DFC4B5 /* UIScrollView.swift in Sources */,
 				4B3EBCAE213543FD002C34C5 /* LoginViewModel.swift in Sources */,
 				4B171E9D212BE85100753EA8 /* TopController.swift in Sources */,
 				4B3EBCB421363854002C34C5 /* GiftData.swift in Sources */,
@@ -794,6 +801,7 @@
 				4B3EBCA521350BA3002C34C5 /* NetConstants.swift in Sources */,
 				4BF0D9C02138C9EC005D9AF1 /* ItemData.swift in Sources */,
 				4BCE988421392BCA00DFC4B5 /* SeriesSettingDetailCell.swift in Sources */,
+				4BCE98AE213E420200DFC4B5 /* PairTabData.swift in Sources */,
 				4B3EBC75212D216D002C34C5 /* HomeController.swift in Sources */,
 				4BF0D9CC2138D783005D9AF1 /* ChartViewModel.swift in Sources */,
 				4BF0D9C62138D1B3005D9AF1 /* ChartController.swift in Sources */,
