@@ -33,14 +33,28 @@ class PairController: ViewController {
         layout.itemSize = CGSize(width: 64, height: 44)
         
         print(self.view.frame)
-        print(screenWidth)
-        print(screenHeight)
-        let frame = CGRect(x: 0, y: safeArea.top, width: screenWidth, height: screenHeight - safeArea.top - safeArea.bottom)
+        
+        let navi = naviheight(self.navigationController)
+        let tab = tabHeight(self.tabBarController)
+        
+        let frame = CGRect(x: 0, y: navi + safeArea.top, width: screenWidth, height: 44)
         tabView = UICollectionView(frame: frame, collectionViewLayout: layout)
         tabView.backgroundColor = UIColor.red
-        view.addSubview(tabView)
+        tabView.delegate = self
+        tabView.dataSource = self
+        tabView.register(PairTabCell.self, forCellWithReuseIdentifier: PairTabCell.id)
+        self.view.addSubview(tabView)
         
+        let scrollView = UIScrollView()
+        scrollView.frame = CGRect(x: 0, y: tabView.frame.maxY, width: screenWidth, height: screenHeight - tab - tabView.frame.maxY)
+        scrollView.backgroundColor = UIColor.yellow
+        self.view.addSubview(scrollView)
         
+        for i in 0..<viewModel.titles.count {
+            let title = viewModel.titles[i]
+            let tableView = UITableView()
+            tableView.frame = CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight)
+        }
         
 //        let layout = UICollectionViewFlowLayout()
 //        layout.scrollDirection = .horizontal
