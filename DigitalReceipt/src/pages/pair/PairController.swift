@@ -34,8 +34,6 @@ class PairController: ViewController {
         layout.minimumInteritemSpacing = 0
         layout.itemSize = CGSize(width: 64, height: 44)
         
-        print(self.view.frame)
-        
         let navi = naviheight(self.navigationController)
         let tab = tabHeight(self.tabBarController)
         
@@ -73,6 +71,7 @@ class PairController: ViewController {
             tableView.delegate = self
             tableView.dataSource = self
             tableView.tableFooterView = UIView()
+            tableView.tag = i
             contentView.addSubview(tableView)
         }
     }
@@ -83,6 +82,7 @@ class PairController: ViewController {
                 self?.showToast(text: msg)
             } else {
                 self?.tabView.reloadData()
+                let _ = self?.contentView.subviews.filter{$0.isKind(of: UITableView.self)}.map{$0 as? UITableView}.map{$0?.reloadData()}
             }
         }
     }
@@ -116,7 +116,6 @@ extension PairController: UICollectionViewDataSource {
 extension PairController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        print("11111")
     }
 }
 
@@ -131,8 +130,11 @@ extension PairController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: PriceCell.id, for: indexPath) as! PriceCell
-        let priceData = viewModel.prices[indexPath.item]
-        cell.configure(with: priceData)
+        let title = viewModel.titles[tableView.tag]
+        print(title)
+        let price = title.prices[indexPath.item]
+        print(price)
+        cell.configure(with: price)
         return cell
     }
 }
@@ -145,7 +147,6 @@ extension PairController: UIScrollViewDelegate {
         
         // 现在选择的位置.
         let page = Int(offset / screenWidth)
-        print("current page = \(page)")
         
         // 选择位置移动.
         let originX = 64 * offset / screenWidth
@@ -153,9 +154,5 @@ extension PairController: UIScrollViewDelegate {
         
         // 颜色.
         resetSelection(index: page)
-        
-        // 颜色变化.
-        let origin = 64 / offset
-        print(origin)
     }
 }

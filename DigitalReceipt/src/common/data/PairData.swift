@@ -9,9 +9,10 @@
 import Foundation
 import RxSwift
 
-struct PairTabData {
+struct PairData {
     let title: String
     var selected = Variable(false)
+    var prices = [PriceData]()
     
     init(title: String, isSelected: Bool = false) {
         self.title = title

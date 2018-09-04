@@ -35,7 +35,7 @@ class PairTabCell: UICollectionViewCell {
         }
     }
     
-    func configure(with data: PairTabData) {
+    func configure(with data: PairData) {
         self.titleLbl.text = data.title
         data.selected.asObservable().bind { [weak self] value in
             self?.titleLbl.textColor = value ? UIColor.red : UIColor.black

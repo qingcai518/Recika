@@ -14,8 +14,7 @@ import Alamofire
 import SVProgressHUD
 
 class PairViewModel {
-    var titles = [PairTabData]()
-    var prices = [PriceData]()
+    var titles = [PairData]()
     
     func getPairs(completion: @escaping (String?) -> Void) {
         guard let api = URLComponents(string: pairsAPI) else {return}
@@ -35,12 +34,15 @@ class PairViewModel {
             for key in assetDic.keys {
                 let keywords = key.split(separator: ".")
                 guard let title = keywords.last else {continue}
-                let titleData = PairTabData(title: String(title))
-                self?.titles.append(titleData)
+                var titleData = PairData(title: String(title))
                 
+                var prices = [PriceData]()
                 if let values = assetDic[key]?.arrayValue {
-                    self?.prices = values.map{PriceData(tokenName: $0.stringValue)}
+                    prices = values.map{PriceData(tokenName: $0.stringValue)}
                 }
+                titleData.prices = prices
+                
+                self?.titles.append(titleData)
             }
             self?.titles.first?.selected.value = true
             return completion(nil)
