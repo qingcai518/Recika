@@ -32,4 +32,5 @@ let loginAPI = userAPI + "login"
 let giftAPI = domain + v1 + "gift/"
 
 // get pairs.
-let pairsAPI = cybexDomain + v1 + "pairs"
+let pairsAPI = "https://app.cybex.io/lab/exchange/asset"
+//let pairsAPI = cybexDomain + v1 + "pairs"

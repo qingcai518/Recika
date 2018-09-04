@@ -59,21 +59,8 @@ class PairController: ViewController {
         contentView.frame = CGRect(x: 0, y: tabView.frame.maxY, width: screenWidth, height: screenHeight - tab - tabView.frame.maxY)
         contentView.isPagingEnabled = true
         contentView.backgroundColor = UIColor.white
-        contentView.contentSize = CGSize(width: screenWidth * CGFloat(viewModel.titles.count), height: contentView.frame.height)
         contentView.delegate = self
         self.view.addSubview(contentView)
-        
-//        for i in 0..<viewModel.titles.count {
-//            let tableView = UITableView()
-//            tableView.rowHeight = UITableViewAutomaticDimension
-//            tableView.frame = CGRect(x: CGFloat(i) * screenWidth, y: 0, width: screenWidth, height: contentView.frame.height)
-//            tableView.register(PriceCell.self, forCellReuseIdentifier: PriceCell.id)
-//            tableView.delegate = self
-//            tableView.dataSource = self
-//            tableView.tableFooterView = UIView()
-//            tableView.tag = i
-//            contentView.addSubview(tableView)
-//        }
     }
     
     private func getData() {
@@ -95,6 +82,7 @@ class PairController: ViewController {
                     tableView.tag = i
                     self.contentView.addSubview(tableView)
                 }
+                self.contentView.contentSize = CGSize(width: screenWidth * CGFloat(self.viewModel.titles.count), height: self.contentView.frame.height)
             }
         }
     }

@@ -38,7 +38,7 @@ class PairViewModel {
                 
                 var prices = [PriceData]()
                 if let values = assetDic[key]?.arrayValue {
-                    prices = values.map{PriceData(tokenName: $0.stringValue)}
+                    prices = values.map{$0.stringValue.split(separator: ".").last}.filter{$0 != nil}.map{$0!}.map{PriceData(tokenName: String($0))}
                 }
                 titleData.prices = prices
                 
