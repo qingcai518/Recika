@@ -48,12 +48,17 @@ class PairController: ViewController {
         let scrollView = UIScrollView()
         scrollView.frame = CGRect(x: 0, y: tabView.frame.maxY, width: screenWidth, height: screenHeight - tab - tabView.frame.maxY)
         scrollView.backgroundColor = UIColor.yellow
+        scrollView.backgroundColor = UIColor.white
+        scrollView.contentSize = CGSize(width: screenWidth * CGFloat(viewModel.titles.count), height: scrollView.frame.height)
         self.view.addSubview(scrollView)
+        
+        let dummyColor = [UIColor.orange, UIColor.blue, UIColor.yellow, UIColor.green]
         
         for i in 0..<viewModel.titles.count {
             let title = viewModel.titles[i]
             let tableView = UITableView()
-            tableView.frame = CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight)
+            tableView.frame = CGRect(x: CGFloat(i) * screenWidth, y: 0, width: screenWidth, height: scrollView.frame.height)
+            scrollView.addSubview(tableView)
         }
         
 //        let layout = UICollectionViewFlowLayout()
