@@ -63,26 +63,38 @@ class PairController: ViewController {
         contentView.delegate = self
         self.view.addSubview(contentView)
         
-        for i in 0..<viewModel.titles.count {
-            let tableView = UITableView()
-            tableView.rowHeight = UITableViewAutomaticDimension
-            tableView.frame = CGRect(x: CGFloat(i) * screenWidth, y: 0, width: screenWidth, height: contentView.frame.height)
-            tableView.register(PriceCell.self, forCellReuseIdentifier: PriceCell.id)
-            tableView.delegate = self
-            tableView.dataSource = self
-            tableView.tableFooterView = UIView()
-            tableView.tag = i
-            contentView.addSubview(tableView)
-        }
+//        for i in 0..<viewModel.titles.count {
+//            let tableView = UITableView()
+//            tableView.rowHeight = UITableViewAutomaticDimension
+//            tableView.frame = CGRect(x: CGFloat(i) * screenWidth, y: 0, width: screenWidth, height: contentView.frame.height)
+//            tableView.register(PriceCell.self, forCellReuseIdentifier: PriceCell.id)
+//            tableView.delegate = self
+//            tableView.dataSource = self
+//            tableView.tableFooterView = UIView()
+//            tableView.tag = i
+//            contentView.addSubview(tableView)
+//        }
     }
     
     private func getData() {
         viewModel.getPairs { [weak self] msg in
+            guard let `self` = self else {return}
             if let msg = msg {
-                self?.showToast(text: msg)
+                self.showToast(text: msg)
             } else {
-                self?.tabView.reloadData()
-                let _ = self?.contentView.subviews.filter{$0.isKind(of: UITableView.self)}.map{$0 as? UITableView}.map{$0?.reloadData()}
+                self.tabView.reloadData()
+                
+                for i in 0..<self.viewModel.titles.count {
+                    let tableView = UITableView()
+                    tableView.rowHeight = UITableViewAutomaticDimension
+                    tableView.frame = CGRect(x: CGFloat(i) * screenWidth, y: 0, width: screenWidth, height: self.contentView.frame.height)
+                    tableView.register(PriceCell.self, forCellReuseIdentifier: PriceCell.id)
+                    tableView.delegate = self
+                    tableView.dataSource = self
+                    tableView.tableFooterView = UIView()
+                    tableView.tag = i
+                    self.contentView.addSubview(tableView)
+                }
             }
         }
     }
@@ -120,20 +132,14 @@ extension PairController: UITableViewDelegate {
 }
 
 extension PairController: UITableViewDataSource {
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return viewModel.titles[tableView.tag].prices.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: PriceCell.id, for: indexPath) as! PriceCell
         let title = viewModel.titles[tableView.tag]
-        print(title)
         let price = title.prices[indexPath.item]
-        print(price)
         cell.configure(with: price)
         return cell
     }
