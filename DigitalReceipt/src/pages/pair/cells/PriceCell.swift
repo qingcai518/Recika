@@ -68,7 +68,9 @@ class PriceCell: UITableViewCell {
     }
     
     func configure(with data: PriceData) {
-        self.tokenLbl.text = data.tokenName
+        if let last = data.tokenName.split(separator: ".").last {
+            self.tokenLbl.text = String(last)
+        }
         self.priceLbl.text = "\(data.price)"
         self.riseLbl.text = "0.83%"
     }

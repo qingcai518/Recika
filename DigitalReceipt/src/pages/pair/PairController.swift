@@ -28,6 +28,8 @@ class PairController: ViewController {
     private func setSubViews() {
         view.backgroundColor = UIColor.white
         
+        title = "Cybex 行情"
+        
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         layout.minimumLineSpacing = 0
@@ -37,7 +39,7 @@ class PairController: ViewController {
         let navi = naviheight(self.navigationController)
         let tab = tabHeight(self.tabBarController)
         
-        let frame = CGRect(x: 0, y: navi + safeArea.top, width: screenWidth, height: 44)
+        let frame = CGRect(x: 0, y: navi + safeArea.top + statusbarHeight, width: screenWidth, height: 44)
         tabView = UICollectionView(frame: frame, collectionViewLayout: layout)
         tabView.backgroundColor = UIColor.white
         tabView.delegate = self
@@ -85,6 +87,9 @@ class PairController: ViewController {
                 self.contentView.contentSize = CGSize(width: screenWidth * CGFloat(self.viewModel.titles.count), height: self.contentView.frame.height)
             }
         }
+        
+        // get ticker by timer
+        viewModel.getTicker(from: "JADE.ETH", to: "CYB")
     }
     
     fileprivate func resetSelection(index: Int) {

@@ -12,6 +12,9 @@ import Foundation
 let cybexDomain = "http://localhost:8081"
 let domain = "http://localhost:8080"
 
+// cybex node.
+let cybexNodeURL = "https://hangzhou.51nebula.com/"
+
 // api version
 let v1 = "/v1/"
 
@@ -34,3 +37,6 @@ let giftAPI = domain + v1 + "gift/"
 // get pairs.
 let pairsAPI = "https://app.cybex.io/lab/exchange/asset"
 //let pairsAPI = cybexDomain + v1 + "pairs"
+
+// 获取最新的交易信息.
+let tickerAPI = cybexDomain + v1 + "ticker"

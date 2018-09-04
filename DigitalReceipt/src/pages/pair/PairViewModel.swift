@@ -32,13 +32,11 @@ class PairViewModel {
             let json = JSON(data)
             let assetDic = json.dictionaryValue
             for key in assetDic.keys {
-                let keywords = key.split(separator: ".")
-                guard let title = keywords.last else {continue}
-                var titleData = PairData(title: String(title))
+                var titleData = PairData(title: key)
                 
                 var prices = [PriceData]()
                 if let values = assetDic[key]?.arrayValue {
-                    prices = values.map{$0.stringValue.split(separator: ".").last}.filter{$0 != nil}.map{$0!}.map{PriceData(tokenName: String($0))}
+                    prices = values.map{PriceData(tokenName: $0.stringValue)}
                 }
                 titleData.prices = prices
                 
@@ -47,5 +45,24 @@ class PairViewModel {
             self?.titles.first?.selected.value = true
             return completion(nil)
         }
+    }
+    
+    func getTicker(from: String, to: String) {
+        
+        
+//        guard var api = URLComponents(string: tickerAPI) else {return}
+//        api.queryItems = [
+//
+//        ]
+//
+//        SVProgressHUD.show()
+//        Alamofire.request(api, method: .get, parameters: params, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+//            SVProgressHUD.dismiss()
+//            if let error = response.error {
+//                print(error.localizedDescription)
+//                return
+//            }
+//            print(response.data)
+//        }
     }
 }

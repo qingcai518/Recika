@@ -36,7 +36,10 @@ class PairTabCell: UICollectionViewCell {
     }
     
     func configure(with data: PairData) {
-        self.titleLbl.text = data.title
+        if let last = data.title.split(separator: ".").last {
+            self.titleLbl.text = String(last)
+        }
+        
         data.selected.asObservable().bind { [weak self] value in
             self?.titleLbl.textColor = value ? UIColor.red : UIColor.black
         }.disposed(by: disposeBag)
