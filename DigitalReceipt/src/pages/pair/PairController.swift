@@ -106,9 +106,27 @@ extension PairController: UICollectionViewDataSource {
 extension PairController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        print("111111")
+        print("11111")
     }
 }
+
+extension PairController: UITableViewDataSource {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: PriceCell.id, for: indexPath) as! PriceCell
+        let priceData = PriceData(tokenName: "JCT", price: 200.0)
+        cell.configure(with: priceData)
+        return cell
+    }
+}
+
 
 extension PairController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
