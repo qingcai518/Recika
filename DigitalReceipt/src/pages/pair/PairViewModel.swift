@@ -48,7 +48,28 @@ class PairViewModel {
     }
     
     func getTicker(from: String, to: String) {
+        guard var api = URLComponents(string: tickerAPI) else {return}
+        api.queryItems = [
+            URLQueryItem(name: "from", value: from),
+            URLQueryItem(name: "to", value: to)
+        ]
         
+        SVProgressHUD.show()
+        Alamofire.request(api, method: .get).responseJSON { response in
+            SVProgressHUD.dismiss()
+            if let error = response.error {
+                print(error.localizedDescription)
+                return
+            }
+            
+            guard let data = response.data else {
+                print("fail to get data")
+                return
+            }
+            
+            let json = JSON(data)
+            print(json)
+        }
         
 //        guard var api = URLComponents(string: tickerAPI) else {return}
 //        api.queryItems = [
