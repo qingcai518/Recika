@@ -36,7 +36,7 @@ class PairTabCell: UICollectionViewCell {
     }
     
     func configure(with data: PairData) {
-        if let last = data.title.split(separator: ".").last {
+        if let last = data.tokenName.split(separator: ".").last {
             self.titleLbl.text = String(last)
         }
         

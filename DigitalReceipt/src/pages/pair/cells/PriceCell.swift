@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RxSwift
 
 class PriceCell: UITableViewCell {
     static let id = "PriceCell"
@@ -14,6 +15,16 @@ class PriceCell: UITableViewCell {
     let riseView = UIView()
     let riseLbl = UILabel()
     let priceLbl = UILabel()
+    
+    var disposeBag = DisposeBag()
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        disposeBag = DisposeBag()
+        tokenLbl.text = nil
+        riseLbl.text = nil
+        priceLbl.text = nil
+    }
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -71,7 +82,8 @@ class PriceCell: UITableViewCell {
         if let last = data.tokenName.split(separator: ".").last {
             self.tokenLbl.text = String(last)
         }
-        self.priceLbl.text = "\(data.price)"
-        self.riseLbl.text = "0.83%"
+        
+        data.latestPrice.asObservable().map{"\($0)"}.bind(to: priceLbl.rx.text).disposed(by: disposeBag)
+        self.riseLbl.text = "dummy"
     }
 }

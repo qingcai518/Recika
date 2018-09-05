@@ -10,12 +10,12 @@ import Foundation
 import RxSwift
 
 struct PairData {
-    let title: String
+    let tokenName : String
     var selected = Variable(false)
     var prices = [PriceData]()
     
-    init(title: String, isSelected: Bool = false) {
-        self.title = title
+    init(tokenName: String, isSelected: Bool = false) {
+        self.tokenName = tokenName
         self.selected.value = isSelected
     }
 }

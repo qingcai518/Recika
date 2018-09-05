@@ -85,11 +85,11 @@ class PairController: ViewController {
                     self.contentView.addSubview(tableView)
                 }
                 self.contentView.contentSize = CGSize(width: screenWidth * CGFloat(self.viewModel.titles.count), height: self.contentView.frame.height)
+                
+                // get ticker
+                self.viewModel.getAllTickers()
             }
         }
-        
-        // get ticker by timer
-        viewModel.getTicker(from: "JADE.ETH", to: "CYB")
     }
     
     fileprivate func resetSelection(index: Int) {

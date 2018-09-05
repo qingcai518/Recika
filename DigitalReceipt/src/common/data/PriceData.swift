@@ -7,13 +7,14 @@
 //
 
 import Foundation
+import RxSwift
 
 struct PriceData {
     let tokenName: String
-    let price: Double
+    var latestPrice = Variable("-")
     
-    init(tokenName: String, price: Double = 0.0) {
+    init(tokenName: String, latestPrice: Double = 0) {
         self.tokenName = tokenName
-        self.price = price
+        self.latestPrice.value = "\(latestPrice)"
     }
 }

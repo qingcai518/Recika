@@ -32,7 +32,7 @@ class PairViewModel {
             let json = JSON(data)
             let assetDic = json.dictionaryValue
             for key in assetDic.keys {
-                var titleData = PairData(title: key)
+                var titleData = PairData(tokenName: key)
                 
                 var prices = [PriceData]()
                 if let values = assetDic[key]?.arrayValue {
@@ -47,43 +47,53 @@ class PairViewModel {
         }
     }
     
-    func getTicker(from: String, to: String) {
-        guard var api = URLComponents(string: tickerAPI) else {return}
+    func getAllTickers() {
+        for title in titles {
+            let prices = title.prices
+            for price in prices {
+                let from = title.tokenName
+                let to = price.tokenName
+                
+                self.getTicker(from: from, to: to) { data, msg in
+                    if let msg = msg {
+                        print(msg)
+                        return
+                    }
+                    guard let priceData = data else {
+                        print("can not get data")
+                        return
+                    }
+                    print(priceData)
+                }
+            }
+        }
+    }
+    
+    func getTicker(from: String, to: String, completion: @escaping (PriceData?, String?) -> Void) {
+        guard var api = URLComponents(string: tickerAPI) else {
+            return completion(nil, "can not found url")
+        }
         api.queryItems = [
             URLQueryItem(name: "from", value: from),
             URLQueryItem(name: "to", value: to)
         ]
         
-        SVProgressHUD.show()
+        print(api)
         Alamofire.request(api, method: .get).responseJSON { response in
-            SVProgressHUD.dismiss()
             if let error = response.error {
-                print(error.localizedDescription)
-                return
+                return completion(nil, error.localizedDescription)
             }
             
             guard let data = response.data else {
-                print("fail to get data")
-                return
+                return completion(nil, "fail to get data")
             }
             
             let json = JSON(data)
             print(json)
+            let latest = json["latest"].doubleValue
+            let priceData = PriceData(tokenName: to, latestPrice: latest)
+            
+            return completion(priceData, nil)
         }
-        
-//        guard var api = URLComponents(string: tickerAPI) else {return}
-//        api.queryItems = [
-//
-//        ]
-//
-//        SVProgressHUD.show()
-//        Alamofire.request(api, method: .get, parameters: params, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
-//            SVProgressHUD.dismiss()
-//            if let error = response.error {
-//                print(error.localizedDescription)
-//                return
-//            }
-//            print(response.data)
-//        }
     }
 }
