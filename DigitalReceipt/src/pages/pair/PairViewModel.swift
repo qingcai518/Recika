@@ -15,6 +15,7 @@ import SVProgressHUD
 
 class PairViewModel {
     var titles = [PairData]()
+    var timer: Timer?
     
     func getPairs(completion: @escaping (String?) -> Void) {
         guard let api = URLComponents(string: pairsAPI) else {return}
@@ -49,9 +50,19 @@ class PairViewModel {
     
     func startGetTickers() {
         getAllTickers()
-        Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { [weak self] _ in
-            self?.getAllTickers()
+        
+        if let timer = timer {
+            return
         }
+        
+        timer = Timer.scheduledTimer(withTimeInterval: 5, repeats: true, block: { [weak self] _ in
+            self?.getAllTickers()
+        })
+    }
+    
+    func stopGetTickers() {
+        timer?.invalidate()
+        timer = nil
     }
     
     private func getAllTickers() {

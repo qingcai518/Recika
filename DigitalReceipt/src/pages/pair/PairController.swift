@@ -25,6 +25,16 @@ class PairController: ViewController {
         super.didReceiveMemoryWarning()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.viewModel.startGetTickers()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.viewModel.stopGetTickers()
+    }
+    
     private func setSubViews() {
         view.backgroundColor = UIColor.white
         
@@ -121,6 +131,9 @@ extension PairController: UICollectionViewDataSource {
 extension PairController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        let next = ChartCustomViewController()
+        self.present(next, animated: true, completion: nil)
     }
 }
 
