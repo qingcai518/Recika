@@ -228,6 +228,23 @@ extension ChartController {
     
     /// 配置UI
     func setupUI() {
+        // add close button.
+        let closeBtn = UIButton()
+        self.view.addSubview(closeBtn)
+        closeBtn.setTitle("閉じる", for: .normal)
+        closeBtn.layer.cornerRadius = 12
+        closeBtn.layer.borderWidth = 1
+        closeBtn.layer.borderColor = UIColor.lightGray.cgColor
+        closeBtn.clipsToBounds = true
+        closeBtn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        closeBtn.setTitleColor(UIColor.orange, for: .normal)
+        
+        closeBtn.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(24)
+            make.right.equalToSuperview().inset(24)
+            make.width.equalTo(60)
+            make.height.equalTo(44)
+        }
         
         self.view.backgroundColor = UIColor(hex: 0x232732)
         self.navigationItem.titleView = self.buttonMarket
