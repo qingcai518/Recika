@@ -64,7 +64,6 @@ class PairViewModel {
                         return
                     }
                     
-                    print(data)
                     price.latestPrice.value = priceData.latestPrice.value
                 }
             }
@@ -79,23 +78,6 @@ class PairViewModel {
         
         let params = ["from": from, "to": to]
         let headers = ["Content-Type": "application/json"]
-        print(api)
-        
-//        Alamofire.request(api, method: .post, parameters: params, encoding: JSONEncoding.default, headers: headers).responseString { response in
-//            if let error = response.error {
-//                print(error)
-//                return
-//            }
-//
-//            guard let data = response.data else {
-//                print("fail to get data")
-//                return
-//            }
-//
-//            let result = String(data: data, encoding: String.Encoding.utf8)
-//
-//            print(result)
-//        }
         
         Alamofire.request(api, method: .post, parameters: params, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
             if let error = response.error {
@@ -117,33 +99,4 @@ class PairViewModel {
             return completion(priceData, nil)
         }
     }
-    
-    // do get request.
-//    func getTicker(from: String, to: String, completion: @escaping (PriceData?, String?) -> Void) {
-//        guard var api = URLComponents(string: tickerAPI) else {
-//            return completion(nil, "can not found url")
-//        }
-//        api.queryItems = [
-//            URLQueryItem(name: "from", value: from),
-//            URLQueryItem(name: "to", value: to)
-//        ]
-//
-//        print(api)
-//        Alamofire.request(api, method: .get).responseJSON { response in
-//            if let error = response.error {
-//                return completion(nil, error.localizedDescription)
-//            }
-//
-//            guard let data = response.data else {
-//                return completion(nil, "fail to get data")
-//            }
-//
-//            let json = JSON(data)
-//            print(json)
-//            let latest = json["latest"].doubleValue
-//            let priceData = PriceData(tokenName: to, latestPrice: latest)
-//
-//            return completion(priceData, nil)
-//        }
-//    }
 }

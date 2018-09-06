@@ -15,6 +15,10 @@ struct PriceData {
     
     init(tokenName: String, latestPrice: Double = 0) {
         self.tokenName = tokenName
-        self.latestPrice.value = "\(latestPrice)"
+        if latestPrice == 0 {
+            self.latestPrice.value = "-"
+        } else {
+            self.latestPrice.value = String(format: "%.2f", Float(latestPrice))
+        }
     }
 }
