@@ -131,8 +131,8 @@ extension PairController: UICollectionViewDataSource {
 extension PairController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let next = ChartCustomViewController()
-        self.present(next, animated: true, completion: nil)
+        let next = ChartController()
+        present(next, animated: true, completion: nil)
     }
 }
 
