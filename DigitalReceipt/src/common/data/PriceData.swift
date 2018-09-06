@@ -18,7 +18,7 @@ struct PriceData {
         if latestPrice == 0 {
             self.latestPrice.value = "-"
         } else {
-            self.latestPrice.value = String(format: "%.2f", Float(latestPrice))
+            self.latestPrice.value = String(format: "%.4f", Float(latestPrice))
         }
     }
 }

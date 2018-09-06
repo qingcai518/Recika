@@ -87,7 +87,7 @@ class PairController: ViewController {
                 self.contentView.contentSize = CGSize(width: screenWidth * CGFloat(self.viewModel.titles.count), height: self.contentView.frame.height)
                 
                 // get ticker
-                self.viewModel.getAllTickers()
+                self.viewModel.startGetTickers()
             }
         }
     }

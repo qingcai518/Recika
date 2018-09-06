@@ -47,7 +47,15 @@ class PairViewModel {
         }
     }
     
-    func getAllTickers() {
+    func startGetTickers() {
+        getAllTickers()
+        Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { [weak self] _ in
+            self?.getAllTickers()
+        }
+    }
+    
+    private func getAllTickers() {
+        print("====== [\(getDateStr(from: Date()))] start get tickers ======")
         for title in titles {
             let prices = title.prices
             for price in prices {
@@ -71,7 +79,7 @@ class PairViewModel {
     }
     
     // do post request.
-    func getTicker(from: String, to: String, completion: @escaping (PriceData?, String?) -> Void) {
+    private func getTicker(from: String, to: String, completion: @escaping (PriceData?, String?) -> Void) {
         guard let api = URLComponents(string: tickerAPI) else {
             return completion(nil, "can not found url")
         }

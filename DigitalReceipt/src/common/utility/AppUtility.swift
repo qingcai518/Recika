@@ -68,3 +68,9 @@ func touchID(completion: @escaping (String?) -> Void) {
         return completion(nil)
     }
 }
+
+func getDateStr(from date: Date) -> String {
+    let formatter = DateFormatter()
+    formatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "yyyy-MM-dd HH:mm:ss", options: 0, locale: Locale(identifier: "ja_JP"))
+    return formatter.string(from: date)
+}
