@@ -83,7 +83,10 @@ class PriceCell: UITableViewCell {
             self.tokenLbl.text = String(last)
         }
         
-        data.latestPrice.asObservable().map{"\($0)"}.bind(to: priceLbl.rx.text).disposed(by: disposeBag)
-        self.riseLbl.text = "dummy"
+        data.latestPrice.asObservable().bind(to: priceLbl.rx.text).disposed(by: disposeBag)
+        data.percentChange.asObservable().bind { [weak self] value in
+            self?.riseLbl.backgroundColor = value.starts(with: "-") ? UIColor.red : UIColor.green
+            self?.riseLbl.text = value
+        }.disposed(by: disposeBag)
     }
 }

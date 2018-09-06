@@ -12,13 +12,11 @@ import RxSwift
 struct PriceData {
     let tokenName: String
     var latestPrice = Variable("-")
+    var percentChange = Variable("-")
     
-    init(tokenName: String, latestPrice: Double = 0) {
+    init(tokenName: String, latestPrice: Double = 0, percentChange: Double = 0) {
         self.tokenName = tokenName
-        if latestPrice == 0 {
-            self.latestPrice.value = "-"
-        } else {
-            self.latestPrice.value = String(format: "%.4f", Float(latestPrice))
-        }
+        self.latestPrice.value = latestPrice == 0 ? "-": String(format: "%.4f", Float(latestPrice))
+        self.percentChange.value = "\(percentChange) %"
     }
 }

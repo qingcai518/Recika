@@ -50,8 +50,7 @@ class PairViewModel {
     
     func startGetTickers() {
         getAllTickers()
-        
-        if let timer = timer {
+        if time == nil {
             return
         }
         
@@ -84,6 +83,7 @@ class PairViewModel {
                     }
                     
                     price.latestPrice.value = priceData.latestPrice.value
+                    price.percentChange.value = priceData.percentChange.value
                 }
             }
         }
@@ -109,8 +109,9 @@ class PairViewModel {
             
             let json = JSON(data)
             let latest = json["latest"].doubleValue
-            let priceData = PriceData(tokenName: to, latestPrice: latest)
-            return completion(priceData, nil)
+            let percentChange = json["percent_change"].doubleValue
+            let price = PriceData(tokenName: to, latestPrice: latest, percentChange: percentChange)
+            return completion(price, nil)
         }
     }
 }
