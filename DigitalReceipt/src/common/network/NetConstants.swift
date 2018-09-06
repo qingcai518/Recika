@@ -40,3 +40,6 @@ let pairsAPI = "https://app.cybex.io/lab/exchange/asset"
 
 // 获取最新的交易信息.
 let tickerAPI = cybexDomain + v1 + "ticker"
+
+// 获取24小时涨幅.
+let changeAPI = cybexDomain + v1 + "change"

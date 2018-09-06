@@ -108,12 +108,7 @@ class PairViewModel {
             }
             
             let json = JSON(data)
-            
-            if let errorMsg = json["error", "data", "message"].string {
-                return completion(nil, errorMsg)
-            }
-            
-            let latest = json["result", "latest"].doubleValue
+            let latest = json["latest"].doubleValue
             let priceData = PriceData(tokenName: to, latestPrice: latest)
             return completion(priceData, nil)
         }
