@@ -52,26 +52,26 @@ typedef struct tagAnalyzerDateInfo {
 
 /** @brief 分類情報構造体 */
 typedef struct tagAnalyzerCategoryInfo {
-    NSString *largeCategory;        /**< 分類名(大分類) */
-    NSString *middleCategory;       /**< 分類名(中分類) */
-    NSString *smallCategory;        /**< 分類名(小分類) */
-    NSString *detailedCategory;     /**< 分類名(細分類) */
-    NSString *largeCategoryCode;    /**< 分類コード(大分類) */
-    NSString *middleCategoryCode;   /**< 分類コード(中分類) */
-    NSString *smallCategoryCode;    /**< 分類コード(小分類) */
-    NSString *detailedCategoryCode; /**< 分類コード(細分類) */
-    NSString *name;                 /**< 商品名 */
-    NSString *janCode;              /**< JANコード */
+    __unsafe_unretained NSString *largeCategory;        /**< 分類名(大分類) */
+    __unsafe_unretained NSString *middleCategory;       /**< 分類名(中分類) */
+    __unsafe_unretained NSString *smallCategory;        /**< 分類名(小分類) */
+    __unsafe_unretained NSString *detailedCategory;     /**< 分類名(細分類) */
+    __unsafe_unretained NSString *largeCategoryCode;    /**< 分類コード(大分類) */
+    __unsafe_unretained NSString *middleCategoryCode;   /**< 分類コード(中分類) */
+    __unsafe_unretained NSString *smallCategoryCode;    /**< 分類コード(小分類) */
+    __unsafe_unretained NSString *detailedCategoryCode; /**< 分類コード(細分類) */
+    __unsafe_unretained NSString *name;                 /**< 商品名 */
+    __unsafe_unretained NSString *janCode;              /**< JANコード */
 } AnalyzerCategoryInfo;
 
 /** @brief 品目構造体 */
 typedef struct tagAnalyzerItemInfo {
-    NSString *name;                              /**< 名称 */
+    __unsafe_unretained NSString *name;                              /**< 名称 */
     int price;                                   /**< 金額 */
     int unitPrice;                               /**< 単価 */
     int itemNum;                                 /**< 個数 */
-    NSString *janCode;                           /**< JANコード */
-    NSString *searchName;                        /**< 検索結果としてヒットした品目名 */
+    __unsafe_unretained NSString *janCode;                           /**< JANコード */
+    __unsafe_unretained NSString *searchName;                        /**< 検索結果としてヒットした品目名 */
     size_t cnt;                                  /**< 分類情報数 */
     AnalyzerCategoryInfo category[CATEGORY_MAX]; /**< 分類情報 */
 } AnalyzerItemInfo;
@@ -79,20 +79,20 @@ typedef struct tagAnalyzerItemInfo {
 /** @brief 支払い構造体 */
 typedef struct tagAnalyzerPaymentInfo {
     int price;         /**< 支払い金額(未使用※拡張用) */
-    NSString *type;    /**< 支払い種別(現金、クレジット、電子マネー、その他) */
+    __unsafe_unretained NSString *type;    /**< 支払い種別(現金、クレジット、電子マネー、その他) */
 } AnalyzerPaymentInfo;
 
 /** @brief ポイント構造体 */
 typedef struct tagAnalyzerPointInfo {
-    NSString *cardType;   /**< ポイントカード種別 */
-    NSString *cardNum;    /**< ポイントカード番号(下4桁) */
+    __unsafe_unretained NSString *cardType;   /**< ポイントカード種別 */
+    __unsafe_unretained NSString *cardNum;    /**< ポイントカード番号(下4桁) */
     int availablePoint;   /**< 利用可能ポイント(ポイント残高) */
 } AnalyzerPointInfo;
 
 /** @brief レシート解析構造体 */
 typedef struct tagAnalyzerReceiptInfo {
     AnalyzerDateInfo date;              /**< 日付 */
-    NSString *tel;                      /**< 電話番号 */
+    __unsafe_unretained NSString *tel;                      /**< 電話番号 */
     int total;                          /**< 合計金額 */
     size_t cnt;                         /**< 品目数 */
     int priceAdjustment;                /**< 調整金額 */
