@@ -138,7 +138,7 @@ extension PairController: UITableViewDelegate {
         let first = getSymbol(tokenName: title.tokenName)
         let last = getSymbol(tokenName: price.tokenName)
         next.symbol = first + "-" + last
-        next.symbol = "ETH-BTC"
+        next.symbol = "ETH-BTC"    // dummy.
         self.navigationController?.pushViewController(next, animated: true)
     }
 }

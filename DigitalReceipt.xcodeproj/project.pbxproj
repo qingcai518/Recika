@@ -73,7 +73,6 @@
 		4BCE98AE213E420200DFC4B5 /* PairData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCE98AD213E420200DFC4B5 /* PairData.swift */; };
 		4BCE98B0213E51D300DFC4B5 /* PriceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCE98AF213E51D300DFC4B5 /* PriceCell.swift */; };
 		4BCE98B2213E548F00DFC4B5 /* PriceData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCE98B1213E548F00DFC4B5 /* PriceData.swift */; };
-		4BCE98B721420E5A00DFC4B5 /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCE98B621420E5A00DFC4B5 /* CameraController.swift */; };
 		4BF0D9B021367EC6005D9AF1 /* ESPullToRefresh.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BF0D9AF21367EC6005D9AF1 /* ESPullToRefresh.framework */; };
 		4BF0D9B321368135005D9AF1 /* DetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0D9B221368135005D9AF1 /* DetailController.swift */; };
 		4BF0D9B521378042005D9AF1 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0D9B421378042005D9AF1 /* HomeViewModel.swift */; };
@@ -197,8 +196,6 @@
 		4BCE98AD213E420200DFC4B5 /* PairData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairData.swift; sourceTree = "<group>"; };
 		4BCE98AF213E51D300DFC4B5 /* PriceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceCell.swift; sourceTree = "<group>"; };
 		4BCE98B1213E548F00DFC4B5 /* PriceData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceData.swift; sourceTree = "<group>"; };
-		4BCE98B621420E5A00DFC4B5 /* CameraController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraController.swift; sourceTree = "<group>"; };
-		4BCE98B82142153800DFC4B5 /* Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
 		4BF0D9AF21367EC6005D9AF1 /* ESPullToRefresh.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ESPullToRefresh.framework; path = Carthage/Build/iOS/ESPullToRefresh.framework; sourceTree = "<group>"; };
 		4BF0D9B221368135005D9AF1 /* DetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailController.swift; sourceTree = "<group>"; };
 		4BF0D9B421378042005D9AF1 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -576,8 +573,6 @@
 		4BCE98B521420E4500DFC4B5 /* camera */ = {
 			isa = PBXGroup;
 			children = (
-				4BCE98B621420E5A00DFC4B5 /* CameraController.swift */,
-				4BCE98B82142153800DFC4B5 /* Common.h */,
 			);
 			path = camera;
 			sourceTree = "<group>";
@@ -838,7 +833,6 @@
 				4B171E9B212BE85100753EA8 /* AppDelegate.swift in Sources */,
 				4BCE988A213CB8E800DFC4B5 /* SettingListViewController.swift in Sources */,
 				4B3EBC9D212E4B83002C34C5 /* LoginController.swift in Sources */,
-				4BCE98B721420E5A00DFC4B5 /* CameraController.swift in Sources */,
 				4B3EBC79212D2187002C34C5 /* GiftController.swift in Sources */,
 				4B3EBC8F212D2B4E002C34C5 /* User.swift in Sources */,
 				4BCE985D2138FDD200DFC4B5 /* TestData.swift in Sources */,
