@@ -90,7 +90,11 @@ class ChartController: ViewController {
     /// 选择时间周期
     lazy var buttonTime: UIButton = {
         let btn = UIButton()
-        btn.setTitleColor(UIColor(hex: 0xfe9d25), for: .normal)
+        btn.setTitleColor(UIColor.orange, for: .normal)
+        btn.backgroundColor = UIColor.white
+        btn.layer.cornerRadius = 8
+        btn.layer.borderWidth = 1
+        btn.layer.borderColor = UIColor.lightGray.cgColor
         btn.addTarget(self, action: #selector(self.handleShowTimeSelection), for: .touchUpInside)
         return btn
     }()
@@ -296,21 +300,11 @@ extension ChartController {
         
         // add close button.
         let closeBtn = UIButton()
-        view.addSubview(closeBtn)
         closeBtn.setTitle("閉じる", for: .normal)
-        closeBtn.setTitleColor(UIColor.orange, for: .normal)
-        closeBtn.layer.cornerRadius = 4
-        closeBtn.layer.borderWidth = 1
-        closeBtn.layer.borderColor = UIColor.white.cgColor
-        closeBtn.clipsToBounds = true
-        closeBtn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
-        closeBtn.backgroundColor = UIColor.white
-        closeBtn.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(24)
-            make.right.equalToSuperview().inset(24)
-            make.width.equalTo(64)
-            make.height.equalTo(40)
-        }
+        closeBtn.setTitleColor(UIColor.white, for: .normal)
+        closeBtn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
+        let barItem = UIBarButtonItem(customView: closeBtn)
+        self.navigationItem.rightBarButtonItem = barItem
         
         // add action.
         closeBtn.rx.tap.bind { [weak self] in
