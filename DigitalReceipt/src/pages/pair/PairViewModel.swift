@@ -50,10 +50,7 @@ class PairViewModel {
     
     func startGetTickers() {
         getAllTickers()
-        if time == nil {
-            return
-        }
-        
+        stopGetTickers()
         timer = Timer.scheduledTimer(withTimeInterval: 5, repeats: true, block: { [weak self] _ in
             self?.getAllTickers()
         })

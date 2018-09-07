@@ -10,16 +10,16 @@ import UIKit
 import SwiftyJSON
 import Alamofire
 
-enum TimeType: Int {
-    case time5m
-    case time15m
-    case time30m
-    case time1h
-    case time2h
-    case time4h
-    case time6h
-    case time1d
-    case time1w
+enum TimeType: String {
+    case time5m = "5min"
+    case time15m = "15min"
+    case time30m = "30min"
+    case time1h = "1hour"
+    case time2h = "2hour"
+    case time4h = "4hour"
+    case time6h = "6hour"
+    case time1d = "1day"
+    case time1w = "1week"
 }
 
 class ChartDatasFetcher: NSObject {

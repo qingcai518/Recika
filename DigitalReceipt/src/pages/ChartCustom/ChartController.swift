@@ -16,7 +16,8 @@ class ChartController: ViewController {
     /// 不显示
     static let Hide: String = ""
     //选择时间
-    let times: [String] = ["5min", "15min", "1hour", "6hour","1day",]
+    let times: [TimeType] = [.time5m, .time15m, .time1h, .time6h, .time1d]
+    
     /// 主图线段
     let masterLine: [String] = [
         CHSeriesKey.candle, CHSeriesKey.timeline
@@ -29,7 +30,7 @@ class ChartController: ViewController {
     let assistIndex: [String] = [
         CHSeriesKey.volume, CHSeriesKey.sam, CHSeriesKey.kdj, CHSeriesKey.macd, CHSeriesKey.rsi, Hide
     ]
-//    //选择交易对
+    // 交易对.
 //    let exPairs: [String] = [
 //        "BTC-USD", "ETH-USD", "LTC-USD",
 //        "LTC-BTC", "ETH-BTC", "BCH-BTC",
@@ -39,7 +40,7 @@ class ChartController: ViewController {
     var selectedTime: Int = 0 {
         didSet {
             let time = self.times[self.selectedTime]
-            self.buttonTime.setTitle(time, for: .normal)
+            self.buttonTime.setTitle(time.rawValue, for: .normal)
         }
     }
     
@@ -127,11 +128,10 @@ class ChartController: ViewController {
     }()
     
     /// 市场设置
-    lazy var buttonMarket: UIButton = {
+    lazy var titleBtn: UIButton = {
         let btn = UIButton(frame: CGRect(x: 0, y: 0, width: 70, height: 40))
         btn.titleLabel?.font = UIFont.systemFont(ofSize: 15)
         btn.setTitleColor(UIColor(hex: 0xfe9d25), for: .normal)
-        btn.addTarget(self, action: #selector(self.handleTitlePress(_:)), for: .touchUpInside)
         return btn
     }()
     
@@ -151,19 +151,6 @@ class ChartController: ViewController {
 //        }
 //        return view
 //    }()
-//
-//    ///市场弹出窗
-//    lazy var selectionViewForMarket: SelectionPopView = {
-//        let view = SelectionPopView() {
-//            (vc, indexPath) in
-//            let symbol = self.exPairs[indexPath.row]
-//            self.selectedSymbol = indexPath.row
-//            self.buttonMarket.setTitle(symbol + "📈", for: .normal)
-//            self.fetchChartDatas()
-//        }
-//        return view
-//    }()
-//
 //    ///指标弹出窗
 //    lazy var selectionViewForIndex: SelectionPopView = {
 //        let view = SelectionPopView() {
@@ -189,7 +176,7 @@ class ChartController: ViewController {
         self.selectedAssistIndex = 0
         self.selectedAssistIndex2 = 2
         
-        self.buttonMarket.setTitle(symbol + "📈", for: .normal)
+        self.titleBtn.setTitle(symbol + "📈", for: .normal)
         self.handleChartIndexChanged()
         self.fetchChartDatas()
         
@@ -291,7 +278,7 @@ extension ChartController {
     /// 配置UI
     func setupUI() {
         self.view.backgroundColor = UIColor(hex: 0x232732)
-        self.navigationItem.titleView = self.buttonMarket
+        self.navigationItem.titleView = self.titleBtn
         self.view.addSubview(self.topView)
         self.view.addSubview(self.chartView)
         self.view.addSubview(self.toolbar)
@@ -312,8 +299,8 @@ extension ChartController {
             make.height.equalTo(60)
         }
         
-        self.chartView.snp.makeConstraints { (make) in
-            //            make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom)
+        self.chartView.snp.makeConstraints { make in
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
             make.left.right.equalToSuperview()
         }
         
@@ -435,14 +422,6 @@ extension ChartController {
         let vc = ChartStyleSettingViewController()
         vc.delegate = self
         self.navigationController?.pushViewController(vc, animated: true)
-    }
-    
-    @IBAction func handleTitlePress(_ sender: Any) {
-        print("select market")
-//        let view = self.selectionViewForMarket
-//        view.clear()
-//        view.addItems(section: "Markets", items: self.exPairs, selectedIndex: self.selectedSymbol)
-//        view.show(from: self)
     }
 }
 
