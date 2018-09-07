@@ -175,6 +175,7 @@ class ChartController: ViewController {
     
     lazy var loadingView: UIActivityIndicatorView = {
         let v = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+        v.hidesWhenStopped = true
         return v
     }()
     
@@ -215,23 +216,37 @@ extension ChartController {
     func fetchChartDatas() {
         self.loadingView.startAnimating()
         self.loadingView.isHidden = false
-//        let symbol = self.exPairs[self.selectedSymbol]
-        ChartDatasFetcher.shared.getRemoteChartData(
-            symbol: symbol,
-            timeType: self.times[self.selectedTime],
-            size: 1000) {
-                [weak self](flag, chartsData) in
-                if flag && chartsData.count > 0 {
-                    self?.klineDatas = chartsData
-                    self?.chartView.reloadData()
-                    
-                    //显示最后一条数据
-                    self?.topView.update(data: chartsData.last!)
-                    
-                    self?.loadingView.stopAnimating()
-                    self?.loadingView.isHidden = true
-                }
+        
+        ChartDatasFetcher.shared.getChartData(symbol: symbol, timeType: TimeType.time5m, size: 1000) { [weak self] (msg, chartsdata) in
+            self?.loadingView.stopAnimating()
+            if let msg = msg {
+                self?.showToast(text: msg)
+                return
+            }
+            
+            self?.klineDatas = chartsdata
+            self?.chartView.reloadData()
+            if let last = chartsdata.last {
+                self?.topView.update(data: last)
+            }
         }
+        
+//        ChartDatasFetcher.shared.getRemoteChartData(
+//            symbol: symbol,
+//            timeType: self.times[self.selectedTime],
+//            size: 1000) {
+//                [weak self](flag, chartsData) in
+//                if flag && chartsData.count > 0 {
+//                    self?.klineDatas = chartsData
+//                    self?.chartView.reloadData()
+//
+//                    //显示最后一条数据
+//                    self?.topView.update(data: chartsData.last!)
+//
+//                    self?.loadingView.stopAnimating()
+//                    self?.loadingView.isHidden = true
+//                }
+//        }
     }
     
     /// 配置UI
