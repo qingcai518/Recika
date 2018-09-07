@@ -133,11 +133,13 @@ extension PairController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         let title = viewModel.titles[contentView.currentPage()]
         let price = title.prices[indexPath.item]
-        
         let next = ChartController()
-        next.symbol = title.tokenName + price.tokenName
-        print("symbol = \(next.symbol)")
-        self.present(next, animated: true, completion: nil)
+        
+        let first = getSymbol(tokenName: title.tokenName)
+        let last = getSymbol(tokenName: price.tokenName)
+        next.symbol = first + "-" + last
+        next.symbol = "ETH-BTC"
+        self.navigationController?.pushViewController(next, animated: true)
     }
 }
 

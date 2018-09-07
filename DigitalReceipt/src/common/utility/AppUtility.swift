@@ -74,3 +74,11 @@ func getDateStr(from date: Date) -> String {
     formatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "yyyy-MM-dd HH:mm:ss", options: 0, locale: Locale(identifier: "ja_JP"))
     return formatter.string(from: date)
 }
+
+func getSymbol(tokenName: String) -> String {
+    if let last = tokenName.split(separator: ".").last {
+        return String(last)
+    } else {
+        return tokenName
+    }
+}
