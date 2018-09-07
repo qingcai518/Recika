@@ -216,7 +216,8 @@ extension ChartController {
         view.addSubview(bottomView)
         
         bottomView.snp.makeConstraints { make in
-            make.left.right.bottom.equalToSuperview()
+            make.left.right.equalToSuperview()
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
             make.height.equalTo(64)
         }
         
@@ -227,7 +228,7 @@ extension ChartController {
         buyBtn.backgroundColor = UIColor.red
         buyBtn.clipsToBounds = true
         bottomView.addSubview(buyBtn)
-        let width = (screenWidth - 3 * 16) / 16
+        let width = (screenWidth - 3 * 16) / 2
         buyBtn.snp.makeConstraints { make in
             make.left.equalToSuperview().inset(16)
             make.centerY.equalToSuperview()
