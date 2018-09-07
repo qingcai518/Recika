@@ -14,4 +14,8 @@ extension UIScrollView {
             self.contentOffset.x = self.frame.width * CGFloat(page)
         }
     }
+    
+    func currentPage() -> Int {
+        return Int(self.contentOffset.x / self.frame.size.width)
+    }
 }

@@ -131,8 +131,13 @@ extension PairController: UICollectionViewDataSource {
 extension PairController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        let title = viewModel.titles[contentView.currentPage()]
+        let price = title.prices[indexPath.item]
+        
         let next = ChartController()
-        present(next, animated: true, completion: nil)
+        next.symbol = title.tokenName + price.tokenName
+        print("symbol = \(next.symbol)")
+        self.present(next, animated: true, completion: nil)
     }
 }
 

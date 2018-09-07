@@ -10,6 +10,9 @@ import UIKit
 import CHKLineChartKit
 
 class ChartController: ViewController {
+    // param.
+    var symbol: String = ""
+    
     /// 不显示
     static let Hide: String = ""
     //选择时间
@@ -26,11 +29,11 @@ class ChartController: ViewController {
     let assistIndex: [String] = [
         CHSeriesKey.volume, CHSeriesKey.sam, CHSeriesKey.kdj, CHSeriesKey.macd, CHSeriesKey.rsi, Hide
     ]
-    //选择交易对
-    let exPairs: [String] = [
-        "BTC-USD", "ETH-USD", "LTC-USD",
-        "LTC-BTC", "ETH-BTC", "BCH-BTC",
-        ]
+//    //选择交易对
+//    let exPairs: [String] = [
+//        "BTC-USD", "ETH-USD", "LTC-USD",
+//        "LTC-BTC", "ETH-BTC", "BCH-BTC",
+//        ]
     
     /// 已选周期
     var selectedTime: Int = 0 {
@@ -61,7 +64,7 @@ class ChartController: ViewController {
     /// 蜡烛柱颜色
     var selectedCandleColor: Int = 1
     
-    var selectedSymbol: Int = 0
+//    var selectedSymbol: Int = 0
     
     /// 数据源
     var klineDatas = [KlineChartData]()
@@ -180,8 +183,9 @@ class ChartController: ViewController {
         self.selectedMasterIndex = 0
         self.selectedAssistIndex = 0
         self.selectedAssistIndex2 = 2
-        self.selectedSymbol = 0
-        let symbol = self.exPairs[self.selectedSymbol]
+//        self.selectedSymbol = 0
+        
+//        let symbol = self.exPairs[self.selectedSymbol]
         self.buttonMarket.setTitle(symbol + "📈", for: .normal)
         self.handleChartIndexChanged()
         self.fetchChartDatas()
@@ -207,7 +211,7 @@ extension ChartController {
     func fetchChartDatas() {
         self.loadingView.startAnimating()
         self.loadingView.isHidden = false
-        let symbol = self.exPairs[self.selectedSymbol]
+//        let symbol = self.exPairs[self.selectedSymbol]
         ChartDatasFetcher.shared.getRemoteChartData(
             symbol: symbol,
             timeType: self.times[self.selectedTime],
@@ -228,24 +232,6 @@ extension ChartController {
     
     /// 配置UI
     func setupUI() {
-        // add close button.
-        let closeBtn = UIButton()
-        self.view.addSubview(closeBtn)
-        closeBtn.setTitle("閉じる", for: .normal)
-        closeBtn.layer.cornerRadius = 12
-        closeBtn.layer.borderWidth = 1
-        closeBtn.layer.borderColor = UIColor.lightGray.cgColor
-        closeBtn.clipsToBounds = true
-        closeBtn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
-        closeBtn.setTitleColor(UIColor.orange, for: .normal)
-        
-        closeBtn.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(24)
-            make.right.equalToSuperview().inset(24)
-            make.width.equalTo(60)
-            make.height.equalTo(44)
-        }
-        
         self.view.backgroundColor = UIColor(hex: 0x232732)
         self.navigationItem.titleView = self.buttonMarket
         self.view.addSubview(self.topView)
@@ -308,6 +294,28 @@ extension ChartController {
             make.centerY.equalToSuperview()
         }
         
+        // add close button.
+        let closeBtn = UIButton()
+        view.addSubview(closeBtn)
+        closeBtn.setTitle("閉じる", for: .normal)
+        closeBtn.setTitleColor(UIColor.orange, for: .normal)
+        closeBtn.layer.cornerRadius = 4
+        closeBtn.layer.borderWidth = 1
+        closeBtn.layer.borderColor = UIColor.white.cgColor
+        closeBtn.clipsToBounds = true
+        closeBtn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        closeBtn.backgroundColor = UIColor.white
+        closeBtn.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(24)
+            make.right.equalToSuperview().inset(24)
+            make.width.equalTo(64)
+            make.height.equalTo(40)
+        }
+        
+        // add action.
+        closeBtn.rx.tap.bind { [weak self] in
+            self?.dismiss(animated: true, completion: nil)
+        }.disposed(by: disposeBag)
     }
     
     /// 选择周期
