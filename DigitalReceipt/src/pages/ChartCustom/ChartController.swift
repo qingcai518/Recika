@@ -188,21 +188,19 @@ class ChartController: ViewController {
         self.selectedMasterIndex = 0
         self.selectedAssistIndex = 0
         self.selectedAssistIndex2 = 2
-//        self.selectedSymbol = 0
         
-//        let symbol = self.exPairs[self.selectedSymbol]
         self.buttonMarket.setTitle(symbol + "📈", for: .normal)
         self.handleChartIndexChanged()
         self.fetchChartDatas()
+        
+        addBottomView()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
     }
-    
-    
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -211,6 +209,46 @@ class ChartController: ViewController {
 
 // MARK: - 图表
 extension ChartController {
+    
+    fileprivate func addBottomView() {
+        let bottomView = UIView()
+        bottomView.backgroundColor = UIColor.white
+        view.addSubview(bottomView)
+        
+        bottomView.snp.makeConstraints { make in
+            make.left.right.bottom.equalToSuperview()
+            make.height.equalTo(64)
+        }
+        
+        let buyBtn = UIButton()
+        buyBtn.setTitle("Buy", for: .normal)
+        buyBtn.setTitleColor(UIColor.white, for: .normal)
+        buyBtn.layer.cornerRadius = 4
+        buyBtn.backgroundColor = UIColor.red
+        buyBtn.clipsToBounds = true
+        bottomView.addSubview(buyBtn)
+        let width = (screenWidth - 3 * 16) / 16
+        buyBtn.snp.makeConstraints { make in
+            make.left.equalToSuperview().inset(16)
+            make.centerY.equalToSuperview()
+            make.height.equalTo(40)
+            make.width.equalTo(width)
+        }
+        
+        let saleBtn = UIButton()
+        saleBtn.setTitle("Sale", for: .normal)
+        saleBtn.setTitleColor(UIColor.white, for: .normal)
+        saleBtn.layer.cornerRadius = 4
+        saleBtn.backgroundColor = UIColor.green
+        saleBtn.clipsToBounds = true
+        bottomView.addSubview(saleBtn)
+        saleBtn.snp.makeConstraints { make in
+            make.right.equalToSuperview().inset(16)
+            make.centerY.equalToSuperview()
+            make.height.equalTo(40)
+            make.width.equalTo(width)
+        }
+    }
     
     /// 拉取数据
     func fetchChartDatas() {
