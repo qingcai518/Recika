@@ -37,7 +37,6 @@ class PairController: ViewController {
     
     private func setSubViews() {
         view.backgroundColor = UIColor.white
-        
         title = "Cybex 行情"
         
         let layout = UICollectionViewFlowLayout()
@@ -139,6 +138,7 @@ extension PairController: UITableViewDelegate {
         let last = getSymbol(tokenName: price.tokenName)
         next.symbol = first + "-" + last
         next.symbol = "ETH-BTC"
+        next.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(next, animated: true)
     }
 }

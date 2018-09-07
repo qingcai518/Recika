@@ -8,6 +8,19 @@
 
 import UIKit
 import SwiftyJSON
+import Alamofire
+
+enum TimeType: Int {
+    case time5m
+    case time15m
+    case time30m
+    case time1h
+    case time2h
+    case time4h
+    case time6h
+    case time1d
+    case time1w
+}
 
 class ChartDatasFetcher: NSObject {
     
@@ -20,6 +33,90 @@ class ChartDatasFetcher: NSObject {
         let instance = ChartDatasFetcher()
         return instance
     }()
+    
+    // add for test.
+    func getChartData(symbol: String, timeType: TimeType, size: Int, completion: @escaping (Bool, [KlineChartData]) -> Void) {
+        var granularity = 300
+        switch timeType {
+        case .time5m:
+            granularity = 5 * 60
+        case .time15m:
+            granularity = 15 * 60
+        case .time30m:
+            granularity = 30 * 60
+        case .time1h:
+            granularity = 1 * 60 * 60
+        case .time2h:
+            granularity = 2 * 60 * 60
+        case .time4h:
+            granularity = 4 * 60 * 60
+        case .time6h:
+            granularity = 6 * 60 * 60
+        case .time1d:
+            granularity = 1 * 24 * 60 * 60
+        case .time1w:
+            granularity = 1 * 24 * 7 * 60 * 60
+        }
+        
+        guard let urlCompnents = URLComponents(string: self.apiURL + symbol + "/candles?granularity=\(granularity)") else {
+            print("can not get url")
+            return
+        }
+        Alamofire.request(urlCompnents, method: .get).responseJSON { response in
+            if let error = response.error {
+                print(error.localizedDescription)
+            }
+            guard let data = response.data else {
+                print("can not get data")
+                return
+            }
+            
+            let json = JSON(data)
+            print(json)
+        }
+
+        
+        
+        
+//        // 快捷方式获得session对象
+//        let session = URLSession.shared
+//        // /BTC-USD/candles?granularity=300
+//        let url = URL(string: self.apiURL + symbol + "/candles?granularity=\(granularity)")
+//        //        let url = URL(string: self.apiURL + "kline.do?symbol=\(symbol)&type=\(timeType)&size=\(size)")
+//        // 通过URL初始化task,在block内部可以直接对返回的数据进行处理
+//        let task = session.dataTask(with: url!, completionHandler: {
+//            (data, response, error) in
+//            if let data = data {
+//
+//                DispatchQueue.main.async {
+//
+//                    var marketDatas = [KlineChartData]()
+//
+//                    /*
+//                     对从服务器获取到的数据data进行相应的处理.
+//                     */
+//                    do {
+//                        let json = try JSON(data: data)
+//                        let chartDatas = json.arrayValue
+//                        for data in chartDatas {
+//                            let marektdata = KlineChartData(json: data.arrayValue)
+//                            marketDatas.append(marektdata)
+//                        }
+//                        marketDatas.reverse()
+//                        callback(true, marketDatas)
+//
+//                    } catch _ {
+//                        callback(false, marketDatas)
+//                    }
+//                }
+//
+//
+//            }
+//        })
+//
+//        // 启动任务
+//        task.resume()
+    }
     
     /// 获取服务API的K线数据
     ///

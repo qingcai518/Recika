@@ -297,19 +297,6 @@ extension ChartController {
             make.height.equalTo(30)
             make.centerY.equalToSuperview()
         }
-        
-        // add close button.
-        let closeBtn = UIButton()
-        closeBtn.setTitle("閉じる", for: .normal)
-        closeBtn.setTitleColor(UIColor.white, for: .normal)
-        closeBtn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
-        let barItem = UIBarButtonItem(customView: closeBtn)
-        self.navigationItem.rightBarButtonItem = barItem
-        
-        // add action.
-        closeBtn.rx.tap.bind { [weak self] in
-            self?.dismiss(animated: true, completion: nil)
-        }.disposed(by: disposeBag)
     }
     
     /// 选择周期
