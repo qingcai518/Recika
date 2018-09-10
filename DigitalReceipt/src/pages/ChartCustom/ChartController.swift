@@ -293,25 +293,6 @@ extension ChartController {
         self.view.backgroundColor = UIColor(hex: 0x232732)
         self.navigationItem.titleView = self.titleBtn
         
-//        // add for test.
-//        let scrollView = UIScrollView()
-//        view.addSubview(scrollView)
-//        scrollView.snp.makeConstraints { make in
-//            make.edges.equalTo(view)
-//        }
-//
-//        let contentView = UIView()
-//        scrollView.addSubview(contentView)
-//        contentView.snp.makeConstraints { make in
-//            make.top.bottom.equalTo(scrollView)
-//            make.left.right.equalTo(view)
-//        }
-//
-//        contentView.addSubview(topView)
-//        contentView.addSubview(chartView)
-//        contentView.addSubview(toolbar)
-//        contentView.addSubview(loadingView)
-        
         self.view.addSubview(self.topView)
         self.view.addSubview(self.chartView)
         self.view.addSubview(self.toolbar)
