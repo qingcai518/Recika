@@ -87,18 +87,23 @@ class ChartController: ViewController {
     lazy var buttonTime: UIButton = {
         let btn = UIButton()
         btn.setTitleColor(UIColor.orange, for: .normal)
-        btn.backgroundColor = UIColor.white
-        btn.layer.cornerRadius = 8
-        btn.layer.borderWidth = 1
-        btn.layer.borderColor = UIColor.lightGray.cgColor
         btn.addTarget(self, action: #selector(self.handleShowTimeSelection), for: .touchUpInside)
         return btn
     }()
     
-    /// 股票指标
-    lazy var buttonIndex: UIButton = {
+    /// chart种类
+    lazy var chartBtn: UIButton = {
         let btn = UIButton()
-        btn.setTitle("Index", for: .normal)
+        btn.setTitle("Chart", for: .normal)
+        btn.setTitleColor(UIColor(hex: 0xfe9d25), for: .normal)
+        btn.addTarget(self, action: #selector(self.handleShowChart), for: .touchUpInside)
+        return btn
+    }()
+    
+    // 股票种类.
+    lazy var indexBtn: UIButton = {
+        let btn = UIButton()
+        btn.setTitle("指标", for: .normal)
         btn.setTitleColor(UIColor(hex: 0xfe9d25), for: .normal)
         btn.addTarget(self, action: #selector(self.handleShowIndex), for: .touchUpInside)
         return btn
@@ -137,15 +142,6 @@ class ChartController: ViewController {
         return view
     }()
     
-//    ///周期弹出窗
-//    lazy var selectionViewForTime: SelectionPopView = {
-//        let view = SelectionPopView() {
-//            (vc, indexPath) in
-//            self.selectedTime = indexPath.row
-//            self.fetchChartDatas()
-//        }
-//        return view
-//    }()
 //    ///指标弹出窗
 //    lazy var selectionViewForIndex: SelectionPopView = {
 //        let view = SelectionPopView() {
@@ -301,8 +297,9 @@ extension ChartController {
         self.view.addSubview(self.toolbar)
         self.view.addSubview(self.loadingView)
         
-        self.toolbar.addSubview(self.buttonIndex)
         self.toolbar.addSubview(self.buttonTime)
+        self.toolbar.addSubview(chartBtn)
+        self.toolbar.addSubview(indexBtn)
         self.toolbar.addSubview(self.buttonSetting)
         self.toolbar.addSubview(self.buttonStyle)
         
@@ -346,13 +343,20 @@ extension ChartController {
             make.centerY.equalToSuperview()
         }
         
-        self.buttonIndex.snp.makeConstraints { (make) in
-            make.left.equalTo(self.buttonTime.snp.right)
+        self.chartBtn.snp.makeConstraints { make in
+            make.left.equalTo(buttonTime.snp.right)
             make.width.equalTo(80)
             make.height.equalTo(30)
             make.centerY.equalToSuperview()
         }
         
+        self.indexBtn.snp.makeConstraints { make in
+            make.left.equalTo(chartBtn.snp.right)
+            make.width.equalTo(80)
+            make.height.equalTo(30)
+            make.centerY.equalToSuperview()
+        }
+
         self.buttonSetting.snp.makeConstraints { (make) in
             make.right.equalToSuperview().inset(8)
             make.width.equalTo(80)
@@ -389,8 +393,35 @@ extension ChartController {
         self.present(alertController, animated: true, completion: nil)
     }
     
+    /// 选择chart种类.
+    @objc func handleShowChart() {
+        let alertController = UIAlertController(title: nil, message: "Chart", preferredStyle: .actionSheet)
+        let klineAction = UIAlertAction(title: "kline", style: .default) { [weak self] _ in
+            print("selected kline action.")
+        }
+        alertController.addAction(klineAction)
+        
+        let lineAction = UIAlertAction(title: "Line", style: .default) { [weak self] _ in
+            print("selected line action.")
+        }
+        alertController.addAction(lineAction)
+        
+        let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
+        alertController.addAction(cancelAction)
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
     /// 选择指标
     @objc func handleShowIndex() {
+        let alertController = UIAlertController(title: nil, message: "指标", preferredStyle: .actionSheet)
+        let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
+        alertController.addAction(cancelAction)
+        
+        self.present(alertController, animated: true, completion: nil)
+        
+        
+        
         print("select index")
 //        let view = self.selectionViewForIndex
 //        view.clear()
