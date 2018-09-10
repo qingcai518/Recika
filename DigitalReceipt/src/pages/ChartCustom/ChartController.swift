@@ -17,7 +17,7 @@ class ChartController: ViewController {
     /// 不显示
     static let Hide: String = ""
     //选择时间
-    let times: [TimeType] = [.time5m, .time15m, .time1h, .time6h, .time1d]
+    let times: [TimeType] = [.t15, .t60, .t300, .t3600, .t86400]
     
     /// 主图线段
     let masterLine: [String] = [
@@ -41,7 +41,20 @@ class ChartController: ViewController {
     var selectedTime: Int = 0 {
         didSet {
             let time = self.times[self.selectedTime]
-            self.buttonTime.setTitle(time.rawValue, for: .normal)
+            var title = "15s"
+            switch time {
+            case .t15:
+                title = "15s"
+            case .t60:
+                title = "1min"
+            case .t300:
+                title = "5min"
+            case .t3600:
+                title = "1hour"
+            case .t86400:
+                title = "1day"
+            }
+            self.buttonTime.setTitle(title, for: .normal)
         }
     }
     
@@ -246,7 +259,7 @@ extension ChartController {
         self.loadingView.startAnimating()
         self.loadingView.isHidden = false
         
-        ChartDatasFetcher.shared.getMarket(from: symbolBase, to: symbolQuote, timeType: TimeType.time1h) { [weak self] (msg, result) in
+        ChartDatasFetcher.shared.getMarket(from: symbolBase, to: symbolQuote, timeType: TimeType.t3600) { [weak self] (msg, result) in
             self?.loadingView.stopAnimating()
             if let msg = msg {
                 self?.showToast(text: msg)

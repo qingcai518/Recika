@@ -62,12 +62,6 @@ struct KlineChartData {
         self.closePrice = closeBase / closeQuote
         self.vol = volumeBase / volumeQuote
         
-//        self.highPrice = highQuote / highBase
-//        self.lowPrice = lowQuote / lowBase
-//        self.openPrice = openQuote / openBase
-//        self.closePrice = closeQuote / closeBase
-//        self.vol = volumeQuote / volumeBase
-        
         if openPrice > 0 {
             self.amplitude = self.closePrice - self.openPrice
             self.amplitude = self.amplitude / self.openPrice * 100

@@ -10,16 +10,24 @@ import UIKit
 import SwiftyJSON
 import Alamofire
 
-enum TimeType: String {
-    case time5m = "5min"
-    case time15m = "15min"
-    case time30m = "30min"
-    case time1h = "1hour"
-    case time2h = "2hour"
-    case time4h = "4hour"
-    case time6h = "6hour"
-    case time1d = "1day"
-    case time1w = "1week"
+//enum TimeType: String {
+//    case time5m = "5min"
+//    case time15m = "15min"
+//    case time30m = "30min"
+//    case time1h = "1hour"
+//    case time2h = "2hour"
+//    case time4h = "4hour"
+//    case time6h = "6hour"
+//    case time1d = "1day"
+//    case time1w = "1week"
+//}
+
+enum TimeType: Int {
+    case t15 = 15
+    case t60 = 60
+    case t300 = 300
+    case t3600 = 3600
+    case t86400 = 86400
 }
 
 class ChartDatasFetcher: NSObject {
@@ -38,27 +46,28 @@ class ChartDatasFetcher: NSObject {
     func getChartData(symbol: String, timeType: TimeType, completion: @escaping (String?, [KlineChartData]) -> Void) {
         var marketDatas = [KlineChartData]()
         
-        var granularity = 300
-        switch timeType {
-        case .time5m:
-            granularity = 5 * 60
-        case .time15m:
-            granularity = 15 * 60
-        case .time30m:
-            granularity = 30 * 60
-        case .time1h:
-            granularity = 1 * 60 * 60
-        case .time2h:
-            granularity = 2 * 60 * 60
-        case .time4h:
-            granularity = 4 * 60 * 60
-        case .time6h:
-            granularity = 6 * 60 * 60
-        case .time1d:
-            granularity = 1 * 24 * 60 * 60
-        case .time1w:
-            granularity = 1 * 24 * 7 * 60 * 60
-        }
+        let granularity = 300 // dummy.
+//        var granularity = 300
+//        switch timeType {
+//        case .time5m:
+//            granularity = 5 * 60
+//        case .time15m:
+//            granularity = 15 * 60
+//        case .time30m:
+//            granularity = 30 * 60
+//        case .time1h:
+//            granularity = 1 * 60 * 60
+//        case .time2h:
+//            granularity = 2 * 60 * 60
+//        case .time4h:
+//            granularity = 4 * 60 * 60
+//        case .time6h:
+//            granularity = 6 * 60 * 60
+//        case .time1d:
+//            granularity = 1 * 24 * 60 * 60
+//        case .time1w:
+//            granularity = 1 * 24 * 7 * 60 * 60
+//        }
         
         guard let urlCompnents = URLComponents(string: self.apiURL + symbol + "/candles?granularity=\(granularity)") else {
             return completion("fail to get url", marketDatas)
@@ -94,8 +103,6 @@ class ChartDatasFetcher: NSObject {
             return completion("fail to get url", result)
         }
         
-        // dummy.
-        let time = 3600
         let currentStr = getDateISOStr(from: Date())   // 获取当天时间.
         guard let zero = zeroDay() else {
             return completion("can not get zero time of today", result)
@@ -104,8 +111,7 @@ class ChartDatasFetcher: NSObject {
         let zeroDayStr = getDateISOStr(from: zero)
         
         // 设置参数.
-//        let params:[String: Any] = ["from": "JADE.ETH", "to": "CYB", "time_type": time, "start": zeroDayStr, "end": currentStr]
-        let params: [String: Any] = ["from": from, "to": to, "time_type": time, "start": zeroDayStr, "end": currentStr]
+        let params: [String: Any] = ["from": from, "to": to, "time_type": timeType.rawValue, "start": zeroDayStr, "end": currentStr]
         
         let headers = ["Content-Type": "application/json"]
         Alamofire.request(api, method: .post, parameters: params, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
