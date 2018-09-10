@@ -178,8 +178,15 @@ class ChartController: ViewController {
         return v
     }()
     
+    let bottomView = UIView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // add bottom.
+        addBottomView()
+        
+        // setup UI
         self.setupUI()
         
         self.selectedTime = 0
@@ -195,8 +202,6 @@ class ChartController: ViewController {
         self.titleBtn.setTitle(title + "📈", for: .normal)
         self.handleChartIndexChanged()
         self.fetchChartDatas()
-        
-        addBottomView()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -214,7 +219,6 @@ class ChartController: ViewController {
 extension ChartController {
     
     fileprivate func addBottomView() {
-        let bottomView = UIView()
         bottomView.backgroundColor = UIColor.white
         view.addSubview(bottomView)
         
@@ -259,33 +263,33 @@ extension ChartController {
         self.loadingView.startAnimating()
         self.loadingView.isHidden = false
         
-//        ChartDatasFetcher.shared.getMarket(from: symbolBase, to: symbolQuote, timeType: TimeType.t3600) { [weak self] (msg, result) in
-//            self?.loadingView.stopAnimating()
-//            if let msg = msg {
-//                self?.showToast(text: msg)
-//                return
-//            }
-//
-//            self?.klineDatas = result
-//            self?.chartView.reloadData()
-//            if let last = result.last {
-//                self?.topView.update(data: last)
-//            }
-//        }
-        
-        ChartDatasFetcher.shared.getChartData(symbol: "ETH-BTC", timeType: TimeType.t300) { [weak self] (msg, chartsdata) in
+        ChartDatasFetcher.shared.getMarket(from: symbolBase, to: symbolQuote, timeType: TimeType.t3600) { [weak self] (msg, result) in
             self?.loadingView.stopAnimating()
             if let msg = msg {
                 self?.showToast(text: msg)
                 return
             }
 
-            self?.klineDatas = chartsdata
+            self?.klineDatas = result
             self?.chartView.reloadData()
-            if let last = chartsdata.last {
+            if let last = result.last {
                 self?.topView.update(data: last)
             }
         }
+        
+//        ChartDatasFetcher.shared.getChartData(symbol: "ETH-BTC", timeType: TimeType.t300) { [weak self] (msg, chartsdata) in
+//            self?.loadingView.stopAnimating()
+//            if let msg = msg {
+//                self?.showToast(text: msg)
+//                return
+//            }
+//
+//            self?.klineDatas = chartsdata
+//            self?.chartView.reloadData()
+//            if let last = chartsdata.last {
+//                self?.topView.update(data: last)
+//            }
+//        }
     }
     
     /// 配置UI
@@ -314,16 +318,26 @@ extension ChartController {
             make.height.equalTo(60)
         }
         
-        self.chartView.snp.makeConstraints { make in
-            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
+//        self.chartView.snp.makeConstraints { make in
+//            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
+//            make.left.right.equalToSuperview()
+//        }
+//        self.toolbar.snp.makeConstraints { (make) in
+//            make.top.equalTo(self.chartView.snp.bottom)
+//            make.left.right.equalToSuperview()
+//            make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom)
+//            make.height.equalTo(44)
+//        }
+        self.toolbar.snp.makeConstraints { make in
+            make.bottom.equalTo(bottomView.snp.top).offset(12)
             make.left.right.equalToSuperview()
+            make.height.equalTo(44)
         }
         
-        self.toolbar.snp.makeConstraints { (make) in
-            make.top.equalTo(self.chartView.snp.bottom)
-            make.left.right.equalToSuperview()
-            make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom)
-            make.height.equalTo(44)
+        self.chartView.snp.makeConstraints { make in
+            make.right.left.equalToSuperview()
+            make.top.equalTo(topView.snp.bottom)
+            make.bottom.equalTo(toolbar.snp.top)
         }
         
         self.buttonTime.snp.makeConstraints { (make) in
