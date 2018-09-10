@@ -9,7 +9,7 @@
 import Foundation
 import SwiftyJSON
 
-class KlineChartData: NSObject, Codable {
+struct KlineChartData {
     var time: Int = 0
     var lowPrice: Double = 0
     var highPrice: Double = 0
@@ -24,8 +24,7 @@ class KlineChartData: NSObject, Codable {
     var amplitude: Double = 0
     var amplitudeRatio: Double = 0
     
-    convenience init(json: [JSON]) {
-        self.init()
+    init(json: [JSON]) {
         self.time = json[0].intValue
         self.highPrice = json[2].doubleValue
         self.lowPrice = json[1].doubleValue
@@ -37,6 +36,34 @@ class KlineChartData: NSObject, Codable {
         if self.openPrice > 0 {
             self.amplitude = self.closePrice - self.openPrice
             self.amplitudeRatio = self.amplitude / self.openPrice * 100
+        }
+    }
+    
+    init(json: JSON) {
+        let timeStr = json["key", "open"].stringValue
+        let highBase = json["high_base"].doubleValue
+        let lowBase = json["low_base"].doubleValue
+        let highQuote = json["high_quote"].doubleValue
+        let lowQuote = json["low_quote"].doubleValue
+        let openBase = json["open_base"].doubleValue
+        let openQuote = json["open_quote"].doubleValue
+        let closeBase = json["close_base"].doubleValue
+        let closeQuote = json["close_quote"].doubleValue
+        let volumeBase = json["base_volume"].doubleValue
+        let volumeQuote = json["quote_volume"].doubleValue
+        
+        if let timeISO = getDateISO(from: timeStr) {
+            self.time = Int(timeISO.timeIntervalSince1970)
+        }
+        self.highPrice = highQuote / highBase
+        self.lowPrice = lowQuote / lowBase
+        self.openPrice = openQuote / openBase
+        self.closePrice = closeQuote / closeBase
+        self.vol = volumeQuote / volumeBase
+        
+        if openPrice > 0 {
+            self.amplitude = self.closePrice - self.openPrice
+            self.amplitude = self.amplitude / self.openPrice * 100
         }
     }
 }

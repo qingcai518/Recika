@@ -11,7 +11,8 @@ import CHKLineChartKit
 
 class ChartController: ViewController {
     // param.
-    var symbol: String = ""
+    var symbolBase: String = ""
+    var symbolQuote: String = ""
     
     /// 不显示
     static let Hide: String = ""
@@ -64,8 +65,6 @@ class ChartController: ViewController {
     
     /// 蜡烛柱颜色
     var selectedCandleColor: Int = 1
-    
-//    var selectedSymbol: Int = 0
     
     /// 数据源
     var klineDatas = [KlineChartData]()
@@ -176,7 +175,11 @@ class ChartController: ViewController {
         self.selectedAssistIndex = 0
         self.selectedAssistIndex2 = 2
         
-        self.titleBtn.setTitle(symbol + "📈", for: .normal)
+        let symbolBaseName = getSymbol(tokenName: symbolBase)
+        let symbolQuoteName = getSymbol(tokenName: symbolQuote)
+        let title = symbolBaseName + "/" + symbolQuoteName
+        
+        self.titleBtn.setTitle(title + "📈", for: .normal)
         self.handleChartIndexChanged()
         self.fetchChartDatas()
         
@@ -243,17 +246,18 @@ extension ChartController {
         self.loadingView.startAnimating()
         self.loadingView.isHidden = false
         
-        // dummy. add for test.
-        let from = symbol.split(separator: "-").first!
-        let to = symbol.split(separator: "-").last!
-        ChartDatasFetcher.shared.getMarket(from: String(from), to: String(to), timeType: TimeType.time1h) { [weak self] (msg, result) in
+        ChartDatasFetcher.shared.getMarket(from: symbolBase, to: symbolQuote, timeType: TimeType.time1h) { [weak self] (msg, result) in
+            self?.loadingView.stopAnimating()
             if let msg = msg {
                 self?.showToast(text: msg)
                 return
             }
             
             self?.klineDatas = result
-            print(result)
+            self?.chartView.reloadData()
+            if let last = result.last {
+                self?.topView.update(data: last)
+            }
         }
         
 //        ChartDatasFetcher.shared.getChartData(symbol: symbol, timeType: TimeType.time5m) { [weak self] (msg, chartsdata) in

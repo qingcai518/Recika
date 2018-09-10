@@ -102,14 +102,12 @@ class ChartDatasFetcher: NSObject {
         }
         // 获取当天的0点时间.
         let zeroDayStr = getDateISOStr(from: zero)
-//        let params:[String: Any] = ["from": from, "to": to, "time_type": time, "start": currentStr, "end": zeroDayStr]
-        let params:[String: Any] = ["from": "JADE.ETH", "to": "CYB", "time_type": time, "start": currentStr, "end": zeroDayStr]
+        
+        // 设置参数.
+//        let params:[String: Any] = ["from": "JADE.ETH", "to": "CYB", "time_type": time, "start": zeroDayStr, "end": currentStr]
+        let params: [String: Any] = ["from": from, "to": to, "time_type": time, "start": zeroDayStr, "end": currentStr]
+        
         let headers = ["Content-Type": "application/json"]
-        
-        print(params)
-        print(currentStr)
-        print(zeroDayStr)
-        
         Alamofire.request(api, method: .post, parameters: params, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
             if let error = response.error {
                 return completion(error.localizedDescription, result)
@@ -120,7 +118,9 @@ class ChartDatasFetcher: NSObject {
             }
             
             let json = JSON(data)
-            print(json)
+            _ = json.arrayValue.map{KlineChartData(json: $0)}.map{result.append($0)}
+            
+            return completion(nil, result)
         }
     }
 }

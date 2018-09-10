@@ -70,15 +70,30 @@ func touchID(completion: @escaping (String?) -> Void) {
 }
 
 // 处理日期相关的函数.
+func getDate(from str: String) -> Date? {
+    let formatter = DateFormatter()
+    formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+    formatter.locale = Locale(identifier: "ja_JP")
+    return formatter.date(from: str)
+}
+
+func getDateISO(from str: String) -> Date? {
+    let formatter = DateFormatter()
+    formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+    formatter.locale = Locale(identifier: "ja_JP")
+    return formatter.date(from: str)
+}
+
 func getDateStr(from date: Date) -> String {
     let formatter = DateFormatter()
-    formatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "yyyy-MM-dd HH:mm:ss", options: 0, locale: Locale(identifier: "ja_JP"))
+    formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+    formatter.locale = Locale(identifier: "ja_JP")
     return formatter.string(from: date)
 }
 
 func getDateISOStr(from date: Date) -> String {
     let formatter = DateFormatter()
-    formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZ"
+    formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
     formatter.locale = Locale(identifier: "ja_JP")
     return formatter.string(from: date)
 }

@@ -134,10 +134,8 @@ extension PairController: UITableViewDelegate {
         let price = title.prices[indexPath.item]
         let next = ChartController()
         
-        let first = getSymbol(tokenName: title.tokenName)
-        let last = getSymbol(tokenName: price.tokenName)
-        next.symbol = first + "-" + last
-        next.symbol = "ETH-BTC"
+        next.symbolBase = title.tokenName
+        next.symbolQuote = price.tokenName
         next.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(next, animated: true)
     }
