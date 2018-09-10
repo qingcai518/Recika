@@ -108,12 +108,15 @@ class ChartDatasFetcher: NSObject {
             return completion("can not get zero time of today", result)
         }
         // 获取当天的0点时间.
-        let zeroDayStr = getDateISOStr(from: zero)
-        
-        // 设置参数.
-        let params: [String: Any] = ["from": from, "to": to, "time_type": timeType.rawValue, "start": zeroDayStr, "end": currentStr]
-        
+//        let zeroDayStr = getDateISOStr(from: zero)
+        let start = Date(timeIntervalSince1970: 0)
+        let startStr = getDateISOStr(from: start)
+
+        let params: [String: Any] = ["from": from, "to": to, "time_type": timeType.rawValue, "start": startStr, "end": currentStr]
         let headers = ["Content-Type": "application/json"]
+        
+        print(params)
+        
         Alamofire.request(api, method: .post, parameters: params, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
             if let error = response.error {
                 return completion(error.localizedDescription, result)

@@ -259,33 +259,33 @@ extension ChartController {
         self.loadingView.startAnimating()
         self.loadingView.isHidden = false
         
-        ChartDatasFetcher.shared.getMarket(from: symbolBase, to: symbolQuote, timeType: TimeType.t3600) { [weak self] (msg, result) in
-            self?.loadingView.stopAnimating()
-            if let msg = msg {
-                self?.showToast(text: msg)
-                return
-            }
-            
-            self?.klineDatas = result
-            self?.chartView.reloadData()
-            if let last = result.last {
-                self?.topView.update(data: last)
-            }
-        }
-        
-//        ChartDatasFetcher.shared.getChartData(symbol: symbol, timeType: TimeType.time5m) { [weak self] (msg, chartsdata) in
+//        ChartDatasFetcher.shared.getMarket(from: symbolBase, to: symbolQuote, timeType: TimeType.t3600) { [weak self] (msg, result) in
 //            self?.loadingView.stopAnimating()
 //            if let msg = msg {
 //                self?.showToast(text: msg)
 //                return
 //            }
 //
-//            self?.klineDatas = chartsdata
+//            self?.klineDatas = result
 //            self?.chartView.reloadData()
-//            if let last = chartsdata.last {
+//            if let last = result.last {
 //                self?.topView.update(data: last)
 //            }
 //        }
+        
+        ChartDatasFetcher.shared.getChartData(symbol: "ETH-BTC", timeType: TimeType.t300) { [weak self] (msg, chartsdata) in
+            self?.loadingView.stopAnimating()
+            if let msg = msg {
+                self?.showToast(text: msg)
+                return
+            }
+
+            self?.klineDatas = chartsdata
+            self?.chartView.reloadData()
+            if let last = chartsdata.last {
+                self?.topView.update(data: last)
+            }
+        }
     }
     
     /// 配置UI
@@ -293,31 +293,29 @@ extension ChartController {
         self.view.backgroundColor = UIColor(hex: 0x232732)
         self.navigationItem.titleView = self.titleBtn
         
-        // add for test.
-        let scrollView = UIScrollView()
-        view.addSubview(scrollView)
-        scrollView.snp.makeConstraints { make in
-            make.edges.equalTo(view)
-        }
+//        // add for test.
+//        let scrollView = UIScrollView()
+//        view.addSubview(scrollView)
+//        scrollView.snp.makeConstraints { make in
+//            make.edges.equalTo(view)
+//        }
+//
+//        let contentView = UIView()
+//        scrollView.addSubview(contentView)
+//        contentView.snp.makeConstraints { make in
+//            make.top.bottom.equalTo(scrollView)
+//            make.left.right.equalTo(view)
+//        }
+//
+//        contentView.addSubview(topView)
+//        contentView.addSubview(chartView)
+//        contentView.addSubview(toolbar)
+//        contentView.addSubview(loadingView)
         
-        let contentView = UIView()
-        scrollView.addSubview(contentView)
-        contentView.snp.makeConstraints { make in
-            make.top.bottom.equalTo(scrollView)
-            make.left.right.equalTo(view)
-        }
-        
-        contentView.addSubview(topView)
-        contentView.addSubview(chartView)
-        contentView.addSubview(toolbar)
-        contentView.addSubview(loadingView)
-        
-        
-        
-//        self.view.addSubview(self.topView)
-//        self.view.addSubview(self.chartView)
-//        self.view.addSubview(self.toolbar)
-//        self.view.addSubview(self.loadingView)
+        self.view.addSubview(self.topView)
+        self.view.addSubview(self.chartView)
+        self.view.addSubview(self.toolbar)
+        self.view.addSubview(self.loadingView)
         
         self.toolbar.addSubview(self.buttonIndex)
         self.toolbar.addSubview(self.buttonTime)
