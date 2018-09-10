@@ -258,13 +258,13 @@ extension ChartController {
         self.loadingView.startAnimating()
         self.loadingView.isHidden = false
         
-        ChartDatasFetcher.shared.getMarket(from: symbolBase, to: symbolQuote, timeType: TimeType.t3600) { [weak self] (msg, result) in
+        ChartDatasFetcher.shared.getMarket(from: symbolBase, to: symbolQuote, timeType: TimeType.t15) { [weak self] (msg, result) in
             self?.loadingView.stopAnimating()
             if let msg = msg {
                 self?.showToast(text: msg)
                 return
             }
-
+            
             self?.klineDatas = result
             self?.chartView.reloadData()
             if let last = result.last {
