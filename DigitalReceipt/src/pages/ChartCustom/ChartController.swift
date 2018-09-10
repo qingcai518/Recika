@@ -36,19 +36,7 @@ class ChartController: ViewController {
     var selectedTime: Int = 0 {
         didSet {
             let time = self.times[self.selectedTime]
-            var title = "15s"
-            switch time {
-            case .t15:
-                title = "15s"
-            case .t60:
-                title = "1min"
-            case .t300:
-                title = "5min"
-            case .t3600:
-                title = "1hour"
-            case .t86400:
-                title = "1day"
-            }
+            let title = getTimeStr(timeType: time)
             self.buttonTime.setTitle(title, for: .normal)
         }
     }
@@ -258,7 +246,8 @@ extension ChartController {
         self.loadingView.startAnimating()
         self.loadingView.isHidden = false
         
-        ChartDatasFetcher.shared.getMarket(from: symbolBase, to: symbolQuote, timeType: TimeType.t15) { [weak self] (msg, result) in
+        let timeType = self.times[selectedTime]
+        ChartDatasFetcher.shared.getMarket(from: symbolBase, to: symbolQuote, timeType: timeType) { [weak self] (msg, result) in
             self?.loadingView.stopAnimating()
             if let msg = msg {
                 self?.showToast(text: msg)
@@ -285,6 +274,21 @@ extension ChartController {
 //                self?.topView.update(data: last)
 //            }
 //        }
+    }
+    
+    private func getTimeStr(timeType: TimeType) -> String {
+        switch timeType {
+        case .t15:
+            return "15s"
+        case .t60:
+            return "1min"
+        case .t300:
+            return "5min"
+        case .t3600:
+            return "1hour"
+        case .t86400:
+            return "1day"
+        }
     }
     
     /// 配置UI
@@ -366,11 +370,23 @@ extension ChartController {
     
     /// 选择周期
     @objc func handleShowTimeSelection() {
-        print("select time.")
-//        let view = self.selectionViewForTime
-//        view.clear()
-//        view.addItems(section: "Time", items: self.times, selectedIndex: self.selectedTime)
-//        view.show(from: self)
+        let alertController = UIAlertController(title: nil, message: "時間間隔", preferredStyle: .actionSheet)
+        
+        for i in 0..<times.count {
+            let time = times[i]
+            let title = getTimeStr(timeType: time)
+            
+            let style: UIAlertActionStyle = selectedTime == i ? UIAlertActionStyle.destructive : UIAlertActionStyle.default
+            let alertAction = UIAlertAction(title: title, style: style) { [weak self] _ in
+                self?.selectedTime = i
+                self?.fetchChartDatas()
+            }
+            alertController.addAction(alertAction)
+        }
+        
+        let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
+        alertController.addAction(cancelAction)
+        self.present(alertController, animated: true, completion: nil)
     }
     
     /// 选择指标

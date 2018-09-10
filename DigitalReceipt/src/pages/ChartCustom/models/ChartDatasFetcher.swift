@@ -104,12 +104,7 @@ class ChartDatasFetcher: NSObject {
         }
         
         let currentStr = getDateISOStr(from: Date())   // 获取当天时间.
-        guard let zero = zeroDay() else {
-            return completion("can not get zero time of today", result)
-        }
-        // 获取当天的0点时间.
-//        let zeroDayStr = getDateISOStr(from: zero)
-        let start = Date(timeIntervalSince1970: 0)
+        let start = Date(timeIntervalSince1970: 0)    // 开始时间.
         let startStr = getDateISOStr(from: start)
 
         let params: [String: Any] = ["from": from, "to": to, "time_type": timeType.rawValue, "start": startStr, "end": currentStr]
