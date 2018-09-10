@@ -31,11 +31,6 @@ class ChartController: ViewController {
     let assistIndex: [String] = [
         CHSeriesKey.volume, CHSeriesKey.sam, CHSeriesKey.kdj, CHSeriesKey.macd, CHSeriesKey.rsi, Hide
     ]
-    // 交易对.
-//    let exPairs: [String] = [
-//        "BTC-USD", "ETH-USD", "LTC-USD",
-//        "LTC-BTC", "ETH-BTC", "BCH-BTC",
-//        ]
     
     /// 已选周期
     var selectedTime: Int = 0 {
@@ -329,7 +324,7 @@ extension ChartController {
 //            make.height.equalTo(44)
 //        }
         self.toolbar.snp.makeConstraints { make in
-            make.bottom.equalTo(bottomView.snp.top).offset(12)
+            make.bottom.equalTo(bottomView.snp.top)
             make.left.right.equalToSuperview()
             make.height.equalTo(44)
         }
