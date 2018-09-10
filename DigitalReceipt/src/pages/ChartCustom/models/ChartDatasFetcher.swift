@@ -88,7 +88,7 @@ class ChartDatasFetcher: NSObject {
         }
     }
     
-    func getMarket(symbol: String, timeType: TimeType, completion: @escaping (String?, [KlineChartData]) -> Void) {
+    func getMarket(from: String, to: String, timeType: TimeType, completion: @escaping (String?, [KlineChartData]) -> Void) {
         var result = [KlineChartData]()
         guard let api = URLComponents(string: klineAPI) else {
             return completion("fail to get url", result)
@@ -96,21 +96,26 @@ class ChartDatasFetcher: NSObject {
         
         // dummy.
         let time = 3600
-        let currentStr = getDateISOStr(from: Date())
-        let lastDayStr = getDateISOStr(from: lastDay())
-        
+        let currentStr = getDateISOStr(from: Date())   // 获取当天时间.
         guard let zero = zeroDay() else {
             return completion("can not get zero time of today", result)
         }
+        // 获取当天的0点时间.
         let zeroDayStr = getDateISOStr(from: zero)
-        
-        print("current = \(currentStr)")
-        print("last day = \(lastDayStr)")
-        print("zero day = \(zeroDayStr)")
-        
-//        let params = ["from_id": from_id, "to_id": to_id, "time_type": time, "start": start, "end": end]
+        let params:[String: Any] = ["from": from, "to": to, "time_type": time, "start": currentStr, "end": zeroDayStr]
         let headers = ["Content-Type": "application/json"]
         
-//        Alamofire.request(api, method: .post, parameters: params, encoding: JSONEncoding.default, headers: headers)
+        Alamofire.request(api, method: .post, parameters: params, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+            if let error = response.error {
+                return completion(error.localizedDescription, result)
+            }
+            
+            guard let data = response.data else {
+                return completion("fail to get data", result)
+            }
+            
+            let json = JSON(data)
+            print(json)
+        }
     }
 }
