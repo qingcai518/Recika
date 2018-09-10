@@ -55,11 +55,18 @@ struct KlineChartData {
         if let timeISO = getDateISO(from: timeStr) {
             self.time = Int(timeISO.timeIntervalSince1970)
         }
-        self.highPrice = highQuote / highBase
-        self.lowPrice = lowQuote / lowBase
-        self.openPrice = openQuote / openBase
-        self.closePrice = closeQuote / closeBase
-        self.vol = volumeQuote / volumeBase
+        
+        self.highPrice = highBase / highQuote
+        self.lowPrice = lowBase / lowQuote
+        self.openPrice = openBase / openQuote
+        self.closePrice = closeBase / closeQuote
+        self.vol = volumeBase / volumeQuote
+        
+//        self.highPrice = highQuote / highBase
+//        self.lowPrice = lowQuote / lowBase
+//        self.openPrice = openQuote / openBase
+//        self.closePrice = closeQuote / closeBase
+//        self.vol = volumeQuote / volumeBase
         
         if openPrice > 0 {
             self.amplitude = self.closePrice - self.openPrice
