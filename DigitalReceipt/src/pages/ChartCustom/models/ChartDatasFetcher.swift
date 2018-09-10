@@ -35,7 +35,7 @@ class ChartDatasFetcher: NSObject {
     }()
     
     // add for test.
-    func getChartData(symbol: String, timeType: TimeType, size: Int, completion: @escaping (String?, [KlineChartData]) -> Void) {
+    func getChartData(symbol: String, timeType: TimeType, completion: @escaping (String?, [KlineChartData]) -> Void) {
         var marketDatas = [KlineChartData]()
         
         var granularity = 300
@@ -76,6 +76,8 @@ class ChartDatasFetcher: NSObject {
             let json = JSON(data)
             let chartDatas = json.arrayValue
             
+            print(chartDatas)
+            
             for data in chartDatas {
                 let marketData = KlineChartData(json: data.arrayValue)
                 marketDatas.append(marketData)
@@ -84,5 +86,31 @@ class ChartDatasFetcher: NSObject {
             marketDatas.reverse()
             return completion(nil, marketDatas)
         }
+    }
+    
+    func getMarket(symbol: String, timeType: TimeType, completion: @escaping (String?, [KlineChartData]) -> Void) {
+        var result = [KlineChartData]()
+        guard let api = URLComponents(string: klineAPI) else {
+            return completion("fail to get url", result)
+        }
+        
+        // dummy.
+        let time = 3600
+        let currentStr = getDateISOStr(from: Date())
+        let lastDayStr = getDateISOStr(from: lastDay())
+        
+        guard let zero = zeroDay() else {
+            return completion("can not get zero time of today", result)
+        }
+        let zeroDayStr = getDateISOStr(from: zero)
+        
+        print("current = \(currentStr)")
+        print("last day = \(lastDayStr)")
+        print("zero day = \(zeroDayStr)")
+        
+//        let params = ["from_id": from_id, "to_id": to_id, "time_type": time, "start": start, "end": end]
+        let headers = ["Content-Type": "application/json"]
+        
+//        Alamofire.request(api, method: .post, parameters: params, encoding: JSONEncoding.default, headers: headers)
     }
 }

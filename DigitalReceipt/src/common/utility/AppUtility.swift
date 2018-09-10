@@ -69,10 +69,30 @@ func touchID(completion: @escaping (String?) -> Void) {
     }
 }
 
+// 处理日期相关的函数.
 func getDateStr(from date: Date) -> String {
     let formatter = DateFormatter()
     formatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "yyyy-MM-dd HH:mm:ss", options: 0, locale: Locale(identifier: "ja_JP"))
     return formatter.string(from: date)
+}
+
+func getDateISOStr(from date: Date) -> String {
+    let formatter = DateFormatter()
+    formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZ"
+    formatter.locale = Locale(identifier: "ja_JP")
+    return formatter.string(from: date)
+}
+
+func lastDay() -> Date {
+    let now = Date()
+    return now.addingTimeInterval(-24 * 60 * 60)
+}
+
+func zeroDay() -> Date? {
+    let now = Date()
+    let calendar = Calendar(identifier: Calendar.Identifier.japanese)
+    let components = calendar.dateComponents([.year, .month, .day], from: now)
+    return calendar.date(from: components)
 }
 
 func getSymbol(tokenName: String) -> String {

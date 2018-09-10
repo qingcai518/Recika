@@ -243,7 +243,18 @@ extension ChartController {
         self.loadingView.startAnimating()
         self.loadingView.isHidden = false
         
-        ChartDatasFetcher.shared.getChartData(symbol: symbol, timeType: TimeType.time5m, size: 1000) { [weak self] (msg, chartsdata) in
+        // dummy. add for test.
+        ChartDatasFetcher.shared.getMarket(symbol: symbol, timeType: TimeType.time1h) { [weak self] (msg, result) in
+            if let msg = msg {
+                self?.showToast(text: msg)
+                return
+            }
+            
+            self?.klineDatas = result
+            print(result)
+        }
+        
+        ChartDatasFetcher.shared.getChartData(symbol: symbol, timeType: TimeType.time5m) { [weak self] (msg, chartsdata) in
             self?.loadingView.stopAnimating()
             if let msg = msg {
                 self?.showToast(text: msg)
@@ -279,10 +290,33 @@ extension ChartController {
     func setupUI() {
         self.view.backgroundColor = UIColor(hex: 0x232732)
         self.navigationItem.titleView = self.titleBtn
-        self.view.addSubview(self.topView)
-        self.view.addSubview(self.chartView)
-        self.view.addSubview(self.toolbar)
-        self.view.addSubview(self.loadingView)
+        
+        // add for test.
+        let scrollView = UIScrollView()
+        view.addSubview(scrollView)
+        scrollView.snp.makeConstraints { make in
+            make.edges.equalTo(view)
+        }
+        
+        let contentView = UIView()
+        scrollView.addSubview(contentView)
+        contentView.snp.makeConstraints { make in
+            make.top.bottom.equalTo(scrollView)
+            make.left.right.equalTo(view)
+        }
+        
+        contentView.addSubview(topView)
+        contentView.addSubview(chartView)
+        contentView.addSubview(toolbar)
+        contentView.addSubview(loadingView)
+        
+        
+        
+//        self.view.addSubview(self.topView)
+//        self.view.addSubview(self.chartView)
+//        self.view.addSubview(self.toolbar)
+//        self.view.addSubview(self.loadingView)
+        
         self.toolbar.addSubview(self.buttonIndex)
         self.toolbar.addSubview(self.buttonTime)
         self.toolbar.addSubview(self.buttonSetting)

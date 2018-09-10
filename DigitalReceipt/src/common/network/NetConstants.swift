@@ -43,3 +43,7 @@ let tickerAPI = cybexDomain + v1 + "ticker"
 
 // 获取24小时涨幅.
 let changeAPI = cybexDomain + v1 + "change"
+
+// 获取K线信息.
+let klineAPI = cybexDomain + v1 + "market"
+
