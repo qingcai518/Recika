@@ -102,8 +102,13 @@ class ChartDatasFetcher: NSObject {
         }
         // 获取当天的0点时间.
         let zeroDayStr = getDateISOStr(from: zero)
-        let params:[String: Any] = ["from": from, "to": to, "time_type": time, "start": currentStr, "end": zeroDayStr]
+//        let params:[String: Any] = ["from": from, "to": to, "time_type": time, "start": currentStr, "end": zeroDayStr]
+        let params:[String: Any] = ["from": "JADE.ETH", "to": "CYB", "time_type": time, "start": currentStr, "end": zeroDayStr]
         let headers = ["Content-Type": "application/json"]
+        
+        print(params)
+        print(currentStr)
+        print(zeroDayStr)
         
         Alamofire.request(api, method: .post, parameters: params, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
             if let error = response.error {
