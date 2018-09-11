@@ -71,10 +71,9 @@
 		4BCE98AE213E420200DFC4B5 /* PairData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCE98AD213E420200DFC4B5 /* PairData.swift */; };
 		4BCE98B0213E51D300DFC4B5 /* PriceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCE98AF213E51D300DFC4B5 /* PriceCell.swift */; };
 		4BCE98B2213E548F00DFC4B5 /* PriceData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCE98B1213E548F00DFC4B5 /* PriceData.swift */; };
-		4BCE98C7214757B200DFC4B5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BCE98C6214757B200DFC4B5 /* main.m */; };
-		4BCE98CA2147587200DFC4B5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BCE98C92147587200DFC4B5 /* AppDelegate.m */; };
 		4BCE98DA21476C2200DFC4B5 /* ReceiptAnalyzer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BCE989A213D03A500DFC4B5 /* ReceiptAnalyzer.framework */; };
 		4BCE98DB21476C2200DFC4B5 /* ReceiptAnalyzer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4BCE989A213D03A500DFC4B5 /* ReceiptAnalyzer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4BCE98EC21476FE800DFC4B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCE98EB21476FE800DFC4B5 /* AppDelegate.swift */; };
 		4BF0D9B021367EC6005D9AF1 /* ESPullToRefresh.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BF0D9AF21367EC6005D9AF1 /* ESPullToRefresh.framework */; };
 		4BF0D9B321368135005D9AF1 /* DetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0D9B221368135005D9AF1 /* DetailController.swift */; };
 		4BF0D9B521378042005D9AF1 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0D9B421378042005D9AF1 /* HomeViewModel.swift */; };
@@ -197,9 +196,7 @@
 		4BCE98AD213E420200DFC4B5 /* PairData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairData.swift; sourceTree = "<group>"; };
 		4BCE98AF213E51D300DFC4B5 /* PriceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceCell.swift; sourceTree = "<group>"; };
 		4BCE98B1213E548F00DFC4B5 /* PriceData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceData.swift; sourceTree = "<group>"; };
-		4BCE98C6214757B200DFC4B5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		4BCE98C82147587200DFC4B5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		4BCE98C92147587200DFC4B5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		4BCE98EB21476FE800DFC4B5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4BF0D9AF21367EC6005D9AF1 /* ESPullToRefresh.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ESPullToRefresh.framework; path = Carthage/Build/iOS/ESPullToRefresh.framework; sourceTree = "<group>"; };
 		4BF0D9B221368135005D9AF1 /* DetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailController.swift; sourceTree = "<group>"; };
 		4BF0D9B421378042005D9AF1 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -217,10 +214,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4BCE98DA21476C2200DFC4B5 /* ReceiptAnalyzer.framework in Frameworks */,
 				4BF0D9C82138D623005D9AF1 /* Charts.framework in Frameworks */,
 				4BCE985E21390D1000DFC4B5 /* CHKLineChartKit.framework in Frameworks */,
 				4BF0D9B021367EC6005D9AF1 /* ESPullToRefresh.framework in Frameworks */,
-				4BCE98DA21476C2200DFC4B5 /* ReceiptAnalyzer.framework in Frameworks */,
 				4B3EBCA721351DE2002C34C5 /* SwiftyJSON.framework in Frameworks */,
 				4B3EBC63212C01E5002C34C5 /* SnapKit.framework in Frameworks */,
 				4B3EBC58212BF8DC002C34C5 /* Alamofire.framework in Frameworks */,
@@ -325,7 +322,6 @@
 				4B171EA3212BE85200753EA8 /* LaunchScreen.storyboard */,
 				4B171EA6212BE85200753EA8 /* Info.plist */,
 				4B3EBC87212D2578002C34C5 /* Localizable.strings */,
-				4BCE98C6214757B200DFC4B5 /* main.m */,
 			);
 			name = assets;
 			sourceTree = "<group>";
@@ -335,8 +331,7 @@
 			children = (
 				4B3EBC55212BF2AA002C34C5 /* pages */,
 				4B3EBC54212BF2A2002C34C5 /* common */,
-				4BCE98C82147587200DFC4B5 /* AppDelegate.h */,
-				4BCE98C92147587200DFC4B5 /* AppDelegate.m */,
+				4BCE98EB21476FE800DFC4B5 /* AppDelegate.swift */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -798,7 +793,6 @@
 				4BCE987321391DD900DFC4B5 /* SeriesParam.swift in Sources */,
 				4BCE987C213921EA00DFC4B5 /* KChartCell.swift in Sources */,
 				4BCE989E213D065300DFC4B5 /* ScanController.swift in Sources */,
-				4BCE98C7214757B200DFC4B5 /* main.m in Sources */,
 				4BF0D9BE2138C995005D9AF1 /* ReceiptData.swift in Sources */,
 				4B3EBC8D212D2A91002C34C5 /* AppUtility.swift in Sources */,
 				4BCE987E2139220F00DFC4B5 /* SectionHeaderView.swift in Sources */,
@@ -827,10 +821,10 @@
 				4B3EBC61212BFC80002C34C5 /* AppConstants.swift in Sources */,
 				4B3EBC7E212D23B0002C34C5 /* AppImage.swift in Sources */,
 				4BCE986A213910DC00DFC4B5 /* UIColor.swift in Sources */,
-				4BCE98CA2147587200DFC4B5 /* AppDelegate.m in Sources */,
 				4B3EBCAA21352C84002C34C5 /* ViewController.swift in Sources */,
 				4BCE988621392BF100DFC4B5 /* ChartController.swift in Sources */,
 				4BF0D9BC2137F690005D9AF1 /* ReceiptViewModel.swift in Sources */,
+				4BCE98EC21476FE800DFC4B5 /* AppDelegate.swift in Sources */,
 				4BCE988C213CB91B00DFC4B5 /* SettingDetailViewController.swift in Sources */,
 				4BCE9892213CBA5F00DFC4B5 /* ChartDatasFetcher.swift in Sources */,
 				4B3EBC8B212D2631002C34C5 /* AppLocalize.swift in Sources */,
