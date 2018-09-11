@@ -427,14 +427,6 @@ extension ChartController {
         alertController.addAction(cancelAction)
         
         self.present(alertController, animated: true, completion: nil)
-        
-//        let view = self.selectionViewForIndex
-//        view.clear()
-//        view.addItems(section: "Chart Line", items: self.masterLine, selectedIndex: self.selectedMasterLine)
-//        view.addItems(section: "Master Index", items: self.masterIndex, selectedIndex: self.selectedMasterIndex)
-//        view.addItems(section: "Assist Index 1", items: self.assistIndex, selectedIndex: self.selectedAssistIndex)
-//        view.addItems(section: "Assist Index 2", items: self.assistIndex, selectedIndex: self.selectedAssistIndex2)
-//        view.show(from: self)
     }
     
     @objc func handleShowAssistIndex1() {
@@ -470,24 +462,6 @@ extension ChartController {
         let cancelAction = UIAlertAction(title: str_cancel, style: .cancel, handler: nil)
         alertController.addAction(cancelAction)
         self.present(alertController, animated: true, completion: nil)
-    }
-    
-    func didSelectChartIndex(indexPath: IndexPath) {
-        
-        switch indexPath.section {
-        case 0:
-            self.selectedMasterLine = indexPath.row
-        case 1:
-            self.selectedMasterIndex = indexPath.row
-        case 2:
-            self.selectedAssistIndex = indexPath.row
-        case 3:
-            self.selectedAssistIndex2 = indexPath.row
-        default: break
-        }
-        
-        //重新渲染
-        self.handleChartIndexChanged()
     }
     
     /// 处理指标的变更
