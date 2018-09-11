@@ -104,8 +104,13 @@ class ChartDatasFetcher: NSObject {
         }
         
         let currentStr = getDateISOStr(from: Date())   // 获取当天时间.
-        let start = Date(timeIntervalSince1970: 0)    // 开始时间.
-        let startStr = getDateISOStr(from: start)
+        guard let before = monthBefore(m: 3) else {
+            return completion("fail to get start time", result)
+        }
+        let startStr = getDateISOStr(from: before)
+        
+//        let start = Date(timeIntervalSince1970: 0)    // 开始时间.
+//        let startStr = getDateISOStr(from: start)
 
         let params: [String: Any] = ["from": from, "to": to, "time_type": timeType.rawValue, "start": startStr, "end": currentStr]
         let headers = ["Content-Type": "application/json"]

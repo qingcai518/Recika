@@ -103,6 +103,12 @@ func lastDay() -> Date {
     return now.addingTimeInterval(-24 * 60 * 60)
 }
 
+func monthBefore(m: Int) -> Date? {
+    let now = Date()
+    let fromDate = Calendar.current.date(byAdding: .month, value: -m, to: now)
+    return fromDate
+}
+
 func zeroDay() -> Date? {
     let now = Date()
     let calendar = Calendar(identifier: Calendar.Identifier.japanese)
