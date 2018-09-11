@@ -43,7 +43,7 @@ class ChartController: ViewController {
     
     /// 按钮的高度和宽度.
     let btnWidth = screenWidth / 5
-    let btnHeight: CGFloat = 30
+    let btnHeight: CGFloat = 44
     
     /// 已选主图线段
     var selectedMasterLine: Int = 0
@@ -148,15 +148,6 @@ class ChartController: ViewController {
         return view
     }()
     
-//    ///指标弹出窗
-//    lazy var selectionViewForIndex: SelectionPopView = {
-//        let view = SelectionPopView() {
-//            (vc, indexPath) in
-//            self.didSelectChartIndex(indexPath: indexPath)
-//        }
-//        return view
-//    }()
-    
     lazy var loadingView: UIActivityIndicatorView = {
         let v = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
         v.hidesWhenStopped = true
@@ -221,7 +212,7 @@ extension ChartController {
     }
     
     fileprivate func addBottomView() {
-        bottomView.backgroundColor = UIColor.white
+        bottomView.backgroundColor = UIColor(white: 1, alpha: 0.5)
         view.addSubview(bottomView)
         
         bottomView.snp.makeConstraints { make in
@@ -330,7 +321,7 @@ extension ChartController {
         self.toolbar.snp.makeConstraints { make in
             make.bottom.equalTo(bottomView.snp.top)
             make.left.right.equalToSuperview()
-            make.height.equalTo(44)
+            make.height.equalTo(btnHeight)
         }
         
         self.chartView.snp.makeConstraints { make in

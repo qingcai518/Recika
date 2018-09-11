@@ -171,7 +171,7 @@ class TickerTopView : UIView {
     }
     
     func update(data: KlineChartData) {
-        priceLbl.text = "\(data.closePrice)"
+        priceLbl.text = String(format: "%.4f", data.closePrice)
         riseLbl.text = "\(data.amplitudeRatio.toString(maxF: 2))%"
         marginLbl.text = "\(data.amplitude.toString(maxF: 4))"
         openLbl.text = "O" + " " + "\(data.openPrice.toString(maxF: 4))"
