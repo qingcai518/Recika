@@ -16,5 +16,6 @@
 "name" = "用户名";
 "password" = "密码";
 "associate" = "关联赛贝帐户";
+"cancel" = "取消";
 
 "msg1" = "您的专属电子发票ID";

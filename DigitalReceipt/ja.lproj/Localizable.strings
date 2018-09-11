@@ -16,5 +16,6 @@
 "name" = "ユーザー名";
 "password" = "パスワード";
 "associate" = "Cybexアカウントと関連する";
+"cancel" = "キャンセル";
 
 "msg1" = "あなた専用のスマートレシートID";

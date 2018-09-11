@@ -19,6 +19,7 @@ let str_name = NSLocalizedString("name", comment: "")
 let str_email = NSLocalizedString("email", comment: "")
 let str_password = NSLocalizedString("password", comment: "")
 let str_associate = NSLocalizedString("associate", comment: "")
+let str_cancel = NSLocalizedString("cancel", comment: "")
 
 // messages.
 let msg1 = NSLocalizedString("msg1", comment: "")

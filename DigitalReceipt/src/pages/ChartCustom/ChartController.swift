@@ -41,6 +41,10 @@ class ChartController: ViewController {
         }
     }
     
+    /// 按钮的高度和宽度.
+    let btnWidth = screenWidth / 5
+    let btnHeight: CGFloat = 30
+    
     /// 已选主图线段
     var selectedMasterLine: Int = 0
     
@@ -67,7 +71,6 @@ class ChartController: ViewController {
     
     /// 图表X轴的前一天，用于对比是否夸日
     var chartXAxisPrevDay: String = ""
-    
     
     /// 图表
     lazy var chartView: CHKLineChartView = {
@@ -96,6 +99,7 @@ class ChartController: ViewController {
         let btn = UIButton()
         btn.setTitle("Chart", for: .normal)
         btn.setTitleColor(UIColor(hex: 0xfe9d25), for: .normal)
+        btn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
         btn.addTarget(self, action: #selector(self.handleShowChart), for: .touchUpInside)
         return btn
     }()
@@ -105,25 +109,27 @@ class ChartController: ViewController {
         let btn = UIButton()
         btn.setTitle("指标", for: .normal)
         btn.setTitleColor(UIColor(hex: 0xfe9d25), for: .normal)
+        btn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
         btn.addTarget(self, action: #selector(self.handleShowIndex), for: .touchUpInside)
         return btn
     }()
     
-    /// 指标设置
-    lazy var buttonSetting: UIButton = {
+    /// 其他指标1
+    lazy var assistBtn1: UIButton = {
         let btn = UIButton()
-        btn.setTitle("Params", for: .normal)
+        btn.setTitle("指标1", for: .normal)
         btn.setTitleColor(UIColor(hex: 0xfe9d25), for: .normal)
-        btn.addTarget(self, action: #selector(self.gotoSettingList), for: .touchUpInside)
+        btn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
+        btn.addTarget(self, action: #selector(self.handleShowAssistIndex1), for: .touchUpInside)
         return btn
     }()
     
-    /// 风格设置
-    lazy var buttonStyle: UIButton = {
+    lazy var assistBtn2: UIButton = {
         let btn = UIButton()
-        btn.setTitle("Style", for: .normal)
+        btn.setTitle("指标2", for: .normal)
         btn.setTitleColor(UIColor(hex: 0xfe9d25), for: .normal)
-        btn.addTarget(self, action: #selector(self.gotoStyleSetting), for: .touchUpInside)
+        btn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
+        btn.addTarget(self, action: #selector(self.handleShowAssistIndex2), for: .touchUpInside)
         return btn
     }()
     
@@ -162,9 +168,6 @@ class ChartController: ViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // add bottom.
-        addBottomView()
-        
         // setup UI
         self.setupUI()
         
@@ -185,7 +188,6 @@ class ChartController: ViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -196,6 +198,27 @@ class ChartController: ViewController {
 
 // MARK: - 图表
 extension ChartController {
+    fileprivate func addSettingBtns() {
+        let styleBtn = UIButton()
+        styleBtn.setImage(style, for: .normal)
+        let item1 = UIBarButtonItem(customView: styleBtn)
+        styleBtn.rx.tap.bind { [weak self] in
+            let next = ChartStyleSettingViewController()
+            next.delegate = self
+            self?.navigationController?.pushViewController(next, animated: true)
+        }.disposed(by: disposeBag)
+        
+        let filterBtn = UIButton()
+        filterBtn.setImage(filter, for: .normal)
+        let item2 = UIBarButtonItem(customView: filterBtn)
+        filterBtn.rx.tap.bind { [weak self] in
+            let next = SettingListViewController()
+            next.delegate = self
+            self?.navigationController?.pushViewController(next, animated: true)
+        }
+        
+        self.navigationItem.setRightBarButtonItems([item1, item2], animated: true)
+    }
     
     fileprivate func addBottomView() {
         bottomView.backgroundColor = UIColor.white
@@ -278,6 +301,12 @@ extension ChartController {
         self.view.backgroundColor = UIColor(hex: 0x232732)
         self.navigationItem.titleView = self.titleBtn
         
+        // add setting buttons.
+        addSettingBtns()
+        
+        // add bottom.
+        addBottomView()
+        
         self.view.addSubview(self.topView)
         self.view.addSubview(self.chartView)
         self.view.addSubview(self.toolbar)
@@ -286,8 +315,6 @@ extension ChartController {
         self.toolbar.addSubview(self.buttonTime)
         self.toolbar.addSubview(chartBtn)
         self.toolbar.addSubview(indexBtn)
-        self.toolbar.addSubview(self.buttonSetting)
-        self.toolbar.addSubview(self.buttonStyle)
         
         self.loadingView.snp.makeConstraints { (make) in
             make.center.equalTo(self.chartView)
@@ -313,44 +340,30 @@ extension ChartController {
         }
         
         self.buttonTime.snp.makeConstraints { (make) in
-            make.left.equalToSuperview().inset(8)
-            make.width.equalTo(80)
-            make.height.equalTo(30)
+            make.left.equalToSuperview()
+            make.width.equalTo(btnWidth)
+            make.height.equalTo(btnHeight)
             make.centerY.equalToSuperview()
         }
         
         self.chartBtn.snp.makeConstraints { make in
             make.left.equalTo(buttonTime.snp.right)
-            make.width.equalTo(80)
-            make.height.equalTo(30)
+            make.width.equalTo(btnWidth)
+            make.height.equalTo(btnHeight)
             make.centerY.equalToSuperview()
         }
         
         self.indexBtn.snp.makeConstraints { make in
             make.left.equalTo(chartBtn.snp.right)
-            make.width.equalTo(80)
-            make.height.equalTo(30)
-            make.centerY.equalToSuperview()
-        }
-
-        self.buttonSetting.snp.makeConstraints { (make) in
-            make.right.equalToSuperview().inset(8)
-            make.width.equalTo(80)
-            make.height.equalTo(30)
-            make.centerY.equalToSuperview()
-        }
-        
-        self.buttonStyle.snp.makeConstraints { (make) in
-            make.right.equalTo(self.buttonSetting.snp.left)
-            make.width.equalTo(80)
-            make.height.equalTo(30)
+            make.width.equalTo(btnWidth)
+            make.height.equalTo(btnHeight)
             make.centerY.equalToSuperview()
         }
     }
     
     /// 选择周期
     @objc func handleShowTimeSelection() {
-        let alertController = UIAlertController(title: nil, message: "時間間隔", preferredStyle: .actionSheet)
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
         for i in 0..<times.count {
             let time = times[i]
@@ -364,23 +377,26 @@ extension ChartController {
             alertController.addAction(alertAction)
         }
         
-        let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: str_cancel, style: .cancel, handler: nil)
         alertController.addAction(cancelAction)
         self.present(alertController, animated: true, completion: nil)
     }
     
     /// 选择chart种类.
     @objc func handleShowChart() {
-        let alertController = UIAlertController(title: nil, message: "Chart", preferredStyle: .actionSheet)
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
-        for line in masterLine {
-            let action = UIAlertAction(title: line, style: .default) { [weak self] _ in
-                print("selected")
+        for i in 0..<masterLine.count {
+            let line = masterLine[i]
+            let style: UIAlertActionStyle = i == selectedMasterLine ? UIAlertActionStyle.destructive : UIAlertActionStyle.default
+            let action = UIAlertAction(title: line, style: style) { [weak self] _ in
+                self?.selectedMasterLine = i
+                self?.handleChartIndexChanged()
             }
             alertController.addAction(action)
         }
         
-        let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: str_cancel, style: .cancel, handler: nil)
         alertController.addAction(cancelAction)
         
         self.present(alertController, animated: true, completion: nil)
@@ -390,15 +406,17 @@ extension ChartController {
     @objc func handleShowIndex() {
         let alertController = UIAlertController(title: nil, message: "指标", preferredStyle: .actionSheet)
         
-        for index in masterIndex {
-            let action = UIAlertAction(title: index, style: .default) { [weak self] _ in
-                print("selected")
+        for i in 0..<masterIndex.count {
+            let index = masterIndex[i]
+            let style: UIAlertActionStyle = i == selectedMasterIndex ? UIAlertActionStyle.destructive : UIAlertActionStyle.default
+            let action = UIAlertAction(title: index, style: style) { [weak self] _ in
+                self?.selectedMasterIndex = i
+                self?.handleChartIndexChanged()
             }
-            
             alertController.addAction(action)
         }
         
-        let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: str_cancel, style: .cancel, handler: nil)
         alertController.addAction(cancelAction)
         
         self.present(alertController, animated: true, completion: nil)
@@ -410,6 +428,14 @@ extension ChartController {
 //        view.addItems(section: "Assist Index 1", items: self.assistIndex, selectedIndex: self.selectedAssistIndex)
 //        view.addItems(section: "Assist Index 2", items: self.assistIndex, selectedIndex: self.selectedAssistIndex2)
 //        view.show(from: self)
+    }
+    
+    @objc func handleShowAssistIndex1() {
+        
+    }
+    
+    @objc func handleShowAssistIndex2() {
+        
     }
     
     func didSelectChartIndex(indexPath: IndexPath) {
@@ -467,12 +493,6 @@ extension ChartController {
     func updateUserStyle() {
         self.chartView.resetStyle(style: self.loadUserStyle())
         self.handleChartIndexChanged()
-    }
-    
-    @objc func gotoStyleSetting() {
-        let vc = ChartStyleSettingViewController()
-        vc.delegate = self
-        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 

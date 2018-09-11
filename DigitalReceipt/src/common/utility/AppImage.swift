@@ -16,3 +16,6 @@ let tabIcon5 = UIImage(named: "setting")!
 
 let rightIcon = UIImage(named: "right")!
 let scanIcon = UIImage(named: "camera")!
+
+let style = UIImage(named: "style")!
+let filter = UIImage(named: "filter")!
