@@ -256,20 +256,6 @@ extension ChartController {
                 self?.topView.update(data: last)
             }
         }
-        
-//        ChartDatasFetcher.shared.getChartData(symbol: "ETH-BTC", timeType: TimeType.t300) { [weak self] (msg, chartsdata) in
-//            self?.loadingView.stopAnimating()
-//            if let msg = msg {
-//                self?.showToast(text: msg)
-//                return
-//            }
-//
-//            self?.klineDatas = chartsdata
-//            self?.chartView.reloadData()
-//            if let last = chartsdata.last {
-//                self?.topView.update(data: last)
-//            }
-//        }
     }
     
     private func getTimeStr(timeType: TimeType) -> String {
@@ -314,16 +300,6 @@ extension ChartController {
             make.height.equalTo(60)
         }
         
-//        self.chartView.snp.makeConstraints { make in
-//            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
-//            make.left.right.equalToSuperview()
-//        }
-//        self.toolbar.snp.makeConstraints { (make) in
-//            make.top.equalTo(self.chartView.snp.bottom)
-//            make.left.right.equalToSuperview()
-//            make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom)
-//            make.height.equalTo(44)
-//        }
         self.toolbar.snp.makeConstraints { make in
             make.bottom.equalTo(bottomView.snp.top)
             make.left.right.equalToSuperview()
@@ -396,15 +372,13 @@ extension ChartController {
     /// 选择chart种类.
     @objc func handleShowChart() {
         let alertController = UIAlertController(title: nil, message: "Chart", preferredStyle: .actionSheet)
-        let klineAction = UIAlertAction(title: "kline", style: .default) { [weak self] _ in
-            print("selected kline action.")
-        }
-        alertController.addAction(klineAction)
         
-        let lineAction = UIAlertAction(title: "Line", style: .default) { [weak self] _ in
-            print("selected line action.")
+        for line in masterLine {
+            let action = UIAlertAction(title: line, style: .default) { [weak self] _ in
+                print("selected")
+            }
+            alertController.addAction(action)
         }
-        alertController.addAction(lineAction)
         
         let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
         alertController.addAction(cancelAction)
@@ -415,14 +389,20 @@ extension ChartController {
     /// 选择指标
     @objc func handleShowIndex() {
         let alertController = UIAlertController(title: nil, message: "指标", preferredStyle: .actionSheet)
+        
+        for index in masterIndex {
+            let action = UIAlertAction(title: index, style: .default) { [weak self] _ in
+                print("selected")
+            }
+            
+            alertController.addAction(action)
+        }
+        
         let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
         alertController.addAction(cancelAction)
         
         self.present(alertController, animated: true, completion: nil)
         
-        
-        
-        print("select index")
 //        let view = self.selectionViewForIndex
 //        view.clear()
 //        view.addItems(section: "Chart Line", items: self.masterLine, selectedIndex: self.selectedMasterLine)
