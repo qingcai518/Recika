@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4B171E9B212BE85100753EA8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B171E9A212BE85100753EA8 /* AppDelegate.swift */; };
 		4B171E9D212BE85100753EA8 /* TopController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B171E9C212BE85100753EA8 /* TopController.swift */; };
 		4B171EA2212BE85200753EA8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B171EA1212BE85200753EA8 /* Assets.xcassets */; };
 		4B171EA5212BE85200753EA8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B171EA3212BE85200753EA8 /* LaunchScreen.storyboard */; };
@@ -73,6 +72,8 @@
 		4BCE98AE213E420200DFC4B5 /* PairData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCE98AD213E420200DFC4B5 /* PairData.swift */; };
 		4BCE98B0213E51D300DFC4B5 /* PriceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCE98AF213E51D300DFC4B5 /* PriceCell.swift */; };
 		4BCE98B2213E548F00DFC4B5 /* PriceData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCE98B1213E548F00DFC4B5 /* PriceData.swift */; };
+		4BCE98C7214757B200DFC4B5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BCE98C6214757B200DFC4B5 /* main.m */; };
+		4BCE98CA2147587200DFC4B5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BCE98C92147587200DFC4B5 /* AppDelegate.m */; };
 		4BF0D9B021367EC6005D9AF1 /* ESPullToRefresh.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BF0D9AF21367EC6005D9AF1 /* ESPullToRefresh.framework */; };
 		4BF0D9B321368135005D9AF1 /* DetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0D9B221368135005D9AF1 /* DetailController.swift */; };
 		4BF0D9B521378042005D9AF1 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0D9B421378042005D9AF1 /* HomeViewModel.swift */; };
@@ -118,7 +119,6 @@
 
 /* Begin PBXFileReference section */
 		4B171E97212BE85100753EA8 /* DigitalReceipt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DigitalReceipt.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		4B171E9A212BE85100753EA8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4B171E9C212BE85100753EA8 /* TopController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopController.swift; sourceTree = "<group>"; };
 		4B171EA1212BE85200753EA8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4B171EA4212BE85200753EA8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -195,6 +195,9 @@
 		4BCE98AD213E420200DFC4B5 /* PairData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairData.swift; sourceTree = "<group>"; };
 		4BCE98AF213E51D300DFC4B5 /* PriceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceCell.swift; sourceTree = "<group>"; };
 		4BCE98B1213E548F00DFC4B5 /* PriceData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceData.swift; sourceTree = "<group>"; };
+		4BCE98C6214757B200DFC4B5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4BCE98C82147587200DFC4B5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		4BCE98C92147587200DFC4B5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		4BF0D9AF21367EC6005D9AF1 /* ESPullToRefresh.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ESPullToRefresh.framework; path = Carthage/Build/iOS/ESPullToRefresh.framework; sourceTree = "<group>"; };
 		4BF0D9B221368135005D9AF1 /* DetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailController.swift; sourceTree = "<group>"; };
 		4BF0D9B421378042005D9AF1 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -320,6 +323,7 @@
 				4B171EA3212BE85200753EA8 /* LaunchScreen.storyboard */,
 				4B171EA6212BE85200753EA8 /* Info.plist */,
 				4B3EBC87212D2578002C34C5 /* Localizable.strings */,
+				4BCE98C6214757B200DFC4B5 /* main.m */,
 			);
 			name = assets;
 			sourceTree = "<group>";
@@ -329,7 +333,8 @@
 			children = (
 				4B3EBC55212BF2AA002C34C5 /* pages */,
 				4B3EBC54212BF2A2002C34C5 /* common */,
-				4B171E9A212BE85100753EA8 /* AppDelegate.swift */,
+				4BCE98C82147587200DFC4B5 /* AppDelegate.h */,
+				4BCE98C92147587200DFC4B5 /* AppDelegate.m */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -791,6 +796,7 @@
 				4BCE987321391DD900DFC4B5 /* SeriesParam.swift in Sources */,
 				4BCE987C213921EA00DFC4B5 /* KChartCell.swift in Sources */,
 				4BCE989E213D065300DFC4B5 /* ScanController.swift in Sources */,
+				4BCE98C7214757B200DFC4B5 /* main.m in Sources */,
 				4BF0D9BE2138C995005D9AF1 /* ReceiptData.swift in Sources */,
 				4B3EBC8D212D2A91002C34C5 /* AppUtility.swift in Sources */,
 				4BCE987E2139220F00DFC4B5 /* SectionHeaderView.swift in Sources */,
@@ -819,6 +825,7 @@
 				4B3EBC61212BFC80002C34C5 /* AppConstants.swift in Sources */,
 				4B3EBC7E212D23B0002C34C5 /* AppImage.swift in Sources */,
 				4BCE986A213910DC00DFC4B5 /* UIColor.swift in Sources */,
+				4BCE98CA2147587200DFC4B5 /* AppDelegate.m in Sources */,
 				4B3EBCAA21352C84002C34C5 /* ViewController.swift in Sources */,
 				4BCE988621392BF100DFC4B5 /* ChartController.swift in Sources */,
 				4BF0D9BC2137F690005D9AF1 /* ReceiptViewModel.swift in Sources */,
@@ -826,7 +833,6 @@
 				4BCE9892213CBA5F00DFC4B5 /* ChartDatasFetcher.swift in Sources */,
 				4B3EBC8B212D2631002C34C5 /* AppLocalize.swift in Sources */,
 				4BCE98A7213D0C3000DFC4B5 /* PairTabCell.swift in Sources */,
-				4B171E9B212BE85100753EA8 /* AppDelegate.swift in Sources */,
 				4BCE988A213CB8E800DFC4B5 /* SettingListViewController.swift in Sources */,
 				4B3EBC9D212E4B83002C34C5 /* LoginController.swift in Sources */,
 				4B3EBC79212D2187002C34C5 /* GiftController.swift in Sources */,
@@ -1014,7 +1020,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 85LK9Y74SK;
+				DEVELOPMENT_TEAM = JX57477345;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -1040,7 +1046,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 85LK9Y74SK;
+				DEVELOPMENT_TEAM = JX57477345;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
