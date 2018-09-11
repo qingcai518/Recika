@@ -117,7 +117,7 @@ class ChartController: ViewController {
     /// 其他指标1
     lazy var assistBtn1: UIButton = {
         let btn = UIButton()
-        btn.setTitle("指标1", for: .normal)
+        btn.setTitle("辅助图1", for: .normal)
         btn.setTitleColor(UIColor(hex: 0xfe9d25), for: .normal)
         btn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
         btn.addTarget(self, action: #selector(self.handleShowAssistIndex1), for: .touchUpInside)
@@ -126,7 +126,7 @@ class ChartController: ViewController {
     
     lazy var assistBtn2: UIButton = {
         let btn = UIButton()
-        btn.setTitle("指标2", for: .normal)
+        btn.setTitle("辅助图2", for: .normal)
         btn.setTitleColor(UIColor(hex: 0xfe9d25), for: .normal)
         btn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
         btn.addTarget(self, action: #selector(self.handleShowAssistIndex2), for: .touchUpInside)
@@ -206,7 +206,7 @@ extension ChartController {
             let next = SettingListViewController()
             next.delegate = self
             self?.navigationController?.pushViewController(next, animated: true)
-        }
+        }.disposed(by: disposeBag)
         
         self.navigationItem.setRightBarButtonItems([item1, item2], animated: true)
     }
@@ -306,6 +306,8 @@ extension ChartController {
         self.toolbar.addSubview(self.buttonTime)
         self.toolbar.addSubview(chartBtn)
         self.toolbar.addSubview(indexBtn)
+        self.toolbar.addSubview(assistBtn1)
+        self.toolbar.addSubview(assistBtn2)
         
         self.loadingView.snp.makeConstraints { (make) in
             make.center.equalTo(self.chartView)
@@ -346,6 +348,20 @@ extension ChartController {
         
         self.indexBtn.snp.makeConstraints { make in
             make.left.equalTo(chartBtn.snp.right)
+            make.width.equalTo(btnWidth)
+            make.height.equalTo(btnHeight)
+            make.centerY.equalToSuperview()
+        }
+        
+        self.assistBtn1.snp.makeConstraints { make in
+            make.left.equalTo(indexBtn.snp.right)
+            make.width.equalTo(btnWidth)
+            make.height.equalTo(btnHeight)
+            make.centerY.equalToSuperview()
+        }
+        
+        self.assistBtn2.snp.makeConstraints { make in
+            make.left.equalTo(assistBtn1.snp.right)
             make.width.equalTo(btnWidth)
             make.height.equalTo(btnHeight)
             make.centerY.equalToSuperview()
@@ -422,11 +438,38 @@ extension ChartController {
     }
     
     @objc func handleShowAssistIndex1() {
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        for i in 0..<self.assistIndex.count {
+            let index = assistIndex[i]
+            let style: UIAlertActionStyle = i == selectedAssistIndex ? UIAlertActionStyle.destructive : UIAlertActionStyle.default
+            let action = UIAlertAction(title: index, style: style) { [weak self] _ in
+                self?.selectedAssistIndex = i
+                self?.handleChartIndexChanged()
+            }
+            alertController.addAction(action)
+        }
         
+        let cancelAction = UIAlertAction(title: str_cancel, style: .cancel, handler: nil)
+        alertController.addAction(cancelAction)
+        
+        self.present(alertController, animated: true, completion: nil)
     }
     
     @objc func handleShowAssistIndex2() {
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        for i in 0..<assistIndex.count {
+            let index = assistIndex[i]
+            let style: UIAlertActionStyle = i == selectedAssistIndex2 ? UIAlertActionStyle.destructive: UIAlertActionStyle.default
+            let action = UIAlertAction(title: index, style: style) { [weak self] _ in
+                self?.selectedAssistIndex2 = i
+                self?.handleChartIndexChanged()
+            }
+            alertController.addAction(action)
+        }
         
+        let cancelAction = UIAlertAction(title: str_cancel, style: .cancel, handler: nil)
+        alertController.addAction(cancelAction)
+        self.present(alertController, animated: true, completion: nil)
     }
     
     func didSelectChartIndex(indexPath: IndexPath) {

@@ -64,7 +64,6 @@
 		4BCE988E213CB95A00DFC4B5 /* ChartStyleSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCE988D213CB95A00DFC4B5 /* ChartStyleSettingViewController.swift */; };
 		4BCE9892213CBA5F00DFC4B5 /* ChartDatasFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCE9891213CBA5F00DFC4B5 /* ChartDatasFetcher.swift */; };
 		4BCE9895213CC7BF00DFC4B5 /* PairController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCE9894213CC7BF00DFC4B5 /* PairController.swift */; };
-		4BCE989B213D03A600DFC4B5 /* ReceiptAnalyzer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BCE989A213D03A500DFC4B5 /* ReceiptAnalyzer.framework */; };
 		4BCE989E213D065300DFC4B5 /* ScanController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCE989D213D065300DFC4B5 /* ScanController.swift */; };
 		4BCE98A7213D0C3000DFC4B5 /* PairTabCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCE98A6213D0C3000DFC4B5 /* PairTabCell.swift */; };
 		4BCE98AA213D116100DFC4B5 /* PairViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCE98A9213D116100DFC4B5 /* PairViewModel.swift */; };
@@ -74,6 +73,8 @@
 		4BCE98B2213E548F00DFC4B5 /* PriceData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCE98B1213E548F00DFC4B5 /* PriceData.swift */; };
 		4BCE98C7214757B200DFC4B5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BCE98C6214757B200DFC4B5 /* main.m */; };
 		4BCE98CA2147587200DFC4B5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BCE98C92147587200DFC4B5 /* AppDelegate.m */; };
+		4BCE98DA21476C2200DFC4B5 /* ReceiptAnalyzer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BCE989A213D03A500DFC4B5 /* ReceiptAnalyzer.framework */; };
+		4BCE98DB21476C2200DFC4B5 /* ReceiptAnalyzer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4BCE989A213D03A500DFC4B5 /* ReceiptAnalyzer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4BF0D9B021367EC6005D9AF1 /* ESPullToRefresh.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BF0D9AF21367EC6005D9AF1 /* ESPullToRefresh.framework */; };
 		4BF0D9B321368135005D9AF1 /* DetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0D9B221368135005D9AF1 /* DetailController.swift */; };
 		4BF0D9B521378042005D9AF1 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0D9B421378042005D9AF1 /* HomeViewModel.swift */; };
@@ -111,6 +112,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				4BCE985F21390D1000DFC4B5 /* CHKLineChartKit.framework in Embed Frameworks */,
+				4BCE98DB21476C2200DFC4B5 /* ReceiptAnalyzer.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -218,11 +220,11 @@
 				4BF0D9C82138D623005D9AF1 /* Charts.framework in Frameworks */,
 				4BCE985E21390D1000DFC4B5 /* CHKLineChartKit.framework in Frameworks */,
 				4BF0D9B021367EC6005D9AF1 /* ESPullToRefresh.framework in Frameworks */,
+				4BCE98DA21476C2200DFC4B5 /* ReceiptAnalyzer.framework in Frameworks */,
 				4B3EBCA721351DE2002C34C5 /* SwiftyJSON.framework in Frameworks */,
 				4B3EBC63212C01E5002C34C5 /* SnapKit.framework in Frameworks */,
 				4B3EBC58212BF8DC002C34C5 /* Alamofire.framework in Frameworks */,
 				4B3EBC59212BF8DC002C34C5 /* CollectionKit.framework in Frameworks */,
-				4BCE989B213D03A600DFC4B5 /* ReceiptAnalyzer.framework in Frameworks */,
 				4B3EBC5A212BF8DC002C34C5 /* Kingfisher.framework in Frameworks */,
 				4B3EBC5B212BF8DC002C34C5 /* RxCocoa.framework in Frameworks */,
 				4B3EBC5C212BF8DC002C34C5 /* RxSwift.framework in Frameworks */,
@@ -1031,6 +1033,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = org.kaka.DigitalReceipt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "DigitalReceipt/DigitalReceipt-Bridging-Header.h";
