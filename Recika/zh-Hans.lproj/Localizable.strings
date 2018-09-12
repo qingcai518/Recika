@@ -1,0 +1,21 @@
+/* 
+  Localizable.strings
+  Recika
+
+  Created by liqc on 2018/08/22.
+  Copyright © 2018年 liqc. All rights reserved.
+*/
+
+"home" = "主页";
+"receipt" = "我的发票";
+"chart" = "K线";
+"gift" = "礼物";
+"setting" = "设置";
+"login" = "登陆";
+"signup" = "注册";
+"name" = "用户名";
+"password" = "密码";
+"associate" = "关联赛贝帐户";
+"cancel" = "取消";
+
+"msg1" = "您的专属电子发票ID";

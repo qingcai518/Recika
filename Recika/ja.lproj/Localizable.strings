@@ -1,0 +1,21 @@
+/* 
+  Localizable.strings
+  Recika
+
+  Created by liqc on 2018/08/22.
+  Copyright © 2018年 liqc. All rights reserved.
+*/
+
+"home" = "ホーム";
+"receipt" = "レシート";
+"chart" = "チャート";
+"gift" = "おとく";
+"setting" = "その他";
+"login" = "ログイン";
+"signup" = "登録";
+"name" = "ユーザー名";
+"password" = "パスワード";
+"associate" = "Cybexアカウントと関連する";
+"cancel" = "キャンセル";
+
+"msg1" = "あなた専用のスマートレシートID";

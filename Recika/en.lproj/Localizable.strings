@@ -1,0 +1,21 @@
+/* 
+  Localizable.strings
+  Recika
+
+  Created by liqc on 2018/08/22.
+  Copyright © 2018年 liqc. All rights reserved.
+*/
+
+"home" = "home";
+"receipt" = "receipt";
+"chart" = "chart";
+"gift" = "gift";
+"setting" = "setting";
+"login" = "Login";
+"signup" = "Sign up";
+"name" = "User name";
+"password" = "Password";
+"associate" = "Associate to Cybex acount";
+"cancel" = "Cancel";
+
+"msg1" = "your own smart receipt id";
