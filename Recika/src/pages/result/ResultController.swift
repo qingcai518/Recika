@@ -23,7 +23,17 @@ class ResultController: ViewController {
     }
     
     fileprivate func setupSubViews() {
-        view.addSubView(topView)
-        view.addSubView(tableView)
+        view.addSUbView(topView)
+        view.addSUbView(tableView)
+        tableView.delegeate = self
+        tableView.dataSOurce = self
     }
+}
+
+extension ResultController : UITableViewDelegate {
+    
+}
+
+extension ResultCoantroller: UITableViewDataSOurce {
+    
 }
