@@ -88,9 +88,10 @@ class ResultController: ViewController {
         }
         
         /// tableView
-        tableView.delegage = self
+        tableView.delegate = self
         tableView.dataSource = self
-        tableView.footer = UIView()
+        tableView.tableFooterView = UIView()
+        tableView.rowHeight = UITableViewAutomaticDimension
         tableView.snp.makeConstraints { make in
             make.top.equalTo(topView.snp.bottom)
             make.left.right.equalToSuperview()
@@ -116,6 +117,7 @@ extension ResultController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
+        cell.contentView.backgroundColor = UIColor.yellow
         return cell
     }
 }
