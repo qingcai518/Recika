@@ -251,8 +251,11 @@ extension ScanController: ReceiptDelegate {
     }
     
     func success(_ receiptInfo: UnsafeMutablePointer<AnalyzerReceiptInfo>!) {
-        let next = ResultController()
-        next.info = receiptInfo.pointee
+//        let next = ResultController()
+//        next.info = receiptInfo.pointee
+//        self.present(next, animated: true, completion: nil)
+        let next = UIViewController()
+        next.view.backgroundColor = UIColor.yellow
         self.present(next, animated: true, completion: nil)
     }
     
