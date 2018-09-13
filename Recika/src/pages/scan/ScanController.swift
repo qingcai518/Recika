@@ -251,19 +251,8 @@ extension ScanController: ReceiptDelegate {
     }
     
     func success(_ receiptInfo: UnsafeMutablePointer<AnalyzerReceiptInfo>!) {
-        let info = receiptInfo.pointee
-        // to next page.
-        print(info)
-        analyzing = false
-        let next = TopController()
-        next.info = info
-        print(info)
-        analyzing = false
-        
-        print(info)
-        analyzing = false
         let next = ResultController()
-        next.info = info
+        next.info = receiptInfo.pointee
         self.present(next, animated: true, completion: nil)
     }
     
