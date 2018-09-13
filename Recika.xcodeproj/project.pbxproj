@@ -11,8 +11,10 @@
 		4B171EA2212BE85200753EA8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B171EA1212BE85200753EA8 /* Assets.xcassets */; };
 		4B171EA5212BE85200753EA8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B171EA3212BE85200753EA8 /* LaunchScreen.storyboard */; };
 		4B171EB0212BE85200753EA8 /* RecikaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B171EAF212BE85200753EA8 /* RecikaTests.swift */; };
+		4B1DCC8D214A4E350048820C /* ReceiptAnalyzer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B1DCC8C214A4E350048820C /* ReceiptAnalyzer.framework */; };
+		4B1DCC8F214A4EB60048820C /* CHKLineChartKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B1DCC8E214A4EB60048820C /* CHKLineChartKit.framework */; };
+		4B1DCC90214A4EB60048820C /* CHKLineChartKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4B1DCC8E214A4EB60048820C /* CHKLineChartKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4B3EBC58212BF8DC002C34C5 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B3EBC48212BF254002C34C5 /* Alamofire.framework */; };
-		4B3EBC59212BF8DC002C34C5 /* CollectionKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B3EBC46212BF254002C34C5 /* CollectionKit.framework */; };
 		4B3EBC5A212BF8DC002C34C5 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B3EBC43212BF254002C34C5 /* Kingfisher.framework */; };
 		4B3EBC5B212BF8DC002C34C5 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B3EBC47212BF254002C34C5 /* RxCocoa.framework */; };
 		4B3EBC5C212BF8DC002C34C5 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B3EBC42212BF254002C34C5 /* RxSwift.framework */; };
@@ -79,7 +81,6 @@
 		4BF0D9BE2138C995005D9AF1 /* ReceiptData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0D9BD2138C995005D9AF1 /* ReceiptData.swift */; };
 		4BF0D9C02138C9EC005D9AF1 /* ItemData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0D9BF2138C9EC005D9AF1 /* ItemData.swift */; };
 		4BF0D9C32138CDE1005D9AF1 /* ReceiptCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0D9C22138CDE1005D9AF1 /* ReceiptCell.swift */; };
-		4BF0D9C82138D623005D9AF1 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BF0D9C72138D622005D9AF1 /* Charts.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +100,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		4B1DCC91214A4EB60048820C /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				4B1DCC90214A4EB60048820C /* CHKLineChartKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		4B171E97212BE85100753EA8 /* Recika.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Recika.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B171E9C212BE85100753EA8 /* TopController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopController.swift; sourceTree = "<group>"; };
@@ -108,12 +123,13 @@
 		4B171EAB212BE85200753EA8 /* RecikaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RecikaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B171EAF212BE85200753EA8 /* RecikaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecikaTests.swift; sourceTree = "<group>"; };
 		4B171EB1212BE85200753EA8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4B1DCC8C214A4E350048820C /* ReceiptAnalyzer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReceiptAnalyzer.framework; path = Recika/ReceiptAnalyzer.framework; sourceTree = "<group>"; };
+		4B1DCC8E214A4EB60048820C /* CHKLineChartKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CHKLineChartKit.framework; path = Recika/CHKLineChartKit.framework; sourceTree = "<group>"; };
 		4B3EBC41212BF254002C34C5 /* RxTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxTest.framework; path = Carthage/Build/iOS/RxTest.framework; sourceTree = "<group>"; };
 		4B3EBC42212BF254002C34C5 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 		4B3EBC43212BF254002C34C5 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
 		4B3EBC44212BF254002C34C5 /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/iOS/RxBlocking.framework; sourceTree = "<group>"; };
 		4B3EBC45212BF254002C34C5 /* SVProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SVProgressHUD.framework; path = Carthage/Build/iOS/SVProgressHUD.framework; sourceTree = "<group>"; };
-		4B3EBC46212BF254002C34C5 /* CollectionKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CollectionKit.framework; path = Carthage/Build/iOS/CollectionKit.framework; sourceTree = "<group>"; };
 		4B3EBC47212BF254002C34C5 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 		4B3EBC48212BF254002C34C5 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		4B3EBC60212BFC80002C34C5 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
@@ -146,8 +162,6 @@
 		4B3EBCB121363828002C34C5 /* GiftViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftViewModel.swift; sourceTree = "<group>"; };
 		4B3EBCB321363854002C34C5 /* GiftData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftData.swift; sourceTree = "<group>"; };
 		4B3EBCB621366992002C34C5 /* GiftCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftCell.swift; sourceTree = "<group>"; };
-		4B5DD2DE2147B42000D5DF3B /* CHKLineChartKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CHKLineChartKit.framework; path = Recika/CHKLineChartKit.framework; sourceTree = "<group>"; };
-		4B5DD2DF2147B42000D5DF3B /* ReceiptAnalyzer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReceiptAnalyzer.framework; path = Recika/ReceiptAnalyzer.framework; sourceTree = "<group>"; };
 		4BB1329B2147AA080083E2E9 /* RecikaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RecikaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BB1329D2147AA080083E2E9 /* RecikaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecikaUITests.swift; sourceTree = "<group>"; };
 		4BB1329F2147AA090083E2E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -187,7 +201,6 @@
 		4BF0D9BD2138C995005D9AF1 /* ReceiptData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptData.swift; sourceTree = "<group>"; };
 		4BF0D9BF2138C9EC005D9AF1 /* ItemData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemData.swift; sourceTree = "<group>"; };
 		4BF0D9C22138CDE1005D9AF1 /* ReceiptCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptCell.swift; sourceTree = "<group>"; };
-		4BF0D9C72138D622005D9AF1 /* Charts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Charts.framework; path = Carthage/Build/iOS/Charts.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,14 +208,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4BF0D9C82138D623005D9AF1 /* Charts.framework in Frameworks */,
+				4B1DCC8D214A4E350048820C /* ReceiptAnalyzer.framework in Frameworks */,
 				4BF0D9B021367EC6005D9AF1 /* ESPullToRefresh.framework in Frameworks */,
 				4B3EBCA721351DE2002C34C5 /* SwiftyJSON.framework in Frameworks */,
 				4B3EBC63212C01E5002C34C5 /* SnapKit.framework in Frameworks */,
 				4B3EBC58212BF8DC002C34C5 /* Alamofire.framework in Frameworks */,
-				4B3EBC59212BF8DC002C34C5 /* CollectionKit.framework in Frameworks */,
 				4B3EBC5A212BF8DC002C34C5 /* Kingfisher.framework in Frameworks */,
 				4B3EBC5B212BF8DC002C34C5 /* RxCocoa.framework in Frameworks */,
+				4B1DCC8F214A4EB60048820C /* CHKLineChartKit.framework in Frameworks */,
 				4B3EBC5C212BF8DC002C34C5 /* RxSwift.framework in Frameworks */,
 				4B3EBC5D212BF8DC002C34C5 /* SVProgressHUD.framework in Frameworks */,
 			);
@@ -228,8 +241,7 @@
 		4B171E8E212BE85100753EA8 = {
 			isa = PBXGroup;
 			children = (
-				4B5DD2DE2147B42000D5DF3B /* CHKLineChartKit.framework */,
-				4B5DD2DF2147B42000D5DF3B /* ReceiptAnalyzer.framework */,
+				4B1DCC8E214A4EB60048820C /* CHKLineChartKit.framework */,
 				4B171E99212BE85100753EA8 /* Recika */,
 				4B171EAE212BE85200753EA8 /* RecikaTest */,
 				4BB1329C2147AA080083E2E9 /* RecikaUITests */,
@@ -269,12 +281,11 @@
 		4B3EBC40212BF253002C34C5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				4BF0D9C72138D622005D9AF1 /* Charts.framework */,
+				4B1DCC8C214A4E350048820C /* ReceiptAnalyzer.framework */,
 				4BF0D9AF21367EC6005D9AF1 /* ESPullToRefresh.framework */,
 				4B3EBCA621351DE2002C34C5 /* SwiftyJSON.framework */,
 				4B3EBC62212C01E5002C34C5 /* SnapKit.framework */,
 				4B3EBC48212BF254002C34C5 /* Alamofire.framework */,
-				4B3EBC46212BF254002C34C5 /* CollectionKit.framework */,
 				4B3EBC43212BF254002C34C5 /* Kingfisher.framework */,
 				4B3EBC44212BF254002C34C5 /* RxBlocking.framework */,
 				4B3EBC47212BF254002C34C5 /* RxCocoa.framework */,
@@ -598,6 +609,7 @@
 				4B171E94212BE85100753EA8 /* Frameworks */,
 				4B171E95212BE85100753EA8 /* Resources */,
 				4B3EBC5F212BF8F4002C34C5 /* ShellScript */,
+				4B1DCC91214A4EB60048820C /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -727,13 +739,11 @@
 				"$(SRCROOT)/Carthage/Build/iOS/SVProgressHUD.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Kingfisher.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/CollectionKit.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SnapKit.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/ESPullToRefresh.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Charts.framework",
 			);
 			outputPaths = (
 			);
