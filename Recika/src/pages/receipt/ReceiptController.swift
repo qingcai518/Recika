@@ -32,9 +32,11 @@ class ReceiptController: ViewController {
         scanBtn.setImage(scanIcon, for: .normal)
         let barItem = UIBarButtonItem(customView: scanBtn)
         navigationItem.rightBarButtonItems = [barItem]
-        scanBtn.rx.tap.bind {
-            print("11111")
-        }
+        
+        scanBtn.rx.tap.bind { [weak self] in
+            let next = ScanController()
+            self?.present(next, animated: true, completion: nil)
+        }.disposed(by: disposeBag)
         
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
