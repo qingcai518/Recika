@@ -9,7 +9,6 @@
 import UIKit
 
 class ResultController: ViewController {
-    let tableView = UITableView()
     let topView = UIView()
     let dateLbl = UILabel()
     let telLbl = UILabel()
@@ -31,7 +30,7 @@ class ResultController: ViewController {
     
     fileprivate func setupSubViews() {
         view.addSubview(topView)
-        view.addSubview(tableView)
+//        view.addSubview(tableView)
         
         topView.addSubview(dateLbl)
         topView.addSubview(telLbl)
@@ -87,37 +86,37 @@ class ResultController: ViewController {
             adjustPriceLbl.text = "¥\(info.priceAdjustment)"
         }
         
-        /// tableView
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.tableFooterView = UIView()
-        tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.snp.makeConstraints { make in
-            make.top.equalTo(topView.snp.bottom)
-            make.left.right.equalToSuperview()
-            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
-        }
+//        /// tableView
+//        tableView.delegate = self
+//        tableView.dataSource = self
+//        tableView.tableFooterView = UIView()
+//        tableView.rowHeight = UITableViewAutomaticDimension
+//        tableView.snp.makeConstraints { make in
+//            make.top.equalTo(topView.snp.bottom)
+//            make.left.right.equalToSuperview()
+//            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
+//        }
     }
 }
 
-extension ResultController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-    }
-}
-
-extension ResultController: UITableViewDataSource {
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        cell.contentView.backgroundColor = UIColor.yellow
-        return cell
-    }
-}
+//extension ResultController: UITableViewDelegate {
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        tableView.deselectRow(at: indexPath, animated: true)
+//    }
+//}
+//
+//extension ResultController: UITableViewDataSource {
+//    func numberOfSections(in tableView: UITableView) -> Int {
+//        return 1
+//    }
+//
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return 3
+//    }
+//
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        let cell = UITableViewCell()
+//        cell.contentView.backgroundColor = UIColor.yellow
+//        return cell
+//    }
+//}
