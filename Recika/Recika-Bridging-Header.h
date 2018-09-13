@@ -3,3 +3,4 @@
 //
 
 #import "ReceiptAnalyzer/ReceiptAnalyzer.h"
+#import "Receipt.h"
