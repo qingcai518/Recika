@@ -37,6 +37,22 @@ class ResultController: ViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
+        
+        topView.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+            make.left.right.equalToSuperview()
+            make.height.equalTo(120)
+        }
+        
+        dateLbl.textColor = UIColor.orange
+        dateLbl.font = UIFont.systemFont(ofSize: 16)
+        dateLbl.textAlignment = .center
+        dateLbl.numberOfLines = 1
+        dateLbl.snp.makeConstraints { make in
+            make.top.equalToSuperview().inset(12)
+            make.left.right.equalToSuperview()
+        }
+        
     }
 }
 

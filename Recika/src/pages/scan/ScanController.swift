@@ -255,6 +255,16 @@ extension ScanController: ReceiptDelegate {
         // to next page.
         print(info)
         analyzing = false
+        let next = TopController()
+        next.info = info
+        print(info)
+        analyzing = false
+        
+        print(info)
+        analyzing = false
+        let next = ResultController()
+        next.info = info
+        self.present(next, animated: true, completion: nil)
     }
     
     func fail(_ msg: String!) {
