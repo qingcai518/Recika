@@ -47,6 +47,8 @@
 		4B3EBCB221363828002C34C5 /* GiftViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3EBCB121363828002C34C5 /* GiftViewModel.swift */; };
 		4B3EBCB421363854002C34C5 /* GiftData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3EBCB321363854002C34C5 /* GiftData.swift */; };
 		4B3EBCB721366992002C34C5 /* GiftCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3EBCB621366992002C34C5 /* GiftCell.swift */; };
+		4B7FF621214A536600794678 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B7FF620214A536600794678 /* SystemConfiguration.framework */; };
+		4B7FF623214A53A800794678 /* ResultController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7FF622214A53A800794678 /* ResultController.swift */; };
 		4BB1329E2147AA080083E2E9 /* RecikaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB1329D2147AA080083E2E9 /* RecikaUITests.swift */; };
 		4BCE985D2138FDD200DFC4B5 /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCE985C2138FDD200DFC4B5 /* TestData.swift */; };
 		4BCE986A213910DC00DFC4B5 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCE9869213910DC00DFC4B5 /* UIColor.swift */; };
@@ -167,6 +169,8 @@
 		4B3EBCB121363828002C34C5 /* GiftViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftViewModel.swift; sourceTree = "<group>"; };
 		4B3EBCB321363854002C34C5 /* GiftData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftData.swift; sourceTree = "<group>"; };
 		4B3EBCB621366992002C34C5 /* GiftCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftCell.swift; sourceTree = "<group>"; };
+		4B7FF620214A536600794678 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		4B7FF622214A53A800794678 /* ResultController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultController.swift; sourceTree = "<group>"; };
 		4BB1329B2147AA080083E2E9 /* RecikaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RecikaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BB1329D2147AA080083E2E9 /* RecikaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecikaUITests.swift; sourceTree = "<group>"; };
 		4BB1329F2147AA090083E2E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -212,6 +216,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B7FF621214A536600794678 /* SystemConfiguration.framework in Frameworks */,
 				4B1DCC8D214A4E350048820C /* ReceiptAnalyzer.framework in Frameworks */,
 				4BF0D9B021367EC6005D9AF1 /* ESPullToRefresh.framework in Frameworks */,
 				4B3EBCA721351DE2002C34C5 /* SwiftyJSON.framework in Frameworks */,
@@ -285,6 +290,7 @@
 		4B3EBC40212BF253002C34C5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4B7FF620214A536600794678 /* SystemConfiguration.framework */,
 				4B1DCC8C214A4E350048820C /* ReceiptAnalyzer.framework */,
 				4BF0D9AF21367EC6005D9AF1 /* ESPullToRefresh.framework */,
 				4B3EBCA621351DE2002C34C5 /* SwiftyJSON.framework */,
@@ -337,6 +343,7 @@
 		4B3EBC55212BF2AA002C34C5 /* pages */ = {
 			isa = PBXGroup;
 			children = (
+				4B7FF61D214A52CB00794678 /* result */,
 				4B3EBC56212BF2FB002C34C5 /* top */,
 				4BCE989C213D062700DFC4B5 /* scan */,
 				4BF0D9B62137BC56005D9AF1 /* associate */,
@@ -476,6 +483,14 @@
 				4B3EBCB621366992002C34C5 /* GiftCell.swift */,
 			);
 			path = cell;
+			sourceTree = "<group>";
+		};
+		4B7FF61D214A52CB00794678 /* result */ = {
+			isa = PBXGroup;
+			children = (
+				4B7FF622214A53A800794678 /* ResultController.swift */,
+			);
+			path = result;
 			sourceTree = "<group>";
 		};
 		4BB1329C2147AA080083E2E9 /* RecikaUITests */ = {
@@ -789,6 +804,7 @@
 				4BCE987521391E3600DFC4B5 /* Double.swift in Sources */,
 				4B3EBC91212D425F002C34C5 /* SettingData.swift in Sources */,
 				4B3EBCA521350BA3002C34C5 /* NetConstants.swift in Sources */,
+				4B7FF623214A53A800794678 /* ResultController.swift in Sources */,
 				4BF0D9C02138C9EC005D9AF1 /* ItemData.swift in Sources */,
 				4BCE988421392BCA00DFC4B5 /* SeriesSettingDetailCell.swift in Sources */,
 				4BCE98AE213E420200DFC4B5 /* PairData.swift in Sources */,
