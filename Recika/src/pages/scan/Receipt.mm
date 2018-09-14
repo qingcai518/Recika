@@ -137,7 +137,6 @@ dispatch_queue_t subQueue = dispatch_queue_create("recika", 0);
             dispatch_async(mainQueue, ^{
                 NSLog(@"%@", resultText);
                 [self.delegate success:&receiptInfo];
-//                [self dismissAndShowResultAlert:[NSString stringWithFormat:@"%d枚目を解析", (int)mLongReceiptNum] message:[NSString stringWithFormat:@"%@", mResultText]];
             });
         } else {
             dispatch_async(mainQueue, ^{

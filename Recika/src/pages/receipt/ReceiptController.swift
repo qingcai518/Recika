@@ -34,8 +34,9 @@ class ReceiptController: ViewController {
         navigationItem.rightBarButtonItems = [barItem]
         
         scanBtn.rx.tap.bind { [weak self] in
-            let next = ScanController()
-            self?.present(next, animated: true, completion: nil)
+            let navigation = UINavigationController()
+            navigation.viewControllers = [ScanController()]
+            self?.present(navigation, animated: true, completion: nil)
         }.disposed(by: disposeBag)
         
         let layout = UICollectionViewFlowLayout()
