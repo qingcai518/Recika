@@ -89,6 +89,23 @@ class AnalyzeResultController: ViewController {
         totalPriceLbl.text = paramTotalPrice == nil ? "合計金額：" : "合計金額：¥\(paramTotalPrice!)"
         adjustPriceLbl.text = paramAdjustPrice == nil ? "調整金額：" : "調整金額：\(paramAdjustPrice!)"
         
+        /// 登録ボタン.
+        let saveBtn = UIButton()
+        saveBtn.setTitle(str_save, for: .normal)
+        saveBtn.setTitleColor(UIColor.white, for: .normal)
+        saveBtn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        saveBtn.layer.cornerRadius = 8
+        saveBtn.clipsToBounds = true
+        saveBtn.setBackgroundImage(createImageByColor(color: UIColor.orange, scale: 1), for: .normal)
+        saveBtn.setBackgroundImage(createImageByColor(color: UIColor.lightGray, scale: 1), for: .highlighted)
+        view.addSubview(saveBtn)
+        saveBtn.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-24)
+            make.height.equalTo(60)
+            make.left.right.equalToSuperview().inset(36)
+        }
+        
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(AnalyzeResultCell.self, forCellReuseIdentifier: AnalyzeResultCell.id)
@@ -98,8 +115,13 @@ class AnalyzeResultController: ViewController {
         tableView.snp.makeConstraints { make in
             make.top.equalTo(topView.snp.bottom)
             make.left.right.equalToSuperview()
-            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
+            make.bottom.equalTo(saveBtn.snp.top).offset(-12)
         }
+        
+        /// actions.
+        saveBtn.rx.tap.bind { [weak self] in
+            print("register buttons.")
+        }.disposed(by: disposeBag)
     }
 }
 

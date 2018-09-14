@@ -17,5 +17,6 @@
 "password" = "Password";
 "associate" = "Associate to Cybex acount";
 "cancel" = "Cancel";
+"save" = "Save";
 
 "msg1" = "your own smart receipt id";
