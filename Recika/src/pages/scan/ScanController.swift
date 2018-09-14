@@ -8,9 +8,8 @@
 
 import UIKit
 import AVKit
-
-import UIKit
 import AVFoundation
+import RxSwift
 
 class ScanController: ViewController {
     var stillImageOutput: String?
@@ -31,16 +30,18 @@ class ScanController: ViewController {
     lazy var receiptImageView = UIImageView()
     lazy var leftLine = UIView()
     lazy var rightLine = UIView()
+    lazy var alert = UIAlertController(title: nil, message: "解析中...", preferredStyle: .alert)
     
     // receipt.
     var receipt = Receipt()
-    var analyzing = false
+    var analyzing = Variable(false)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         receipt.delegate = self
         setupUI()
+        bind()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -174,8 +175,8 @@ class ScanController: ViewController {
         /// shutter button.
         cameraBtn.rx.tap.bind { [weak self] in
             guard let `self` = self else {return}
-            if self.analyzing { return }
-            self.analyzing = true
+            if self.analyzing.value { return }
+            self.analyzing.value = true
             
             let photoSettings = AVCapturePhotoSettings()
             photoSettings.flashMode = .off
@@ -207,6 +208,17 @@ class ScanController: ViewController {
         DispatchQueue.global().async { [weak self] in
             self?.session.startRunning()
         }
+    }
+    
+    func bind() {
+        analyzing.asObservable().bind { [weak self] value in
+            guard let `self` = self else {return}
+            if value {
+                self.present(self.alert, animated: true, completion: nil)
+            } else {
+                self.alert.dismiss(animated: true, completion: nil)
+            }
+        }.disposed(by: disposeBag)
     }
     
     func releaseAVSession() {
@@ -243,6 +255,12 @@ extension ScanController: AVCapturePhotoCaptureDelegate {
         guard let picData = AVCapturePhotoOutput.jpegPhotoDataRepresentation(forJPEGSampleBuffer: sampleBuffer, previewPhotoSampleBuffer: previewPhotoSampleBuffer) else {return}
         self.receipt.requestAnalyze(picData)
     }
+    
+    @available(iOS 11.0, *)
+    func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
+        guard let picData = photo.fileDataRepresentation() else {return}
+        self.receipt.requestAnalyze(picData)
+    }
 }
 
 extension ScanController: ReceiptDelegate {
@@ -251,16 +269,21 @@ extension ScanController: ReceiptDelegate {
     }
     
     func success(_ receiptInfo: UnsafeMutablePointer<AnalyzerReceiptInfo>!) {
-//        let next = ResultController()
-//        next.info = receiptInfo.pointee
-//        self.present(next, animated: true, completion: nil)
-        let next = UIViewController()
-        next.view.backgroundColor = UIColor.yellow
-        self.present(next, animated: true, completion: nil)
+        analyzing.value = false
+        let info = receiptInfo.pointee
+        
+        let next = AnalyzeResultController()
+        if let tel = info.tel {
+            next.paramTel = tel.takeRetainedValue() as String
+        }
+        next.paramDate = "\(info.date.year)-\(info.date.month)-\(info.date.day) \(info.date.hour):\(info.date.minute):\(info.date.second)"
+        next.paramTotalPrice = "\(info.total)"
+        next.paramAdjustPrice = "\(info.priceAdjustment)"
+        present(next, animated: true, completion: nil)
     }
     
     func fail(_ msg: String!) {
         self.showToast(text: msg)
-        analyzing = false
+        analyzing.value = false
     }
 }

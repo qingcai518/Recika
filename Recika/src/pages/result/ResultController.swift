@@ -9,11 +9,6 @@
 import UIKit
 
 class ResultController: ViewController {
-    let topView = UIView()
-    let dateLbl = UILabel()
-    let telLbl = UILabel()
-    let totalPriceLbl = UILabel()
-    let adjustPriceLbl = UILabel()
     
     // params.
     var info : AnalyzerReceiptInfo?
@@ -21,7 +16,7 @@ class ResultController: ViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupSubViews()
+//        setupSubViews()
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,8 +24,14 @@ class ResultController: ViewController {
     }
     
     fileprivate func setupSubViews() {
+        let topView = UIView()
+        let tableView = UITableView()
+        let dateLbl = UILabel()
+        let telLbl = UILabel()
+        let totalPriceLbl = UILabel()
+        let adjustPriceLbl = UILabel()
+        
         view.addSubview(topView)
-//        view.addSubview(tableView)
         
         topView.addSubview(dateLbl)
         topView.addSubview(telLbl)
