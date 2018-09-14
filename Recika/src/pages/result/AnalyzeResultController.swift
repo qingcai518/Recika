@@ -45,10 +45,10 @@ class AnalyzeResultController: ViewController {
         topView.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
             make.left.right.equalToSuperview()
-            make.height.equalTo(120)
+            make.height.equalTo(160)
         }
 
-        dateLbl.textColor = UIColor.orange
+        dateLbl.textColor = UIColor.black
         dateLbl.font = UIFont.systemFont(ofSize: 16)
         dateLbl.textAlignment = .left
         dateLbl.numberOfLines = 1
@@ -86,7 +86,7 @@ class AnalyzeResultController: ViewController {
 
         dateLbl.text = paramDate == nil ? "日時：" : "日時：\(paramDate!)"
         telLbl.text = paramTel == nil ? "電話番号：" : "電話番号：\(paramTel!)"
-        totalPriceLbl.text = paramTotalPrice == nil ? "合計金額：" : "合計金額：\(paramTotalPrice!)"
+        totalPriceLbl.text = paramTotalPrice == nil ? "合計金額：" : "合計金額：¥\(paramTotalPrice!)"
         adjustPriceLbl.text = paramAdjustPrice == nil ? "調整金額：" : "調整金額：\(paramAdjustPrice!)"
         
         tableView.delegate = self
@@ -94,6 +94,7 @@ class AnalyzeResultController: ViewController {
         tableView.register(AnalyzeResultCell.self, forCellReuseIdentifier: AnalyzeResultCell.id)
         tableView.tableFooterView = UIView()
         tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 44
         tableView.snp.makeConstraints { make in
             make.top.equalTo(topView.snp.bottom)
             make.left.right.equalToSuperview()
