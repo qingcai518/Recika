@@ -38,9 +38,9 @@ class AnalyzeResultViewModel {
         }
         
         let imageName = UUID().uuidString
-        print("image name = \(imageName)")
+        SVProgressHUD.show(withStatus: "uploading recipt image.")
         Alamofire.upload(multipartFormData: { formData in
-            formData.append(imageData, withName: imageName, fileName: "\(imageName).jpg", mimeType: "image/jpeg")
+            formData.append(imageData, withName: "file", fileName: "\(imageName).jpg", mimeType: "image/jpeg")
         }, to: uploadDomain) { result in
             switch result {
             case .failure(let error):
@@ -65,69 +65,63 @@ class AnalyzeResultViewModel {
                     }
                     
                     let json = JSON(data)
-                    print(json)
-                    SVProgressHUD.dismiss()
-                    return completion(nil)
+                    let imagePath = json["imageURL"].stringValue
+                    print(imagePath)
+                    
+                    SVProgressHUD.show(withStatus: "saving receipt basic data.")
+                    Alamofire.request(receiptAPI, method: .post, parameters: params, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+                        if let error = response.error {
+                            SVProgressHUD.dismiss()
+                            return completion(error.localizedDescription)
+                        }
+                        guard let data = response.data else {
+                            SVProgressHUD.dismiss()
+                            return completion("fail to get data")
+                        }
+                        
+                        let json = JSON(data)
+                        print(json)
+                        let receiptId = json["ReceiptId"].intValue
+                        
+                        SVProgressHUD.show(withStatus: "saving receipt detail data.")
+                        for i in 0..<items.count {
+                            let item = items[i]
+                            guard let name = item.name else {continue}
+                            let itemName = name.takeUnretainedValue() as String
+                            let price = item.price
+                            let itemParams:[String: Any] = [
+                                "receiptId": receiptId,
+                                "name": itemName,
+                                "price": price
+                            ]
+                            
+                            group.enter()
+                            DispatchQueue(label: "item\(i)").async(group: group) {
+                                Alamofire.request(itemAPI, method: .post, parameters: itemParams, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+                                    if let error = response.error {
+                                        SVProgressHUD.dismiss()
+                                        return completion(error.localizedDescription)
+                                    }
+                                    
+                                    guard let data = response.data else {
+                                        SVProgressHUD.dismiss()
+                                        return completion("fail to get data")
+                                    }
+                                    
+                                    let json = JSON(data)
+                                    print(json)
+                                    group.leave()
+                                }
+                            }
+                        }
+                        
+                        group.notify(queue: .main, execute: {
+                            SVProgressHUD.dismiss()
+                            return completion(nil)
+                        })
+                    }
                 }
             }
         }
-        
-        
-        ///  dummy. not run
-//        Alamofire.request(receiptAPI, method: .post, parameters: params, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
-//            if let error = response.error {
-//                SVProgressHUD.dismiss()
-//                return completion(error.localizedDescription)
-//            }
-//
-//            guard let data = response.data else {
-//                SVProgressHUD.dismiss()
-//                return completion("fail to get data")
-//            }
-//
-//            let json = JSON(data)
-//            let receiptId = json["ReceiptId"].intValue
-//
-//            for i in 0..<items.count {
-//                let item = items[i]
-//                guard let name = item.name else {
-//                    continue
-//                }
-//
-//                let itemName = name.takeUnretainedValue() as String
-//                let price = item.price
-//
-//                let itemParams: [String: Any] = [
-//                    "receiptId": receiptId,
-//                    "name": itemName,
-//                    "price": price
-//                ]
-//
-//                group.enter()
-//                DispatchQueue(label: "item\(i)").async(group: group) {
-//                    Alamofire.request(itemAPI, method: .post, parameters: itemParams, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
-//                        if let error = response.error {
-//                            SVProgressHUD.dismiss()
-//                            return completion(error.localizedDescription)
-//                        }
-//
-//                        guard let data = response.data else {
-//                            SVProgressHUD.dismiss()
-//                            return completion("fail to get data")
-//                        }
-//
-//                        let json = JSON(data)
-//                        let itemId = json["ItemId"].intValue
-//                        print("item id = \(itemId)")
-//                        group.leave()
-//                    }
-//                }
-//            }
-//
-//            group.notify(queue: .main, execute: {
-//                SVProgressHUD.dismiss()
-//                return completion(nil)
-//            })
-//        }
     }
 }
