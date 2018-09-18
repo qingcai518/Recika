@@ -24,7 +24,7 @@ class GuideController: ViewController {
         let imgView = UIImageView()
         imgView.contentMode = .scaleAspectFit
         imgView.clipsToBounds = true
-        imgView.image = UIImage(named: "")!
+        imgView.image = UIImage(named: "img_guide")!
         view.addSubview(imgView)
         imgView.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
