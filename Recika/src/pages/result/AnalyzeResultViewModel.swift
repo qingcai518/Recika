@@ -47,7 +47,26 @@ class AnalyzeResultViewModel {
                 SVProgressHUD.dismiss()
                 return completion(error.localizedDescription)
             case .success(let upload, _, _):
-                upload.responseJSON(completionHandler: <#T##(DataResponse<Any>) -> Void#>)
+                upload.uploadProgress(closure: { progress in
+                    print("progress = \(progress)")
+                })
+                
+                upload.responseJSON() { response in
+                    if let error = response.error {
+                        SVProgressHUD.dismiss()
+                        return completion(error.localizedDescription)
+                    }
+                    
+                    guard let data = response.data else {
+                        SVProgressHUD.dismiss()
+                        return completion("fail to get upload ")
+                    }
+                    
+                    let json = JSON(data)
+                    print(json)
+                    SVProgressHUD.dismiss()
+                    return completion(nil)
+                }
             }
         }
         
