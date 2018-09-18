@@ -10,16 +10,18 @@ import Foundation
 
 struct ReceiptData {
     let id : Int
-    let name : String
-    let time : String
+    let tel : String
+    let receiptAt: String
+    let totalPrice: Double
+    let adjustPrice: Double
     let items : [ItemData]
-    let totalPrice :Double
     
-    init(id: Int, name: String, time: String, items:[ItemData], totalPrice: Double) {
+    init(id: Int, tel: String, receiptAt: String, totalPrice: Double, adjustPrice: Double, items:[ItemData]) {
         self.id = id
-        self.name = name
-        self.time = time
-        self.items = items
+        self.tel = tel
+        self.receiptAt = receiptAt
         self.totalPrice = totalPrice
+        self.adjustPrice = adjustPrice
+        self.items = items
     }
 }

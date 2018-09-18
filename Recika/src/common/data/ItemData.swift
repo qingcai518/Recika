@@ -12,12 +12,10 @@ struct ItemData {
     let id : Int
     let name : String
     let price : Double
-    let count : Int
     
-    init(id: Int, name: String, price: Double, count: Int) {
+    init(id: Int, name: String, price: Double) {
         self.id = id
         self.name = name
         self.price = price
-        self.count = count
     }
 }
