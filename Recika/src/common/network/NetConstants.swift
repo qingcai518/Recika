@@ -47,8 +47,5 @@ let changeAPI = cybexDomain + v1 + "change"
 let klineAPI = cybexDomain + v1 + "market"
 
 // 发票信息.
-let receiptAPI = domain + v1 + "receipt/"
-
-// 发票详细信息
-let itemAPI = domain + v1 + "item/"
+let addReceiptAPI = cybexDomain + v1 + "receipt/add"
 

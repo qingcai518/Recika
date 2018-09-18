@@ -13,8 +13,7 @@ import SVProgressHUD
 
 class AnalyzeResultViewModel {
     func saveReceiptData(imgData: Data?, receiptAt: String?, tel: String?, totalPrice: String?, adjustPrice: String?, items:[AnalyzerItemInfo]?, completion: @escaping (String?) -> Void) {
-        guard let receiptURL = URLComponents(string: receiptAPI) else {return completion("fail to get receipt API")}
-        guard let itemURL = URLComponents(string: itemAPI) else {return completion("fail to get item API")}
+        guard let addReceiptURL = URLComponents(string: addReceiptAPI) else {return completion("fail to get receipt API")}
         guard let imgData = imgData else {return completion("fail to get image data")}
         guard let receiptAt = receiptAt else {return completion("have no receiptAt")}
         guard let tel = tel else {return completion("have no tel")}
@@ -60,22 +59,33 @@ class AnalyzeResultViewModel {
                     print(imagePath)
                     
                     /// 保存receipt信息.
-                    let group = DispatchGroup()
-                    let params: [String: Any] = [
-                        "ReceiptAt" : receiptAt,
-                        "Tel": tel,
-                        "TotalPrice": totalPrice,
-                        "AdjustPrice": adjustPrice
-                    ]
+                    var paramItems = []
+                    for item in items {
+                        guard let name = item.name else {continue}
+                        let itemName = name.takeUnretainedValue() as String
+                        let itemPrice = item.price
+                        
+                        let itemObj = [
+                            "name": itemName,
+                            "price": itemPrice
+                        ]
+                        paramItems.append(itemObj)
+                    }
                     
-                    SVProgressHUD.show(withStatus: "saving receipt basic data.")
-                    print(params)
-                    print(receiptURL.url?.absoluteString)
-                    Alamofire.request(receiptURL, method: .post, parameters: params, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+                    let params : [String: Any] = {
+                        "receipt_at" : receiptAt,
+                        "tel": tel,
+                        "total_price": totalPrice,
+                        "adjust_price": adjustPrice,
+                        "items": paramItems
+                    }
+                    SVProgressHUD.show(withStatus: "saving receipt data")
+                    Alamofire.request(addReceiptAPI, method: .post, parameters: params, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
                         if let error = response.error {
                             SVProgressHUD.dismiss()
                             return completion(error.localizedDescription)
                         }
+                        
                         guard let data = response.data else {
                             SVProgressHUD.dismiss()
                             return completion("fail to get data")
@@ -83,44 +93,8 @@ class AnalyzeResultViewModel {
                         
                         let json = JSON(data)
                         print(json)
-                        let receiptId = json["ReceiptId"].intValue
-                        
-                        SVProgressHUD.show(withStatus: "saving receipt detail data.")
-                        for i in 0..<items.count {
-                            let item = items[i]
-                            guard let name = item.name else {continue}
-                            let itemName = name.takeUnretainedValue() as String
-                            let price = item.price
-                            let itemParams:[String: Any] = [
-                                "receiptId": receiptId,
-                                "name": itemName,
-                                "price": price
-                            ]
-                            
-                            group.enter()
-                            DispatchQueue(label: "item\(i)").async(group: group) {
-                                Alamofire.request(itemURL, method: .post, parameters: itemParams, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
-                                    if let error = response.error {
-                                        SVProgressHUD.dismiss()
-                                        return completion(error.localizedDescription)
-                                    }
-                                    
-                                    guard let data = response.data else {
-                                        SVProgressHUD.dismiss()
-                                        return completion("fail to get data")
-                                    }
-                                    
-                                    let json = JSON(data)
-                                    print(json)
-                                    group.leave()
-                                }
-                            }
-                        }
-                        
-                        group.notify(queue: .main, execute: {
-                            SVProgressHUD.dismiss()
-                            return completion(nil)
-                        })
+                        SVProgressHUD.dismiss()
+                        return completion(nil)
                     }
                 }
             }
