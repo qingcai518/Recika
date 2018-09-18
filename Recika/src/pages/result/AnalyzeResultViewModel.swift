@@ -13,8 +13,8 @@ import SVProgressHUD
 
 class AnalyzeResultViewModel {
     func saveReceiptData(imgData: Data?, receiptAt: String?, tel: String?, totalPrice: String?, adjustPrice: String?, items:[AnalyzerItemInfo]?, completion: @escaping (String?) -> Void) {
-        guard let receiptAPI = URLComponents(string: receiptAPI) else {return completion("fail to get receipt API")}
-        guard let itemAPI = URLComponents(string: itemAPI) else {return completion("fail to get item API")}
+        guard let receiptURL = URLComponents(string: receiptAPI) else {return completion("fail to get receipt API")}
+        guard let itemURL = URLComponents(string: itemAPI) else {return completion("fail to get item API")}
         guard let imgData = imgData else {return completion("fail to get image data")}
         guard let receiptAt = receiptAt else {return completion("have no receiptAt")}
         guard let tel = tel else {return completion("have no tel")}
@@ -22,21 +22,12 @@ class AnalyzeResultViewModel {
         guard let adjustPrice = adjustPrice else {return completion("have no adjust price")}
         guard let items = items else {return completion("have not items")}
         
-        let group = DispatchGroup()
-        let params: [String: Any] = [
-            "ReceiptAt" : receiptAt,
-            "Tel": tel,
-            "TotalPrice": totalPrice,
-            "AdjustPrice": adjustPrice
-        ]
-        let headers = ["Content-Type": "application/json"]
-        SVProgressHUD.show()
-        
         /// upload image.
         guard let image = UIImage(data: imgData), let imageData = UIImageJPEGRepresentation(image, 0.25) else {
             return completion("fail to compress image data")
         }
         
+        let headers = ["Content-Type": "application/json"]
         let imageName = UUID().uuidString
         SVProgressHUD.show(withStatus: "uploading recipt image.")
         Alamofire.upload(multipartFormData: { formData in
@@ -68,8 +59,19 @@ class AnalyzeResultViewModel {
                     let imagePath = json["imageURL"].stringValue
                     print(imagePath)
                     
+                    /// 保存receipt信息.
+                    let group = DispatchGroup()
+                    let params: [String: Any] = [
+                        "ReceiptAt" : receiptAt,
+                        "Tel": tel,
+                        "TotalPrice": totalPrice,
+                        "AdjustPrice": adjustPrice
+                    ]
+                    
                     SVProgressHUD.show(withStatus: "saving receipt basic data.")
-                    Alamofire.request(receiptAPI, method: .post, parameters: params, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+                    print(params)
+                    print(receiptURL.url?.absoluteString)
+                    Alamofire.request(receiptURL, method: .post, parameters: params, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
                         if let error = response.error {
                             SVProgressHUD.dismiss()
                             return completion(error.localizedDescription)
@@ -97,7 +99,7 @@ class AnalyzeResultViewModel {
                             
                             group.enter()
                             DispatchQueue(label: "item\(i)").async(group: group) {
-                                Alamofire.request(itemAPI, method: .post, parameters: itemParams, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+                                Alamofire.request(itemURL, method: .post, parameters: itemParams, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
                                     if let error = response.error {
                                         SVProgressHUD.dismiss()
                                         return completion(error.localizedDescription)

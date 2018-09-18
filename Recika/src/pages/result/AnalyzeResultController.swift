@@ -123,12 +123,7 @@ class AnalyzeResultController: ViewController {
         
         /// actions.
         saveBtn.rx.tap.bind { [weak self] in
-            let tel = telLbl.text
-            let receiptAt = dateLbl.text
-            let totalPrice = totalPriceLbl.text
-            let adjustPrice = adjustPriceLbl.text
-            
-            self?.viewModel.saveReceiptData(imgData: self?.paramImgData, receiptAt: receiptAt, tel: tel, totalPrice: totalPrice, adjustPrice: adjustPrice, items: self?.items, completion: { [weak self] msg in
+            self?.viewModel.saveReceiptData(imgData: self?.paramImgData, receiptAt: self?.paramDate, tel: self?.paramTel, totalPrice: self?.paramTotalPrice, adjustPrice: self?.paramAdjustPrice, items: self?.items, completion: { [weak self] msg in
                 if let msg = msg {
                     self?.showToast(text: msg)
                 } else {
