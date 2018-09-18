@@ -38,7 +38,7 @@ class AnalyzeResultViewModel {
         }
         
         let imageName = UUID().uuidString
-        print("image file name = \(imageName)")
+        print("image name = \(imageName)")
         Alamofire.upload(multipartFormData: { form in
             form.append(imageData, withName: imageName, fileName: "\(imageName).jpg", mimeType: "image/jpg")
         }, to: uploadDomain) { result in

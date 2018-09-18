@@ -260,7 +260,7 @@ extension ScanController: AVCapturePhotoCaptureDelegate {
     
     @available(iOS 11.0, *)
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
-        let picData = photo.fileDataRepresentation()
+        picData = photo.fileDataRepresentation()
         if let picData = picData {
             self.receipt.requestAnalyze(picData)
         }
