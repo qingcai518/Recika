@@ -29,6 +29,7 @@ class ReceiptController: ViewController {
         
         // title button.
         let scanBtn = UIButton(type: .custom)
+        scanBtn.frame = CGRect(x: 0, y: 0, width: 44, height: 44)
         scanBtn.setImage(scanIcon, for: .normal)
         let barItem = UIBarButtonItem(customView: scanBtn)
         navigationItem.rightBarButtonItems = [barItem]

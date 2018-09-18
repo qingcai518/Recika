@@ -112,9 +112,9 @@ class ScanController: ViewController {
         topView.backgroundColor = UIColor.black
         cameraView.addSubview(topView)
         topView.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+            make.top.equalToSuperview()
             make.left.right.equalToSuperview()
-            make.height.equalTo(44)
+            make.height.equalTo(80)
         }
         
         /// receipt image view
@@ -186,10 +186,10 @@ class ScanController: ViewController {
         
         guideBtn.rx.tap.bind { [weak self] in
             let next = GuideController()
-            next.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
             next.modalPresentationStyle = .custom
+            next.modalTransitionStyle = .crossDissolve
             self?.present(next, animated: true, completion: nil)
-        }.disposed(by: disposeBag)
+        }
     }
     
     private func setupCamera() {

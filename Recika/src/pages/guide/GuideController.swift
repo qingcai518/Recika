@@ -21,6 +21,8 @@ class GuideController: ViewController {
     }
     
     private func setupSubView() {
+        view.backgroundColor = UIColor.init(white: 0, alpha: 0.6)
+        
         let imgView = UIImageView()
         imgView.contentMode = .scaleAspectFit
         imgView.clipsToBounds = true
@@ -35,7 +37,7 @@ class GuideController: ViewController {
         let recognizer = UITapGestureRecognizer()
         recognizer.rx.event.bind { [weak self] sender in
             self?.dismiss(animated: true, completion: nil)
-        }
+        }.disposed(by: disposeBag)
         self.view.addGestureRecognizer(recognizer)
     }
 }
