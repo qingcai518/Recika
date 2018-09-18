@@ -29,7 +29,21 @@ class GuideController: ViewController {
         imgView.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
             make.centerX.equalToSuperview()
-            make.height.width.equalTo(200)
+            make.height.width.equalTo(240)
         }
+        
+        let recognizer = UITapGestureRecognizer()
+        recognizer.rx.event.bind { [weak self] send in
+            self?.dismiss(animated: true, completion: nil)
+        }
+        self.view.addSubview(recognizer)
+        recognizer.delegate = self
+    }
+}
+
+extension GuideContrtoller: UIGestureRecognizerDelegate {
+    func shouldTap() {
+        print("showld tap recognizer in view UIVIew.
+        z")
     }
 }
