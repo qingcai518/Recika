@@ -20,6 +20,7 @@
 		4B35828A214B5A4800F47FF7 /* AnalyzeResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B358289214B5A4800F47FF7 /* AnalyzeResultCell.swift */; };
 		4B35828C2150AD0C00F47FF7 /* AnalyzeResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B35828B2150AD0C00F47FF7 /* AnalyzeResultViewModel.swift */; };
 		4B35828E2150C6DB00F47FF7 /* NFKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B35828D2150C6DB00F47FF7 /* NFKeys.swift */; };
+		4B3582912150F4B000F47FF7 /* GuideController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3582902150F4B000F47FF7 /* GuideController.swift */; };
 		4B3EBC58212BF8DC002C34C5 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B3EBC48212BF254002C34C5 /* Alamofire.framework */; };
 		4B3EBC5A212BF8DC002C34C5 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B3EBC43212BF254002C34C5 /* Kingfisher.framework */; };
 		4B3EBC5B212BF8DC002C34C5 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B3EBC47212BF254002C34C5 /* RxCocoa.framework */; };
@@ -139,6 +140,7 @@
 		4B358289214B5A4800F47FF7 /* AnalyzeResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyzeResultCell.swift; sourceTree = "<group>"; };
 		4B35828B2150AD0C00F47FF7 /* AnalyzeResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyzeResultViewModel.swift; sourceTree = "<group>"; };
 		4B35828D2150C6DB00F47FF7 /* NFKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFKeys.swift; sourceTree = "<group>"; };
+		4B3582902150F4B000F47FF7 /* GuideController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideController.swift; sourceTree = "<group>"; };
 		4B3EBC41212BF254002C34C5 /* RxTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxTest.framework; path = Carthage/Build/iOS/RxTest.framework; sourceTree = "<group>"; };
 		4B3EBC42212BF254002C34C5 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 		4B3EBC43212BF254002C34C5 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
@@ -301,6 +303,14 @@
 			path = cell;
 			sourceTree = "<group>";
 		};
+		4B35828F2150F49C00F47FF7 /* guide */ = {
+			isa = PBXGroup;
+			children = (
+				4B3582902150F4B000F47FF7 /* GuideController.swift */,
+			);
+			path = guide;
+			sourceTree = "<group>";
+		};
 		4B3EBC40212BF253002C34C5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -357,6 +367,7 @@
 		4B3EBC55212BF2AA002C34C5 /* pages */ = {
 			isa = PBXGroup;
 			children = (
+				4B35828F2150F49C00F47FF7 /* guide */,
 				4B7FF61D214A52CB00794678 /* result */,
 				4B3EBC56212BF2FB002C34C5 /* top */,
 				4BCE989C213D062700DFC4B5 /* scan */,
@@ -791,6 +802,7 @@
 			files = (
 				4BCE9880213922F000DFC4B5 /* TickerTopView.swift in Sources */,
 				4B3EBCA2212E6626002C34C5 /* SignupViewModel.swift in Sources */,
+				4B3582912150F4B000F47FF7 /* GuideController.swift in Sources */,
 				4BCE98AA213D116100DFC4B5 /* PairViewModel.swift in Sources */,
 				4B3EBCB221363828002C34C5 /* GiftViewModel.swift in Sources */,
 				4B35828C2150AD0C00F47FF7 /* AnalyzeResultViewModel.swift in Sources */,
