@@ -69,11 +69,10 @@ class ScanController: ViewController {
     private func setupUI() {
         view.backgroundColor = UIColor.clear
         
-        let bottomHeight: CGFloat = 80
+        let bottomHeight: CGFloat = 120
         // bottom view.
-        bottomView.backgroundColor = UIColor.clear
+        bottomView.backgroundColor = UIColor.black
         view.addSubview(bottomView)
-        bottomView.backgroundColor = UIColor.clear
         bottomView.snp.makeConstraints { make in
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
             make.left.right.equalToSuperview()
@@ -84,10 +83,10 @@ class ScanController: ViewController {
         bottomView.addSubview(guideBtn)
         bottomView.addSubview(typeBtn)
         
-        cameraBtn.setImage(shutter, for: .normal)
+        cameraBtn.setBackgroundImage(shutter, for: .normal)
         cameraBtn.snp.makeConstraints { make in
             make.centerY.centerX.equalToSuperview()
-            make.height.width.equalTo(64)
+            make.height.equalTo(88)
         }
         
         guideBtn.setImage(guide, for: .normal)
@@ -110,10 +109,10 @@ class ScanController: ViewController {
         view.addSubview(cameraView)
         
         // topView.
-        topView.backgroundColor = UIColor.clear
+        topView.backgroundColor = UIColor.black
         cameraView.addSubview(topView)
         topView.snp.makeConstraints { make in
-            make.top.equalToSuperview()
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
             make.left.right.equalToSuperview()
             make.height.equalTo(44)
         }
@@ -135,7 +134,8 @@ class ScanController: ViewController {
         leftLine.backgroundColor = UIColor.red
         cameraView.addSubview(leftLine)
         leftLine.snp.makeConstraints { make in
-            make.top.bottom.equalToSuperview()
+            make.top.equalTo(topView.snp.bottom)
+            make.bottom.equalTo(bottomView.snp.top)
             make.left.equalToSuperview().inset(maskWidth)
             make.width.equalTo(1)
         }
@@ -144,7 +144,8 @@ class ScanController: ViewController {
         rightLine.backgroundColor = UIColor.red
         cameraView.addSubview(rightLine)
         rightLine.snp.makeConstraints { make in
-            make.top.bottom.equalToSuperview()
+            make.top.equalTo(topView.snp.bottom)
+            make.bottom.equalTo(bottomView.snp.top)
             make.right.equalToSuperview().inset(maskWidth)
             make.width.equalTo(1)
         }
