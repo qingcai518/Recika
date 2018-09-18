@@ -28,7 +28,6 @@ class ScanController: ViewController {
     lazy var bottomView = UIView()
     lazy var cameraBtn = UIButton()
     lazy var guideBtn = UIButton()
-    lazy var typeBtn = UIButton()
     lazy var receiptImageView = UIImageView()
     lazy var leftLine = UIView()
     lazy var rightLine = UIView()
@@ -81,23 +80,24 @@ class ScanController: ViewController {
 
         bottomView.addSubview(cameraBtn)
         bottomView.addSubview(guideBtn)
-        bottomView.addSubview(typeBtn)
+        bottomView.addSubview(flashBtn)
         
-        cameraBtn.setBackgroundImage(shutter, for: .normal)
-        cameraBtn.snp.makeConstraints { make in
-            make.centerY.centerX.equalToSuperview()
-            make.height.equalTo(88)
-        }
-        
-        guideBtn.setImage(guide, for: .normal)
-        guideBtn.snp.makeConstraints { make in
+        /// flash button.
+        flashBtn.setImage(flashOff, for: .normal)
+        flashBtn.snp.makeConstraints { make in
             make.left.equalToSuperview().inset(24)
             make.centerY.equalToSuperview()
             make.height.width.equalTo(44)
         }
         
-        typeBtn.setImage(receiptType, for: .normal)
-        typeBtn.snp.makeConstraints { make in
+        cameraBtn.setBackgroundImage(shutter, for: .normal)
+        cameraBtn.snp.makeConstraints { make in
+            make.centerY.centerX.equalToSuperview()
+            make.width.height.equalTo(72)
+        }
+        
+        guideBtn.setImage(guide, for: .normal)
+        guideBtn.snp.makeConstraints { make in
             make.right.equalToSuperview().inset(24)
             make.centerY.equalToSuperview()
             make.height.width.equalTo(44)
@@ -148,15 +148,6 @@ class ScanController: ViewController {
             make.bottom.equalTo(bottomView.snp.top)
             make.right.equalToSuperview().inset(maskWidth)
             make.width.equalTo(1)
-        }
-        
-        /// flash button.
-        flashBtn.setImage(flashOff, for: .normal)
-        topView.addSubview(flashBtn)
-        flashBtn.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(12)
-            make.left.equalToSuperview().inset(12)
-            make.height.width.equalTo(44)
         }
         
         /// close button.
