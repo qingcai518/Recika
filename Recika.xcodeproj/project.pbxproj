@@ -19,6 +19,7 @@
 		4B358287214B4E4C00F47FF7 /* AnalyzeResultController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B358286214B4E4C00F47FF7 /* AnalyzeResultController.swift */; };
 		4B35828A214B5A4800F47FF7 /* AnalyzeResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B358289214B5A4800F47FF7 /* AnalyzeResultCell.swift */; };
 		4B35828C2150AD0C00F47FF7 /* AnalyzeResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B35828B2150AD0C00F47FF7 /* AnalyzeResultViewModel.swift */; };
+		4B35828E2150C6DB00F47FF7 /* NFKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B35828D2150C6DB00F47FF7 /* NFKeys.swift */; };
 		4B3EBC58212BF8DC002C34C5 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B3EBC48212BF254002C34C5 /* Alamofire.framework */; };
 		4B3EBC5A212BF8DC002C34C5 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B3EBC43212BF254002C34C5 /* Kingfisher.framework */; };
 		4B3EBC5B212BF8DC002C34C5 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B3EBC47212BF254002C34C5 /* RxCocoa.framework */; };
@@ -137,6 +138,7 @@
 		4B358286214B4E4C00F47FF7 /* AnalyzeResultController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyzeResultController.swift; sourceTree = "<group>"; };
 		4B358289214B5A4800F47FF7 /* AnalyzeResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyzeResultCell.swift; sourceTree = "<group>"; };
 		4B35828B2150AD0C00F47FF7 /* AnalyzeResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyzeResultViewModel.swift; sourceTree = "<group>"; };
+		4B35828D2150C6DB00F47FF7 /* NFKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFKeys.swift; sourceTree = "<group>"; };
 		4B3EBC41212BF254002C34C5 /* RxTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxTest.framework; path = Carthage/Build/iOS/RxTest.framework; sourceTree = "<group>"; };
 		4B3EBC42212BF254002C34C5 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 		4B3EBC43212BF254002C34C5 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
@@ -442,6 +444,7 @@
 				4B3EBC8C212D2A91002C34C5 /* AppUtility.swift */,
 				4B3EBC8E212D2B4E002C34C5 /* User.swift */,
 				4B3EBCAB21353EAA002C34C5 /* UDKeys.swift */,
+				4B35828D2150C6DB00F47FF7 /* NFKeys.swift */,
 			);
 			path = utility;
 			sourceTree = "<group>";
@@ -808,6 +811,7 @@
 				4BCE9895213CC7BF00DFC4B5 /* PairController.swift in Sources */,
 				4BCE988221392BB000DFC4B5 /* SeriesSettingCell.swift in Sources */,
 				4B3EBC93212D4288002C34C5 /* SettingViewModel.swift in Sources */,
+				4B35828E2150C6DB00F47FF7 /* NFKeys.swift in Sources */,
 				4BF0D9B321368135005D9AF1 /* DetailController.swift in Sources */,
 				4B3EBCAC21353EAA002C34C5 /* UDKeys.swift in Sources */,
 				4BF0D9B521378042005D9AF1 /* HomeViewModel.swift in Sources */,

@@ -58,7 +58,7 @@ class ReceiptController: ViewController {
     }
     
     private func getData() {
-        viewModel.getReceipts()
+        // TODO. get receipt datas.
         collectionView.reloadData()
     }
 }

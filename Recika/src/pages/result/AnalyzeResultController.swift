@@ -14,6 +14,8 @@ class AnalyzeResultController: ViewController {
     var paramTotalPrice: String?
     var paramAdjustPrice: String?
     var items = [AnalyzerItemInfo]()
+    
+    let viewModel = AnalyzeResultViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -120,7 +122,19 @@ class AnalyzeResultController: ViewController {
         
         /// actions.
         saveBtn.rx.tap.bind { [weak self] in
-            print("register buttons.")
+            let tel = telLbl.text
+            let receiptAt = dateLbl.text
+            let totalPrice = totalPriceLbl.text
+            let adjustPrice = adjustPriceLbl.text
+            
+            self?.viewModel.saveReceiptData(receiptAt: receiptAt, tel: tel, totalPrice: totalPrice, adjustPrice: adjustPrice, items: self?.items, completion: { [weak self] msg in
+                if let msg = msg {
+                    self?.showToast(text: msg)
+                } else {
+                    self?.dismiss(animated: true, completion: nil)
+                    NotificationCenter.default.post(name: NFKey.saveReceipt, object: nil)
+                }
+            })
         }.disposed(by: disposeBag)
     }
 }
