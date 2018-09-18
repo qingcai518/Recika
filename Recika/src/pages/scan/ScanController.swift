@@ -183,6 +183,13 @@ class ScanController: ViewController {
             }
             self.photoOutput.capturePhoto(with: photoSettings, delegate: self)
         }.disposed(by: disposeBag)
+        
+        guideBtn.rx.tap.bind { [weak self] in
+            let next = GuideController()
+            next.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+            next.modalPresentationStyle = .custom
+            self?.present(next, animated: true, completion: nil)
+        }.disposed(by: disposeBag)
     }
     
     private func setupCamera() {
