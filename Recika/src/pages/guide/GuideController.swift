@@ -33,17 +33,9 @@ class GuideController: ViewController {
         }
         
         let recognizer = UITapGestureRecognizer()
-        recognizer.rx.event.bind { [weak self] send in
+        recognizer.rx.event.bind { [weak self] sender in
             self?.dismiss(animated: true, completion: nil)
         }
-        self.view.addSubview(recognizer)
-        recognizer.delegate = self
-    }
-}
-
-extension GuideContrtoller: UIGestureRecognizerDelegate {
-    func shouldTap() {
-        print("showld tap recognizer in view UIVIew.
-        z")
+        self.view.addGestureRecognizer(recognizer)
     }
 }
