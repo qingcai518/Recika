@@ -39,8 +39,8 @@ class AnalyzeResultViewModel {
         
         let imageName = UUID().uuidString
         print("image name = \(imageName)")
-        Alamofire.upload(multipartFormData: { form in
-            form.append(imageData, withName: imageName, fileName: "\(imageName).jpg", mimeType: "image/jpg")
+        Alamofire.upload(multipartFormData: { formData in
+            formData.append(imageData, withName: imageName, fileName: "\(imageName).jpg", mimeType: "image/jpeg")
         }, to: uploadDomain) { result in
             switch result {
             case .failure(let error):
@@ -48,7 +48,9 @@ class AnalyzeResultViewModel {
                 return completion(error.localizedDescription)
             case .success(let upload, _, _):
                 upload.uploadProgress(closure: { progress in
-                    print("progress = \(progress)")
+                    let completed = progress.completedUnitCount
+                    let total = progress.totalUnitCount
+                    print("total = \(total), completed = \(completed)")
                 })
                 
                 upload.responseJSON() { response in
