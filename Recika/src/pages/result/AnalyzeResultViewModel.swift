@@ -12,10 +12,10 @@ import SwiftyJSON
 import SVProgressHUD
 
 class AnalyzeResultViewModel {
-    func saveReceiptData(receiptImg: UIImage?, receiptAt: String?, tel: String?, totalPrice: String?, adjustPrice: String?, items:[AnalyzerItemInfo]?, completion: @escaping (String?) -> Void) {
+    func saveReceiptData(imgData: Data?, receiptAt: String?, tel: String?, totalPrice: String?, adjustPrice: String?, items:[AnalyzerItemInfo]?, completion: @escaping (String?) -> Void) {
         guard let receiptAPI = URLComponents(string: receiptAPI) else {return completion("fail to get receipt API")}
         guard let itemAPI = URLComponents(string: itemAPI) else {return completion("fail to get item API")}
-        guard let receiptImg = receiptImg else {return completion("have no receipt image")}
+        guard let imgData = imgData else {return completion("fail to get image data")}
         guard let receiptAt = receiptAt else {return completion("have no receiptAt")}
         guard let tel = tel else {return completion("have no tel")}
         guard let totalPrice = totalPrice else {return completion("have no total price")}
@@ -33,7 +33,7 @@ class AnalyzeResultViewModel {
         SVProgressHUD.show()
         
         /// upload image.
-        guard let imageData = UIImageJPEGRepresentation(receiptImg, 0.2) else {
+        guard let image = UIImage(data: imgData), let imageData = UIImageJPEGRepresentation(image, 0.25) else {
             return completion("fail to compress image data")
         }
         

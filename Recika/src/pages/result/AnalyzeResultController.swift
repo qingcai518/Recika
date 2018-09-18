@@ -13,7 +13,7 @@ class AnalyzeResultController: ViewController {
     var paramTel: String?
     var paramTotalPrice: String?
     var paramAdjustPrice: String?
-    var paramImg: UIImage?
+    var paramImgData: Data?
     var items = [AnalyzerItemInfo]()
     
     let viewModel = AnalyzeResultViewModel()
@@ -128,7 +128,7 @@ class AnalyzeResultController: ViewController {
             let totalPrice = totalPriceLbl.text
             let adjustPrice = adjustPriceLbl.text
             
-            self?.viewModel.saveReceiptData(receiptImg: self?.paramImg, receiptAt: receiptAt, tel: tel, totalPrice: totalPrice, adjustPrice: adjustPrice, items: self?.items, completion: { [weak self] msg in
+            self?.viewModel.saveReceiptData(imgData: self?.paramImgData, receiptAt: receiptAt, tel: tel, totalPrice: totalPrice, adjustPrice: adjustPrice, items: self?.items, completion: { [weak self] msg in
                 if let msg = msg {
                     self?.showToast(text: msg)
                 } else {
