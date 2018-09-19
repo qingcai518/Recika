@@ -15,7 +15,7 @@ class ReceiptViewModel {
     var receipts = [ReceiptData]()
     
     func getReceiptData(completion: @escaping (String?) -> Void) {
-        guard var api = URLComponents(string: receiptAPI) else {
+        guard let api = URLComponents(string: receiptAPI) else {
             return completion("can not get api")
         }
         
@@ -31,7 +31,7 @@ class ReceiptViewModel {
             }
             
             let json = JSON(data)
-            receipts = json.arrayValue.map{ReceiptData(json: $0)}
+            self?.receipts = json.arrayValue.map{ReceiptData(json: $0)}
             return completion(nil)
         }
     }

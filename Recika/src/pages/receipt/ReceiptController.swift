@@ -85,6 +85,6 @@ extension ReceiptController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ReceiptCell.id, for: indexPath) as! ReceiptCell
         let data = viewModel.receipts[indexPath.row]
         cell.configure(with: data)
-        return data
+        return cell
     }
 }
