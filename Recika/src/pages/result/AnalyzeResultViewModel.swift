@@ -90,13 +90,12 @@ class AnalyzeResultViewModel {
                     
                     SVProgressHUD.show(withStatus: "saving receipt data")
                     Alamofire.request(addReceiptURL, method: .post, parameters: params, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+                        SVProgressHUD.dismiss()
                         if let error = response.error {
-                            SVProgressHUD.dismiss()
                             return completion(error.localizedDescription)
                         }
                         
                         guard let data = response.data else {
-                            SVProgressHUD.dismiss()
                             return completion("fail to get data")
                         }
                         
@@ -106,8 +105,7 @@ class AnalyzeResultViewModel {
                         
                         let receiptData = ReceiptData(id: receiptId, imagePath: imagePath, tel: tel, receiptAt: receiptAt, totalPrice: totalPrice, adjustPrice: adjustPrice, items: itemDatas)
                         print(receiptData)
-                        
-                        SVProgressHUD.dismiss()
+                        NotificationCenter.default.post(name: NFKey.saveReceipt, object: nil, userInfo: ["receipt_data": receiptData])
                         return completion(nil)
                     }
                 }

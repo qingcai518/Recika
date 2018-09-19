@@ -18,6 +18,7 @@ class ReceiptController: ViewController {
         
         setSubViews()
         getData()
+        addListener()
     }
 
     override func didReceiveMemoryWarning() {
@@ -65,6 +66,14 @@ class ReceiptController: ViewController {
                 self?.collectionView.reloadData()
             }
         }
+    }
+    
+    private func addListener() {
+        NotificationCenter.default.rx.notification(NFKey.saveReceipt).bind { [weak self] sender in
+            guard let info = sender.userInfo, let receiptData = info["receipt_data"] as? ReceiptData else {return}
+            self?.viewModel.receipts.insert(receiptData, at: 0)
+            self?.collectionView.reloadData()
+        }.disposed(by: disposeBag)
     }
 }
 

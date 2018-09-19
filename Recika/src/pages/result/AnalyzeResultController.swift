@@ -128,7 +128,6 @@ class AnalyzeResultController: ViewController {
                     self?.showToast(text: msg)
                 } else {
                     self?.dismiss(animated: true, completion: nil)
-                    NotificationCenter.default.post(name: NFKey.saveReceipt, object: nil)
                 }
             })
         }.disposed(by: disposeBag)
