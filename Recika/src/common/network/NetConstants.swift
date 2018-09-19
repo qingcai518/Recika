@@ -46,6 +46,9 @@ let changeAPI = cybexDomain + v1 + "change"
 // 获取K线信息.
 let klineAPI = cybexDomain + v1 + "market"
 
-// 发票信息.
+// 登陆发票信息.
 let addReceiptAPI = cybexDomain + v1 + "receipt/add"
+
+// 获取发票信息.
+let receiptAPI = domain + v1 + "receipt/"
 

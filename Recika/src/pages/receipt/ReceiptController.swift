@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 
 class ReceiptController: ViewController {
-    var collectionView : UICollectionView!
+    var collectionView: UICollectionView!
     let viewModel = ReceiptViewModel()
 
     override func viewDidLoad() {
@@ -51,7 +51,6 @@ class ReceiptController: ViewController {
         let rect = CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight)
         collectionView = UICollectionView(frame: rect, collectionViewLayout: layout)
         view.addSubview(collectionView)
-        
         collectionView.backgroundColor = UIColor.clear
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -59,8 +58,13 @@ class ReceiptController: ViewController {
     }
     
     private func getData() {
-        // TODO. get receipt datas.
-        collectionView.reloadData()
+        viewModel.getReceiptData { [weak self] msg in
+            if let msg = msg {
+                self?.showToast(text: msg)
+            } else {
+                self?.collectionView.reloadData()
+            }
+        }
     }
 }
 
@@ -81,6 +85,6 @@ extension ReceiptController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ReceiptCell.id, for: indexPath) as! ReceiptCell
         let data = viewModel.receipts[indexPath.row]
         cell.configure(with: data)
-        return cell
+        return data
     }
 }

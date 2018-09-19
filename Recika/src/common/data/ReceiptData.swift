@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 struct ReceiptData {
     let id : Int
@@ -15,7 +16,7 @@ struct ReceiptData {
     let receiptAt: String?
     let totalPrice: String?
     let adjustPrice: String?
-    let items : [ItemData]
+    var items = [ItemData]()
     
     init(id: Int, imagePath: String, tel: String?, receiptAt: String?, totalPrice: String?, adjustPrice: String?, items:[ItemData]) {
         self.id = id
@@ -25,5 +26,14 @@ struct ReceiptData {
         self.totalPrice = totalPrice
         self.adjustPrice = adjustPrice
         self.items = items
+    }
+    
+    init(json: JSON) {
+        self.id = json["id"].intValue
+        self.imagePath = json["ImagePath"].stringValue
+        self.receiptAt = json["ReceiptAt"].stringValue
+        self.tel = json["Tel"].stringValue
+        self.totalPrice = json["TotalPrice"].stringValue
+        self.adjustPrice = json["AdjustPrice"].stringValue
     }
 }
