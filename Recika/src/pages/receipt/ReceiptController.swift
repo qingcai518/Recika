@@ -75,7 +75,7 @@ class ReceiptController: ViewController {
             guard let receiptData = info["receipt_data"] as? ReceiptData else {return}
             self?.viewModel.receipts.insert(receiptData, at: 0)
             self?.collectionView.reloadData()
-        }
+        }.disposed(by: disposeBag)
     }
 }
 
