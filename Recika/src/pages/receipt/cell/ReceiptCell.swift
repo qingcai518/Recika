@@ -33,6 +33,6 @@ class ReceiptCell : UICollectionViewCell {
     }
     
     func configure(with data: ReceiptData) {
-        imgView.kf.setImage(with: data.imagePath)
+        imgView.kf.setImage(with: URL(string: data.imagePath))
     }
 }
