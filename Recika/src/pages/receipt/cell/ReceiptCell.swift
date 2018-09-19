@@ -27,8 +27,10 @@ class ReceiptCell : UICollectionViewCell {
         contentView.addSubview(imgView)
         imgView.contentMode = .scaleAspectFill
         imgView.layer.cornerRadius = 12
+        imgView.layer.cornerRadius = 12
         imgView.layer.borderColor = UIColor.lightGray.cgColor
         imgView.layer.borderWidth = 1
+        imgView.clipsToBounds = true
         imgView.snp.makeConstraints { make in
             make.top.bottom.left.right.equalToSuperview()
         }
