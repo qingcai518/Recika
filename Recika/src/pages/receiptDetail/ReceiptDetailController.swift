@@ -8,13 +8,22 @@
 
 import UIKit
 
-class ItemController: ViewController {
+class ReceiptDetailController: ViewController {
+    let tableView = UITableView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setSubView()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    private func setSubView() {
+        
+        tableView.delegate = self
+        tableView.dataSource = self
     }
 }

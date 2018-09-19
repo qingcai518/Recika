@@ -21,7 +21,9 @@
 		4B35828C2150AD0C00F47FF7 /* AnalyzeResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B35828B2150AD0C00F47FF7 /* AnalyzeResultViewModel.swift */; };
 		4B35828E2150C6DB00F47FF7 /* NFKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B35828D2150C6DB00F47FF7 /* NFKeys.swift */; };
 		4B3582912150F4B000F47FF7 /* GuideController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3582902150F4B000F47FF7 /* GuideController.swift */; };
-		4B35829421521D1E00F47FF7 /* ItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B35829321521D1E00F47FF7 /* ItemController.swift */; };
+		4B35829421521D1E00F47FF7 /* ReceiptDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B35829321521D1E00F47FF7 /* ReceiptDetailController.swift */; };
+		4B358297215229A900F47FF7 /* ReceiptDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B358296215229A900F47FF7 /* ReceiptDetailCell.swift */; };
+		4B35829921522DA700F47FF7 /* ReceiptItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B35829821522DA700F47FF7 /* ReceiptItemCell.swift */; };
 		4B3EBC58212BF8DC002C34C5 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B3EBC48212BF254002C34C5 /* Alamofire.framework */; };
 		4B3EBC5A212BF8DC002C34C5 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B3EBC43212BF254002C34C5 /* Kingfisher.framework */; };
 		4B3EBC5B212BF8DC002C34C5 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B3EBC47212BF254002C34C5 /* RxCocoa.framework */; };
@@ -142,7 +144,9 @@
 		4B35828B2150AD0C00F47FF7 /* AnalyzeResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyzeResultViewModel.swift; sourceTree = "<group>"; };
 		4B35828D2150C6DB00F47FF7 /* NFKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFKeys.swift; sourceTree = "<group>"; };
 		4B3582902150F4B000F47FF7 /* GuideController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideController.swift; sourceTree = "<group>"; };
-		4B35829321521D1E00F47FF7 /* ItemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemController.swift; sourceTree = "<group>"; };
+		4B35829321521D1E00F47FF7 /* ReceiptDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptDetailController.swift; sourceTree = "<group>"; };
+		4B358296215229A900F47FF7 /* ReceiptDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptDetailCell.swift; sourceTree = "<group>"; };
+		4B35829821522DA700F47FF7 /* ReceiptItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptItemCell.swift; sourceTree = "<group>"; };
 		4B3EBC41212BF254002C34C5 /* RxTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxTest.framework; path = Carthage/Build/iOS/RxTest.framework; sourceTree = "<group>"; };
 		4B3EBC42212BF254002C34C5 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 		4B3EBC43212BF254002C34C5 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
@@ -313,18 +317,20 @@
 			path = guide;
 			sourceTree = "<group>";
 		};
-		4B35829221521D0300F47FF7 /* item */ = {
+		4B35829221521D0300F47FF7 /* receiptDetail */ = {
 			isa = PBXGroup;
 			children = (
 				4B35829521521F4D00F47FF7 /* cell */,
-				4B35829321521D1E00F47FF7 /* ItemController.swift */,
+				4B35829321521D1E00F47FF7 /* ReceiptDetailController.swift */,
 			);
-			path = item;
+			path = receiptDetail;
 			sourceTree = "<group>";
 		};
 		4B35829521521F4D00F47FF7 /* cell */ = {
 			isa = PBXGroup;
 			children = (
+				4B358296215229A900F47FF7 /* ReceiptDetailCell.swift */,
+				4B35829821522DA700F47FF7 /* ReceiptItemCell.swift */,
 			);
 			path = cell;
 			sourceTree = "<group>";
@@ -396,7 +402,7 @@
 				4BCE9893213CBBD200DFC4B5 /* pair */,
 				4BF0D9C42138D19F005D9AF1 /* ChartCustom */,
 				4B3EBC71212D2144002C34C5 /* receipt */,
-				4B35829221521D0300F47FF7 /* item */,
+				4B35829221521D0300F47FF7 /* receiptDetail */,
 				4B3EBC72212D214A002C34C5 /* gift */,
 				4BF0D9B1213680F9005D9AF1 /* detail */,
 				4B3EBC73212D214F002C34C5 /* setting */,
@@ -827,7 +833,7 @@
 				4B35828C2150AD0C00F47FF7 /* AnalyzeResultViewModel.swift in Sources */,
 				4BCE987721391EE000DFC4B5 /* String.swift in Sources */,
 				4B3EBC7B212D2192002C34C5 /* SettingController.swift in Sources */,
-				4B35829421521D1E00F47FF7 /* ItemController.swift in Sources */,
+				4B35829421521D1E00F47FF7 /* ReceiptDetailController.swift in Sources */,
 				4BCE98AC213E407A00DFC4B5 /* UIScrollView.swift in Sources */,
 				4BCE98B2213E548F00DFC4B5 /* PriceData.swift in Sources */,
 				4B358287214B4E4C00F47FF7 /* AnalyzeResultController.swift in Sources */,
@@ -852,6 +858,7 @@
 				4BF0D9BA2137BC79005D9AF1 /* AssociateViewModel.swift in Sources */,
 				4B35828A214B5A4800F47FF7 /* AnalyzeResultCell.swift in Sources */,
 				4BF0D9B82137BC6C005D9AF1 /* AssociateController.swift in Sources */,
+				4B35829921522DA700F47FF7 /* ReceiptItemCell.swift in Sources */,
 				4B3EBC77212D217C002C34C5 /* ReceiptController.swift in Sources */,
 				4BCE9870213914D700DFC4B5 /* ChartStyles.swift in Sources */,
 				4BCE987521391E3600DFC4B5 /* Double.swift in Sources */,
@@ -878,6 +885,7 @@
 				4BCE988A213CB8E800DFC4B5 /* SettingListViewController.swift in Sources */,
 				4B1DCC96214A4F370048820C /* ScanController.swift in Sources */,
 				4B3EBC9D212E4B83002C34C5 /* LoginController.swift in Sources */,
+				4B358297215229A900F47FF7 /* ReceiptDetailCell.swift in Sources */,
 				4B3EBC79212D2187002C34C5 /* GiftController.swift in Sources */,
 				4B3EBC8F212D2B4E002C34C5 /* User.swift in Sources */,
 				4B1DCC95214A4F370048820C /* Receipt.mm in Sources */,
