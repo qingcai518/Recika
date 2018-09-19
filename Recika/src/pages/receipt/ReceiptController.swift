@@ -70,10 +70,12 @@ class ReceiptController: ViewController {
     
     private func addListener() {
         NotificationCenter.default.rx.notification(NFKey.saveReceipt).bind { [weak self] sender in
-            guard let info = sender.userInfo, let receiptData = info["receipt_data"] as? ReceiptData else {return}
+            guard let info = sender.userInfo else {return}
+            print("info \(info)")
+            guard let receiptData = info["receipt_data"] as? ReceiptData else {return}
             self?.viewModel.receipts.insert(receiptData, at: 0)
             self?.collectionView.reloadData()
-        }.disposed(by: disposeBag)
+        }
     }
 }
 
