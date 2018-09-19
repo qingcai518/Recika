@@ -23,7 +23,7 @@ class ReceiptDetailController: ViewController {
     
     private func setSubView() {
         
-        tableView.delegate = self
-        tableView.dataSource = self
+//        tableView.delegate = self
+//        tableView.dataSource = self
     }
 }
