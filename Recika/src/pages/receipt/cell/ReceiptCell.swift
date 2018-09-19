@@ -24,12 +24,14 @@ class ReceiptCell : UICollectionViewCell {
     }
     
     private func setSubView() {
+        contentView.addSubview(imgView)
         imgView.contentMode = .scaleAspectFill
-        imgView.clipsToBounds = true
         imgView.layer.cornerRadius = 12
-        imgView.layer.borderWidth = 1
         imgView.layer.borderColor = UIColor.lightGray.cgColor
-        self.contentView.addSubview(imgView)
+        imgView.layer.borderWidth = 1
+        imgView.snp.makeConstraints { make in
+            make.top.bottom.left.right.equalToSuperview()
+        }
     }
     
     func configure(with data: ReceiptData) {
