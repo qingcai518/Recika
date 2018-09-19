@@ -154,8 +154,8 @@ class ScanController: ViewController {
         closeBtn.setImage(close, for: .normal)
         topView.addSubview(closeBtn)
         closeBtn.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(12)
             make.right.equalToSuperview().inset(12)
+            make.bottom.equalToSuperview().inset(12)
             make.height.width.equalTo(44)
         }
         

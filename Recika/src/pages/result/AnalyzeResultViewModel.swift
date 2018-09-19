@@ -59,26 +59,25 @@ class AnalyzeResultViewModel {
                     print(imagePath)
                     
                     /// 保存receipt信息.
-                    var paramItems = []
+                    var paramItems = [Any]()
                     for item in items {
                         guard let name = item.name else {continue}
                         let itemName = name.takeUnretainedValue() as String
                         let itemPrice = item.price
-                        
-                        let itemObj = [
+                        let itemObj: [String: Any] = [
                             "name": itemName,
                             "price": itemPrice
                         ]
                         paramItems.append(itemObj)
                     }
                     
-                    let params : [String: Any] = {
-                        "receipt_at" : receiptAt,
+                    let params : [String: Any] = [
+                        "receipt_at": receiptAt,
                         "tel": tel,
                         "total_price": totalPrice,
                         "adjust_price": adjustPrice,
                         "items": paramItems
-                    }
+                    ]
                     SVProgressHUD.show(withStatus: "saving receipt data")
                     Alamofire.request(addReceiptAPI, method: .post, parameters: params, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
                         if let error = response.error {
