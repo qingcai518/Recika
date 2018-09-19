@@ -101,7 +101,13 @@ class AnalyzeResultViewModel {
                         }
                         
                         let json = JSON(data)
-                        print(json)
+                        let receiptId = json["receipt_id"].intValue
+                        
+                        // make newest info.
+                        for param in paramItems {
+                            
+                        }
+                        
                         SVProgressHUD.dismiss()
                         return completion(nil)
                     }
