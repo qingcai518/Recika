@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 struct ItemData {
     let id : Int
@@ -17,5 +18,11 @@ struct ItemData {
         self.id = id
         self.name = name
         self.price = price
+    }
+    
+    init(json: JSON) {
+        self.id = json["id"].intValue
+        self.name = json["name"].stringValue
+        self.price = json["price"].doubleValue
     }
 }

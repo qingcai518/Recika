@@ -102,11 +102,10 @@ class AnalyzeResultViewModel {
                         
                         let json = JSON(data)
                         let receiptId = json["receipt_id"].intValue
+                        let itemDatas = json["items"].arrayValue.map{ItemData(json: $0)}
                         
-                        // make newest info.
-                        for param in paramItems {
-                            
-                        }
+                        let receiptData = ReceiptData(id: receiptId, imagePath: imagePath, tel: tel, receiptAt: receiptAt, totalPrice: totalPrice, adjustPrice: adjustPrice, items: itemDatas)
+                        print(receiptData)
                         
                         SVProgressHUD.dismiss()
                         return completion(nil)
