@@ -9,8 +9,8 @@
 import Foundation
 
 // api domain.
-//let cybexDomain = "http://localhost:8066"
-let cybexDomain = "http://47.91.242.71:8066"
+//let cybexDomain = "http://localhost:8081"
+let cybexDomain = "http://47.91.242.71:8088"
 let domain = "http://localhost:8080"
 let uploadDomain = "https://main-myreader.ssl-lolipop.jp/recika_upload"    // 暂时用
 

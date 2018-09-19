@@ -15,11 +15,6 @@ class AnalyzeResultViewModel {
     func saveReceiptData(imgData: Data?, receiptAt: String?, tel: String?, totalPrice: String?, adjustPrice: String?, items:[AnalyzerItemInfo]?, completion: @escaping (String?) -> Void) {
         guard let addReceiptURL = URLComponents(string: addReceiptAPI) else {return completion("fail to get receipt API")}
         guard let imgData = imgData else {return completion("fail to get image data")}
-        guard let receiptAt = receiptAt else {return completion("have no receiptAt")}
-        guard let tel = tel else {return completion("have no tel")}
-        guard let totalPrice = totalPrice else {return completion("have no total price")}
-        guard let adjustPrice = adjustPrice else {return completion("have no adjust price")}
-        guard let items = items else {return completion("have not items")}
         
         /// upload image.
         guard let image = UIImage(data: imgData), let imageData = UIImageJPEGRepresentation(image, 0.25) else {
@@ -60,26 +55,41 @@ class AnalyzeResultViewModel {
                     
                     /// 保存receipt信息.
                     var paramItems = [Any]()
-                    for item in items {
-                        guard let name = item.name else {continue}
-                        let itemName = name.takeUnretainedValue() as String
-                        let itemPrice = item.price
-                        let itemObj: [String: Any] = [
-                            "name": itemName,
-                            "price": itemPrice
-                        ]
-                        paramItems.append(itemObj)
+                    if let items = items {
+                        for item in items {
+                            guard let name = item.name else {continue}
+                            let itemName = name.takeUnretainedValue() as String
+                            let itemPrice = item.price
+                            let itemObj: [String: Any] = [
+                                "name": itemName,
+                                "price": itemPrice
+                            ]
+                            paramItems.append(itemObj)
+                        }
                     }
                     
-                    let params : [String: Any] = [
-                        "receipt_at": receiptAt,
-                        "tel": tel,
-                        "total_price": totalPrice,
-                        "adjust_price": adjustPrice,
-                        "items": paramItems
+                    var params : [String: Any] = [
+                        "image_path": imagePath
                     ]
+                    
+                    if let receiptAt = receiptAt {
+                        params["receipt_at"] = receiptAt
+                    }
+                    if let tel = tel {
+                        params["tel"] = tel
+                    }
+                    if let totalPrice = totalPrice {
+                        params["total_price"] = totalPrice
+                    }
+                    if let adjustPrice = adjustPrice {
+                        params["adjust_price"] = adjustPrice
+                    }
+                    if paramItems.count > 0 {
+                        params["items"] = paramItems
+                    }
+                    
                     SVProgressHUD.show(withStatus: "saving receipt data")
-                    Alamofire.request(addReceiptAPI, method: .post, parameters: params, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+                    Alamofire.request(addReceiptURL, method: .post, parameters: params, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
                         if let error = response.error {
                             SVProgressHUD.dismiss()
                             return completion(error.localizedDescription)
