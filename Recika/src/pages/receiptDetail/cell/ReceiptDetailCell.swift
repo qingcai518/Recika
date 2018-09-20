@@ -7,8 +7,10 @@
 //
 
 import UIKit
+import Kingfisher
 
 class ReceiptDetailCell: UITableViewCell {
+    static let id = "ReceiptDetailCell"
     lazy var imgView = UIImageView()
     lazy var dateLbl = UILabel()
     lazy var telLbl = UILabel()
@@ -73,5 +75,13 @@ class ReceiptDetailCell: UITableViewCell {
             make.right.equalToSuperview().inset(24)
             make.top.equalTo(totalPriceLbl.snp.bottom).offset(12)
         }
+    }
+    
+    func configure(with data: ReceiptData) {
+        imgView.kf.setImage(with: URL(string: data.imagePath))
+        dateLbl.text = data.receiptAt
+        telLbl.text = data.tel
+        totalPriceLbl.text = data.totalPrice
+        adjustPriceLbl.text = data.adjustPrice
     }
 }

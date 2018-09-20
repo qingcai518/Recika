@@ -9,6 +9,7 @@
 import UIKit
 
 class ReceiptItemCell: UITableViewCell {
+    static let id = "ReceiptItemCell"
     lazy var nameLbl = UILabel()
     lazy var priceLbl = UILabel()
     

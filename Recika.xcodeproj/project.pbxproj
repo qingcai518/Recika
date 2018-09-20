@@ -24,6 +24,7 @@
 		4B35829421521D1E00F47FF7 /* ReceiptDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B35829321521D1E00F47FF7 /* ReceiptDetailController.swift */; };
 		4B358297215229A900F47FF7 /* ReceiptDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B358296215229A900F47FF7 /* ReceiptDetailCell.swift */; };
 		4B35829921522DA700F47FF7 /* ReceiptItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B35829821522DA700F47FF7 /* ReceiptItemCell.swift */; };
+		4B35829B2153254800F47FF7 /* ReceiptDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B35829A2153254800F47FF7 /* ReceiptDetailViewModel.swift */; };
 		4B3EBC58212BF8DC002C34C5 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B3EBC48212BF254002C34C5 /* Alamofire.framework */; };
 		4B3EBC5A212BF8DC002C34C5 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B3EBC43212BF254002C34C5 /* Kingfisher.framework */; };
 		4B3EBC5B212BF8DC002C34C5 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B3EBC47212BF254002C34C5 /* RxCocoa.framework */; };
@@ -147,6 +148,7 @@
 		4B35829321521D1E00F47FF7 /* ReceiptDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptDetailController.swift; sourceTree = "<group>"; };
 		4B358296215229A900F47FF7 /* ReceiptDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptDetailCell.swift; sourceTree = "<group>"; };
 		4B35829821522DA700F47FF7 /* ReceiptItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptItemCell.swift; sourceTree = "<group>"; };
+		4B35829A2153254800F47FF7 /* ReceiptDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptDetailViewModel.swift; sourceTree = "<group>"; };
 		4B3EBC41212BF254002C34C5 /* RxTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxTest.framework; path = Carthage/Build/iOS/RxTest.framework; sourceTree = "<group>"; };
 		4B3EBC42212BF254002C34C5 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 		4B3EBC43212BF254002C34C5 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
@@ -322,6 +324,7 @@
 			children = (
 				4B35829521521F4D00F47FF7 /* cell */,
 				4B35829321521D1E00F47FF7 /* ReceiptDetailController.swift */,
+				4B35829A2153254800F47FF7 /* ReceiptDetailViewModel.swift */,
 			);
 			path = receiptDetail;
 			sourceTree = "<group>";
@@ -830,6 +833,7 @@
 				4B3582912150F4B000F47FF7 /* GuideController.swift in Sources */,
 				4BCE98AA213D116100DFC4B5 /* PairViewModel.swift in Sources */,
 				4B3EBCB221363828002C34C5 /* GiftViewModel.swift in Sources */,
+				4B35829B2153254800F47FF7 /* ReceiptDetailViewModel.swift in Sources */,
 				4B35828C2150AD0C00F47FF7 /* AnalyzeResultViewModel.swift in Sources */,
 				4BCE987721391EE000DFC4B5 /* String.swift in Sources */,
 				4B3EBC7B212D2192002C34C5 /* SettingController.swift in Sources */,
