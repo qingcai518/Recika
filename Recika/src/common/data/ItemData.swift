@@ -21,8 +21,8 @@ struct ItemData {
     }
     
     init(json: JSON) {
-        self.id = json["id"].intValue
-        self.name = json["name"].stringValue
-        self.price = json["price"].doubleValue
+        self.id = json["Id"].intValue
+        self.name = json["Name"].stringValue
+        self.price = json["Price"].doubleValue
     }
 }

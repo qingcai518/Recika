@@ -29,7 +29,7 @@ struct ReceiptData {
     }
     
     init(json: JSON) {
-        self.id = json["id"].intValue
+        self.id = json["Id"].intValue
         self.imagePath = json["ImagePath"].stringValue
         self.receiptAt = json["ReceiptAt"].stringValue
         self.tel = json["Tel"].stringValue

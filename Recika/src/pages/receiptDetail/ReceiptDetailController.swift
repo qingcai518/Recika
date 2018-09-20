@@ -27,6 +27,8 @@ class ReceiptDetailController: ViewController {
     }
     
     private func setSubView() {
+        view.backgroundColor = UIColor.white
+        
         tableView.register(ReceiptDetailCell.self, forCellReuseIdentifier: ReceiptDetailCell.id)
         tableView.register(ReceiptItemCell.self, forCellReuseIdentifier: ReceiptDetailCell.id)
         tableView.delegate = self
