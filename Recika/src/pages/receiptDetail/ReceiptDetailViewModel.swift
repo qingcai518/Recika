@@ -8,11 +8,30 @@
 
 import RxSwift
 import SVProgressHUD
+import Alamofire
+import SwiftyJSON
 
 class ReceiptDetailViewModel {
-    var items = Variable([ItemData]())
+    var items = [ItemData]()
     
-    func getItems() {
+    func getItems(receiptId: Int, completion: @escaping (String?) -> Void) {
+        guard let api = URLComponents(string: itemAPI) else {return}
+        api.queryItems = [
+            URLQueryItem(name: "receipt_id", value: receiptId)
+        ]
         
+        SVProgressHUD.show()
+        Alamofire.request(api, method: .get).responseJSON { response in
+            SVProgressHUD.dismiss()
+            if let error = response.error {
+                return completion(error.localizedDescription)
+            }
+            
+            guard let data = response.data else {
+                return completion("fail to get items data")
+            }
+            
+            
+        }
     }
 }

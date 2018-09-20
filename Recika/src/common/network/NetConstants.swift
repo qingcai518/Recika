@@ -60,3 +60,5 @@ let addReceiptAPI = cybexDomain + v1 + "receipt/add"
 // 获取发票信息.
 let receiptAPI = domain + v1 + "receipt/"
 
+// 获取发票上面的详细信息.
+let itemAPI = domain + v1 + "item/"
