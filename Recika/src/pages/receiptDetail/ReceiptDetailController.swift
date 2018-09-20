@@ -30,7 +30,8 @@ class ReceiptDetailController: ViewController {
         view.backgroundColor = UIColor.white
         
         tableView.register(ReceiptDetailCell.self, forCellReuseIdentifier: ReceiptDetailCell.id)
-        tableView.register(ReceiptItemCell.self, forCellReuseIdentifier: ReceiptDetailCell.id)
+        tableView.register(ReceiptItemCell.self, forCellReuseIdentifier: ReceiptItemCell.id)
+        
         tableView.delegate = self
         tableView.dataSource = self
         view.addSubview(tableView)
@@ -65,7 +66,7 @@ extension ReceiptDetailController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.items.count
+        return section == 0 ? 1 : viewModel.items.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
