@@ -93,7 +93,11 @@ class ReceiptController: ViewController {
 }
 
 extension ReceiptController : UICollectionViewDelegate {
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let next = ReceiptDetailController()
+        next.receiptData = viewModel.receipts[indexPath.item]
+        self.navigationController?.pushViewController(next, animated: true)
+    }
 }
 
 extension ReceiptController: UICollectionViewDataSource {
