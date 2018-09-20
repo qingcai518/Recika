@@ -61,6 +61,7 @@ class ReceiptDetailCell: UITableViewCell {
         totalPriceLbl.textColor = UIColor.black
         totalPriceLbl.font = UIFont.systemFont(ofSize: 14)
         totalPriceLbl.numberOfLines = 1
+        contentView.addSubview(totalPriceLbl)
         totalPriceLbl.snp.makeConstraints { make in
             make.left.equalTo(imgView.snp.right).offset(24)
             make.right.equalToSuperview().inset(24)
@@ -70,6 +71,7 @@ class ReceiptDetailCell: UITableViewCell {
         adjustPriceLbl.textColor = UIColor.black
         adjustPriceLbl.font = UIFont.systemFont(ofSize: 14)
         adjustPriceLbl.numberOfLines = 1
+        contentView.addSubview(adjustPriceLbl)
         adjustPriceLbl.snp.makeConstraints { make in
             make.left.equalTo(imgView.snp.right).offset(24)
             make.right.equalToSuperview().inset(24)
