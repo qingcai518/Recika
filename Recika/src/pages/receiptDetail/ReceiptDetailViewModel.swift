@@ -15,9 +15,9 @@ class ReceiptDetailViewModel {
     var items = [ItemData]()
     
     func getItems(receiptId: Int, completion: @escaping (String?) -> Void) {
-        guard let api = URLComponents(string: itemAPI) else {return}
+        guard var api = URLComponents(string: itemAPI) else {return}
         api.queryItems = [
-            URLQueryItem(name: "receipt_id", value: receiptId)
+            URLQueryItem(name: "receipt_id", value: "\(receiptId)")
         ]
         
         SVProgressHUD.show()
@@ -28,10 +28,12 @@ class ReceiptDetailViewModel {
             }
             
             guard let data = response.data else {
-                return completion("fail to get items data")
+                return completion("fail to get data")
             }
             
-            
+            let json = JSON(data)
+            print(json)
+            return completion(nil)
         }
     }
 }

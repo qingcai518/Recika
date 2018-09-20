@@ -19,7 +19,7 @@ class ReceiptDetailController: ViewController {
         super.viewDidLoad()
         
         setSubView()
-        bind()
+        getData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -39,10 +39,15 @@ class ReceiptDetailController: ViewController {
         }
     }
     
-    private func bind() {
-        viewModel.items.asObservable().bind { [weak self] _ in
-            self?.tableView.reloadData()
-        }.disposed(by: disposeBag)
+    private func getData() {
+        guard let receiptId = receiptData?.id else {return}
+        viewModel.getItems(receiptId: receiptId) { [weak self] msg in
+            if let msg = msg {
+                self?.showToast(text: msg)
+            } else {
+                self?.tableView.reloadData()
+            }
+        }
     }
 }
 
@@ -58,19 +63,19 @@ extension ReceiptDetailController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.items.value.count
+        return viewModel.items.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: ReceiptDetailCell.id, for: indexPath) as! ReceiptDetailCell
-            if let receiptData = receiptData {
-                cell.configure(with: receiptData)
+            if let receipt = receiptData {
+                cell.configure(with: receipt)
             }
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: ReceiptItemCell.id, for: indexPath) as! ReceiptItemCell
-            let item = viewModel.items.value[indexPath.item]
+            let item = viewModel.items[indexPath.item]
             cell.configure(with: item)
             return cell
         }
