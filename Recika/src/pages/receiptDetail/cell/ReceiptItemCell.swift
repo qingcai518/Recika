@@ -34,15 +34,15 @@ class ReceiptItemCell: UITableViewCell {
             make.width.equalTo(120)
         }
         
-        nameLbl.textColor = UIColor.blue
-        nameLbl.font = UIFont.systemFont(ofSize: 14)
-        nameLbl.numberOfLines = 1
-        contentView.addSubview(nameLbl)
-        nameLbl.snp.makeConstraints { make in
-            make.top.bottom.equalToSuperview().inset(12)
-            make.left.equalToSuperview().inset(24)
-            make.right.equalTo(priceLbl.snp.left)
-        }
+//        nameLbl.textColor = UIColor.blue
+//        nameLbl.font = UIFont.systemFont(ofSize: 14)
+//        nameLbl.numberOfLines = 1
+//        contentView.addSubview(nameLbl)
+//        nameLbl.snp.makeConstraints { make in
+//            make.top.bottom.equalToSuperview().inset(12)
+//            make.left.equalToSuperview().inset(24)
+//            make.right.equalTo(priceLbl.snp.left)
+//        }
     }
     
     func configure(with data: ItemData) {
