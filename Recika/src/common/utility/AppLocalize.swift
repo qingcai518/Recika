@@ -21,6 +21,10 @@ let str_password = NSLocalizedString("password", comment: "")
 let str_associate = NSLocalizedString("associate", comment: "")
 let str_cancel = NSLocalizedString("cancel", comment: "")
 let str_save = NSLocalizedString("save", comment: "")
+let str_time = NSLocalizedString("time", comment: "")
+let str_tel = NSLocalizedString("tel", comment: "")
+let str_totalprice = NSLocalizedString("totalprice", comment: "")
+let str_adjustprice = NSLocalizedString("adjustprice", comment: "")
 
 // messages.
 let msg1 = NSLocalizedString("msg1", comment: "")

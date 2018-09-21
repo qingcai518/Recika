@@ -18,5 +18,9 @@
 "associate" = "Associate to Cybex acount";
 "cancel" = "Cancel";
 "save" = "Save";
+"time" = "Time";
+"tel" = "Tel";
+"totalprice" = "Total Price";
+"adjustprice" = "Adjust Price";
 
 "msg1" = "your own smart receipt id";

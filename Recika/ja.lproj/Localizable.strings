@@ -18,5 +18,9 @@
 "associate" = "Cybexアカウントと関連する";
 "cancel" = "キャンセル";
 "save" = "登録";
+"time" = "日時";
+"tel" = "電話番号";
+"totalprice" = "合計金額";
+"adjustprice" = "調整金額";
 
 "msg1" = "あなた専用のスマートレシートID";

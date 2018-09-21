@@ -28,54 +28,100 @@ class ReceiptDetailCell: UITableViewCell {
     }
     
     private func setSubView() {
+        var height : CGFloat = 8 * 44
+        
         imgView.contentMode = .scaleAspectFill
-        imgView.layer.cornerRadius = 8
+        imgView.layer.cornerRadius = 12
+        imgView.clipsToBounds = true
         contentView.addSubview(imgView)
         let width: CGFloat = screenWidth / 2 - 2 * 24
-        let height = width * 5 / 3
+        height = width * 5 / 3 > height ? width * 5 / 3 : height
+        
         imgView.snp.makeConstraints { make in
-            make.top.left.equalToSuperview().inset(24)
+            make.top.left.bottom.equalToSuperview().inset(24)
             make.width.equalTo(width)
             make.height.equalTo(height)
         }
         
-        dateLbl.textColor = UIColor.black
-        dateLbl.font = UIFont.systemFont(ofSize: 14)
-        dateLbl.numberOfLines = 1
+        let dateTitleLbl = createTitleLbl(text: str_time)
+        contentView.addSubview(dateTitleLbl)
+        
+        dateLbl = createLbl()
         contentView.addSubview(dateLbl)
-        dateLbl.snp.makeConstraints { make in
-            make.left.equalTo(imgView.snp.right).offset(24)
-            make.right.top.equalToSuperview().inset(24)
-        }
         
-        telLbl.textColor = UIColor.black
-        telLbl.font = UIFont.systemFont(ofSize: 14)
-        telLbl.numberOfLines = 1
+        let telTitleLbl = createTitleLbl(text: str_tel)
+        contentView.addSubview(telTitleLbl)
+        
+        telLbl = createLbl()
         contentView.addSubview(telLbl)
-        telLbl.snp.makeConstraints { make in
-            make.left.equalTo(imgView.snp.right).offset(24)
-            make.right.equalToSuperview().inset(24)
-            make.top.equalTo(dateLbl.snp.bottom).offset(12)
-        }
         
-        totalPriceLbl.textColor = UIColor.black
-        totalPriceLbl.font = UIFont.systemFont(ofSize: 14)
-        totalPriceLbl.numberOfLines = 1
+        let totalPriceTitleLbl = createTitleLbl(text: str_totalprice)
+        contentView.addSubview(totalPriceTitleLbl)
+        
+        totalPriceLbl = createLbl()
         contentView.addSubview(totalPriceLbl)
-        totalPriceLbl.snp.makeConstraints { make in
+        
+        let adjustPriceTitleLbl = createTitleLbl(text: str_adjustprice)
+        contentView.addSubview(adjustPriceTitleLbl)
+        
+        self.adjustPriceLbl = createLbl()
+        contentView.addSubview(adjustPriceLbl)
+        
+        /// set constraints.
+        dateTitleLbl.snp.makeConstraints { make in
+            make.top.equalToSuperview().inset(24)
             make.left.equalTo(imgView.snp.right).offset(24)
             make.right.equalToSuperview().inset(24)
-            make.top.equalTo(telLbl.snp.bottom).offset(12)
+            make.height.equalTo(44)
         }
         
-        adjustPriceLbl.textColor = UIColor.black
-        adjustPriceLbl.font = UIFont.systemFont(ofSize: 14)
-        adjustPriceLbl.numberOfLines = 1
-        contentView.addSubview(adjustPriceLbl)
-        adjustPriceLbl.snp.makeConstraints { make in
+        dateLbl.snp.makeConstraints { make in
+            make.top.equalTo(dateTitleLbl.snp.bottom)
             make.left.equalTo(imgView.snp.right).offset(24)
             make.right.equalToSuperview().inset(24)
-            make.top.equalTo(totalPriceLbl.snp.bottom).offset(12)
+            make.height.equalTo(44)
+        }
+        
+        telTitleLbl.snp.makeConstraints { make in
+            make.top.equalTo(dateLbl.snp.bottom)
+            make.left.equalTo(imgView.snp.right).offset(24)
+            make.right.equalToSuperview().inset(24)
+            make.height.equalTo(44)
+        }
+        
+        telLbl.snp.makeConstraints { make in
+            make.top.equalTo(telTitleLbl.snp.bottom)
+            make.left.equalTo(imgView.snp.right).offset(24)
+            make.right.equalToSuperview().inset(24)
+            make.height.equalTo(44)
+        }
+        
+        totalPriceTitleLbl.snp.makeConstraints { make in
+            make.top.equalTo(telLbl.snp.bottom)
+            make.left.equalTo(imgView.snp.right).offset(24)
+            make.right.equalToSuperview().inset(24)
+            make.height.equalTo(44)
+        }
+        
+        totalPriceLbl.snp.makeConstraints { make in
+            make.top.equalTo(totalPriceTitleLbl.snp.bottom)
+            make.left.equalTo(imgView.snp.right).offset(24)
+            make.right.equalToSuperview().inset(24)
+            make.height.equalTo(44)
+        }
+        
+        adjustPriceTitleLbl.snp.makeConstraints { make in
+            make.top.equalTo(totalPriceLbl.snp.bottom)
+            make.left.equalTo(imgView.snp.right).offset(24)
+            make.right.equalToSuperview().inset(24)
+            make.height.equalTo(44)
+        }
+        
+        adjustPriceLbl.snp.makeConstraints { make in
+            make.top.equalTo(adjustPriceTitleLbl.snp.bottom)
+            make.left.equalTo(imgView.snp.right).offset(24)
+            make.right.equalToSuperview().inset(24)
+            make.height.equalTo(44)
         }
     }
     
@@ -85,5 +131,27 @@ class ReceiptDetailCell: UITableViewCell {
         telLbl.text = data.tel
         totalPriceLbl.text = data.totalPrice
         adjustPriceLbl.text = data.adjustPrice
+    }
+    
+    private func createTitleLbl(text: String) -> UILabel {
+        let titleLbl = UILabel()
+        titleLbl.text = text
+        titleLbl.font = UIFont.systemFont(ofSize: 14)
+        titleLbl.textColor = UIColor.orange
+        titleLbl.textAlignment = .center
+        titleLbl.numberOfLines = 1
+        titleLbl.layer.cornerRadius = 4
+        titleLbl.layer.borderColor = UIColor.lightGray.cgColor
+        titleLbl.layer.borderWidth = 1
+        return titleLbl
+    }
+    
+    private func createLbl() -> UILabel {
+        let lbl = UILabel()
+        lbl.font = UIFont.systemFont(ofSize: 14)
+        lbl.textColor = UIColor.black
+        lbl.textAlignment = .left
+        lbl.numberOfLines = 1
+        return lbl
     }
 }
