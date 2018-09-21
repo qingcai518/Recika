@@ -31,7 +31,7 @@ class ReceiptDetailController: ViewController {
         
         tableView.register(ReceiptDetailCell.self, forCellReuseIdentifier: ReceiptDetailCell.id)
         tableView.register(ReceiptItemCell.self, forCellReuseIdentifier: ReceiptItemCell.id)
-        
+        tableView.rowHeight = UITableViewAutomaticDimension
         tableView.delegate = self
         tableView.dataSource = self
         view.addSubview(tableView)

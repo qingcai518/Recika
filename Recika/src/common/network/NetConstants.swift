@@ -17,8 +17,8 @@ import Foundation
 //let domain = "http://47.91.242.71:8085"
 
 // bc tecth环境
-let cybexDomain = "http://52.192.78.44:8081"
-let domain = "http://52.192.78.44:8085"
+let cybexDomain = "http://52.197.86.134:8081"
+let domain = "http://52.197.86.134:8085"
 
 let uploadDomain = "https://main-myreader.ssl-lolipop.jp/recika_upload"    // 暂时用
 

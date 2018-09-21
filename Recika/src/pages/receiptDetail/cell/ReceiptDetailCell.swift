@@ -38,7 +38,7 @@ class ReceiptDetailCell: UITableViewCell {
         height = width * 5 / 3 > height ? width * 5 / 3 : height
         
         imgView.snp.makeConstraints { make in
-            make.top.left.bottom.equalToSuperview().inset(24)
+            make.top.bottom.left.equalToSuperview().inset(24)
             make.width.equalTo(width)
             make.height.equalTo(height)
         }
