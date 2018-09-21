@@ -137,7 +137,7 @@ class ReceiptDetailCell: UITableViewCell {
         let titleLbl = UILabel()
         titleLbl.text = text
         titleLbl.font = UIFont.systemFont(ofSize: 14)
-        titleLbl.textColor = UIColor.orange
+        titleLbl.textColor = UIColor.black
         titleLbl.textAlignment = .center
         titleLbl.numberOfLines = 1
         titleLbl.layer.cornerRadius = 4
@@ -149,7 +149,7 @@ class ReceiptDetailCell: UITableViewCell {
     private func createLbl() -> UILabel {
         let lbl = UILabel()
         lbl.font = UIFont.systemFont(ofSize: 14)
-        lbl.textColor = UIColor.black
+        lbl.textColor = UIColor.blue
         lbl.textAlignment = .left
         lbl.numberOfLines = 1
         return lbl
