@@ -69,8 +69,10 @@ class HomeController: ViewController {
         // 屏幕中间的欢迎信息.
         let welcomeLbl = UILabel()
         welcomeLbl.textColor = UIColor.black
-        welcomeLbl.font = UIFont.systemFont(ofSize: 20)
-        welcomeLbl.text = localize(key: "welcome", arguments: userName)
+        welcomeLbl.font = UIFont.boldSystemFont(ofSize: 20)
+        let welcomeMsg = localize(key: "welcome", arguments: userName)
+        welcomeLbl.text = welcomeMsg
+        welcomeLbl.numberOfLines = 1
         view.addSubview(welcomeLbl)
         welcomeLbl.snp.makeConstraints { make in
             make.center.equalToSuperview()
