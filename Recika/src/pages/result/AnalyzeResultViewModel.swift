@@ -69,6 +69,7 @@ class AnalyzeResultViewModel {
                     }
                     
                     var params : [String: Any] = [
+                        "user_id": userName,
                         "image_path": imagePath
                     ]
                     

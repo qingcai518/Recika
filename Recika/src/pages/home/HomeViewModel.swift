@@ -13,9 +13,9 @@ import SwiftyJSON
 
 class HomeViewModel {
     var balance = Variable("-")
+    var timer: Timer?
     
-    func getBalance() {
-        // 一時的にpython apiを利用して取得する。将来go apiに切り替える.
+    private func getBalance() {
         let url = balanceAPI + "?name=\(userName)&symbol=\(symbol)"
         guard let api = URLComponents(string: url) else{return}
         
@@ -32,5 +32,18 @@ class HomeViewModel {
                 self.balance.value = amount
             }
         }
+    }
+    
+    func startGetBalance() {
+        getBalance()
+        stopGetBalance()
+        timer = Timer.scheduledTimer(withTimeInterval: 10, repeats: true, block: { [weak self] _ in
+            self?.getBalance()
+        })
+    }
+    
+    func stopGetBalance() {
+        timer?.invalidate()
+        timer = nil
     }
 }

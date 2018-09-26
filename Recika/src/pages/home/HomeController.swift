@@ -17,7 +17,16 @@ class HomeController: ViewController {
         super.viewDidLoad()
         
         setSubViews()
-        viewModel.getBalance()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel.startGetBalance()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        viewModel.stopGetBalance()
     }
 
     override func didReceiveMemoryWarning() {
@@ -56,6 +65,16 @@ class HomeController: ViewController {
     
         // コイン数を設定する.
         viewModel.balance.asObservable().map{"\($0) \(symbol)"}.bind(to: balanceLbl.rx.text).disposed(by: disposeBag)
+        
+        // 屏幕中间的欢迎信息.
+        let welcomeLbl = UILabel()
+        welcomeLbl.textColor = UIColor.black
+        welcomeLbl.font = UIFont.systemFont(ofSize: 20)
+        welcomeLbl.text = "Welcome \(userName)"
+        view.addSubview(welcomeLbl)
+        welcomeLbl.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+        }
         
         // 下方二维码的view
         let titleLbl = UILabel()
