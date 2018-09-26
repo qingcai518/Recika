@@ -24,3 +24,5 @@
 "adjustprice" = "Adjust Price";
 
 "msg1" = "your own smart receipt id";
+
+"welcome" = "Welcome %@";

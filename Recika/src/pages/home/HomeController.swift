@@ -70,7 +70,7 @@ class HomeController: ViewController {
         let welcomeLbl = UILabel()
         welcomeLbl.textColor = UIColor.black
         welcomeLbl.font = UIFont.systemFont(ofSize: 20)
-        welcomeLbl.text = "Welcome \(userName)"
+        welcomeLbl.text = localize(key: "welcome", arguments: userName)
         view.addSubview(welcomeLbl)
         welcomeLbl.snp.makeConstraints { make in
             make.center.equalToSuperview()
