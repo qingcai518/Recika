@@ -30,6 +30,8 @@ class ReceiptDetailCell: UITableViewCell {
     private func setSubView() {
         var height : CGFloat = 8 * 44
         
+        self.selectionStyle = .none
+        
         imgView.contentMode = .scaleAspectFill
         imgView.layer.cornerRadius = 12
         imgView.clipsToBounds = true
