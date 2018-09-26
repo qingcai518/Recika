@@ -32,6 +32,9 @@ class PairViewModel {
             
             let json = JSON(data)
             let assetDic = json.dictionaryValue
+            
+            print(json)
+            
             for key in assetDic.keys {
                 var titleData = PairData(tokenName: key)
                 

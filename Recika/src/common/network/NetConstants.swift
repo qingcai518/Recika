@@ -42,8 +42,7 @@ let loginAPI = userAPI + "login"
 let giftAPI = domain + v1 + "gift/"
 
 // get pairs.
-let pairsAPI = "https://app.cybex.io/lab/exchange/asset"
-//let pairsAPI = cybexDomain + v1 + "pairs"
+let pairsAPI = cybexDomain + v1 + "pairs"
 
 // 获取最新的交易信息.
 let tickerAPI = cybexDomain + v1 + "ticker"
