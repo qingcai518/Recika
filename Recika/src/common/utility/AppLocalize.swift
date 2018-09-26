@@ -29,6 +29,7 @@ let str_adjustprice = NSLocalizedString("adjustprice", comment: "")
 // messages.
 let msg1 = NSLocalizedString("msg1", comment: "")
 
-func localize(key: String, arguments: CVarArg...) -> String {
+
+func localize(key: String, arguments: CVarArg) -> String {
     return String(format: NSLocalizedString(key, comment: ""), arguments)
 }

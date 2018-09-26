@@ -70,7 +70,9 @@ class HomeController: ViewController {
         let welcomeLbl = UILabel()
         welcomeLbl.textColor = UIColor.black
         welcomeLbl.font = UIFont.boldSystemFont(ofSize: 20)
+        print("user name = \(userName)")
         let welcomeMsg = localize(key: "welcome", arguments: userName)
+        print("welcome messge = \(welcomeMsg)")
         welcomeLbl.text = welcomeMsg
         welcomeLbl.numberOfLines = 1
         view.addSubview(welcomeLbl)
