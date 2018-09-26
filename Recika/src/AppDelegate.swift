@@ -17,25 +17,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+//        window = UIWindow(frame: UIScreen.main.bounds)
+//        let top = TopController()
+//        window?.rootViewController = top
+//        window?.makeKeyAndVisible()
+//        return true
+        
+        
         window = UIWindow(frame: UIScreen.main.bounds)
-        let top = TopController()
-        window?.rootViewController = top
+        let isLogin = UserDefaults.standard.bool(forKey: UDKey.isLogin)
+        if isLogin {
+            let top = TopController()
+            window?.rootViewController = top
+        } else {
+            let login = LoginController()
+            window?.rootViewController = login
+        }
+        
         window?.makeKeyAndVisible()
         return true
-        
-        
-        //        window = UIWindow(frame: UIScreen.main.bounds)
-        //        let isLogin = UserDefaults.standard.bool(forKey: UDKey.isLogin)
-        //        if isLogin {
-        //            let top = TopController()
-        //            window?.rootViewController = top
-        //        } else {
-        //            let login = LoginController()
-        //            window?.rootViewController = login
-        //        }
-        //
-        //        window?.makeKeyAndVisible()
-        //        return true
     }
     
     func applicationWillResignActive(_ application: UIApplication) {
