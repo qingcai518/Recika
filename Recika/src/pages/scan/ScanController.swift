@@ -189,7 +189,7 @@ class ScanController: ViewController {
             next.modalPresentationStyle = .custom
             next.modalTransitionStyle = .crossDissolve
             self?.present(next, animated: true, completion: nil)
-        }
+        }.disposed(by: disposeBag)
     }
     
     private func setupCamera() {
