@@ -149,7 +149,7 @@ class ChartController: ViewController {
     }()
     
     lazy var loadingView: UIActivityIndicatorView = {
-        let v = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+        let v = UIActivityIndicatorView(style: .whiteLarge)
         v.hidesWhenStopped = true
         return v
     }()
@@ -376,7 +376,7 @@ extension ChartController {
             let time = times[i]
             let title = getTimeStr(timeType: time)
             
-            let style: UIAlertActionStyle = selectedTime == i ? UIAlertActionStyle.destructive : UIAlertActionStyle.default
+            let style : UIAlertAction.Style = selectedTime == i ? .destructive : .default
             let alertAction = UIAlertAction(title: title, style: style) { [weak self] _ in
                 self?.selectedTime = i
                 self?.fetchChartDatas()
@@ -395,7 +395,7 @@ extension ChartController {
         
         for i in 0..<masterLine.count {
             let line = masterLine[i]
-            let style: UIAlertActionStyle = i == selectedMasterLine ? UIAlertActionStyle.destructive : UIAlertActionStyle.default
+            let style: UIAlertAction.Style = i == selectedMasterLine ? .destructive: .default
             let action = UIAlertAction(title: line, style: style) { [weak self] _ in
                 self?.selectedMasterLine = i
                 self?.handleChartIndexChanged()

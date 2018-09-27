@@ -46,7 +46,7 @@ class ReceiptController: ViewController {
         layout.scrollDirection = .vertical
         layout.minimumLineSpacing = 10
         layout.minimumInteritemSpacing = 10
-        layout.sectionInset = UIEdgeInsetsMake(12, 10, 12, 10)
+        layout.sectionInset = UIEdgeInsets(top: 12, left: 10, bottom: 12, right: 10)
         let width = (screenWidth - 3 * 10) / 2
         let height = width * 5 / 3
         layout.itemSize = CGSize(width: width, height: height)

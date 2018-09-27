@@ -17,7 +17,7 @@ class AnalyzeResultViewModel {
         guard let imgData = imgData else {return completion("fail to get image data")}
         
         /// upload image.
-        guard let image = UIImage(data: imgData), let imageData = UIImageJPEGRepresentation(image, 0.25) else {
+        guard let imageData = UIImage(data: imgData)?.jpegData(compressionQuality: 0.25) else {
             return completion("fail to compress image data")
         }
         

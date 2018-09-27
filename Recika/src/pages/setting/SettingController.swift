@@ -23,7 +23,7 @@ class SettingController: ViewController {
     
     private func setSubViews() {
         let tableView = UITableView(frame: CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight), style: .grouped)
-        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 100
         tableView.delegate = self
         tableView.dataSource = self

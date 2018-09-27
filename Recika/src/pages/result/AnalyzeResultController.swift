@@ -113,7 +113,7 @@ class AnalyzeResultController: ViewController {
         tableView.dataSource = self
         tableView.register(AnalyzeResultCell.self, forCellReuseIdentifier: AnalyzeResultCell.id)
         tableView.tableFooterView = UIView()
-        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 44
         tableView.snp.makeConstraints { make in
             make.top.equalTo(topView.snp.bottom)

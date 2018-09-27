@@ -12,7 +12,7 @@ class SettingType2Cell: UITableViewCell {
     static let id = "SettingType2Cell"
     let titleLbl = UILabel()
     
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         let iconView = UIImageView(image: rightIcon)
