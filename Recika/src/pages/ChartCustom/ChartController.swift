@@ -415,7 +415,7 @@ extension ChartController {
         
         for i in 0..<masterIndex.count {
             let index = masterIndex[i]
-            let style: UIAlertActionStyle = i == selectedMasterIndex ? UIAlertActionStyle.destructive : UIAlertActionStyle.default
+            let style: UIAlertAction.Style = i == selectedMasterIndex ? .destructive : .default
             let action = UIAlertAction(title: index, style: style) { [weak self] _ in
                 self?.selectedMasterIndex = i
                 self?.handleChartIndexChanged()
@@ -433,7 +433,7 @@ extension ChartController {
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         for i in 0..<self.assistIndex.count {
             let index = assistIndex[i]
-            let style: UIAlertActionStyle = i == selectedAssistIndex ? UIAlertActionStyle.destructive : UIAlertActionStyle.default
+            let style: UIAlertAction.Style = i == selectedAssistIndex ? .destructive : .default
             let action = UIAlertAction(title: index, style: style) { [weak self] _ in
                 self?.selectedAssistIndex = i
                 self?.handleChartIndexChanged()
@@ -451,7 +451,7 @@ extension ChartController {
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         for i in 0..<assistIndex.count {
             let index = assistIndex[i]
-            let style: UIAlertActionStyle = i == selectedAssistIndex2 ? UIAlertActionStyle.destructive: UIAlertActionStyle.default
+            let style: UIAlertAction.Style = i == selectedAssistIndex2 ? .destructive: .default
             let action = UIAlertAction(title: index, style: style) { [weak self] _ in
                 self?.selectedAssistIndex2 = i
                 self?.handleChartIndexChanged()
@@ -602,7 +602,7 @@ extension ChartController: CHKLineChartDelegate {
         for (title, color) in attributes {
             titleString.append(NSAttributedString(string: title))
             let range = NSMakeRange(start, title.ch_length)
-            let colorAttribute = [NSAttributedStringKey.foregroundColor: color]
+            let colorAttribute = [NSAttributedString.Key.foregroundColor: color]
             titleString.addAttributes(colorAttribute, range: range)
             start += title.ch_length
         }

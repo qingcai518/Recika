@@ -16,7 +16,8 @@ func generateQR(from content: String) -> UIImage? {
         "inputMessage": data,
         "inputCorrectionLevel": "L"
     ]
-    let filter = CIFilter(name: "CIQRCodeGenerator", withInputParameters: param)
+    
+    let filter = CIFilter(name: "CIQRCodeGenerator", parameters: param)
     let transform = CGAffineTransform(scaleX: 10, y: 10)
     guard let ciImage = filter?.outputImage?.transformed(by: transform) else {
         return nil
@@ -27,14 +28,14 @@ func generateQR(from content: String) -> UIImage? {
 
 func getHeight(width: CGFloat, text: String, font: UIFont) -> CGFloat {
     let height = CGFloat.greatestFiniteMagnitude
-    let attributedText = NSAttributedString(string: text, attributes: [NSAttributedStringKey.font: font])
+    let attributedText = NSAttributedString(string: text, attributes: [NSAttributedString.Key.font: font])
     let rect = attributedText.boundingRect(with: CGSize(width: width, height: height), options: .usesLineFragmentOrigin, context: nil)
     return rect.height
 }
 
 func getWidth(height: CGFloat, text: String, font: UIFont) -> CGFloat {
     let width = CGFloat.greatestFiniteMagnitude
-    let attributedText = NSAttributedString(string: text, attributes: [NSAttributedStringKey.font: font])
+    let attributedText = NSAttributedString(string: text, attributes: [NSAttributedString.Key.font: font])
     let rect = attributedText.boundingRect(with: CGSize(width: width, height: height), options: .usesLineFragmentOrigin, context: nil)
     return rect.width
 }

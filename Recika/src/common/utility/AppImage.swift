@@ -23,7 +23,7 @@ let filter = UIImage(named: "filter")!
 
 let flashOn = UIImage(named: "flash_on")!
 let flashOff = UIImage(named: "flash_off")!
-let shutter = UIImage(named: "camera")!
+let shutter = UIImage(named: "shutter")!
 let guide = UIImage(named: "guide")!
 let receiptType = UIImage(named: "receipt_type")!
 

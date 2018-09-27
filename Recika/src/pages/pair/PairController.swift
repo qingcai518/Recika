@@ -84,7 +84,7 @@ class PairController: ViewController {
                 
                 for i in 0..<self.viewModel.titles.count {
                     let tableView = UITableView()
-                    tableView.rowHeight = UITableViewAutomaticDimension
+                    tableView.rowHeight = UITableView.automaticDimension
                     tableView.frame = CGRect(x: CGFloat(i) * screenWidth, y: 0, width: screenWidth, height: self.contentView.frame.height)
                     tableView.register(PriceCell.self, forCellReuseIdentifier: PriceCell.id)
                     tableView.delegate = self

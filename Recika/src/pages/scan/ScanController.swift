@@ -205,9 +205,9 @@ class ScanController: ViewController {
         previewLayer.frame = cameraView.frame
         previewLayer.videoGravity = .resizeAspectFill
         cameraView.layer.addSublayer(previewLayer)
-        cameraView.bringSubview(toFront: leftLine)
-        cameraView.bringSubview(toFront: rightLine)
-        cameraView.bringSubview(toFront: topView)
+        cameraView.bringSubviewToFront(leftLine)
+        cameraView.bringSubviewToFront(rightLine)
+        cameraView.bringSubviewToFront(topView)
         
         DispatchQueue.global().async { [weak self] in
             self?.session.startRunning()

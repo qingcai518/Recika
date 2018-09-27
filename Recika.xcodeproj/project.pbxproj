@@ -1082,7 +1082,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 					"$(PROJECT_DIR)/Recika",
 				);
-				INFOPLIST_FILE = Recika/Info.plist;
+				INFOPLIST_FILE = "$(PROJECT_DIR)/Recika/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1109,7 +1109,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 					"$(PROJECT_DIR)/Recika",
 				);
-				INFOPLIST_FILE = Recika/Info.plist;
+				INFOPLIST_FILE = "$(PROJECT_DIR)/Recika/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
