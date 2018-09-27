@@ -17,10 +17,10 @@ struct GiftData {
     let price: Double
     
     init(json: JSON) {
-        id = json["Id"].intValue
-        name = json["Name"].stringValue
-        detail = json["Detail"].stringValue
-        thumbnail = json["Thumbnail"].stringValue
-        price = json["Price"].doubleValue
+        id = json["id"].intValue
+        name = json["name"].stringValue
+        detail = json["detail"].stringValue
+        thumbnail = json["thumbnail"].stringValue
+        price = json["price"].doubleValue
     }
 }

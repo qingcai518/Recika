@@ -104,7 +104,7 @@ class AnalyzeResultViewModel {
                         let receiptId = json["receipt_id"].intValue
                         let itemDatas = json["items"].arrayValue.map{ItemData(json: $0)}
                         
-                        let receiptData = ReceiptData(id: receiptId, imagePath: imagePath, tel: tel, receiptAt: receiptAt, totalPrice: totalPrice, adjustPrice: adjustPrice, items: itemDatas)
+                        let receiptData = ReceiptData(id: receiptId, imagePath: imagePath, hash: nil, tel: tel, receiptAt: receiptAt, totalPrice: totalPrice, adjustPrice: adjustPrice, items: itemDatas)
                         print(receiptData)
                         NotificationCenter.default.post(name: NFKey.saveReceipt, object: nil, userInfo: ["receipt_data": receiptData])
                         return completion(nil)

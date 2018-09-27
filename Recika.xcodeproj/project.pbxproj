@@ -58,7 +58,6 @@
 		4B3EBCB721366992002C34C5 /* GiftCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3EBCB621366992002C34C5 /* GiftCell.swift */; };
 		4B7FF621214A536600794678 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B7FF620214A536600794678 /* SystemConfiguration.framework */; };
 		4BB1329E2147AA080083E2E9 /* RecikaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB1329D2147AA080083E2E9 /* RecikaUITests.swift */; };
-		4BCE985D2138FDD200DFC4B5 /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCE985C2138FDD200DFC4B5 /* TestData.swift */; };
 		4BCE986A213910DC00DFC4B5 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCE9869213910DC00DFC4B5 /* UIColor.swift */; };
 		4BCE9870213914D700DFC4B5 /* ChartStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCE986F213914D700DFC4B5 /* ChartStyles.swift */; };
 		4BCE987321391DD900DFC4B5 /* SeriesParam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCE987221391DD900DFC4B5 /* SeriesParam.swift */; };
@@ -190,7 +189,6 @@
 		4BB1329B2147AA080083E2E9 /* RecikaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RecikaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BB1329D2147AA080083E2E9 /* RecikaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecikaUITests.swift; sourceTree = "<group>"; };
 		4BB1329F2147AA090083E2E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4BCE985C2138FDD200DFC4B5 /* TestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
 		4BCE9869213910DC00DFC4B5 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		4BCE986F213914D700DFC4B5 /* ChartStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartStyles.swift; sourceTree = "<group>"; };
 		4BCE987221391DD900DFC4B5 /* SeriesParam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesParam.swift; sourceTree = "<group>"; };
@@ -428,7 +426,6 @@
 				4B3EBCB321363854002C34C5 /* GiftData.swift */,
 				4BF0D9BD2138C995005D9AF1 /* ReceiptData.swift */,
 				4BF0D9BF2138C9EC005D9AF1 /* ItemData.swift */,
-				4BCE985C2138FDD200DFC4B5 /* TestData.swift */,
 				4BCE98AD213E420200DFC4B5 /* PairData.swift */,
 				4BCE98B1213E548F00DFC4B5 /* PriceData.swift */,
 			);
@@ -893,7 +890,6 @@
 				4B3EBC79212D2187002C34C5 /* GiftController.swift in Sources */,
 				4B3EBC8F212D2B4E002C34C5 /* User.swift in Sources */,
 				4B1DCC95214A4F370048820C /* Receipt.mm in Sources */,
-				4BCE985D2138FDD200DFC4B5 /* TestData.swift in Sources */,
 				4BCE987921391F1300DFC4B5 /* KlineChartData.swift in Sources */,
 				4B3EBCB721366992002C34C5 /* GiftCell.swift in Sources */,
 			);
