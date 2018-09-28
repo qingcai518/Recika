@@ -39,8 +39,13 @@ class ReceiptDetailCell: UITableViewCell {
         let width: CGFloat = screenWidth / 2 - 2 * 24
         height = width * 5 / 3 > height ? width * 5 / 3 : height
         
+        contentView.snp.makeConstraints { make in
+            make.top.left.right.equalToSuperview()
+            make.height.equalTo(height + 2 * 24)
+        }
+        
         imgView.snp.makeConstraints { make in
-            make.top.bottom.left.equalToSuperview().inset(24)
+            make.top.left.equalToSuperview().inset(24)
             make.width.equalTo(width)
             make.height.equalTo(height)
         }
