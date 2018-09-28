@@ -12,18 +12,26 @@ import Alamofire
 import SVProgressHUD
 
 class ReceiptViewModel {
+    var isLoading = false
     var receipts = [ReceiptData]()
     var page = 0
     let size = 3
     
-    func getData(refresh : Bool = true, completion: @escaping (String?) -> Void) {
+    func getData(refresh: Bool, completion: @escaping (String?) -> Void) {
+        if isLoading {return}
+        isLoading = true
+        
         if refresh {
             page = 0
             receipts = [ReceiptData]()
         }
-        if page < 0 {return}
+        if page < 0 {
+            isLoading = false
+            return
+        }
         
-        getReceiptData { msg in
+        getReceiptData { [weak self] msg in
+            self?.isLoading = false
             return completion(msg)
         }
     }
