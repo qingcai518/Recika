@@ -22,6 +22,7 @@
 "tel" = "電話番号";
 "totalprice" = "合計金額";
 "adjustprice" = "調整金額";
+"yourcoin" = "あなたのコイン数：";
 
 "msg1" = "あなた専用のスマートレシートID";
 

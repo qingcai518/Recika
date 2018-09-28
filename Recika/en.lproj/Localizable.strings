@@ -22,6 +22,7 @@
 "tel" = "Tel";
 "totalprice" = "Total Price";
 "adjustprice" = "Adjust Price";
+"yourcoin" = "Your Coin : ";
 
 "msg1" = "your own smart receipt id";
 

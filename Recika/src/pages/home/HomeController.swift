@@ -42,7 +42,7 @@ class HomeController: ViewController {
         
         let balanceTitleLbl = UILabel()
         balanceTitleLbl.textColor = UIColor.black
-        balanceTitleLbl.text = "あなたのコイン数"
+        balanceTitleLbl.text = str_your_coin
         balanceTitleLbl.textAlignment = .center
         balanceTitleLbl.font = UIFont.boldSystemFont(ofSize: 20)
         view.addSubview(balanceTitleLbl)
