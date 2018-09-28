@@ -13,8 +13,33 @@ import SwiftyJSON
 
 class GiftViewModel {
     var gifts = [GiftData]()
+    var isLoading = false
+    var page = 0
+    let size = 3
     
-    func getGifts(completion : @escaping (String?)-> Void) {
+    func getData(refresh : Bool, completion: @escaping (String?) -> Void) {
+        if isLoading {
+            return
+        }
+        isLoading = true
+        
+        if refresh {
+            gifts = [GiftData]()
+            page = 0
+        }
+        
+        if page == -1 {
+            isLoading = false
+            return
+        }
+        
+        getGifts { [weak self] msg in
+            self?.isLoading = false
+            return completion(msg)
+        }
+    }
+    
+    private func getGifts(completion : @escaping (String?)-> Void) {
         SVProgressHUD.show()
         Alamofire.request(giftAPI, method: .get).responseJSON { [weak self] response in
             SVProgressHUD.dismiss()
@@ -27,9 +52,9 @@ class GiftViewModel {
             }
             
             let json = JSON(data)
-            let gifts = json.arrayValue.map{GiftData(json: $0)}
-            print(gifts)
-            self?.gifts = gifts
+            self?.page = json["next_page"].intValue
+            let giftDatas = json["data"].arrayValue.map{GiftData(json: $0)}
+            self?.gifts.append(contentsOf: giftDatas)
             return completion(nil)
         }
     }
