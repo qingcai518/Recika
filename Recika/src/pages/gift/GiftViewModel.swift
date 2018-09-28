@@ -15,7 +15,7 @@ class GiftViewModel {
     var gifts = [GiftData]()
     var isLoading = false
     var page = 0
-    let size = 3
+    let size = 20
     
     func getData(refresh : Bool, completion: @escaping (String?) -> Void) {
         if isLoading {
@@ -41,7 +41,13 @@ class GiftViewModel {
     
     private func getGifts(completion : @escaping (String?)-> Void) {
         SVProgressHUD.show()
-        Alamofire.request(giftAPI, method: .get).responseJSON { [weak self] response in
+        guard var api = URLComponents(string: giftAPI) else {return completion(nil)}
+        api.queryItems = [
+            URLQueryItem(name: "page", value: "\(page)"),
+            URLQueryItem(name: "size", value: "\(size)")
+        ]
+        
+        Alamofire.request(api, method: .get).responseJSON { [weak self] response in
             SVProgressHUD.dismiss()
             if let error = response.error {
                 return completion(error.localizedDescription)
