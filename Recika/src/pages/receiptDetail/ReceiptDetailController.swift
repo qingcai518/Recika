@@ -43,12 +43,26 @@ class ReceiptDetailController: ViewController {
     }
     
     private func getData() {
+        if let items = receiptData?.items, items.count > 0 {
+            viewModel.items = items
+            tableView.reloadData()
+            return
+        }
+        
         guard let receiptId = receiptData?.id else {return}
         viewModel.getItems(receiptId: receiptId) { [weak self] msg in
             if let msg = msg {
                 self?.showToast(text: msg)
             } else {
                 self?.tableView.reloadData()
+            }
+            
+            if let items = self?.viewModel.items {
+                self?.receiptData?.items = items
+                if let receiptData = self?.receiptData {
+                    let userInfo = ["receipt_data": receiptData]
+                    NotificationCenter.default.post(name: NFKey.loadItems, object: nil, userInfo: userInfo)
+                }
             }
         }
     }

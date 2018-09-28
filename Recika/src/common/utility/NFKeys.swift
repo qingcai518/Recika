@@ -10,4 +10,5 @@ import Foundation
 
 struct NFKey {
     static var saveReceipt = NSNotification.Name("saveReceipt")
+    static var loadItems = NSNotification.Name("loadItems")
 }

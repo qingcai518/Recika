@@ -98,9 +98,19 @@ class ReceiptController: ViewController {
             guard let info = sender.userInfo else {return}
             guard let receiptData = info["receipt_data"] as? ReceiptData else {return}
             
-            print(receiptData)
             self?.viewModel.receipts.insert(receiptData, at: 0)
             self?.collectionView.reloadData()
+        }.disposed(by: disposeBag)
+        
+        // 如果已经加载完毕详细item信息就更新.
+        NotificationCenter.default.rx.notification(NFKey.loadItems).bind { [weak self] sender in
+            guard let `self` = self else {return}
+            guard let info = sender.userInfo else {return}
+            guard let receiptData = info["receipt_data"] as? ReceiptData else {return}
+            
+            if let index = self.viewModel.receipts.firstIndex(where: {$0.id == receiptData.id}) {
+                self.viewModel.receipts[index] = receiptData
+            }
         }.disposed(by: disposeBag)
     }
 }
