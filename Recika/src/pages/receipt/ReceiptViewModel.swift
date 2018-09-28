@@ -15,7 +15,7 @@ class ReceiptViewModel {
     var isLoading = false
     var receipts = [ReceiptData]()
     var page = 0
-    let size = 3
+    let size = 10
     
     func getData(refresh: Bool, completion: @escaping (String?) -> Void) {
         if isLoading {return}
