@@ -42,15 +42,19 @@ class GiftController: ViewController {
         collectionView.alwaysBounceVertical = true
         view.addSubview(collectionView)
         
-        // add pull header and footer.
+        // add pull refresh header.
         collectionView.es.addPullToRefresh { [weak self] in
             self?.getData()
         }
         
+        // add load more footer.
         collectionView.es.addInfiniteScrolling { [weak self] in
-            self?.getData(refresh: false)
-            self?.collectionView.es.stopLoadingMore()
-            self?.collectionView.es.noticeNoMoreData()
+            guard let `self` = self else {return}
+            self.getData(refresh: false)
+            self.collectionView.es.stopLoadingMore()
+            if self.viewModel.page < 0 {
+                self.collectionView.es.noticeNoMoreData()
+            }
         }
         
         collectionView.snp.makeConstraints { make in
