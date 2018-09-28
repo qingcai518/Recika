@@ -32,7 +32,8 @@ class ReceiptDetailViewModel {
             }
             
             let json = JSON(data)
-            self.items = json.arrayValue.map{ItemData(json: $0)}
+            print(json)
+            self.items = json.arrayValue.map{ItemData(json : $0)}
             return completion(nil)
         }
     }
