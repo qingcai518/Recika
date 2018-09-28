@@ -54,10 +54,9 @@ class GiftController: ViewController {
         }
     }
     
-    private func getData() {
-        viewModel.getGifts { [weak self] msg in
+    private func getData(refresh: Bool = true) {
+        viewModel.getData(refresh: refresh) { [weak self] msg in
             self?.collectionView.es.stopPullToRefresh()
-            
             if let msg = msg {
                 self?.showToast(text: msg)
             } else {
@@ -91,5 +90,14 @@ extension GiftController: UICollectionViewDataSource {
         let data = viewModel.gifts[indexPath.item]
         cell.configure(with: data)
         return cell
+    }
+}
+
+extension GiftController : UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        // load more.
+        if collectionView.contentOffset.y >= collectionView.contentSize.height - collectionView.bounds.size.height {
+            self.getData(refresh: false)
+        }
     }
 }
