@@ -16,22 +16,19 @@ class ReceiptViewModel {
     var page = 0
     let size = 3
     
-    func refresh(completion: @escaping (String?) -> Void) {
-        page = 0
-        receipts = [ReceiptData]()
+    func getData(refresh : Bool = true, completion: @escaping (String?) -> Void) {
+        if refresh {
+            page = 0
+            receipts = [ReceiptData]()
+        }
+        if page < 0 {return}
+        
         getReceiptData { msg in
-            return completion(nil)
+            return completion(msg)
         }
     }
     
-    func loadMore(completion: @escaping (String?) -> Void) {
-        if page == -1 {return}
-        getReceiptData { msg in
-            return completion(nil)
-        }
-    }
-    
-    func getReceiptData(completion: @escaping (String?)-> Void) {
+    private func getReceiptData(completion: @escaping (String?)-> Void) {
         guard var api = URLComponents(string: receiptAPI) else {
             return completion("can not get api")
         }
@@ -55,7 +52,7 @@ class ReceiptViewModel {
             let json = JSON(data)
             self?.page = json["next_page"].intValue
             let receiptDatas = json["data"].arrayValue.map{ReceiptData(json: $0)}
-            self?.receipts.append(receiptDatas)
+            self?.receipts.append(contentsOf: receiptDatas)
             return completion(nil)
         }
     }

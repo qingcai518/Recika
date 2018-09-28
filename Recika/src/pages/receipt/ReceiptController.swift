@@ -68,9 +68,10 @@ class ReceiptController: ViewController {
         }
     }
     
-    private func getData() {
-        viewModel.getReceiptData { [weak self] msg in
+    private func getData(refresh: Bool = true) {
+        viewModel.getData(refresh: refresh) { [weak self] msg in
             self?.collectionView.es.stopPullToRefresh()
+            self?.collectionView.es.stopLoadingMore()
             
             if let msg = msg {
                 self?.showToast(text: msg)
@@ -114,5 +115,14 @@ extension ReceiptController: UICollectionViewDataSource {
         let data = viewModel.receipts[indexPath.row]
         cell.configure(with: data)
         return cell
+    }
+}
+
+extension ReceiptController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        // load more
+        if collectionView.contentOffset.y >= collectionView.contentSize.height - collectionView.bounds.size.height {
+            getData(refresh: false)
+        }
     }
 }
