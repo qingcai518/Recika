@@ -15,7 +15,7 @@ class GiftViewModel {
     var gifts = [GiftData]()
     var isLoading = false
     var page = 0
-    let size = 2
+    let size = 20
     
     func getData(refresh : Bool, completion: @escaping (String?) -> Void) {
         if isLoading {

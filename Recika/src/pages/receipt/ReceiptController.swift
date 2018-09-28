@@ -58,9 +58,22 @@ class ReceiptController: ViewController {
         collectionView.dataSource = self
         collectionView.register(ReceiptCell.self, forCellWithReuseIdentifier: ReceiptCell.id)
         collectionView.alwaysBounceVertical = true
+        
+        // add pull refresh for header.
         collectionView.es.addPullToRefresh { [weak self] in
             self?.getData()
         }
+        
+        // add load more for footer.
+        collectionView.es.addInfiniteScrolling { [weak self] in
+            guard let `self` = self else {return}
+            self.getData(refresh: false)
+            self.collectionView.es.stopLoadingMore()
+            if self.viewModel.page < 0 {
+                self.collectionView.es.noticeNoMoreData()
+            }
+        }
+        
         collectionView.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
@@ -114,14 +127,5 @@ extension ReceiptController: UICollectionViewDataSource {
         let data = viewModel.receipts[indexPath.row]
         cell.configure(with: data)
         return cell
-    }
-}
-
-extension ReceiptController: UIScrollViewDelegate {
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        // load more
-        if collectionView.contentOffset.y >= collectionView.contentSize.height - collectionView.bounds.size.height {
-            self.getData(refresh: false)
-        }
     }
 }
