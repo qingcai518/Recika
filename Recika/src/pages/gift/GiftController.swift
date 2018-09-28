@@ -49,6 +49,8 @@ class GiftController: ViewController {
         
         collectionView.es.addInfiniteScrolling { [weak self] in
             self?.getData(refresh: false)
+            self?.collectionView.es.stopLoadingMore()
+            self?.collectionView.es.noticeNoMoreData()
         }
         
         collectionView.snp.makeConstraints { make in

@@ -40,8 +40,6 @@ class GiftViewModel {
     }
     
     private func getGifts(completion : @escaping (String?)-> Void) {
-        print("get gift")
-        
         SVProgressHUD.show()
         guard var api = URLComponents(string: giftAPI) else {return completion(nil)}
         api.queryItems = [
