@@ -47,6 +47,10 @@ class GiftController: ViewController {
             self?.getData()
         }
         
+        collectionView.es.addInfiniteScrolling { [weak self] in
+            self?.getData(refresh: false)
+        }
+        
         collectionView.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
@@ -90,14 +94,5 @@ extension GiftController: UICollectionViewDataSource {
         let data = viewModel.gifts[indexPath.item]
         cell.configure(with: data)
         return cell
-    }
-}
-
-extension GiftController : UIScrollViewDelegate {
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        // load more.
-        if collectionView.contentOffset.y >= collectionView.contentSize.height - collectionView.bounds.size.height {
-            self.getData(refresh: false)
-        }
     }
 }

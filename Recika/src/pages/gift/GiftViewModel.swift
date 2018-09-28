@@ -15,7 +15,7 @@ class GiftViewModel {
     var gifts = [GiftData]()
     var isLoading = false
     var page = 0
-    let size = 20
+    let size = 2
     
     func getData(refresh : Bool, completion: @escaping (String?) -> Void) {
         if isLoading {
@@ -40,6 +40,8 @@ class GiftViewModel {
     }
     
     private func getGifts(completion : @escaping (String?)-> Void) {
+        print("get gift")
+        
         SVProgressHUD.show()
         guard var api = URLComponents(string: giftAPI) else {return completion(nil)}
         api.queryItems = [
