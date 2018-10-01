@@ -39,7 +39,8 @@ var safeArea: UIEdgeInsets = {
     return defaultInsets
 }()
 
-let symbol = "CYB"  // ユーザーのToken数
+//let symbol = "CYB"  // ユーザーのToken数
+let symbol = "JADE.RCP"
 
 enum ToastPosition {
     case center
