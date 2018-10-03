@@ -12,7 +12,7 @@ import RxSwift
 import SwiftyJSON
 
 class HomeViewModel {
-    var points =[PointData]()
+    var points = [PointData]()
     var balance = Variable("-")
     var timer: Timer?
     
