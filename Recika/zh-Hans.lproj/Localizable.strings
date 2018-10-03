@@ -22,7 +22,8 @@
 "tel" = "电话";
 "totalprice" = "总金额";
 "adjustprice" = "调整金额";
-"yourcoin" = "您的余额:";
+"yourcoin" = "您的余额 (RCP)";
+"point" = "点数";
 
 "msg1" = "您的专属电子发票ID";
 

@@ -22,7 +22,8 @@
 "tel" = "電話番号";
 "totalprice" = "合計金額";
 "adjustprice" = "調整金額";
-"yourcoin" = "あなたのコイン数：";
+"yourcoin" = "総残高 (RCP)";
+"point" = "ポイント";
 
 "msg1" = "あなた専用のスマートレシートID";
 

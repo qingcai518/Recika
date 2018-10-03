@@ -22,7 +22,8 @@
 "tel" = "Tel";
 "totalprice" = "Total Price";
 "adjustprice" = "Adjust Price";
-"yourcoin" = "Your Coin : ";
+"yourcoin" = "Your Coin (RCP)";
+"point" = "Point";
 
 "msg1" = "your own smart receipt id";
 

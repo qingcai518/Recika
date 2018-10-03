@@ -35,22 +35,61 @@ class HomeController: ViewController {
     }
     
     private func setSubViews() {
+        // set title view.
+        let countTitleLbl = UILabel()
+        countTitleLbl.font = UIFont.systemFont(ofSize: 16, weight: UIFont.Weight.semibold)
+        countTitleLbl.textColor = UIColor.lightGray
+        countTitleLbl.text = str_your_coin
+        self.view.addSubview(countTitleLbl)
+        
+        let countLbl = UILabel()
+        countLbl.font = UIFont.boldSystemFont(ofSize: 24)
+        countLbl.textColor = UIColor.black
+        self.view.addSubview(countLbl)
+        
+        countTitleLbl.snp.makeConstraints { make in
+            make.top.equalToSuperview().inset(24)
+            make.left.right.equalToSuperview().inset(16)
+        }
+        
+        countLbl.snp.makeConstraints { make in
+            make.top.equalTo(countTitleLbl.snp.bottom).offset(12)
+            make.left.right.equalToSuperview().inset(24)
+        }
+        
+        // title view.
+        let pointTitleLbl = UILabel()
+        pointTitleLbl.font = UIFont.systemFont(ofSize: 16, weight: UIFont.Weight.semibold)
+        pointTitleLbl.textColor = UIColor.lightGray
+        pointTitleLbl.text = str_point
+        view.addSubview(pointTitleLbl)
+        
+        pointTitleLbl.snp.makeConstraints { make in
+            make.top.equalTo(countLbl.snp.bottom).inset(24)
+            make.left.right.equalToSuperview().inset(16)
+        }
+        
+        
         // set collectionview .
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        layout.minimumInteritemSpacing = 24
-        layout.minimumLineSpacing = 24
+        layout.minimumLineSpacing = 12
+        layout.minimumInteritemSpacing = 12
         
-        let frame = CGRect(x: 0, y: 0, width: screenWidth - 24 - 48, height: 220)
+        let frame = CGRect(x: 0, y: 0, width: screenWidth - 12 * 2 - 24, height: 220)
         collectionView = UICollectionView(frame: frame, collectionViewLayout: layout)
         self.view.addSubview(collectionView)
         collectionView.delegate = self
         collectionView.dataSource = self
         
-        
+        collectionView.snp.makeConstraints { make in
+            make.top.equalTo(pointTitleLbl.snp.bottom).inset(12)
+            make.left.right.equalToSuperview()
+            make.height.equalTo(220)
+        }
     }
     
-    private func setSubViews() {
+    private func setSubView2s() {
         view.backgroundColor = UIColor.white
         
         let bkView = UIView()
@@ -133,6 +172,22 @@ class HomeController: ViewController {
 }
 
 extension HomeController: UICollectionViewDelegate {
-
     
+}
+
+extension HomeController: UICollectionViewDataSource {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return viewModel.points.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PointCell.id, for: indexPath) as! PointCell
+        let data = viewModel.points[indexPath.item]
+        cell.configure(width: data)
+        return cell
+    }
 }

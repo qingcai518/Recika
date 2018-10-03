@@ -26,6 +26,7 @@ let str_tel = NSLocalizedString("tel", comment: "")
 let str_totalprice = NSLocalizedString("totalprice", comment: "")
 let str_adjustprice = NSLocalizedString("adjustprice", comment: "")
 let str_your_coin = NSLocalizedString("yourcoin", comment: "")
+let str_point = NSLocalizedString("point", comment: "")
 
 // messages.
 let msg1 = NSLocalizedString("msg1", comment: "")

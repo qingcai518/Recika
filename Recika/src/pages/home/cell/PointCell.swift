@@ -9,6 +9,8 @@
 import UIKit
 
 class PointCell: UICollectionViewCell {
+    static let id = "PointCell"
+    
     var nameLbl = UILabel()
     var countLbl = UILabel()
     var baseCountLbl = UILabel()
