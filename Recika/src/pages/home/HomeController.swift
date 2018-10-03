@@ -36,6 +36,9 @@ class HomeController: ViewController {
     }
     
     private func getData() {
+        viewModel.points.asObservable().bind { [weak self] _ in
+            self?.collectionView.reloadData()
+        }.disposed(by: disposeBag)
         viewModel.startGetBalance()
     }
     

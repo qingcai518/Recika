@@ -18,6 +18,7 @@ class HomeViewModel {
     
     private func getBalance() {
         let url = mainBalanceAPI + "?name=\(userName)"
+        print(url)
         guard let api = URLComponents(string: url) else {return}
         
         Alamofire.request(api, method: .get).responseJSON { [weak self] response in
@@ -27,6 +28,7 @@ class HomeViewModel {
             }
             guard let data = response.data else {return}
             let json = JSON(data)
+            print(json)
             self?.points.value = json.arrayValue.map{PointData(json: $0)}
         }
     }

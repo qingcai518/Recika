@@ -31,14 +31,19 @@ class LoginViewModel {
             }
             
             let json = JSON(data)
+            print(json)
             if json == JSON.null {
                 return completion("fail to login.")
             }
+            
+            if let errorMsg = json["message"].string {
+                return completion(errorMsg)
+            }
+            
             let name = json["Name"].stringValue
             let activeKey = json["ActivePubKey"].stringValue
             let ownerKey = json["OwnerPubKey"].stringValue
             let memoKey = json["MemoPubKey"].stringValue
-            
             saveUser(name: name, ownerKey: ownerKey, activeKey: activeKey, memoKey: memoKey)
             return completion(nil)
         }
