@@ -88,6 +88,7 @@ class HomeController: ViewController {
         
         let frame = CGRect(x: 0, y: 0, width: screenWidth, height: height)
         collectionView = UICollectionView(frame: frame, collectionViewLayout: layout)
+        collectionView.backgroundColor = UIColor.clear
         self.view.addSubview(collectionView)
         collectionView.register(PointCell.self, forCellWithReuseIdentifier: PointCell.id)
         collectionView.delegate = self
