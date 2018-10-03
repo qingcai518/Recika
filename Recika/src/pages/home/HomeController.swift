@@ -11,6 +11,7 @@ import SnapKit
 import RxSwift
 
 class HomeController: ViewController {
+    var collectionView: UICollectionView!
     let viewModel = HomeViewModel()
 
     override func viewDidLoad() {
@@ -31,6 +32,22 @@ class HomeController: ViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    private func setSubViews() {
+        // set collectionview .
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.minimumInteritemSpacing = 24
+        layout.minimumLineSpacing = 24
+        
+        let frame = CGRect(x: 0, y: 0, width: screenWidth - 24 - 48, height: 220)
+        collectionView = UICollectionView(frame: frame, collectionViewLayout: layout)
+        self.view.addSubview(collectionView)
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        
+        
     }
     
     private func setSubViews() {
@@ -113,4 +130,9 @@ class HomeController: ViewController {
             make.centerX.equalToSuperview()
         }
     }
+}
+
+extension HomeController: UICollectionViewDelegate {
+
+    
 }

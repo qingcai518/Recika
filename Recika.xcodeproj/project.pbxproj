@@ -57,6 +57,8 @@
 		4B3EBCB421363854002C34C5 /* GiftData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3EBCB321363854002C34C5 /* GiftData.swift */; };
 		4B3EBCB721366992002C34C5 /* GiftCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3EBCB621366992002C34C5 /* GiftCell.swift */; };
 		4B7FF621214A536600794678 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B7FF620214A536600794678 /* SystemConfiguration.framework */; };
+		4B99F40021646050001C7D96 /* PointCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B99F3FF21646050001C7D96 /* PointCell.swift */; };
+		4B99F40221647848001C7D96 /* PointData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B99F40121647848001C7D96 /* PointData.swift */; };
 		4BB1329E2147AA080083E2E9 /* RecikaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB1329D2147AA080083E2E9 /* RecikaUITests.swift */; };
 		4BCE986A213910DC00DFC4B5 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCE9869213910DC00DFC4B5 /* UIColor.swift */; };
 		4BCE9870213914D700DFC4B5 /* ChartStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCE986F213914D700DFC4B5 /* ChartStyles.swift */; };
@@ -186,6 +188,8 @@
 		4B3EBCB321363854002C34C5 /* GiftData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftData.swift; sourceTree = "<group>"; };
 		4B3EBCB621366992002C34C5 /* GiftCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftCell.swift; sourceTree = "<group>"; };
 		4B7FF620214A536600794678 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		4B99F3FF21646050001C7D96 /* PointCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointCell.swift; sourceTree = "<group>"; };
+		4B99F40121647848001C7D96 /* PointData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointData.swift; sourceTree = "<group>"; };
 		4BB1329B2147AA080083E2E9 /* RecikaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RecikaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BB1329D2147AA080083E2E9 /* RecikaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecikaUITests.swift; sourceTree = "<group>"; };
 		4BB1329F2147AA090083E2E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -428,6 +432,7 @@
 				4BF0D9BF2138C9EC005D9AF1 /* ItemData.swift */,
 				4BCE98AD213E420200DFC4B5 /* PairData.swift */,
 				4BCE98B1213E548F00DFC4B5 /* PriceData.swift */,
+				4B99F40121647848001C7D96 /* PointData.swift */,
 			);
 			path = data;
 			sourceTree = "<group>";
@@ -435,6 +440,7 @@
 		4B3EBC70212D2139002C34C5 /* home */ = {
 			isa = PBXGroup;
 			children = (
+				4B99F3FE2164603F001C7D96 /* cell */,
 				4B3EBC74212D216D002C34C5 /* HomeController.swift */,
 				4BF0D9B421378042005D9AF1 /* HomeViewModel.swift */,
 			);
@@ -544,6 +550,14 @@
 				4B35828B2150AD0C00F47FF7 /* AnalyzeResultViewModel.swift */,
 			);
 			path = result;
+			sourceTree = "<group>";
+		};
+		4B99F3FE2164603F001C7D96 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				4B99F3FF21646050001C7D96 /* PointCell.swift */,
+			);
+			path = cell;
 			sourceTree = "<group>";
 		};
 		4BB1329C2147AA080083E2E9 /* RecikaUITests */ = {
@@ -837,6 +851,7 @@
 				4B35829421521D1E00F47FF7 /* ReceiptDetailController.swift in Sources */,
 				4BCE98AC213E407A00DFC4B5 /* UIScrollView.swift in Sources */,
 				4BCE98B2213E548F00DFC4B5 /* PriceData.swift in Sources */,
+				4B99F40021646050001C7D96 /* PointCell.swift in Sources */,
 				4B358287214B4E4C00F47FF7 /* AnalyzeResultController.swift in Sources */,
 				4B3EBCAE213543FD002C34C5 /* LoginViewModel.swift in Sources */,
 				4B171E9D212BE85100753EA8 /* TopController.swift in Sources */,
@@ -861,6 +876,7 @@
 				4BF0D9B82137BC6C005D9AF1 /* AssociateController.swift in Sources */,
 				4B35829921522DA700F47FF7 /* ReceiptItemCell.swift in Sources */,
 				4B3EBC77212D217C002C34C5 /* ReceiptController.swift in Sources */,
+				4B99F40221647848001C7D96 /* PointData.swift in Sources */,
 				4BCE9870213914D700DFC4B5 /* ChartStyles.swift in Sources */,
 				4BCE987521391E3600DFC4B5 /* Double.swift in Sources */,
 				4B3EBC91212D425F002C34C5 /* SettingData.swift in Sources */,

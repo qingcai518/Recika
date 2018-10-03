@@ -12,6 +12,7 @@ import RxSwift
 import SwiftyJSON
 
 class HomeViewModel {
+    var points = [PointData]()
     var balance = Variable("-")
     var timer: Timer?
     
@@ -45,5 +46,9 @@ class HomeViewModel {
     func stopGetBalance() {
         timer?.invalidate()
         timer = nil
+    }
+    
+    func getMyPoints() {
+        
     }
 }
