@@ -18,6 +18,7 @@ class HomeController: ViewController {
         super.viewDidLoad()
         
         setSubViews()
+        getData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -32,6 +33,12 @@ class HomeController: ViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    private func getData() {
+        viewModel.getMyPoints { [weak self] in
+            self?.collectionView.reloadData()
+        }
     }
     
     private func setSubViews() {
@@ -89,7 +96,7 @@ class HomeController: ViewController {
         }
     }
     
-    private func setSubView2s() {
+    private func setSubView2() {
         view.backgroundColor = UIColor.white
         
         let bkView = UIView()

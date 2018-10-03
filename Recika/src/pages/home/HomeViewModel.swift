@@ -12,7 +12,7 @@ import RxSwift
 import SwiftyJSON
 
 class HomeViewModel {
-    var points = [PointData]()
+    var points =[PointData]()
     var balance = Variable("-")
     var timer: Timer?
     
@@ -48,7 +48,12 @@ class HomeViewModel {
         timer = nil
     }
     
-    func getMyPoints() {
+    func getMyPoints(completion: @escaping ()-> Void) {
+        let point1 = PointData(name: "Bitcoin", count: 100, baseCount: 20)
+        let point2 = PointData(name: "Ethereum", count: 200, baseCount: 30)
+        let point3 = PointData(name: "ERO", count : 44, baseCount: 20)
         
+        self.points = [point1, point2, point3]
+        return completion()
     }
 }
