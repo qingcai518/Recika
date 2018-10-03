@@ -76,19 +76,18 @@ class HomeController: ViewController {
             make.left.right.equalToSuperview().inset(16)
         }
         
-        
-        // set collectionview .
+        // set collectionview.
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        layout.minimumLineSpacing = 12
         layout.minimumInteritemSpacing = 12
+        layout.minimumLineSpacing = 12
         
-        let frame = CGRect(x: 0, y: 0, width: screenWidth - 12 * 2 - 24, height: 220)
+        let frame = CGRect(x: 0, y: 0, width: screenWidth - 2 * 12 - 24, height: 220)
         collectionView = UICollectionView(frame: frame, collectionViewLayout: layout)
         self.view.addSubview(collectionView)
+        collectionView.register(PointCell.self, forCellWithReuseIdentifier: PointCell.id)
         collectionView.delegate = self
         collectionView.dataSource = self
-        
         collectionView.snp.makeConstraints { make in
             make.top.equalTo(pointTitleLbl.snp.bottom).inset(12)
             make.left.right.equalToSuperview()
