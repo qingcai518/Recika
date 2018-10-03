@@ -26,7 +26,7 @@ class PointCell: UICollectionViewCell {
         countLbl.text = nil
         baseCountLbl.text = nil
         
-        disposebag = DisposeBag()
+        disposeBag = DisposeBag()
     }
     
     override init(frame: CGRect) {
