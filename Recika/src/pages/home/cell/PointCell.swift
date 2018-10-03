@@ -74,6 +74,10 @@ class PointCell: UICollectionViewCell {
         }
     }
     
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     func configure(width data: PointData) {
         self.nameLbl.text = data.name
         self.countLbl.text = "\(data.count)"
