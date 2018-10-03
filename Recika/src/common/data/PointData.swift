@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 struct PointData {
     let name: String
@@ -17,5 +18,11 @@ struct PointData {
         self.name = name
         self.count = count
         self.baseCount = baseCount
+    }
+    
+    init(json: JSON) {
+        self.name = json["symbol"].stringValue
+        self.count = json["amount"].doubleValue
+        self.baseCount = count  // dummy.
     }
 }

@@ -36,9 +36,7 @@ class HomeController: ViewController {
     }
     
     private func getData() {
-        viewModel.getMyPoints { [weak self] in
-            self?.collectionView.reloadData()
-        }
+        viewModel.startGetBalance()
     }
     
     private func setSubViews() {
@@ -199,12 +197,12 @@ extension HomeController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.points.count
+        return viewModel.points.value.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PointCell.id, for: indexPath) as! PointCell
-        let data = viewModel.points[indexPath.item]
+        let data = viewModel.points.value[indexPath.item]
         cell.configure(width: data)
         return cell
     }

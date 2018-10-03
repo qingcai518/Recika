@@ -24,6 +24,9 @@ let v1 = "/v1/"
 // ユーザー登録API (Python API)
 let signupAPI = cybexDomain + v1 + "signup"
 
+// 取得主流币种的balance.
+let mainBalanceAPI = cybexDomain + v1 + "main_balance"
+
 // ユーザーbalance取得.
 let balanceAPI = cybexDomain + v1 + "balance"
 
