@@ -102,6 +102,9 @@ class HomeController: ViewController {
             make.left.right.equalToSuperview()
             make.height.equalTo(height)
         }
+        
+        // add sub contents/
+        
     }
     
     private func setSubView2() {

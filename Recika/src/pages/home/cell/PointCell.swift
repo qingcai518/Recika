@@ -6,6 +6,7 @@
 //  Copyright © 2018年 liqc. All rights reserved.
 //
 
+import RxSwift
 import UIKit
 
 class PointCell: UICollectionViewCell {
@@ -17,11 +18,15 @@ class PointCell: UICollectionViewCell {
     var exchangeBtn = UIButton()
     var addBtn = UIButton()
     
+    var disposeBag = DisposeBag()
+    
     override func prepareForReuse() {
         super.prepareForReuse()
         nameLbl.text = nil
         countLbl.text = nil
         baseCountLbl.text = nil
+        
+        disposebag = DisposeBag()
     }
     
     override init(frame: CGRect) {
@@ -78,6 +83,10 @@ class PointCell: UICollectionViewCell {
             make.bottom.equalToSuperview().inset(24)
             make.width.equalTo(btnWidth)
         }
+        
+        exchangeBtn.rx.tap.bind { [weak self] in
+            print("do incoming")
+        }.disposed(by: disposeBag)
     }
     
     required init?(coder aDecoder: NSCoder) {
