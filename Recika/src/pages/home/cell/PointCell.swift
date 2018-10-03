@@ -27,6 +27,10 @@ class PointCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        self.contentView.layer.cornerRadius = 12
+        self.contentView.clipsToBounds = true
+        self.contentView.backgroundColor = UIColor.orange
+        
         let btnWidth = (screenWidth - 3 * 24) / 3
         
         nameLbl.font = UIFont.boldSystemFont(ofSize: 14)

@@ -42,56 +42,60 @@ class HomeController: ViewController {
     }
     
     private func setSubViews() {
-        // set title view.
-        let countTitleLbl = UILabel()
-        countTitleLbl.font = UIFont.systemFont(ofSize: 16, weight: UIFont.Weight.semibold)
-        countTitleLbl.textColor = UIColor.lightGray
-        countTitleLbl.text = str_your_coin
-        self.view.addSubview(countTitleLbl)
+        self.view.backgroundColor = UIColor.white
         
-        let countLbl = UILabel()
-        countLbl.font = UIFont.boldSystemFont(ofSize: 24)
-        countLbl.textColor = UIColor.black
-        self.view.addSubview(countLbl)
+        let title1Lbl = UILabel()
+        title1Lbl.font = UIFont.systemFont(ofSize: 16, weight: UIFont.Weight.semibold)
+        title1Lbl.textColor = UIColor.lightGray
+        title1Lbl.text = str_your_coin
+        self.view.addSubview(title1Lbl)
         
-        countTitleLbl.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(24)
-            make.left.right.equalToSuperview().inset(16)
+        title1Lbl.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).inset(24)
+            make.left.right.equalTo(16)
         }
         
-        countLbl.snp.makeConstraints { make in
-            make.top.equalTo(countTitleLbl.snp.bottom).offset(12)
+        let amountLbl = UILabel()
+        amountLbl.font = UIFont.boldSystemFont(ofSize: 24)
+        amountLbl.textColor = UIColor.black
+        amountLbl.text = "dummy point"
+        self.view.addSubview(amountLbl)
+        
+        amountLbl.snp.makeConstraints { make in
+            make.top.equalTo(title1Lbl.snp.bottom).offset(12)
             make.left.right.equalToSuperview().inset(24)
         }
-        
+
         // title view.
-        let pointTitleLbl = UILabel()
-        pointTitleLbl.font = UIFont.systemFont(ofSize: 16, weight: UIFont.Weight.semibold)
-        pointTitleLbl.textColor = UIColor.lightGray
-        pointTitleLbl.text = str_point
-        view.addSubview(pointTitleLbl)
+        let title2Lbl = UILabel()
+        title2Lbl.font = UIFont.systemFont(ofSize: 16, weight: UIFont.Weight.semibold)
+        title2Lbl.textColor = UIColor.lightGray
+        title2Lbl.text = str_point
+        view.addSubview(title2Lbl)
         
-        pointTitleLbl.snp.makeConstraints { make in
-            make.top.equalTo(countLbl.snp.bottom).inset(24)
+        title2Lbl.snp.makeConstraints { make in
+            make.top.equalTo(amountLbl.snp.bottom).offset(24)
             make.left.right.equalToSuperview().inset(16)
         }
         
         // set collectionview.
+        let height: CGFloat = 220
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         layout.minimumInteritemSpacing = 12
         layout.minimumLineSpacing = 12
+        layout.itemSize = CGSize(width: screenWidth - 2 * 24, height: height)
         
-        let frame = CGRect(x: 0, y: 0, width: screenWidth - 2 * 12 - 24, height: 220)
+        let frame = CGRect(x: 0, y: 0, width: screenWidth, height: height)
         collectionView = UICollectionView(frame: frame, collectionViewLayout: layout)
         self.view.addSubview(collectionView)
         collectionView.register(PointCell.self, forCellWithReuseIdentifier: PointCell.id)
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.snp.makeConstraints { make in
-            make.top.equalTo(pointTitleLbl.snp.bottom).inset(12)
+            make.top.equalTo(title2Lbl.snp.bottom).offset(12)
             make.left.right.equalToSuperview()
-            make.height.equalTo(220)
+            make.height.equalTo(height)
         }
     }
     
