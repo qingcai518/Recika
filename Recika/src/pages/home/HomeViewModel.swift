@@ -18,6 +18,15 @@ class HomeViewModel {
     
     private func getBalance() {
         let url = balanceAPI + "?name=\(userName)&symbol=\(symbol)"
+        guard let api = URLComponents(string: url) else {return}
+        
+        Alamofire.request(api, method: .get).responseJSON { response in
+            
+        }
+    }
+    
+    private func getBalance() {
+        let url = balanceAPI + "?name=\(userName)&symbol=\(symbol)"
         guard let api = URLComponents(string: url) else{return}
         
         Alamofire.request(api, method: .get).responseJSON { response in
