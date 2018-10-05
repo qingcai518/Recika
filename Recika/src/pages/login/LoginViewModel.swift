@@ -14,16 +14,20 @@ import SwiftyJSON
 class LoginViewModel {
     func doLogin(name: String?, password: String?, completion: @escaping (String?) -> Void) {
         guard let name = name else {return completion("no user name")}
-        guard let password = password else {return completion("")}
+        guard let password = password else {return completion("no password")}
         
-        guard var api = URLComponents(string: loginAPI) else {return completion(nil)}
-        api.queryItems = [
-            URLQueryItem(name: "name", value: name),
-            URLQueryItem(name: "password", value: password)
+        guard let api = URLComponents(string: loginAPI) else {return completion("can not get api")}
+        let params = [
+            "name": name,
+            "password": password
+        ]
+        
+        let headers = [
+            "Content-type": "application/json"
         ]
         
         SVProgressHUD.show()
-        Alamofire.request(api, method: .get).responseJSON { response in
+        Alamofire.request(api, method: .post, parameters: params, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
             SVProgressHUD.dismiss()
             if let error = response.error {
                 return completion(error.localizedDescription)
@@ -38,6 +42,7 @@ class LoginViewModel {
             if let errorMsg = json["msg"].string {
                 return completion(errorMsg)
             }
+            
             let name = json["name"].stringValue
             let activeKey = json["active_pub_key"].stringValue
             let ownerKey = json["owner_pub_key"].stringValue

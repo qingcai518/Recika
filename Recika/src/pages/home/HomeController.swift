@@ -84,6 +84,7 @@ class HomeController: ViewController {
         
         let layout = PointLayout()
         layout.scrollDirection = .horizontal
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 24, bottom: 0, right: 24)
         layout.minimumLineSpacing = 12
         layout.minimumInteritemSpacing = 12
         layout.itemSize = CGSize(width: screenWidth - 2 * 24, height: height)
@@ -93,9 +94,10 @@ class HomeController: ViewController {
         collectionView.backgroundColor = UIColor.clear
         self.view.addSubview(collectionView)
         collectionView.register(PointCell.self, forCellWithReuseIdentifier: PointCell.id)
-        collectionView.contentInset = UIEdgeInsets(top: 0, left: 24, bottom: 0, right: 24)
+//        collectionView.contentInset = UIEdgeInsets(top: 0, left: 24, bottom: 0, right: 24)
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.isPagingEnabled = false
+        collectionView.decelerationRate = UIScrollView.DecelerationRate.fast
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.snp.makeConstraints { make in

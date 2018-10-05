@@ -54,10 +54,10 @@ class HomeViewModel {
 //
     func startGetBalance() {
         getBalance()
-        stopGetBalance()
-        timer = Timer.scheduledTimer(withTimeInterval: 10, repeats: true, block: { [weak self] _ in
-            self?.getBalance()
-        })
+//        stopGetBalance()
+//        timer = Timer.scheduledTimer(withTimeInterval: 10, repeats: true, block: { [weak self] _ in
+//            self?.getBalance()
+//        })
     }
     
     func stopGetBalance() {

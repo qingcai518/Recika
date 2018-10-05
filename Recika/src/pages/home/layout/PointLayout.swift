@@ -9,18 +9,35 @@
 import UIKit
 
 class PointLayout: UICollectionViewFlowLayout {
+    var lastOffset = CGPoint.zero
+    
     var pageWidth: CGFloat {
         return self.itemSize.width + self.minimumLineSpacing
     }
-    
+
     override func targetContentOffset(forProposedContentOffset proposedContentOffset: CGPoint, withScrollingVelocity velocity: CGPoint) -> CGPoint {
-        guard let collectionView = self.collectionView else {return CGPoint.zero}
-        let currentPage = collectionView.contentOffset.x / pageWidth
-        if (abs(velocity.x) > 0.2) {
-            let nextPage = velocity.x > 0 ? ceil(currentPage) : floor(currentPage)
-            return CGPoint(x: nextPage * self.pageWidth, y: proposedContentOffset.y)
-        } else {
-            return CGPoint(x: round(currentPage) * pageWidth, y: proposedContentOffset.y)
+        var result = proposedContentOffset
+        guard let collectionView = collectionView else {return result}
+        
+        let offsetMax: CGFloat = collectionView.contentSize.width - (pageWidth + self.sectionInset.right)
+        let offsetMin: CGFloat = 0
+        
+        if lastOffset.x < offsetMin {
+            lastOffset.x = offsetMin
+        } else if lastOffset.x > offsetMax {
+            lastOffset.x = offsetMax
         }
+        
+        let offsetForCurrentPointX = abs(proposedContentOffset.x - lastOffset.x)
+        let offset = proposedContentOffset.x > lastOffset.x ? pageWidth : -pageWidth   // 向左.向右的位移量.
+        
+        if offsetForCurrentPointX > pageWidth / 2 && lastOffset.x >= offsetMin && lastOffset.x <= offsetMax {
+            result = CGPoint(x: lastOffset.x + offset, y: proposedContentOffset.y)
+        } else {
+            result = CGPoint(x: lastOffset.x, y: lastOffset.y)
+        }
+        
+        lastOffset.x = result.x
+        return result
     }
 }
