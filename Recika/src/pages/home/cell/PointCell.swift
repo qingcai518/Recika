@@ -84,8 +84,8 @@ class PointCell: UICollectionViewCell {
             make.width.equalTo(btnWidth)
         }
         
-        exchangeBtn.rx.tap.bind { [weak self] in
-            print("do incoming")
+        exchangeBtn.rx.tap.bind {
+            print("do exchanging")
         }.disposed(by: disposeBag)
     }
     
@@ -95,7 +95,7 @@ class PointCell: UICollectionViewCell {
     
     func configure(width data: PointData) {
         self.nameLbl.text = data.name
-        self.countLbl.text = "\(data.count)"
-        self.baseCountLbl.text = "\(data.baseCount)"
+        self.countLbl.text = "\(data.count) \(data.name)"
+        self.baseCountLbl.text = "\(data.baseCount) \(RecikaPoint)"
     }
 }

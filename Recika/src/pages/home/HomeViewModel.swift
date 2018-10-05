@@ -28,36 +28,17 @@ class HomeViewModel {
             }
             guard let data = response.data else {return}
             let json = JSON(data)
-            print(json)
-            self?.points.value = json.arrayValue.map{PointData(json: $0)}
+            self?.points.value = json.arrayValue.map{PointData(json: $0)}.filter{SupportSymbols.contains($0.name)}
         }
     }
     
-//    private func getBalance() {
-//        let url = balanceAPI + "?name=\(userName)&symbol=\(symbol)"
-//        guard let api = URLComponents(string: url) else{return}
-//
-//        Alamofire.request(api, method: .get).responseJSON { response in
-//            if let error = response.error {
-//                print(error.localizedDescription)
-//                return
-//            }
-//            guard let data = response.data else {return}
-//            let json = JSON(data)
-//            print(json)
-//            let amount = json["amount"].stringValue
-//            if amount != "" {
-//                self.balance.value = amount
-//            }
-//        }
-//    }
-//
     func startGetBalance() {
+        /** 每隔10秒请求一次. */
         getBalance()
-//        stopGetBalance()
-//        timer = Timer.scheduledTimer(withTimeInterval: 10, repeats: true, block: { [weak self] _ in
-//            self?.getBalance()
-//        })
+        stopGetBalance()
+        timer = Timer.scheduledTimer(withTimeInterval: 10, repeats: true, block: { [weak self] _ in
+            self?.getBalance()
+        })
     }
     
     func stopGetBalance() {

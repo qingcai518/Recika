@@ -9,6 +9,10 @@
 import Foundation
 import SwiftyJSON
 
+// TODO. 比率，暂时固定.
+let BPT_RCP: Double = 10
+let DPT_RCP: Double = 25
+
 struct PointData {
     let name: String
     let count : Double
@@ -23,6 +27,13 @@ struct PointData {
     init(json: JSON) {
         self.name = json["symbol"].stringValue
         self.count = json["amount"].doubleValue
-        self.baseCount = count  // dummy.
+        
+        if name == BPoint {
+            self.baseCount = count * BPT_RCP
+        } else if name == DPoint {
+            self.baseCount = count * DPT_RCP
+        } else {
+            self.baseCount = count
+        }
     }
 }

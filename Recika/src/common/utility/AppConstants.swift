@@ -39,11 +39,16 @@ var safeArea: UIEdgeInsets = {
     return defaultInsets
 }()
 
-//let symbol = "CYB"  // ユーザーのToken数
-let symbol = "JADE.RCP"
-
 enum ToastPosition {
     case center
     case top
     case bottom
 }
+
+/** 系统支持的Point. */
+let RecikaPoint = "RCP"
+let BPoint = "BPT"
+let DPoint = "DPT"
+let SupportSymbols = [
+    RecikaPoint, BPoint, DPoint
+]
