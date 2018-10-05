@@ -28,7 +28,7 @@ class HomeViewModel {
             }
             guard let data = response.data else {return}
             let json = JSON(data)
-            self?.points.value = json.arrayValue.map{PointData(json: $0)}.filter{SupportSymbols.contains($0.name)}
+            self?.points.value = json.arrayValue.map{PointData(json: $0)}.filter{SupportSymbols.contains($0.symbol)}
         }
     }
     

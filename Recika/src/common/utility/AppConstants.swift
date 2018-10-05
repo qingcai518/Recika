@@ -46,9 +46,14 @@ enum ToastPosition {
 }
 
 /** 系统支持的Point. */
+let RecikaPointName = "Recika Point"
+let BPointName = "B Point"
+let DPointName = "D Point"
+
 let RecikaPoint = "RCP"
 let BPoint = "BPT"
 let DPoint = "DPT"
+
 let SupportSymbols = [
     RecikaPoint, BPoint, DPoint
 ]
