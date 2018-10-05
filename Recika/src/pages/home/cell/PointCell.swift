@@ -95,7 +95,7 @@ class PointCell: UICollectionViewCell {
     
     func configure(width data: PointData) {
         self.nameLbl.text = data.name
-        self.countLbl.text = "\(data.count) \(data.name)"
+        self.countLbl.text = "\(data.count) \(data.symbol)"
         self.baseCountLbl.text = "\(data.baseCount) \(RecikaPoint)"
     }
 }
