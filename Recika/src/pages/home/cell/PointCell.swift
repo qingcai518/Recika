@@ -34,12 +34,6 @@ class PointCell: UICollectionViewCell {
         
         self.contentView.layer.cornerRadius = 12
         self.contentView.clipsToBounds = true
-        self.contentView.backgroundColor = UIColor.orange
-        self.layer.masksToBounds = false
-        self.layer.shadowOffset = CGSize(width: 0, height: -10)
-        self.layer.shadowRadius = 3
-        self.layer.shadowOpacity = 0.8
-        
         let btnWidth = (screenWidth - 3 * 24) / 3
         
         nameLbl.font = UIFont.boldSystemFont(ofSize: 14)
@@ -49,7 +43,6 @@ class PointCell: UICollectionViewCell {
         countLbl.font = UIFont.systemFont(ofSize: 20, weight: UIFont.Weight.semibold)
         countLbl.textColor = UIColor.white
         contentView.addSubview(countLbl)
-        
         
         baseCountLbl.font = UIFont.boldSystemFont(ofSize: 14)
         baseCountLbl.textColor = UIColor.white
@@ -101,5 +94,6 @@ class PointCell: UICollectionViewCell {
         self.nameLbl.text = data.name
         self.countLbl.text = "\(data.count) \(data.symbol)"
         self.baseCountLbl.text = "\(data.baseCount) \(RecikaPoint)"
+        self.contentView.backgroundColor = data.bkColor
     }
 }
