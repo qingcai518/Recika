@@ -31,7 +31,10 @@ class PointLayout: UICollectionViewFlowLayout {
         let offsetForCurrentPointX = abs(proposedContentOffset.x - lastOffset.x)
         let offset = proposedContentOffset.x > lastOffset.x ? pageWidth : -pageWidth   // 向左.向右的位移量.
         
-        if offsetForCurrentPointX > pageWidth / 2 && lastOffset.x >= offsetMin && lastOffset.x <= offsetMax {
+        print("offset for current point x = \(offsetForCurrentPointX)")
+        print("page Width half = \(pageWidth / 2)")
+        
+        if offsetForCurrentPointX > pageWidth / 2 || (proposedContentOffset.x > lastOffset.x && velocity.x > 0.2) || (proposedContentOffset.x < lastOffset.x && velocity.x < -0.2) {
             result = CGPoint(x: lastOffset.x + offset, y: proposedContentOffset.y)
         } else {
             result = CGPoint(x: lastOffset.x, y: lastOffset.y)
