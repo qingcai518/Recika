@@ -35,6 +35,10 @@ class PointCell: UICollectionViewCell {
         self.contentView.layer.cornerRadius = 12
         self.contentView.clipsToBounds = true
         self.contentView.backgroundColor = UIColor.orange
+        self.layer.masksToBounds = false
+        self.layer.shadowOffset = CGSize(width: 0, height: -10)
+        self.layer.shadowRadius = 3
+        self.layer.shadowOpacity = 0.8
         
         let btnWidth = (screenWidth - 3 * 24) / 3
         
