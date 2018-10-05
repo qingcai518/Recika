@@ -16,8 +16,11 @@ class LoginViewModel {
         guard let name = name else {return completion("no user name")}
         guard let password = password else {return completion("")}
         
-        let url = loginAPI + "?username=\(name)&password=\(password)"
-        guard let api = URLComponents(string: url) else {return completion(nil)}
+        guard var api = URLComponents(string: loginAPI) else {return completion(nil)}
+        api.queryItems = [
+            URLQueryItem(name: "name", value: name),
+            URLQueryItem(name: "password", value: password)
+        ]
         
         SVProgressHUD.show()
         Alamofire.request(api, method: .get).responseJSON { response in
@@ -32,18 +35,13 @@ class LoginViewModel {
             
             let json = JSON(data)
             print(json)
-            if json == JSON.null {
-                return completion("fail to login.")
-            }
-            
-            if let errorMsg = json["message"].string {
+            if let errorMsg = json["msg"].string {
                 return completion(errorMsg)
             }
-            
-            let name = json["Name"].stringValue
-            let activeKey = json["ActivePubKey"].stringValue
-            let ownerKey = json["OwnerPubKey"].stringValue
-            let memoKey = json["MemoPubKey"].stringValue
+            let name = json["name"].stringValue
+            let activeKey = json["active_pub_key"].stringValue
+            let ownerKey = json["owner_pub_key"].stringValue
+            let memoKey = json["memo_pub_key"].stringValue
             saveUser(name: name, ownerKey: ownerKey, activeKey: activeKey, memoKey: memoKey)
             return completion(nil)
         }

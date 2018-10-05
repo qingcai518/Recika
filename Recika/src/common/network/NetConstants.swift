@@ -35,7 +35,8 @@ let associateAPI = cybexDomain + v1 + "associate"
 
 // ユーザー
 let userAPI = domain + v1 + "user/"
-let loginAPI = userAPI + "login"
+let loginAPI = cybexDomain + v1 + "login"
+//let loginAPI = userAPI + "login"
 
 // 商品.
 let giftAPI = domain + v1 + "gift/"
