@@ -16,7 +16,6 @@ class PointCell: UICollectionViewCell {
     var countLbl = UILabel()
     var baseCountLbl = UILabel()
     var exchangeBtn = UIButton()
-    var addBtn = UIButton()
     
     var disposeBag = DisposeBag()
     
@@ -48,8 +47,13 @@ class PointCell: UICollectionViewCell {
         baseCountLbl.textColor = UIColor.white
         contentView.addSubview(baseCountLbl)
         
+        exchangeBtn.setTitle(str_exchange, for: .normal)
+        exchangeBtn.setTitleColor(UIColor.black, for: .normal)
+        exchangeBtn.layer.cornerRadius = 8
+        exchangeBtn.layer.borderWidth = 1
+        exchangeBtn.layer.borderColor = UIColor.lightGray
+        exchangeBtn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
         contentView.addSubview(exchangeBtn)
-        contentView.addSubview(addBtn)
         
         nameLbl.snp.makeConstraints { make in
             make.top.equalToSuperview().inset(24)
@@ -70,19 +74,14 @@ class PointCell: UICollectionViewCell {
         }
         
         exchangeBtn.snp.makeConstraints { make in
-            make.left.equalToSuperview().inset(24)
-            make.bottom.equalToSuperview().inset(24)
-            make.width.equalTo(btnWidth)
-        }
-        
-        addBtn.snp.makeConstraints { make in
+            make.bottom.equalToSuperview().inset(12)
             make.right.equalToSuperview().inset(24)
-            make.bottom.equalToSuperview().inset(24)
             make.width.equalTo(btnWidth)
+            make.height.equalTo(64)
         }
         
         exchangeBtn.rx.tap.bind {
-            print("do exchanging")
+            print("hello exchange world.")
         }.disposed(by: disposeBag)
     }
     
