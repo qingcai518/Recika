@@ -9,8 +9,14 @@
 import RxSwift
 import UIKit
 
+protocol PointCellDelegate {
+    func doExchange()
+}
+
 class PointCell: UICollectionViewCell {
     static let id = "PointCell"
+    
+    var delegate: PointCellDelegate?
     
     var nameLbl = UILabel()
     var countLbl = UILabel()
@@ -79,10 +85,6 @@ class PointCell: UICollectionViewCell {
             make.width.equalTo(btnWidth)
             make.height.equalTo(44)
         }
-        
-        exchangeBtn.rx.tap.bind {
-            print("hello exchange world.")
-        }.disposed(by: disposeBag)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -94,5 +96,9 @@ class PointCell: UICollectionViewCell {
         self.countLbl.text = "\(data.count) \(data.symbol)"
         self.baseCountLbl.text = "\(data.baseCount) \(RecikaPoint)"
         self.contentView.backgroundColor = data.bkColor
+        
+        exchangeBtn.rx.tap.bind { [weak self] in
+            self?.delegate?.doExchange()
+        }.disposed(by: disposeBag)
     }
 }

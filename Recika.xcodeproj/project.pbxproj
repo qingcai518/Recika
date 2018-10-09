@@ -85,6 +85,7 @@
 		4BCE98B0213E51D300DFC4B5 /* PriceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCE98AF213E51D300DFC4B5 /* PriceCell.swift */; };
 		4BCE98B2213E548F00DFC4B5 /* PriceData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCE98B1213E548F00DFC4B5 /* PriceData.swift */; };
 		4BCE98EC21476FE800DFC4B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCE98EB21476FE800DFC4B5 /* AppDelegate.swift */; };
+		4BE4BDD4216C3D2C00E654F6 /* ExchangeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE4BDD3216C3D2C00E654F6 /* ExchangeController.swift */; };
 		4BF0D9B021367EC6005D9AF1 /* ESPullToRefresh.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BF0D9AF21367EC6005D9AF1 /* ESPullToRefresh.framework */; };
 		4BF0D9B321368135005D9AF1 /* DetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0D9B221368135005D9AF1 /* DetailController.swift */; };
 		4BF0D9B521378042005D9AF1 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0D9B421378042005D9AF1 /* HomeViewModel.swift */; };
@@ -220,6 +221,7 @@
 		4BCE98AF213E51D300DFC4B5 /* PriceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceCell.swift; sourceTree = "<group>"; };
 		4BCE98B1213E548F00DFC4B5 /* PriceData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceData.swift; sourceTree = "<group>"; };
 		4BCE98EB21476FE800DFC4B5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		4BE4BDD3216C3D2C00E654F6 /* ExchangeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeController.swift; sourceTree = "<group>"; };
 		4BF0D9AF21367EC6005D9AF1 /* ESPullToRefresh.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ESPullToRefresh.framework; path = Carthage/Build/iOS/ESPullToRefresh.framework; sourceTree = "<group>"; };
 		4BF0D9B221368135005D9AF1 /* DetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailController.swift; sourceTree = "<group>"; };
 		4BF0D9B421378042005D9AF1 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -406,6 +408,7 @@
 				4B3EBC9E212E56F9002C34C5 /* signup */,
 				4B3EBC9B212E4B69002C34C5 /* login */,
 				4B3EBC70212D2139002C34C5 /* home */,
+				4BE4BDD2216C3D1700E654F6 /* exchange */,
 				4BCE9893213CBBD200DFC4B5 /* pair */,
 				4BF0D9C42138D19F005D9AF1 /* ChartCustom */,
 				4B3EBC71212D2144002C34C5 /* receipt */,
@@ -649,6 +652,14 @@
 				4BCE98AF213E51D300DFC4B5 /* PriceCell.swift */,
 			);
 			path = cells;
+			sourceTree = "<group>";
+		};
+		4BE4BDD2216C3D1700E654F6 /* exchange */ = {
+			isa = PBXGroup;
+			children = (
+				4BE4BDD3216C3D2C00E654F6 /* ExchangeController.swift */,
+			);
+			path = exchange;
 			sourceTree = "<group>";
 		};
 		4BF0D9B1213680F9005D9AF1 /* detail */ = {
@@ -905,6 +916,7 @@
 				4B3EBCAA21352C84002C34C5 /* ViewController.swift in Sources */,
 				4BCE988621392BF100DFC4B5 /* ChartController.swift in Sources */,
 				4BF0D9BC2137F690005D9AF1 /* ReceiptViewModel.swift in Sources */,
+				4BE4BDD4216C3D2C00E654F6 /* ExchangeController.swift in Sources */,
 				4BCE98EC21476FE800DFC4B5 /* AppDelegate.swift in Sources */,
 				4BCE988C213CB91B00DFC4B5 /* SettingDetailViewController.swift in Sources */,
 				4BCE9892213CBA5F00DFC4B5 /* ChartDatasFetcher.swift in Sources */,

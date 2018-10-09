@@ -38,7 +38,6 @@ class HomeViewModel {
     
     func startGetBalance() {
         /** 每隔10秒请求一次. */
-        SVProgressHUD.show()
         getBalance()
         stopGetBalance()
         timer = Timer.scheduledTimer(withTimeInterval: 10, repeats: true, block: { [weak self] _ in

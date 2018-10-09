@@ -9,6 +9,7 @@
 import UIKit
 import SnapKit
 import RxSwift
+import SVProgressHUD
 
 class HomeController: ViewController {
     var collectionView: UICollectionView!
@@ -39,6 +40,7 @@ class HomeController: ViewController {
         viewModel.points.asObservable().bind { [weak self] _ in
             self?.collectionView.reloadData()
         }.disposed(by: disposeBag)
+        SVProgressHUD.show()
         viewModel.startGetBalance()
     }
     
@@ -205,6 +207,16 @@ extension HomeController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PointCell.id, for: indexPath) as! PointCell
         let data = viewModel.points.value[indexPath.item]
         cell.configure(width: data)
+        cell.delegate = self
         return cell
+    }
+}
+
+extension HomeController: PointCellDelegate {
+    func doExchange() {
+        let exchangeController = ExchangeController()
+        let next = UINavigationController()
+        next.viewControllers = [exchangeController]
+        self.present(next, animated: true, completion: nil)
     }
 }
