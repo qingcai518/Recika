@@ -9,6 +9,7 @@
 import UIKit
 
 class ExchangeController: ViewController {
+    let tableView = UITableView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,5 +32,38 @@ class ExchangeController: ViewController {
         closeBtn.rx.tap.bind { [weak self] in
             self?.dismiss(animated: true, completion: nil)
         }.disposed(by: disposeBag)
+        
+        // set tableView.
+        tableView.tableFooterView = UIView()
+        tableView.delegate = self
+        tableView.dataSource = self
+        self.view.addSubview(tableView)
+        tableView.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+            make.left.right.equalToSuperview()
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
+        }
+        tableView.backgroundColor = UIColor.clear
+    }
+}
+
+extension ExchangeController: UITableViewDelegate {
+    
+}
+
+extension ExchangeController: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: ContentCell.id)
+        let data = viewModel.datas[indexPath.item]
+        cell.configure(wkith: data)
+        return cell
     }
 }
