@@ -51,7 +51,7 @@ class PointCell: UICollectionViewCell {
         exchangeBtn.setTitleColor(UIColor.black, for: .normal)
         exchangeBtn.layer.cornerRadius = 8
         exchangeBtn.layer.borderWidth = 1
-        exchangeBtn.layer.borderColor = UIColor.lightGray
+        exchangeBtn.layer.borderColor = UIColor.lightGray.cgColor
         exchangeBtn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
         contentView.addSubview(exchangeBtn)
         
