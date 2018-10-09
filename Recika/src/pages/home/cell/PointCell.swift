@@ -48,10 +48,10 @@ class PointCell: UICollectionViewCell {
         contentView.addSubview(baseCountLbl)
         
         exchangeBtn.setTitle(str_exchange, for: .normal)
+        exchangeBtn.backgroundColor = UIColor.white
         exchangeBtn.setTitleColor(UIColor.black, for: .normal)
         exchangeBtn.layer.cornerRadius = 8
-        exchangeBtn.layer.borderWidth = 1
-        exchangeBtn.layer.borderColor = UIColor.lightGray.cgColor
+        exchangeBtn.clipsToBounds = true
         exchangeBtn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
         contentView.addSubview(exchangeBtn)
         
@@ -74,10 +74,10 @@ class PointCell: UICollectionViewCell {
         }
         
         exchangeBtn.snp.makeConstraints { make in
-            make.bottom.equalToSuperview().inset(12)
+            make.bottom.equalToSuperview().inset(24)
             make.right.equalToSuperview().inset(24)
             make.width.equalTo(btnWidth)
-            make.height.equalTo(64)
+            make.height.equalTo(44)
         }
         
         exchangeBtn.rx.tap.bind {
