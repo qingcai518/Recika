@@ -26,6 +26,7 @@
 "point" = "积分";
 "exchange" = "交换积分";
 "doExchange" = "交换";
+"confirm" = "确定";
 
 "msg1" = "您的专属电子发票ID";
 
