@@ -6,11 +6,18 @@
 //  Copyright © 2018年 liqc. All rights reserved.
 //
 
+import RxSwift
 import UIKit
+
+protocol ExchangeCellDelegate {
+    func toExchangeConfirm(with data: RateData)
+}
 
 class ExchangeCell: UITableViewCell {
     static let id = "ExchangeCell"
     
+    var disposeBag = DisposeBag()
+    var delegate: ExchangeCellDelegate?
     let targetLbl = UILabel()
     let countLbl = UILabel()
     let exchangeBtn = UIButton()
@@ -20,6 +27,8 @@ class ExchangeCell: UITableViewCell {
         
         countLbl.text = nil
         targetLbl.text = nil
+        
+        disposeBag = DisposeBag()
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -92,5 +101,9 @@ class ExchangeCell: UITableViewCell {
         str.append(str2)
         
         self.countLbl.attributedText = str
+        
+        exchangeBtn.rx.tap.bind { [weak self] in
+            self?.delegate?.toExchangeConfirm(with: data)
+        }.disposed(by: disposeBag)
     }
 }

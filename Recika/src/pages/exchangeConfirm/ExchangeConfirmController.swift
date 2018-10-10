@@ -24,6 +24,11 @@ class ExchangeConfirmController: ViewController {
     }
     
     private func setSubviews() {
+        if let name = rateData?.baseName {
+            self.title = name + " " + str_exchange
+        }
+        self.view.backgroundColor = UIColor.white
+        
         pointTf.textColor = UIColor.black
         pointTf.font = UIFont.systemFont(ofSize: 16)
         pointTf.placeholder = rateData?.targetName
