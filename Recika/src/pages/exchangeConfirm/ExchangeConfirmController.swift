@@ -32,6 +32,8 @@ class ExchangeConfirmController: ViewController {
         pointTf.textColor = UIColor.black
         pointTf.font = UIFont.systemFont(ofSize: 16)
         pointTf.placeholder = rateData?.targetName
+        pointTf.keyboardType = .numberPad
+        pointTf.borderStyle = .roundedRect
         view.addSubview(pointTf)
         
         targetNameLbl.textColor = UIColor.black
