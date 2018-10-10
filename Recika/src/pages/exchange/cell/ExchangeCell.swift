@@ -89,8 +89,8 @@ class ExchangeCell: UITableViewCell {
         ]
         
         let attribute2: [NSAttributedString.Key: Any] = [
-            .foregroundColor: UIColor.gray,
-            .font: UIFont.systemFont(ofSize: 12)
+            .foregroundColor : UIColor.red,
+            .font : UIFont.systemFont(ofSize: 12)
         ]
         
         let str1 = NSAttributedString(string: "\(data.count) ", attributes: attribute1)
