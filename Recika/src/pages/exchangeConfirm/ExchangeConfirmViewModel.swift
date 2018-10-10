@@ -7,12 +7,18 @@
 //
 
 import Foundation
+import SVProgressHUD
 
 class ExchangeConfirmViewModel {
-    func doExchange(count: Double, rateData: RateData) {
+    func doExchange(count: Double, rateData: RateData, completion: @escaping (String?) -> Void) {
+        SVProgressHUD.show()
+        
         let base = rateData.baseName
         let target = rateData.targetName
         
         print("exchange from: [\(base)],   to [\(target)],  count = \(count)")
+        SVProgressHUD.dismiss()
+        
+        return completion(nil)
     }
 }

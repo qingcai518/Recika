@@ -132,7 +132,13 @@ class ExchangeConfirmController: ViewController {
                 guard let value = Double(text) else {return}
                 guard let rateData = self?.rateData else {return}
                 
-                self?.viewModel.doExchange(count: value, rateData: rateData)
+                self?.viewModel.doExchange(count: value, rateData: rateData, completion: { msg in
+                    if let msg = msg {
+                        self?.showToast(text: msg)
+                    } else {
+                        self?.showToast(text: "完了しました。")
+                    }
+                })
             })
             
             let cancel = UIAlertAction(title: str_cancel, style: .cancel, handler: nil)
