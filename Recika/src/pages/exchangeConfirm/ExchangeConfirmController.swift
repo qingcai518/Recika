@@ -48,7 +48,7 @@ class ExchangeConfirmController: ViewController {
         pointTf.textColor = UIColor.black
         pointTf.font = UIFont.systemFont(ofSize: 16)
         pointTf.placeholder = rateData?.targetName
-        pointTf.keyboardType = .numberPad
+        pointTf.keyboardType = .numbersAndPunctuation
         pointTf.borderStyle = .roundedRect
         view.addSubview(pointTf)
         
@@ -116,6 +116,7 @@ class ExchangeConfirmController: ViewController {
         if let rate = rateData?.rate {
             pointTf.rx.text.asObservable().filter{$0 != nil}.map{Double($0!)}.filter{$0 != nil}.map{$0!}.map{$0 * rate}.map{"\($0)"}.bind(to: resultLbl.rx.text).disposed(by: disposeBag)
         }
+        pointTf.rx.text.asObservable().filter{$0 == nil}.bind(to: resultLbl.rx.text).disposed(by: disposeBag)
         
         pointTf.becomeFirstResponder()
     }
