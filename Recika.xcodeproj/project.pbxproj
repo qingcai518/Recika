@@ -89,6 +89,7 @@
 		4BE4BDD7216C577800E654F6 /* ExchangeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE4BDD6216C577800E654F6 /* ExchangeCell.swift */; };
 		4BE4BDD9216C6FEE00E654F6 /* RateData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE4BDD8216C6FEE00E654F6 /* RateData.swift */; };
 		4BE4BDDE216DB1B900E654F6 /* ExchangeConfirmController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE4BDDD216DB1B900E654F6 /* ExchangeConfirmController.swift */; };
+		4BE4BDE0216DE6AC00E654F6 /* ExchangeConfirmViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE4BDDF216DE6AC00E654F6 /* ExchangeConfirmViewModel.swift */; };
 		4BF0D9B021367EC6005D9AF1 /* ESPullToRefresh.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BF0D9AF21367EC6005D9AF1 /* ESPullToRefresh.framework */; };
 		4BF0D9B321368135005D9AF1 /* DetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0D9B221368135005D9AF1 /* DetailController.swift */; };
 		4BF0D9B521378042005D9AF1 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0D9B421378042005D9AF1 /* HomeViewModel.swift */; };
@@ -228,6 +229,7 @@
 		4BE4BDD6216C577800E654F6 /* ExchangeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeCell.swift; sourceTree = "<group>"; };
 		4BE4BDD8216C6FEE00E654F6 /* RateData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateData.swift; sourceTree = "<group>"; };
 		4BE4BDDD216DB1B900E654F6 /* ExchangeConfirmController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeConfirmController.swift; sourceTree = "<group>"; };
+		4BE4BDDF216DE6AC00E654F6 /* ExchangeConfirmViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeConfirmViewModel.swift; sourceTree = "<group>"; };
 		4BF0D9AF21367EC6005D9AF1 /* ESPullToRefresh.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ESPullToRefresh.framework; path = Carthage/Build/iOS/ESPullToRefresh.framework; sourceTree = "<group>"; };
 		4BF0D9B221368135005D9AF1 /* DetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailController.swift; sourceTree = "<group>"; };
 		4BF0D9B421378042005D9AF1 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -683,6 +685,7 @@
 			isa = PBXGroup;
 			children = (
 				4BE4BDDD216DB1B900E654F6 /* ExchangeConfirmController.swift */,
+				4BE4BDDF216DE6AC00E654F6 /* ExchangeConfirmViewModel.swift */,
 			);
 			path = exchangeConfirm;
 			sourceTree = "<group>";
@@ -915,6 +918,7 @@
 				4BCE988221392BB000DFC4B5 /* SeriesSettingCell.swift in Sources */,
 				4B3EBC93212D4288002C34C5 /* SettingViewModel.swift in Sources */,
 				4B35828E2150C6DB00F47FF7 /* NFKeys.swift in Sources */,
+				4BE4BDE0216DE6AC00E654F6 /* ExchangeConfirmViewModel.swift in Sources */,
 				4BF0D9B321368135005D9AF1 /* DetailController.swift in Sources */,
 				4B3EBCAC21353EAA002C34C5 /* UDKeys.swift in Sources */,
 				4BF0D9B521378042005D9AF1 /* HomeViewModel.swift in Sources */,

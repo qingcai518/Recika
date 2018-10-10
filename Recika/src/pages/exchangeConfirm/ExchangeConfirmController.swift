@@ -17,6 +17,8 @@ class ExchangeConfirmController: ViewController {
     let resultLbl = UILabel()
     let confirmBtn = UIButton()
     
+    let viewModel = ExchangeConfirmViewModel()
+    
     // params.
     var rateData: RateData?
 
@@ -120,6 +122,22 @@ class ExchangeConfirmController: ViewController {
         }
         pointTf.rx.text.asObservable().filter{$0 != nil}.map{$0!}.filter{$0.isEmpty}.bind(to: resultLbl.rx.text).disposed(by: disposeBag)
         pointTf.becomeFirstResponder()
+        
+        confirmBtn.rx.tap.bind { [weak self] in
+            let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+            let confirm = UIAlertAction(title: str_confirm, style: .default, handler: { [weak self] alert in
+                guard let text = self?.pointTf.text else {return}
+                guard let value = Double(text) else {return}
+                guard let rateData = self?.rateData else {return}
+                
+                self?.viewModel.doExchange(count: value, rateData: rateData)
+            })
+            
+            let cancel = UIAlertAction(title: str_cancel, style: .cancel, handler: nil)
+            alertController.addAction(confirm)
+            alertController.addAction(cancel)
+            self?.present(alertController, animated: true, completion: nil)
+        }.disposed(by: disposeBag)
     }
 }
 
