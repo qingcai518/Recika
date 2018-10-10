@@ -46,6 +46,9 @@ class ExchangeConfirmController: ViewController {
         view.addSubview(resultLbl)
         
         confirmBtn.setTitle(str_confirm, for: .normal)
+        confirmBtn.layer.cornerRadius = 12
+        confirmBtn.layer.borderColor = UIColor.lightGray.cgColor
+        confirmBtn.layer.borderWidth = 1
         confirmBtn.setTitleColor(UIColor.lightGray, for: .disabled)
         confirmBtn.setTitleColor(UIColor.orange, for: .normal)
         confirmBtn.titleLabel?.font = UIFont.systemFont(ofSize: 16)
@@ -76,5 +79,7 @@ class ExchangeConfirmController: ViewController {
             make.left.right.equalToSuperview().inset(24)
             make.height.equalTo(50)
         }
+        
+        pointTf.rx.text.asObservable().map{$0?.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines) != ""}.bind(to: confirmBtn.rx.isEnabled).disposed(by: disposeBag)
     }
 }
