@@ -88,7 +88,6 @@
 		4BE4BDD4216C3D2C00E654F6 /* ExchangeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE4BDD3216C3D2C00E654F6 /* ExchangeController.swift */; };
 		4BE4BDD7216C577800E654F6 /* ExchangeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE4BDD6216C577800E654F6 /* ExchangeCell.swift */; };
 		4BE4BDD9216C6FEE00E654F6 /* RateData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE4BDD8216C6FEE00E654F6 /* RateData.swift */; };
-		4BE4BDDB216D84F800E654F6 /* ExchangeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE4BDDA216D84F800E654F6 /* ExchangeViewModel.swift */; };
 		4BF0D9B021367EC6005D9AF1 /* ESPullToRefresh.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BF0D9AF21367EC6005D9AF1 /* ESPullToRefresh.framework */; };
 		4BF0D9B321368135005D9AF1 /* DetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0D9B221368135005D9AF1 /* DetailController.swift */; };
 		4BF0D9B521378042005D9AF1 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0D9B421378042005D9AF1 /* HomeViewModel.swift */; };
@@ -227,7 +226,6 @@
 		4BE4BDD3216C3D2C00E654F6 /* ExchangeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeController.swift; sourceTree = "<group>"; };
 		4BE4BDD6216C577800E654F6 /* ExchangeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeCell.swift; sourceTree = "<group>"; };
 		4BE4BDD8216C6FEE00E654F6 /* RateData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateData.swift; sourceTree = "<group>"; };
-		4BE4BDDA216D84F800E654F6 /* ExchangeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeViewModel.swift; sourceTree = "<group>"; };
 		4BF0D9AF21367EC6005D9AF1 /* ESPullToRefresh.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ESPullToRefresh.framework; path = Carthage/Build/iOS/ESPullToRefresh.framework; sourceTree = "<group>"; };
 		4BF0D9B221368135005D9AF1 /* DetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailController.swift; sourceTree = "<group>"; };
 		4BF0D9B421378042005D9AF1 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -666,7 +664,6 @@
 			children = (
 				4BE4BDD5216C576200E654F6 /* cell */,
 				4BE4BDD3216C3D2C00E654F6 /* ExchangeController.swift */,
-				4BE4BDDA216D84F800E654F6 /* ExchangeViewModel.swift */,
 			);
 			path = exchange;
 			sourceTree = "<group>";
@@ -883,7 +880,6 @@
 				4B3EBCA2212E6626002C34C5 /* SignupViewModel.swift in Sources */,
 				4B3582912150F4B000F47FF7 /* GuideController.swift in Sources */,
 				4BCE98AA213D116100DFC4B5 /* PairViewModel.swift in Sources */,
-				4BE4BDDB216D84F800E654F6 /* ExchangeViewModel.swift in Sources */,
 				4B3EBCB221363828002C34C5 /* GiftViewModel.swift in Sources */,
 				4B35829B2153254800F47FF7 /* ReceiptDetailViewModel.swift in Sources */,
 				4B35828C2150AD0C00F47FF7 /* AnalyzeResultViewModel.swift in Sources */,

@@ -12,13 +12,14 @@ class ExchangeController: ViewController {
     let tableView = UITableView()
     let baseLbl = UILabel()
     let targetLbl = UILabel()
-    let viewModel = ExchangeViewModel()
+    
+    // params.
+    var rates = [RateData]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setSubviews()
-        getData()
     }
     
     private func setSubviews() {
@@ -27,7 +28,7 @@ class ExchangeController: ViewController {
         
         let closeBtn = UIButton()
         closeBtn.frame = CGRect(x: 0, y: 0, width: 44, height: 44)
-        closeBtn.setImage(close, for: .normal)
+        closeBtn.setImage(closeBlack, for: .normal)
         
         let barItem = UIBarButtonItem(customView: closeBtn)
         self.navigationItem.rightBarButtonItem = barItem
@@ -64,11 +65,6 @@ class ExchangeController: ViewController {
             make.top.equalToSuperview().inset(24)
         }
     }
-    
-    private func getData() {
-        viewModel.getRates()
-        self.tableView.reloadData()
-    }
 }
 
 extension ExchangeController: UITableViewDelegate {
@@ -78,13 +74,17 @@ extension ExchangeController: UITableViewDelegate {
 }
 
 extension ExchangeController: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.rates.count
+        return rates.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ExchangeCell.id, for: indexPath) as! ExchangeCell
-        let data = viewModel.rates[indexPath.item]
+        let data = rates[indexPath.row]
         cell.configure(with: data)
         return cell
     }

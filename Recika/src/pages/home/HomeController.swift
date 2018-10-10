@@ -206,15 +206,28 @@ extension HomeController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PointCell.id, for: indexPath) as! PointCell
         let data = viewModel.points.value[indexPath.item]
-        cell.configure(width: data)
+        cell.configure(width: data, indexPath: indexPath)
         cell.delegate = self
         return cell
     }
 }
 
 extension HomeController: PointCellDelegate {
-    func doExchange() {
+    func doExchange(indexPath: IndexPath) {
         let exchangeController = ExchangeController()
+        
+        let current = viewModel.points.value[indexPath.item]
+        let currentRate = current.baseCount / current.count
+        
+        var rateDatas = [RateData]()
+        for i in 0..<viewModel.points.value.count {
+            if i == indexPath.item {continue}
+            let point = viewModel.points.value[i]
+            let pointRate = point.baseCount / point.count
+            let rateData = RateData(name: point.name, rate: pointRate / currentRate, count: point.count)
+            rateDatas.append(rateData)
+        }
+        exchangeController.rates = rateDatas
         let next = UINavigationController()
         next.viewControllers = [exchangeController]
         self.present(next, animated: true, completion: nil)

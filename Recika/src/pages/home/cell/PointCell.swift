@@ -10,7 +10,7 @@ import RxSwift
 import UIKit
 
 protocol PointCellDelegate {
-    func doExchange()
+    func doExchange(indexPath: IndexPath)
 }
 
 class PointCell: UICollectionViewCell {
@@ -91,14 +91,14 @@ class PointCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configure(width data: PointData) {
+    func configure(width data: PointData, indexPath: IndexPath) {
         self.nameLbl.text = data.name
         self.countLbl.text = "\(data.count) \(data.symbol)"
         self.baseCountLbl.text = "\(data.baseCount) \(RecikaPoint)"
         self.contentView.backgroundColor = data.bkColor
         
         exchangeBtn.rx.tap.bind { [weak self] in
-            self?.delegate?.doExchange()
+            self?.delegate?.doExchange(indexPath: indexPath)
         }.disposed(by: disposeBag)
     }
 }

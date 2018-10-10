@@ -58,7 +58,7 @@ class ExchangeCell: UITableViewCell {
         
         exchangeBtn.snp.makeConstraints { make in
             make.right.equalToSuperview().inset(24)
-            make.center.equalToSuperview()
+            make.centerY.equalToSuperview()
             make.height.equalTo(44)
             make.width.equalTo(64)
         }
@@ -70,7 +70,7 @@ class ExchangeCell: UITableViewCell {
         }
     }
     
-    func configure(with data: RateData) {
+    func configure(with data : RateData) {
         self.targetLbl.text = data.name
         self.rateLbl.text = "\(data.rate)"
     }

@@ -9,11 +9,13 @@
 import Foundation
 
 struct RateData {
-    var name: String
-    var rate : Double
+    let name : String
+    let rate: Double
+    let count: Double
     
-    init(name: String, rate: Double) {
+    init(name: String, rate: Double, count: Double) {
         self.name = name
         self.rate = rate
+        self.count = count
     }
 }
