@@ -71,7 +71,7 @@ class ExchangeCell: UITableViewCell {
     }
     
     func configure(with data : RateData) {
-        self.targetLbl.text = data.name
+        self.targetLbl.text = data.targetName
 
         let attribute1: [NSAttributedString.Key : Any] = [
             .foregroundColor: UIColor.black,
@@ -83,8 +83,8 @@ class ExchangeCell: UITableViewCell {
             .font: UIFont.systemFont(ofSize: 12)
         ]
         
-        let str1 = NSAttributedString(string: "\(data.count)", attributes: attribute1)
-        let str2 = NSAttributedString(string: "(rate = \(data.rate)", attributes: attribute2)
+        let str1 = NSAttributedString(string: "\(data.count) ", attributes: attribute1)
+        let str2 = NSAttributedString(string: "(1\(data.targetName) = \(data.rate)\(data.baseName)", attributes: attribute2)
         
         let str = NSMutableAttributedString()
         str.append(str1)
