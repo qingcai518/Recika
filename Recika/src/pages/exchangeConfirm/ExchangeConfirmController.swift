@@ -132,15 +132,12 @@ extension ExchangeConfirmController : UITextFieldDelegate {
             return false
         }
         
-        if value < 0 || value > count {
-            SVProgressHUD.showInfo(withStatus: "金额不能小鱼0")
-            return false
-        }
-        
         if value < 0 {
             SVProgressHUD.showInfo(withStatus: "金额不能y小于0")
             return false
         }
+        
+        print("value = \(value), count = \(count)")
         
         if value > count {
             SVProgressHUD.showInfo(withStatus: "兑换金额超过了余额")
