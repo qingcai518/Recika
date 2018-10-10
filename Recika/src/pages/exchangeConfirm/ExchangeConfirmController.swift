@@ -126,11 +126,13 @@ class ExchangeConfirmController: ViewController {
 extension ExchangeConfirmController : UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         guard let count = rateData?.count else {return true}
+        guard let text = textField.text else {return true}
         
-        guard let value = Double(string) else {
+        guard let value = Double(text + string) else {
             SVProgressHUD.showInfo(withStatus: "只能输入数字")
             return false
         }
+        
         
         if value < 0 {
             SVProgressHUD.showInfo(withStatus: "金额不能y小于0")
