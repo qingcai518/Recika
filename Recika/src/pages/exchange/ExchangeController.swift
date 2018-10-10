@@ -69,6 +69,10 @@ class ExchangeController: ViewController {
 extension ExchangeController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        let data = self.rates[indexPath.item]
+        let next = ExchangeConfirmController()
+        next.rateData = data
+        self.navigationController?.pushViewController(next, animated: true)
     }
 }
 
