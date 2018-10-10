@@ -88,6 +88,7 @@
 		4BE4BDD4216C3D2C00E654F6 /* ExchangeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE4BDD3216C3D2C00E654F6 /* ExchangeController.swift */; };
 		4BE4BDD7216C577800E654F6 /* ExchangeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE4BDD6216C577800E654F6 /* ExchangeCell.swift */; };
 		4BE4BDD9216C6FEE00E654F6 /* RateData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE4BDD8216C6FEE00E654F6 /* RateData.swift */; };
+		4BE4BDDE216DB1B900E654F6 /* ExchangeConfirmController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE4BDDD216DB1B900E654F6 /* ExchangeConfirmController.swift */; };
 		4BF0D9B021367EC6005D9AF1 /* ESPullToRefresh.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BF0D9AF21367EC6005D9AF1 /* ESPullToRefresh.framework */; };
 		4BF0D9B321368135005D9AF1 /* DetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0D9B221368135005D9AF1 /* DetailController.swift */; };
 		4BF0D9B521378042005D9AF1 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0D9B421378042005D9AF1 /* HomeViewModel.swift */; };
@@ -226,6 +227,7 @@
 		4BE4BDD3216C3D2C00E654F6 /* ExchangeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeController.swift; sourceTree = "<group>"; };
 		4BE4BDD6216C577800E654F6 /* ExchangeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeCell.swift; sourceTree = "<group>"; };
 		4BE4BDD8216C6FEE00E654F6 /* RateData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateData.swift; sourceTree = "<group>"; };
+		4BE4BDDD216DB1B900E654F6 /* ExchangeConfirmController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeConfirmController.swift; sourceTree = "<group>"; };
 		4BF0D9AF21367EC6005D9AF1 /* ESPullToRefresh.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ESPullToRefresh.framework; path = Carthage/Build/iOS/ESPullToRefresh.framework; sourceTree = "<group>"; };
 		4BF0D9B221368135005D9AF1 /* DetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailController.swift; sourceTree = "<group>"; };
 		4BF0D9B421378042005D9AF1 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -404,6 +406,7 @@
 		4B3EBC55212BF2AA002C34C5 /* pages */ = {
 			isa = PBXGroup;
 			children = (
+				4BE4BDDC216DB1A100E654F6 /* exchangeConfirm */,
 				4B35828F2150F49C00F47FF7 /* guide */,
 				4B3EBC56212BF2FB002C34C5 /* top */,
 				4BCE989C213D062700DFC4B5 /* scan */,
@@ -676,6 +679,14 @@
 			path = cell;
 			sourceTree = "<group>";
 		};
+		4BE4BDDC216DB1A100E654F6 /* exchangeConfirm */ = {
+			isa = PBXGroup;
+			children = (
+				4BE4BDDD216DB1B900E654F6 /* ExchangeConfirmController.swift */,
+			);
+			path = exchangeConfirm;
+			sourceTree = "<group>";
+		};
 		4BF0D9B1213680F9005D9AF1 /* detail */ = {
 			isa = PBXGroup;
 			children = (
@@ -896,6 +907,7 @@
 				4BCE98B0213E51D300DFC4B5 /* PriceCell.swift in Sources */,
 				4BCE987321391DD900DFC4B5 /* SeriesParam.swift in Sources */,
 				4BCE987C213921EA00DFC4B5 /* KChartCell.swift in Sources */,
+				4BE4BDDE216DB1B900E654F6 /* ExchangeConfirmController.swift in Sources */,
 				4BF0D9BE2138C995005D9AF1 /* ReceiptData.swift in Sources */,
 				4B3EBC8D212D2A91002C34C5 /* AppUtility.swift in Sources */,
 				4BCE987E2139220F00DFC4B5 /* SectionHeaderView.swift in Sources */,
