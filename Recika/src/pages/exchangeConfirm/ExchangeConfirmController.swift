@@ -127,7 +127,7 @@ class ExchangeConfirmController: ViewController {
         
         confirmBtn.rx.tap.bind { [weak self] in
             let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-            let confirm = UIAlertAction(title: str_confirm, style: .default, handler: { [weak self] alert in
+            let confirm = UIAlertAction(title: str_confirm, style: .destructive, handler: { [weak self] alert in
                 guard let text = self?.pointTf.text else {return}
                 guard let value = Double(text) else {return}
                 guard let rateData = self?.rateData else {return}
