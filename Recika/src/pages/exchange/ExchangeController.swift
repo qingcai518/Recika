@@ -10,6 +10,8 @@ import UIKit
 
 class ExchangeController: ViewController {
     let tableView = UITableView()
+    let baseLbl = UILabel()
+    let targetLbl = UILabel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +46,20 @@ class ExchangeController: ViewController {
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
         }
         tableView.backgroundColor = UIColor.clear
+        
+        //  set base and target.
+        baseLbl.textColor = UIColor.black
+        baseLbl.font = UIFont.systemFont(ofSize: 16)
+        view.addSubview(baseLbl)
+        
+        targetLbl
+        .textColor = UIColor.black
+        targetLbl.font = UIFont.systemFont(ofSize: 16)
+        self.view.addSubview(targetLbl)
+        
+        baseLbl.snp.makeConstraints { make in
+            make.top.equalToSuperview().inset(24)
+        }
     }
 }
 

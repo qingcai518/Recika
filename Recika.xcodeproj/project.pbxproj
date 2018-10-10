@@ -86,6 +86,8 @@
 		4BCE98B2213E548F00DFC4B5 /* PriceData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCE98B1213E548F00DFC4B5 /* PriceData.swift */; };
 		4BCE98EC21476FE800DFC4B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCE98EB21476FE800DFC4B5 /* AppDelegate.swift */; };
 		4BE4BDD4216C3D2C00E654F6 /* ExchangeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE4BDD3216C3D2C00E654F6 /* ExchangeController.swift */; };
+		4BE4BDD7216C577800E654F6 /* ExchangeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE4BDD6216C577800E654F6 /* ExchangeCell.swift */; };
+		4BE4BDD9216C6FEE00E654F6 /* RateData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE4BDD8216C6FEE00E654F6 /* RateData.swift */; };
 		4BF0D9B021367EC6005D9AF1 /* ESPullToRefresh.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BF0D9AF21367EC6005D9AF1 /* ESPullToRefresh.framework */; };
 		4BF0D9B321368135005D9AF1 /* DetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0D9B221368135005D9AF1 /* DetailController.swift */; };
 		4BF0D9B521378042005D9AF1 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0D9B421378042005D9AF1 /* HomeViewModel.swift */; };
@@ -222,6 +224,8 @@
 		4BCE98B1213E548F00DFC4B5 /* PriceData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceData.swift; sourceTree = "<group>"; };
 		4BCE98EB21476FE800DFC4B5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4BE4BDD3216C3D2C00E654F6 /* ExchangeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeController.swift; sourceTree = "<group>"; };
+		4BE4BDD6216C577800E654F6 /* ExchangeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeCell.swift; sourceTree = "<group>"; };
+		4BE4BDD8216C6FEE00E654F6 /* RateData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateData.swift; sourceTree = "<group>"; };
 		4BF0D9AF21367EC6005D9AF1 /* ESPullToRefresh.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ESPullToRefresh.framework; path = Carthage/Build/iOS/ESPullToRefresh.framework; sourceTree = "<group>"; };
 		4BF0D9B221368135005D9AF1 /* DetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailController.swift; sourceTree = "<group>"; };
 		4BF0D9B421378042005D9AF1 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -438,6 +442,7 @@
 				4BCE98AD213E420200DFC4B5 /* PairData.swift */,
 				4BCE98B1213E548F00DFC4B5 /* PriceData.swift */,
 				4B99F40121647848001C7D96 /* PointData.swift */,
+				4BE4BDD8216C6FEE00E654F6 /* RateData.swift */,
 			);
 			path = data;
 			sourceTree = "<group>";
@@ -657,9 +662,18 @@
 		4BE4BDD2216C3D1700E654F6 /* exchange */ = {
 			isa = PBXGroup;
 			children = (
+				4BE4BDD5216C576200E654F6 /* cell */,
 				4BE4BDD3216C3D2C00E654F6 /* ExchangeController.swift */,
 			);
 			path = exchange;
+			sourceTree = "<group>";
+		};
+		4BE4BDD5216C576200E654F6 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				4BE4BDD6216C577800E654F6 /* ExchangeCell.swift */,
+			);
+			path = cell;
 			sourceTree = "<group>";
 		};
 		4BF0D9B1213680F9005D9AF1 /* detail */ = {
@@ -861,6 +875,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4BE4BDD7216C577800E654F6 /* ExchangeCell.swift in Sources */,
 				4BCE9880213922F000DFC4B5 /* TickerTopView.swift in Sources */,
 				4B3EBCA2212E6626002C34C5 /* SignupViewModel.swift in Sources */,
 				4B3582912150F4B000F47FF7 /* GuideController.swift in Sources */,
@@ -914,6 +929,7 @@
 				4B3EBC7E212D23B0002C34C5 /* AppImage.swift in Sources */,
 				4BCE986A213910DC00DFC4B5 /* UIColor.swift in Sources */,
 				4B3EBCAA21352C84002C34C5 /* ViewController.swift in Sources */,
+				4BE4BDD9216C6FEE00E654F6 /* RateData.swift in Sources */,
 				4BCE988621392BF100DFC4B5 /* ChartController.swift in Sources */,
 				4BF0D9BC2137F690005D9AF1 /* ReceiptViewModel.swift in Sources */,
 				4BE4BDD4216C3D2C00E654F6 /* ExchangeController.swift in Sources */,
