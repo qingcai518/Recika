@@ -125,10 +125,18 @@ class ExchangeConfirmController: ViewController {
 extension ExchangeConfirmController : UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         guard let text = textField.text else {return false}
-        guard let value = Double(text) else {return false}
         guard let count = rateData?.count else {return false}
+        if text == "" {return true}
+        guard let value = Double(text) else {return false}
         
-        if value < 0 || value > count { return false }
+        if value < 0 || value > count {return false}
         return true
+        
+//        guard let text = textField.text else {return false}
+//        guard let value = Double(text) else {return false}
+//        guard let count = rateData?.count else {return false}
+//
+//        if value < 0 || value > count { return false }
+//        return true
     }
 }
