@@ -18,6 +18,7 @@ class ExchangeController: ViewController {
         super.viewDidLoad()
         
         setSubviews()
+        getData()
     }
     
     private func setSubviews() {
@@ -47,6 +48,7 @@ class ExchangeController: ViewController {
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
         }
         tableView.backgroundColor = UIColor.clear
+        tableView.register(ExchangeCell.self, forCellReuseIdentifier: ExchangeCell.id)
         
         //  set base and target.
         baseLbl.textColor = UIColor.black
@@ -61,6 +63,11 @@ class ExchangeController: ViewController {
         baseLbl.snp.makeConstraints { make in
             make.top.equalToSuperview().inset(24)
         }
+    }
+    
+    private func getData() {
+        viewModel.getRates()
+        self.tableView.reloadData()
     }
 }
 
