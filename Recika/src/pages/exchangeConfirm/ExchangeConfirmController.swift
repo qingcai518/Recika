@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class ExchangeConfirmController: ViewController {
     let totalLbl = UILabel()
@@ -124,19 +125,28 @@ class ExchangeConfirmController: ViewController {
 
 extension ExchangeConfirmController : UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        guard let text = textField.text else {return false}
-        guard let count = rateData?.count else {return false}
-        if text == "" {return true}
-        guard let value = Double(text) else {return false}
+        guard let count = rateData?.count else {return true}
         
-        if value < 0 || value > count {return false}
+        guard let value = Double(string) else {
+            SVProgressHUD.showInfo(withStatus: "只能输入数字")
+            return false
+        }
+        
+        if value < 0 || value > count {
+            SVProgressHUD.showInfo(withStatus: "金额不能小鱼0")
+            return false
+        }
+        
+        if value < 0 {
+            SVProgressHUD.showInfo(withStatus: "金额不能y小于0")
+            return false
+        }
+        
+        if value > count {
+            SVProgressHUD.showInfo(withStatus: "兑换金额超过了余额")
+            return false
+        }
+        
         return true
-        
-//        guard let text = textField.text else {return false}
-//        guard let value = Double(text) else {return false}
-//        guard let count = rateData?.count else {return false}
-//
-//        if value < 0 || value > count { return false }
-//        return true
     }
 }
