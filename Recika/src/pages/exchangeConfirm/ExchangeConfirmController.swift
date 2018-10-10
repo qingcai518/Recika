@@ -11,6 +11,7 @@ import UIKit
 class ExchangeConfirmController: ViewController {
     let pointTf = UITextField()
     let targetNameLbl = UILabel()
+    let baseNameLbl = UILabel()
     let resultLbl = UILabel()
     let confirmBtn = UIButton()
     
@@ -29,6 +30,12 @@ class ExchangeConfirmController: ViewController {
         }
         self.view.backgroundColor = UIColor.white
         
+        targetNameLbl.textColor = UIColor.black
+        targetNameLbl.font = UIFont.systemFont(ofSize: 16)
+        targetNameLbl.numberOfLines = 1
+        targetNameLbl.text = rateData?.targetName
+        view.addSubview(targetNameLbl)
+        
         pointTf.textColor = UIColor.black
         pointTf.font = UIFont.systemFont(ofSize: 16)
         pointTf.placeholder = rateData?.targetName
@@ -36,11 +43,11 @@ class ExchangeConfirmController: ViewController {
         pointTf.borderStyle = .roundedRect
         view.addSubview(pointTf)
         
-        targetNameLbl.textColor = UIColor.black
-        targetNameLbl.font = UIFont.systemFont(ofSize: 16)
-        targetNameLbl.numberOfLines = 1
-        targetNameLbl.text = rateData?.targetName
-        view.addSubview(targetNameLbl)
+        baseNameLbl.textColor = UIColor.black
+        baseNameLbl.font = UIFont.systemFont(ofSize: 16)
+        baseNameLbl.numberOfLines = 1
+        baseNameLbl.text = rateData?.baseName
+        view.addSubview(baseNameLbl)
         
         resultLbl.textColor = UIColor.black
         resultLbl.font = UIFont.systemFont(ofSize: 16)
@@ -66,13 +73,21 @@ class ExchangeConfirmController: ViewController {
         pointTf.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(24)
             make.left.equalToSuperview().inset(24)
-            make.right.equalTo(targetNameLbl.snp.left).offset(12)
+            make.right.equalTo(targetNameLbl.snp.left).offset(-24)
+            make.height.equalTo(50)
+        }
+        
+        baseNameLbl.snp.makeConstraints { make in
+            make.top.equalTo(targetNameLbl.snp.bottom).offset(24)
+            make.right.equalToSuperview().inset(24)
+            make.width.equalTo((screenWidth - 2 * 24) / 3)
             make.height.equalTo(50)
         }
         
         resultLbl.snp.makeConstraints { make in
             make.top.equalTo(targetNameLbl.snp.bottom).offset(24)
-            make.left.right.equalToSuperview().inset(24)
+            make.left.equalToSuperview().inset(24)
+            make.right.equalTo(baseNameLbl.snp.left).offset(-24)
             make.height.equalTo(50)
         }
         
@@ -83,5 +98,7 @@ class ExchangeConfirmController: ViewController {
         }
         
         pointTf.rx.text.asObservable().map{$0?.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines) != ""}.bind(to: confirmBtn.rx.isEnabled).disposed(by: disposeBag)
+        
+        pointTf.becomeFirstResponder()
     }
 }
