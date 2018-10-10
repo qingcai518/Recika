@@ -9,6 +9,8 @@
 import UIKit
 
 class ExchangeCell: UITableViewCell {
+    static let id = "ExchangeCell"
+    
     let targetLbl = UILabel()
     let rateLbl = UILabel()
     let exchangeBtn = UIButton()
@@ -68,7 +70,8 @@ class ExchangeCell: UITableViewCell {
         }
     }
     
-    func configure(with info: PointCell) {
-        
+    func configure(with data: RateData) {
+        self.targetLbl.text = data.name
+        self.rateLbl.text = "\(data.rate)"
     }
 }

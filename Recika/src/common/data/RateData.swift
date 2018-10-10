@@ -7,3 +7,13 @@
 //
 
 import Foundation
+
+struct RateData {
+    var name: String
+    var rate : Double
+    
+    init(name: String, rate: Double) {
+        self.name = name
+        self.rate = rate
+    }
+}

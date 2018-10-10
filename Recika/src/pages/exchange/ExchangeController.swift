@@ -12,6 +12,7 @@ class ExchangeController: ViewController {
     let tableView = UITableView()
     let baseLbl = UILabel()
     let targetLbl = UILabel()
+    let viewModel = ExchangeViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,22 +65,20 @@ class ExchangeController: ViewController {
 }
 
 extension ExchangeController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 }
 
 extension ExchangeController: UITableViewDataSource {
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return viewModel.rates.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: ContentCell.id)
-        let data = viewModel.datas[indexPath.item]
-        cell.configure(wkith: data)
+        let cell = tableView.dequeueReusableCell(withIdentifier: ExchangeCell.id, for: indexPath) as! ExchangeCell
+        let data = viewModel.rates[indexPath.item]
+        cell.configure(with: data)
         return cell
     }
 }
