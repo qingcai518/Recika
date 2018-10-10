@@ -84,7 +84,7 @@ class ExchangeCell: UITableViewCell {
         ]
         
         let str1 = NSAttributedString(string: "\(data.count) ", attributes: attribute1)
-        let str2 = NSAttributedString(string: "(1\(data.targetName) = \(data.rate)\(data.baseName)", attributes: attribute2)
+        let str2 = NSAttributedString(string: "(rate = \(data.rate)", attributes: attribute2)
         
         let str = NSMutableAttributedString()
         str.append(str1)

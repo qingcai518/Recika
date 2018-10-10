@@ -24,7 +24,6 @@ class ExchangeController: ViewController {
     
     private func setSubviews() {
         self.view.backgroundColor = UIColor.white
-        self.title = str_exchange
         
         let closeBtn = UIButton()
         closeBtn.frame = CGRect(x: 0, y: 0, width: 44, height: 44)
