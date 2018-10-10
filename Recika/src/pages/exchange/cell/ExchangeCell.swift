@@ -12,14 +12,14 @@ class ExchangeCell: UITableViewCell {
     static let id = "ExchangeCell"
     
     let targetLbl = UILabel()
-    let rateLbl = UILabel()
+    let countLbl = UILabel()
     let exchangeBtn = UIButton()
     
     override func prepareForReuse() {
         super.prepareForReuse()
         
+        countLbl.text = nil
         targetLbl.text = nil
-        rateLbl.text = nil
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -38,10 +38,10 @@ class ExchangeCell: UITableViewCell {
         targetLbl.numberOfLines = 1
         contentView.addSubview(targetLbl)
         
-        rateLbl.textColor = UIColor.black
-        rateLbl.font = UIFont.systemFont(ofSize: 16)
-        rateLbl.numberOfLines = 1
-        contentView.addSubview(rateLbl)
+        countLbl.textColor = UIColor.black
+        countLbl.font = UIFont.systemFont(ofSize: 16)
+        countLbl.numberOfLines = 1
+        contentView.addSubview(countLbl)
         
         exchangeBtn.setTitle(str_exchange, for: .normal)
         exchangeBtn.setTitleColor(UIColor.black, for: .normal)
@@ -63,7 +63,7 @@ class ExchangeCell: UITableViewCell {
             make.width.equalTo(64)
         }
         
-        rateLbl.snp.makeConstraints { make in
+        countLbl.snp.makeConstraints { make in
             make.left.equalTo(targetLbl.snp.right).offset(12)
             make.right.equalTo(exchangeBtn.snp.left).offset(12)
             make.top.bottom.equalToSuperview().inset(24)
@@ -72,6 +72,24 @@ class ExchangeCell: UITableViewCell {
     
     func configure(with data : RateData) {
         self.targetLbl.text = data.name
-        self.rateLbl.text = "\(data.rate)"
+
+        let attribute1: [NSAttributedString.Key : Any] = [
+            .foregroundColor: UIColor.black,
+            .font: UIFont.systemFont(ofSize: 16)
+        ]
+        
+        let attribute2: [NSAttributedString.Key: Any] = [
+            .foregroundColor: UIColor.lightGray,
+            .font: UIFont.systemFont(ofSize: 12)
+        ]
+        
+        let str1 = NSAttributedString(string: "\(data.count)", attributes: attribute1)
+        let str2 = NSAttributedString(string: "(rate = \(data.rate)", attributes: attribute2)
+        
+        let str = NSMutableAttributedString()
+        str.append(str1)
+        str.append(str2)
+        
+        self.countLbl.attributedText = str
     }
 }
