@@ -58,8 +58,8 @@ class ExchangeConfirmController: ViewController {
         baseNameLbl.text = rateData?.baseName
         view.addSubview(baseNameLbl)
         
-        resultLbl.textColor = UIColor.black
-        resultLbl.font = UIFont.systemFont(ofSize: 16)
+        resultLbl.textColor = UIColor.red
+        resultLbl.font = UIFont.boldSystemFont(ofSize: 20)
         resultLbl.numberOfLines = 1
         view.addSubview(resultLbl)
         
@@ -113,6 +113,9 @@ class ExchangeConfirmController: ViewController {
         }
         
         pointTf.rx.text.asObservable().map{$0?.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines) != ""}.bind(to: confirmBtn.rx.isEnabled).disposed(by: disposeBag)
+        if let rate = rateData?.rate {
+            pointTf.rx.text.asObservable().filter{$0 != nil}.map{Double($0!)}.filter{$0 != nil}.map{$0!}.map{$0 * rate}.map{"\($0)"}.bind(to: resultLbl.rx.text).disposed(by: disposeBag)
+        }
         
         pointTf.becomeFirstResponder()
     }
