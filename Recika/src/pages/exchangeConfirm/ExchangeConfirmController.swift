@@ -53,6 +53,7 @@ class ExchangeConfirmController: ViewController {
         pointTf.placeholder = rateData?.targetName
         pointTf.keyboardType = .numbersAndPunctuation
         pointTf.borderStyle = .roundedRect
+        pointTf.textAlignment = .right
         pointTf.delegate = self
         view.addSubview(pointTf)
         
@@ -62,6 +63,7 @@ class ExchangeConfirmController: ViewController {
         baseNameLbl.text = rateData?.baseName
         view.addSubview(baseNameLbl)
         
+        resultLbl.textAlignment = .right
         resultLbl.textColor = UIColor.red
         resultLbl.font = UIFont.boldSystemFont(ofSize: 20)
         resultLbl.numberOfLines = 1
