@@ -9,6 +9,7 @@
 import UIKit
 
 class ExchangeConfirmController: ViewController {
+    let totalLbl = UILabel()
     let pointTf = UITextField()
     let targetNameLbl = UILabel()
     let baseNameLbl = UILabel()
@@ -29,6 +30,14 @@ class ExchangeConfirmController: ViewController {
             self.title = name + " " + str_exchange
         }
         self.view.backgroundColor = UIColor.white
+        
+        totalLbl.textColor = UIColor.black
+        totalLbl.font = UIFont.systemFont(ofSize: 16)
+        totalLbl.numberOfLines = 1
+        if let rateData = self.rateData {
+            totalLbl.text = "\(rateData.targetName) : \(rateData.count)"
+        }
+        view.addSubview(totalLbl)
         
         targetNameLbl.textColor = UIColor.black
         targetNameLbl.font = UIFont.systemFont(ofSize: 16)
@@ -63,15 +72,21 @@ class ExchangeConfirmController: ViewController {
         confirmBtn.titleLabel?.font = UIFont.systemFont(ofSize: 16)
         view.addSubview(confirmBtn)
         
-        targetNameLbl.snp.makeConstraints { make in
+        totalLbl.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(24)
+            make.right.left.equalToSuperview().inset(24)
+            make.height.equalTo(50)
+        }
+        
+        targetNameLbl.snp.makeConstraints { make in
+            make.top.equalTo(totalLbl.snp.bottom).offset(24)
             make.right.equalToSuperview().inset(24)
             make.width.equalTo((screenWidth - 2 * 24) / 3)
             make.height.equalTo(50)
         }
         
         pointTf.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(24)
+            make.top.equalTo(totalLbl.snp.bottom).offset(24)
             make.left.equalToSuperview().inset(24)
             make.right.equalTo(targetNameLbl.snp.left).offset(-24)
             make.height.equalTo(50)
