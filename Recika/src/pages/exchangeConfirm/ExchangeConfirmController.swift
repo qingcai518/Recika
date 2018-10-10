@@ -50,6 +50,7 @@ class ExchangeConfirmController: ViewController {
         pointTf.placeholder = rateData?.targetName
         pointTf.keyboardType = .numbersAndPunctuation
         pointTf.borderStyle = .roundedRect
+        pointTf.delegate = self
         view.addSubview(pointTf)
         
         baseNameLbl.textColor = UIColor.black
@@ -116,8 +117,18 @@ class ExchangeConfirmController: ViewController {
         if let rate = rateData?.rate {
             pointTf.rx.text.asObservable().filter{$0 != nil}.map{Double($0!)}.filter{$0 != nil}.map{$0!}.map{$0 * rate}.map{"\($0)"}.bind(to: resultLbl.rx.text).disposed(by: disposeBag)
         }
-        pointTf.rx.text.asObservable().filter{$0 == nil}.bind(to: resultLbl.rx.text).disposed(by: disposeBag)
-        
+        pointTf.rx.text.asObservable().filter{$0 != nil}.map{$0!}.filter{$0.isEmpty}.bind(to: resultLbl.rx.text).disposed(by: disposeBag)
         pointTf.becomeFirstResponder()
+    }
+}
+
+extension ExchangeConfirmController : UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        guard let text = textField.text else {return false}
+        guard let value = Double(text) else {return false}
+        guard let count = rateData?.count else {return false}
+        
+        if value < 0 || value > count { return false }
+        return true
     }
 }
