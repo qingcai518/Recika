@@ -43,7 +43,8 @@ class ExchangeCell: UITableViewCell {
         countLbl.numberOfLines = 1
         contentView.addSubview(countLbl)
         
-        exchangeBtn.setTitle(str_exchange, for: .normal)
+        exchangeBtn.setTitle(str_doExchange, for: .normal)
+        exchangeBtn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
         exchangeBtn.setTitleColor(UIColor.black, for: .normal)
         exchangeBtn.layer.cornerRadius = 8
         exchangeBtn.layer.borderColor = UIColor.lightGray.cgColor
@@ -53,13 +54,13 @@ class ExchangeCell: UITableViewCell {
         targetLbl.snp.makeConstraints { make in
             make.top.bottom.equalToSuperview().inset(24)
             make.left.equalToSuperview().inset(24)
-            make.width.equalTo(64)
+            make.width.equalTo(96)
         }
         
         exchangeBtn.snp.makeConstraints { make in
             make.right.equalToSuperview().inset(24)
             make.centerY.equalToSuperview()
-            make.height.equalTo(44)
+            make.height.equalTo(40)
             make.width.equalTo(64)
         }
         
@@ -79,12 +80,12 @@ class ExchangeCell: UITableViewCell {
         ]
         
         let attribute2: [NSAttributedString.Key: Any] = [
-            .foregroundColor: UIColor.lightGray,
+            .foregroundColor: UIColor.gray,
             .font: UIFont.systemFont(ofSize: 12)
         ]
         
         let str1 = NSAttributedString(string: "\(data.count) ", attributes: attribute1)
-        let str2 = NSAttributedString(string: "(rate = \(data.rate)", attributes: attribute2)
+        let str2 = NSAttributedString(string: "(rate = \(data.rate))", attributes: attribute2)
         
         let str = NSMutableAttributedString()
         str.append(str1)

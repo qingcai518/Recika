@@ -224,7 +224,7 @@ extension HomeController: PointCellDelegate {
             if i == indexPath.item {continue}
             let point = viewModel.points.value[i]
             let pointRate = point.baseCount / point.count
-            let rateData = RateData(baseName: current.name, targetName: point.name, rate: currentRate / pointRate, count: point.count)
+            let rateData = RateData(baseName: current.name, targetName: point.name, rate: pointRate / currentRate, count: point.count)
             rateDatas.append(rateData)
         }
         exchangeController.rates = rateDatas

@@ -25,6 +25,7 @@
 "yourcoin" = "総残高 (RCP)";
 "point" = "ポイント";
 "exchange" = "ポイントを交換";
+"doExchange" = "交換";
 
 "msg1" = "あなた専用のスマートレシートID";
 

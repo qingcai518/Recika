@@ -25,6 +25,7 @@
 "yourcoin" = "Your Coin (RCP)";
 "point" = "Point";
 "exchange" = "Exchange";
+"doExchange" = "Exchange";
 
 "msg1" = "your own smart receipt id";
 
