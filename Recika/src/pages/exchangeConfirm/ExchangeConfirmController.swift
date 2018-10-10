@@ -125,6 +125,8 @@ class ExchangeConfirmController: ViewController {
 
 extension ExchangeConfirmController : UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        SVProgressHUD.dismiss()
+        
         guard let count = rateData?.count else {return true}
         guard let text = textField.text else {return true}
         
