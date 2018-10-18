@@ -20,7 +20,7 @@ let scanIcon = UIImage(named: "camera")!
 let style = UIImage(named: "style")!
 let filter = UIImage(named: "filter")!
 
-
+let chart = UIImage(named: "chart")!
 let flashOn = UIImage(named: "flash_on")!
 let flashOff = UIImage(named: "flash_off")!
 let shutter = UIImage(named: "shutter")!
