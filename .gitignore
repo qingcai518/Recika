@@ -5,6 +5,7 @@
 ## Build generated
 build/
 DerivedData/
+library/
 
 ## Various settings
 *.pbxuser
@@ -39,7 +40,6 @@ playground.xcworkspace
 # Package.pins
 # Package.resolved
 .build/
-Recika/library/
 
 # CocoaPods
 #
