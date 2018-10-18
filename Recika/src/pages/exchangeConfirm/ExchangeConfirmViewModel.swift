@@ -38,11 +38,13 @@ class ExchangeConfirmViewModel {
         guard let api = URLComponents(string: orderAPI) else {return}
         let params: [String: Any] = [
             "user_id": userName,
-            "from_symbol": rateData.baseSymbol,
-            "to_symbol": rateData.targetSymbol,
-            "from_count": count * rateData.rate,
-            "to_count": count
+            "from_symbol": rateData.targetSymbol,
+            "to_symbol": rateData.baseSymbol,
+            "from_count": count,
+            "to_count": count * rateData.rate
         ]
+        
+        print(params)
         
         let headers = [
             "Content-type": "application/json"
