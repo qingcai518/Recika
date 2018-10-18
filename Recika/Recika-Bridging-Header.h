@@ -4,3 +4,4 @@
 
 #import "ReceiptAnalyzer/ReceiptAnalyzer.h"
 #import "Receipt.h"
+#import "BitShareCoordinator.h"

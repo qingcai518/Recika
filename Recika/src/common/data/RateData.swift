@@ -9,12 +9,16 @@
 import Foundation
 
 struct RateData {
+    let baseSymbol: String
+    let targetSymbol: String
     let baseName: String
     let targetName: String
     let rate: Double
     let count: Double
     
-    init(baseName: String, targetName: String, rate: Double, count: Double) {
+    init(baseSymbol: String, targetSymbol: String, baseName: String, targetName: String, rate: Double, count: Double) {
+        self.baseSymbol = baseSymbol
+        self.targetSymbol = targetSymbol
         self.baseName = baseName
         self.targetName = targetName
         self.rate = rate

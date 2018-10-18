@@ -27,6 +27,7 @@
 "exchange" = "Exchange";
 "doExchange" = "Exchange";
 "confirm" = "OK";
+"exchanged" = "Exchanged";
 
 "msg1" = "your own smart receipt id";
 

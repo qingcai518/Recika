@@ -136,7 +136,8 @@ class ExchangeConfirmController: ViewController {
                     if let msg = msg {
                         self?.showToast(text: msg)
                     } else {
-                        self?.showToast(text: "完了しました。")
+                        self?.dismiss(animated: true, completion: nil)
+                        NotificationCenter.default.post(name: NFKey.exchanged, object: nil)
                     }
                 })
             })

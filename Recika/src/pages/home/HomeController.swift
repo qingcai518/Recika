@@ -20,6 +20,7 @@ class HomeController: ViewController {
         
         setSubViews()
         getData()
+        listener()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -106,6 +107,12 @@ class HomeController: ViewController {
             make.left.right.equalToSuperview()
             make.height.equalTo(height)
         }
+    }
+    
+    private func listener() {
+        NotificationCenter.default.rx.notification(NFKey.exchanged).bind { sender in
+            SVProgressHUD.showInfo(withStatus: str_exchanged)
+        }.disposed(by: disposeBag)
     }
     
 //    private func setSubView2() {
@@ -224,7 +231,7 @@ extension HomeController: PointCellDelegate {
             if i == indexPath.item {continue}
             let point = viewModel.points.value[i]
             let pointRate = point.baseCount / point.count
-            let rateData = RateData(baseName: current.name, targetName: point.name, rate: pointRate / currentRate, count: point.count)
+            let rateData = RateData(baseSymbol: current.symbol, targetSymbol: point.symbol, baseName: current.name, targetName: point.name, rate: pointRate / currentRate, count: point.count)
             rateDatas.append(rateData)
         }
         exchangeController.rates = rateDatas

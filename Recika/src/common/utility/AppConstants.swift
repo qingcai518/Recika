@@ -54,6 +54,19 @@ let RecikaPoint = "RCP"
 let BPoint = "BPT"
 let DPoint = "DPT"
 
+let PointDic = [
+    RecikaPoint: RecikaPointName,
+    BPoint: BPointName,
+    DPoint: DPointName
+]
+
+// TODO. 比率，暂时固定.
+let BPT_RCP: Double = 10
+let DPT_RCP: Double = 25
+
 let SupportSymbols = [
     RecikaPoint, BPoint, DPoint
 ]
+
+// response.
+typealias Callback = (String?) -> Void

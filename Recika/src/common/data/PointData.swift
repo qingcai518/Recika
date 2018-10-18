@@ -9,10 +9,6 @@
 import Foundation
 import SwiftyJSON
 
-// TODO. 比率，暂时固定.
-let BPT_RCP: Double = 10
-let DPT_RCP: Double = 25
-
 struct PointData {
     let name: String
     let symbol: String
@@ -21,6 +17,8 @@ struct PointData {
     let bkColor : UIColor
     
     init(json: JSON) {
+        print(json)
+        
         self.symbol = json["symbol"].stringValue
         self.count = json["amount"].doubleValue
         

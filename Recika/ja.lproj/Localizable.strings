@@ -27,6 +27,7 @@
 "exchange" = "ポイントを交換";
 "doExchange" = "交換";
 "confirm" = "確定";
+"exchanged" = "ポイントの交換が完了しました";
 
 "msg1" = "あなた専用のスマートレシートID";
 
