@@ -11,6 +11,7 @@ import Foundation
 let str_home = NSLocalizedString("home", comment: "")
 let str_receipt = NSLocalizedString("receipt", comment: "")
 let str_chart = NSLocalizedString("chart", comment: "")
+let str_market = NSLocalizedString("market", comment: "")
 let str_gift = NSLocalizedString("gift", comment: "")
 let str_setting = NSLocalizedString("setting", comment: "")
 let str_login = NSLocalizedString("login", comment: "")

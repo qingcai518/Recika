@@ -10,7 +10,7 @@ import UIKit
 
 let tabIcon1 = UIImage(named: "home")!
 let tabIcon2 = UIImage(named: "receipt")!
-let tabIcon3 = UIImage(named: "chart")!
+let tabIcon3 = UIImage(named: "market")!
 let tabIcon4 = UIImage(named: "gift")!
 let tabIcon5 = UIImage(named: "setting")!
 

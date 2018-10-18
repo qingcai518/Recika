@@ -37,7 +37,17 @@ class PairController: ViewController {
     
     private func setSubViews() {
         view.backgroundColor = UIColor.white
-        title = "Cybex 行情"
+        title = "Cybex"
+        
+        // right button item.
+        let closeBtn = UIButton()
+        closeBtn.setImage(closeBlack, for: .normal)
+        closeBtn.frame = CGRect(x: 0, y: 0, width: 44, height: 44)
+        let rightItem = UIBarButtonItem(customView: closeBtn)
+        self.navigationItem.rightBarButtonItem = rightItem
+        closeBtn.rx.tap.bind { [weak self] in
+            self?.dismiss(animated: true, completion: nil)
+        }.disposed(by: disposeBag)
         
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal

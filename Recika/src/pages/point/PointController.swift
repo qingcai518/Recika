@@ -18,6 +18,9 @@ class PointController: ViewController {
     }
     
     private func setSubviews() {
+        // backgroundColor.
+        self.view.backgroundColor = UIColor.white
+        
         // right button.
         let chartBtn = UIButton()
         chartBtn.frame = CGRect(x: 0, y: 0, width: 44, height: 44)
@@ -25,5 +28,11 @@ class PointController: ViewController {
         
         let rightItem = UIBarButtonItem(customView: chartBtn)
         navigationItem.rightBarButtonItem = rightItem
+        
+        chartBtn.rx.tap.bind { [weak self] sender in
+            let next = PairController()
+            let navi = UINavigationController(rootViewController: next)
+            self?.present(navi, animated: true, completion: nil)
+        }.disposed(by: disposeBag)
     }
 }

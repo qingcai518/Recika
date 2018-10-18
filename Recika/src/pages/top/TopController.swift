@@ -20,11 +20,6 @@ class TopController: UITabBarController {
         let item2 = UITabBarItem(title: str_receipt, image: tabIcon2, tag: 1)
         vc2.tabBarItem = item2
         
-//        let pair = PairController()
-//        let vc3 = UINavigationController(rootViewController: pair)
-//        let item3 = UITabBarItem(title: str_chart, image: tabIcon3, tag: 2)
-//        vc3.tabBarItem = item3
-        
         let point = PointController()
         let vc3 = UINavigationController(rootViewController: point)
         let item3 = UITabBarItem(title: str_chart, image: tabIcon3, tag: 2)
