@@ -38,7 +38,7 @@ class PointController: ViewController {
         }.disposed(by: disposeBag)
         
         // tableview.
-        tableView.backgroundColor = UIColor.white
+        tableView.backgroundColor = UIColor.blue
         tableView.tableFooterView = UIView()
         tableView.delegate = self
         tableView.dataSource = self
@@ -51,6 +51,10 @@ class PointController: ViewController {
 extension PointController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        let next = UIViewController()
+        next.view.backgroundColor = UIColor.yellow
+        self.navigationController?.pushViewController(next, animated: true)
     }
 }
 
