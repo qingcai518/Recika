@@ -38,13 +38,19 @@ class PointController: ViewController {
         }.disposed(by: disposeBag)
         
         // tableview.
-        tableView.backgroundColor = UIColor.blue
+        tableView.backgroundColor = UIColor.clear
         tableView.tableFooterView = UIView()
         tableView.delegate = self
         tableView.dataSource = self
         tableView.rowHeight = 112
         tableView.register(PointCell.self, forCellReuseIdentifier: PointCell.id)
         self.view.addSubview(tableView)
+        
+        tableView.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+            make.left.right.equalToSuperview()
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
+        }
     }
 }
 

@@ -46,30 +46,28 @@ class PointCell: UITableViewCell {
         rateLbl.textAlignment = .left
         contentView.addSubview(rateLbl)
         
-        // set constraints.
         coinIcon.snp.makeConstraints { make in
-            make.left.equalToSuperview().inset(24)
-            make.right.equalToSuperview().inset(24)
-            make.height.width.equalTo(64)
+            make.top.equalToSuperview().offset(24)
+            make.left.equalToSuperview().offset(24)
+            make.height.width.equalTo(44)
         }
-        
+
         titleLbl.snp.makeConstraints { make in
             make.left.equalTo(coinIcon).offset(24)
             make.top.equalToSuperview().inset(24)
             make.height.equalTo(16)
         }
-        
+
         nameLbl.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
             make.left.equalTo(coinIcon.snp.right).offset(24)
             make.right.equalToSuperview().inset(24)
         }
-        
+
         rateLbl.snp.makeConstraints { make in
             make.left.equalTo(coinIcon.snp.right).offset(24)
-            make.top.equalTo(nameLbl.snp.bottom).offset(24)
-            make.bottom.greaterThanOrEqualTo(24)
-            make.right.equalToSuperview().inset(24)
+            make.right.equalToSuperview().offset(24)
+            make.top.equalTo(nameLbl.snp.bottom).offset(12)
         }
     }
     
