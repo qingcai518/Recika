@@ -10,6 +10,8 @@ import UIKit
 import SnapKit
 
 class PointController: ViewController {
+    let tableView = UITableView()
+    let viewModel = PointViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,5 +36,33 @@ class PointController: ViewController {
             let navi = UINavigationController(rootViewController: next)
             self?.present(navi, animated: true, completion: nil)
         }.disposed(by: disposeBag)
+        
+        // tableview.
+        tableView.backgroundColor = UIColor.white
+        tableView.tableFooterView = UIView()
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.rowHeight = 112
+        tableView.register(PointCell.self, forCellReuseIdentifier: PointCell.id)
+        self.view.addSubview(tableView)
+    }
+}
+
+extension PointController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+}
+
+extension PointController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.points.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: PointCell.id, for: indexPath) as! PointCell
+        let data = viewModel.points[indexPath.row]
+        cell.configure(with: data)
+        return cell
     }
 }

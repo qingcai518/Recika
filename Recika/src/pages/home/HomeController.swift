@@ -96,7 +96,7 @@ class HomeController: ViewController {
         collectionView = UICollectionView(frame: frame, collectionViewLayout: layout)
         collectionView.backgroundColor = UIColor.clear
         self.view.addSubview(collectionView)
-        collectionView.register(PointCell.self, forCellWithReuseIdentifier: PointCell.id)
+        collectionView.register(MyPointCell.self, forCellWithReuseIdentifier: MyPointCell.id)
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.isPagingEnabled = false
         collectionView.decelerationRate = UIScrollView.DecelerationRate.fast
@@ -211,7 +211,7 @@ extension HomeController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PointCell.id, for: indexPath) as! PointCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MyPointCell.id, for: indexPath) as! MyPointCell
         let data = viewModel.points.value[indexPath.item]
         cell.configure(width: data, indexPath: indexPath)
         cell.delegate = self
@@ -219,7 +219,7 @@ extension HomeController: UICollectionViewDataSource {
     }
 }
 
-extension HomeController: PointCellDelegate {
+extension HomeController: MyPointCellDelegate {
     func doExchange(indexPath: IndexPath) {
         let exchangeController = ExchangeController()
         

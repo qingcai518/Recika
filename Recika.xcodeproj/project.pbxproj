@@ -57,8 +57,8 @@
 		4B3EBCB421363854002C34C5 /* GiftData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3EBCB321363854002C34C5 /* GiftData.swift */; };
 		4B3EBCB721366992002C34C5 /* GiftCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3EBCB621366992002C34C5 /* GiftCell.swift */; };
 		4B7FF621214A536600794678 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B7FF620214A536600794678 /* SystemConfiguration.framework */; };
-		4B99F40021646050001C7D96 /* PointCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B99F3FF21646050001C7D96 /* PointCell.swift */; };
-		4B99F40221647848001C7D96 /* PointData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B99F40121647848001C7D96 /* PointData.swift */; };
+		4B99F40021646050001C7D96 /* MyPointCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B99F3FF21646050001C7D96 /* MyPointCell.swift */; };
+		4B99F40221647848001C7D96 /* MyPointData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B99F40121647848001C7D96 /* MyPointData.swift */; };
 		4B99F40721649211001C7D96 /* PointLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B99F40621649211001C7D96 /* PointLayout.swift */; };
 		4BB1329E2147AA080083E2E9 /* RecikaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB1329D2147AA080083E2E9 /* RecikaUITests.swift */; };
 		4BCE986A213910DC00DFC4B5 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCE9869213910DC00DFC4B5 /* UIColor.swift */; };
@@ -185,6 +185,8 @@
 		4BE44ECE216EFF7A00E654F6 /* utility in Resources */ = {isa = PBXBuildFile; fileRef = 4BE42C8B216EFF1400E654F6 /* utility */; };
 		4BE44ED12178673600E654F6 /* PointController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE44ED02178673600E654F6 /* PointController.swift */; };
 		4BE44ED32178674500E654F6 /* PointViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE44ED22178674500E654F6 /* PointViewModel.swift */; };
+		4BE44ED521795D0000E654F6 /* PointData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE44ED421795D0000E654F6 /* PointData.swift */; };
+		4BE44F122179897300E654F6 /* PointCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE44F112179897300E654F6 /* PointCell.swift */; };
 		4BE4BDD4216C3D2C00E654F6 /* ExchangeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE4BDD3216C3D2C00E654F6 /* ExchangeController.swift */; };
 		4BE4BDD7216C577800E654F6 /* ExchangeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE4BDD6216C577800E654F6 /* ExchangeCell.swift */; };
 		4BE4BDD9216C6FEE00E654F6 /* RateData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE4BDD8216C6FEE00E654F6 /* RateData.swift */; };
@@ -309,8 +311,8 @@
 		4B3EBCB321363854002C34C5 /* GiftData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftData.swift; sourceTree = "<group>"; };
 		4B3EBCB621366992002C34C5 /* GiftCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftCell.swift; sourceTree = "<group>"; };
 		4B7FF620214A536600794678 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		4B99F3FF21646050001C7D96 /* PointCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointCell.swift; sourceTree = "<group>"; };
-		4B99F40121647848001C7D96 /* PointData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointData.swift; sourceTree = "<group>"; };
+		4B99F3FF21646050001C7D96 /* MyPointCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPointCell.swift; sourceTree = "<group>"; };
+		4B99F40121647848001C7D96 /* MyPointData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPointData.swift; sourceTree = "<group>"; };
 		4B99F40621649211001C7D96 /* PointLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointLayout.swift; sourceTree = "<group>"; };
 		4BB1329B2147AA080083E2E9 /* RecikaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RecikaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BB1329D2147AA080083E2E9 /* RecikaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecikaUITests.swift; sourceTree = "<group>"; };
@@ -11540,6 +11542,8 @@
 		4BE44E6C216EFF7400E654F6 /* variant_object.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = variant_object.hpp; sourceTree = "<group>"; };
 		4BE44ED02178673600E654F6 /* PointController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointController.swift; sourceTree = "<group>"; };
 		4BE44ED22178674500E654F6 /* PointViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointViewModel.swift; sourceTree = "<group>"; };
+		4BE44ED421795D0000E654F6 /* PointData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointData.swift; sourceTree = "<group>"; };
+		4BE44F112179897300E654F6 /* PointCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointCell.swift; sourceTree = "<group>"; };
 		4BE4BDD3216C3D2C00E654F6 /* ExchangeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeController.swift; sourceTree = "<group>"; };
 		4BE4BDD6216C577800E654F6 /* ExchangeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeCell.swift; sourceTree = "<group>"; };
 		4BE4BDD8216C6FEE00E654F6 /* RateData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateData.swift; sourceTree = "<group>"; };
@@ -11840,8 +11844,9 @@
 				4BF0D9BF2138C9EC005D9AF1 /* ItemData.swift */,
 				4BCE98AD213E420200DFC4B5 /* PairData.swift */,
 				4BCE98B1213E548F00DFC4B5 /* PriceData.swift */,
-				4B99F40121647848001C7D96 /* PointData.swift */,
+				4B99F40121647848001C7D96 /* MyPointData.swift */,
 				4BE4BDD8216C6FEE00E654F6 /* RateData.swift */,
+				4BE44ED421795D0000E654F6 /* PointData.swift */,
 			);
 			path = data;
 			sourceTree = "<group>";
@@ -11965,7 +11970,7 @@
 		4B99F3FE2164603F001C7D96 /* cell */ = {
 			isa = PBXGroup;
 			children = (
-				4B99F3FF21646050001C7D96 /* PointCell.swift */,
+				4B99F3FF21646050001C7D96 /* MyPointCell.swift */,
 			);
 			path = cell;
 			sourceTree = "<group>";
@@ -31018,10 +31023,19 @@
 		4BE44ECF2178671400E654F6 /* point */ = {
 			isa = PBXGroup;
 			children = (
+				4BE44F102179896000E654F6 /* cell */,
 				4BE44ED02178673600E654F6 /* PointController.swift */,
 				4BE44ED22178674500E654F6 /* PointViewModel.swift */,
 			);
 			path = point;
+			sourceTree = "<group>";
+		};
+		4BE44F102179896000E654F6 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				4BE44F112179897300E654F6 /* PointCell.swift */,
+			);
+			path = cell;
 			sourceTree = "<group>";
 		};
 		4BE4BDD2216C3D1700E654F6 /* exchange */ = {
@@ -31479,7 +31493,7 @@
 				4B35829421521D1E00F47FF7 /* ReceiptDetailController.swift in Sources */,
 				4BCE98AC213E407A00DFC4B5 /* UIScrollView.swift in Sources */,
 				4BCE98B2213E548F00DFC4B5 /* PriceData.swift in Sources */,
-				4B99F40021646050001C7D96 /* PointCell.swift in Sources */,
+				4B99F40021646050001C7D96 /* MyPointCell.swift in Sources */,
 				4B358287214B4E4C00F47FF7 /* AnalyzeResultController.swift in Sources */,
 				4B3EBCAE213543FD002C34C5 /* LoginViewModel.swift in Sources */,
 				4B171E9D212BE85100753EA8 /* TopController.swift in Sources */,
@@ -31507,7 +31521,8 @@
 				4BF0D9B82137BC6C005D9AF1 /* AssociateController.swift in Sources */,
 				4B35829921522DA700F47FF7 /* ReceiptItemCell.swift in Sources */,
 				4B3EBC77212D217C002C34C5 /* ReceiptController.swift in Sources */,
-				4B99F40221647848001C7D96 /* PointData.swift in Sources */,
+				4B99F40221647848001C7D96 /* MyPointData.swift in Sources */,
+				4BE44F122179897300E654F6 /* PointCell.swift in Sources */,
 				4BCE9870213914D700DFC4B5 /* ChartStyles.swift in Sources */,
 				4BCE987521391E3600DFC4B5 /* Double.swift in Sources */,
 				4B3EBC91212D425F002C34C5 /* SettingData.swift in Sources */,
@@ -31519,6 +31534,7 @@
 				4B3EBC75212D216D002C34C5 /* HomeController.swift in Sources */,
 				4BF0D9C32138CDE1005D9AF1 /* ReceiptCell.swift in Sources */,
 				4B3EBCA0212E5706002C34C5 /* SignupController.swift in Sources */,
+				4BE44ED521795D0000E654F6 /* PointData.swift in Sources */,
 				4B3EBC9A212D482B002C34C5 /* SettingType2Cell.swift in Sources */,
 				4B3EBC61212BFC80002C34C5 /* AppConstants.swift in Sources */,
 				4BE4EEDF216EEE5B00E654F6 /* memo.cpp in Sources */,

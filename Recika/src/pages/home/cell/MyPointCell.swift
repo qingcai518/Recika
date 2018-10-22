@@ -9,14 +9,14 @@
 import RxSwift
 import UIKit
 
-protocol PointCellDelegate {
+protocol MyPointCellDelegate {
     func doExchange(indexPath: IndexPath)
 }
 
-class PointCell: UICollectionViewCell {
+class MyPointCell: UICollectionViewCell {
     static let id = "PointCell"
     
-    var delegate: PointCellDelegate?
+    var delegate: MyPointCellDelegate?
     
     var nameLbl = UILabel()
     var countLbl = UILabel()
@@ -91,7 +91,7 @@ class PointCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configure(width data: PointData, indexPath: IndexPath) {
+    func configure(width data: MyPointData, indexPath: IndexPath) {
         self.nameLbl.text = data.name
         self.countLbl.text = "\(data.count) \(data.symbol)"
         self.baseCountLbl.text = "\(data.baseCount) \(RecikaPoint)"

@@ -13,7 +13,7 @@ import SwiftyJSON
 import SVProgressHUD
 
 class HomeViewModel {
-    var points = Variable([PointData]())
+    var points = Variable([MyPointData]())
     var balance = Variable("-")
     var timer: Timer?
     
@@ -30,7 +30,7 @@ class HomeViewModel {
             }
             guard let data = response.data else {return}
             let json = JSON(data)
-            let points = json.arrayValue.map{PointData(json: $0)}.filter{SupportSymbols.contains($0.symbol)}
+            let points = json.arrayValue.map{MyPointData(json: $0)}.filter{SupportSymbols.contains($0.symbol)}
             self?.points.value = points
             self?.balance.value = "\(points.reduce(into: 0){$0 = $0 + $1.baseCount})"
         }

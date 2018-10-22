@@ -29,3 +29,7 @@ let receiptType = UIImage(named: "receipt_type")!
 
 let close = UIImage(named: "close")!
 let closeBlack = UIImage(named: "close_black")!
+
+let dpointIcon = UIImage(named: "DPoint")!
+let bpointIcon = UIImage(named: "BPoint")!
+let recikaIcon = UIImage(named: "RecikaPoint")!
