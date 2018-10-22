@@ -33,7 +33,7 @@ class PointCell: UITableViewCell {
         
         titleLbl.font = UIFont.systemFont(ofSize: 12)
         titleLbl.textColor = UIColor.black
-        titleLbl.textAlignment = .left
+        titleLbl.textAlignment = .center
         contentView.addSubview(titleLbl)
         
         nameLbl.font = UIFont.boldSystemFont(ofSize: 24)
