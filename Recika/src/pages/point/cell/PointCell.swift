@@ -51,13 +51,14 @@ class PointCell: UITableViewCell {
             make.left.equalToSuperview().offset(24)
             make.height.width.equalTo(44)
         }
-
+        
         titleLbl.snp.makeConstraints { make in
-            make.left.equalTo(coinIcon).offset(24)
-            make.top.equalToSuperview().inset(24)
-            make.height.equalTo(16)
+            make.top.equalTo(coinIcon.snp.bottom)
+            make.height.equalTo(20)
+            make.width.equalTo(44)
+            make.left.equalToSuperview().offset(24)
         }
-
+        
         nameLbl.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
             make.left.equalTo(coinIcon.snp.right).offset(24)
