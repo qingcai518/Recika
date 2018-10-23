@@ -50,16 +50,24 @@ class PointDetailController: ViewController {
         iconView.contentMode = .scaleAspectFill
         iconView.clipsToBounds = true
         iconView.frame = CGRect(x: 24, y: 24, width: 60, height: 60)
-        iconView.image = pointData?.logo
         self.topView.addSubview(iconView)
         
         titleLbl.font = UIFont.boldSystemFont(ofSize: 20)
         titleLbl.textColor = UIColor.black
         titleLbl.numberOfLines = 1
         titleLbl.frame = CGRect(x: iconView.frame.maxX + 24, y: 24, width: screenWidth - 24 - iconView.frame.maxX - 24, height: 24)
-        titleLbl.text = pointData?.name
         self.topView.addSubview(titleLbl)
         
+        rateLbl.font = UIFont.systemFont(ofSize: 12)
+        rateLbl.textColor = UIColor.blue
+        rateLbl.numberOfLines = 1
+        rateLbl.frame = CGRect(x: iconView.frame.maxX + 24, y: titleLbl.frame.maxY + 12, width: screenWidth - 24 - iconView.frame.maxX - 24, height: 16)
+        self.topView.addSubview(rateLbl)
         
+        if let pointData = self.pointData {
+            iconView.image = pointData.logo
+            titleLbl.text = "\(pointData.name) (\(pointData.symbol))"
+            rateLbl.text = "\(pointData.rate) RCP"
+        }
     }
 }
