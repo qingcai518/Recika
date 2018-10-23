@@ -187,6 +187,7 @@
 		4BE44ED32178674500E654F6 /* PointViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE44ED22178674500E654F6 /* PointViewModel.swift */; };
 		4BE44ED521795D0000E654F6 /* PointData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE44ED421795D0000E654F6 /* PointData.swift */; };
 		4BE44F122179897300E654F6 /* PointCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE44F112179897300E654F6 /* PointCell.swift */; };
+		4BE44FAC217ECA4800E654F6 /* PointDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE44FAB217ECA4800E654F6 /* PointDetailController.swift */; };
 		4BE4BDD4216C3D2C00E654F6 /* ExchangeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE4BDD3216C3D2C00E654F6 /* ExchangeController.swift */; };
 		4BE4BDD7216C577800E654F6 /* ExchangeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE4BDD6216C577800E654F6 /* ExchangeCell.swift */; };
 		4BE4BDD9216C6FEE00E654F6 /* RateData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE4BDD8216C6FEE00E654F6 /* RateData.swift */; };
@@ -11544,6 +11545,7 @@
 		4BE44ED22178674500E654F6 /* PointViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointViewModel.swift; sourceTree = "<group>"; };
 		4BE44ED421795D0000E654F6 /* PointData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointData.swift; sourceTree = "<group>"; };
 		4BE44F112179897300E654F6 /* PointCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointCell.swift; sourceTree = "<group>"; };
+		4BE44FAB217ECA4800E654F6 /* PointDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointDetailController.swift; sourceTree = "<group>"; };
 		4BE4BDD3216C3D2C00E654F6 /* ExchangeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeController.swift; sourceTree = "<group>"; };
 		4BE4BDD6216C577800E654F6 /* ExchangeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeCell.swift; sourceTree = "<group>"; };
 		4BE4BDD8216C6FEE00E654F6 /* RateData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateData.swift; sourceTree = "<group>"; };
@@ -11783,6 +11785,7 @@
 		4B3EBC53212BF290002C34C5 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				4BE44FAA217ECA2F00E654F6 /* pointDetail */,
 				4B3EBC55212BF2AA002C34C5 /* pages */,
 				4B3EBC54212BF2A2002C34C5 /* common */,
 				4BCE98EB21476FE800DFC4B5 /* AppDelegate.swift */,
@@ -31038,6 +31041,14 @@
 			path = cell;
 			sourceTree = "<group>";
 		};
+		4BE44FAA217ECA2F00E654F6 /* pointDetail */ = {
+			isa = PBXGroup;
+			children = (
+				4BE44FAB217ECA4800E654F6 /* PointDetailController.swift */,
+			);
+			path = pointDetail;
+			sourceTree = "<group>";
+		};
 		4BE4BDD2216C3D1700E654F6 /* exchange */ = {
 			isa = PBXGroup;
 			children = (
@@ -31498,6 +31509,7 @@
 				4B3EBCAE213543FD002C34C5 /* LoginViewModel.swift in Sources */,
 				4B171E9D212BE85100753EA8 /* TopController.swift in Sources */,
 				4B3EBCB421363854002C34C5 /* GiftData.swift in Sources */,
+				4BE44FAC217ECA4800E654F6 /* PointDetailController.swift in Sources */,
 				4BCE98B0213E51D300DFC4B5 /* PriceCell.swift in Sources */,
 				4BCE987321391DD900DFC4B5 /* SeriesParam.swift in Sources */,
 				4BCE987C213921EA00DFC4B5 /* KChartCell.swift in Sources */,

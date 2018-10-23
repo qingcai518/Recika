@@ -58,8 +58,9 @@ extension PointController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        let next = UIViewController()
-        next.view.backgroundColor = UIColor.yellow
+        let pointData = viewModel.points[indexPath.row]
+        let next = PointDetailController()
+        next.pointData = pointData
         self.navigationController?.pushViewController(next, animated: true)
     }
 }
