@@ -14,6 +14,7 @@ class PointDetailController: ViewController {
     let titleLbl = UILabel()
     let rateLbl = UILabel()
     let scrollView = UIScrollView()
+    let exchangeBtn = UIButton()
     
     // params.
     var pointData: PointData?
@@ -69,5 +70,25 @@ class PointDetailController: ViewController {
             titleLbl.text = "\(pointData.name) (\(pointData.symbol))"
             rateLbl.text = "\(pointData.rate) RCP"
         }
+        
+        // exchange button.
+        exchangeBtn.layer.cornerRadius = 12
+        exchangeBtn.clipsToBounds = true
+        exchangeBtn.setBackgroundImage(UIImage.from(color: UIColor.orange), for: .normal)
+        exchangeBtn.setBackgroundImage(UIImage.from(color: UIColor.lightGray), for: .highlighted)
+        exchangeBtn.setTitleColor(UIColor.white, for: .normal)
+        exchangeBtn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        exchangeBtn.setTitle(str_exchange, for: .normal)
+        self.view.addSubview(exchangeBtn)
+        exchangeBtn.snp.makeConstraints { make in
+            make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).offset(-24)
+            make.left.right.equalToSuperview().inset(24)
+            make.height.equalTo(50)
+        }
+        
+        exchangeBtn.rx.tap.bind { [weak self] in
+            let next = UIViewController()
+            self?.navigationController?.pushViewController(next, animated: true)
+        }.disposed(by: disposeBag)
     }
 }

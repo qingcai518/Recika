@@ -188,6 +188,7 @@
 		4BE44ED521795D0000E654F6 /* PointData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE44ED421795D0000E654F6 /* PointData.swift */; };
 		4BE44F122179897300E654F6 /* PointCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE44F112179897300E654F6 /* PointCell.swift */; };
 		4BE44FAC217ECA4800E654F6 /* PointDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE44FAB217ECA4800E654F6 /* PointDetailController.swift */; };
+		4BE44FAE217EF22800E654F6 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE44FAD217EF22800E654F6 /* UIImage.swift */; };
 		4BE4BDD4216C3D2C00E654F6 /* ExchangeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE4BDD3216C3D2C00E654F6 /* ExchangeController.swift */; };
 		4BE4BDD7216C577800E654F6 /* ExchangeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE4BDD6216C577800E654F6 /* ExchangeCell.swift */; };
 		4BE4BDD9216C6FEE00E654F6 /* RateData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE4BDD8216C6FEE00E654F6 /* RateData.swift */; };
@@ -11546,6 +11547,7 @@
 		4BE44ED421795D0000E654F6 /* PointData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointData.swift; sourceTree = "<group>"; };
 		4BE44F112179897300E654F6 /* PointCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointCell.swift; sourceTree = "<group>"; };
 		4BE44FAB217ECA4800E654F6 /* PointDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointDetailController.swift; sourceTree = "<group>"; };
+		4BE44FAD217EF22800E654F6 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		4BE4BDD3216C3D2C00E654F6 /* ExchangeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeController.swift; sourceTree = "<group>"; };
 		4BE4BDD6216C577800E654F6 /* ExchangeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeCell.swift; sourceTree = "<group>"; };
 		4BE4BDD8216C6FEE00E654F6 /* RateData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateData.swift; sourceTree = "<group>"; };
@@ -12010,6 +12012,7 @@
 				4BCE987421391E3600DFC4B5 /* Double.swift */,
 				4BCE987621391EE000DFC4B5 /* String.swift */,
 				4BCE98AB213E407A00DFC4B5 /* UIScrollView.swift */,
+				4BE44FAD217EF22800E654F6 /* UIImage.swift */,
 			);
 			path = extension;
 			sourceTree = "<group>";
@@ -31540,6 +31543,7 @@
 				4B3EBC91212D425F002C34C5 /* SettingData.swift in Sources */,
 				4BE4EEE7216EEE5B00E654F6 /* vote.cpp in Sources */,
 				4B3EBCA521350BA3002C34C5 /* NetConstants.swift in Sources */,
+				4BE44FAE217EF22800E654F6 /* UIImage.swift in Sources */,
 				4BF0D9C02138C9EC005D9AF1 /* ItemData.swift in Sources */,
 				4BCE988421392BCA00DFC4B5 /* SeriesSettingDetailCell.swift in Sources */,
 				4BCE98AE213E420200DFC4B5 /* PairData.swift in Sources */,
