@@ -39,7 +39,7 @@ func getChainId(callback: @escaping Callback) {
     }
 }
 
-func getDynamicChainInfo(callback: CallbackDynamic) {
+func getDynamicChainInfo(callback: @escaping CallbackDynamic) {
     guard let api = URLComponents(string: chainAPI) else {
         return callback(nil, "fail to get api")
     }
@@ -56,5 +56,32 @@ func getDynamicChainInfo(callback: CallbackDynamic) {
         let json = JSON(data)
         let chainInfo = DynamicChainData(json: json)
         return callback(chainInfo, nil)
+    }
+}
+
+func doTransfer(callback : @escaping Callback) {
+    getChainId { chainId in
+        guard let chainId = chainId else {
+            return callback("fail to get chainId.")
+        }
+        
+        getDynamicChainInfo(callback: { chainInfo, errorMsg in
+            if let errorMsg = errorMsg {
+                return callback(errorMsg)
+            }
+            
+            guard let chainInfo = chainInfo else {
+                return callback("can not found chain info.")
+            }
+            
+            let headBlockNumber = chainInfo.headBlockNumber
+            let headBlockId = chainInfo.headBlockId
+            
+            print("head block number = \(headBlockNumber)")
+            print("head block id = \(headBlockId)")
+            
+            // do transfer.
+            
+        }
     }
 }
