@@ -88,7 +88,8 @@ class PointDetailController: ViewController {
         
         exchangeBtn.rx.tap.bind { [weak self] in
             let next = UIViewController()
-            self?.navigationController?.pushViewController(next, animated: true)
+            //
+            let jsonstr = BitShareCoordinator.getTransaction(<#T##block_num: Int32##Int32#>, block_id: <#T##String!#>, expiration: <#T##TimeInterval#>, chain_id: <#T##String!#>, from_user_id: <#T##Int32#>, to_user_id: <#T##Int32#>, asset_id: <#T##Int32#>, receive_asset_id: <#T##Int32#>, amount: <#T##Int64#>, fee_id: <#T##Int32#>, fee_amount: <#T##Int64#>, memo: <#T##String!#>, from_memo_key: <#T##String!#>, to_memo_key: <#T##String!#>)
         }.disposed(by: disposeBag)
     }
 }

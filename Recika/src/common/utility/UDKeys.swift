@@ -14,4 +14,5 @@ struct UDKey {
     static var ownerPubKey = "ownerPubKey"
     static var activePubKey = "activePubKey"
     static var memoPubKey = "memoPubKey"
+    static var chainID = "chainID"
 }

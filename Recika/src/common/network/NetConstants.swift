@@ -64,3 +64,9 @@ let itemAPI = domain + v1 + "item/"
 
 // 暂时存在，挂单api
 let orderAPI = cybexDomain + v1 + "order"
+
+// 区块链动态信息.
+let chainAPI = cybexDomain + v1 + "chain"
+
+// 区块链id.
+let chainIdAPI = cybexDomain + v1 + "chain_id"
