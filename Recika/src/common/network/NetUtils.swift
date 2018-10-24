@@ -149,11 +149,11 @@ func doTransfer(amount: Int, assetId: String, callback : @escaping Callback) {
                 print("fee amount = \(fee_amount)")
                 print("memo = ")
                 print("from memo key = \(memoPubKey)")
-                print("to memo key = ")
+                print("to memo key = \(AdminMemoKey)")
                 
                 
                 
-                let jsonstr = BitShareCoordinator.getTransaction(Int32(headBlockNumber), block_id: headBlockId, expiration: expiration, chain_id: chainId, from_user_id: last_from_uid, to_user_id: last_to_uid, asset_id: last_asset_id, receive_asset_id: last_asset_id, amount: Int64(amount), fee_id: last_fee_id, fee_amount: fee_amount, memo: "", from_memo_key: memoPubKey, to_memo_key: "")
+                let jsonstr = BitShareCoordinator.getTransaction(Int32(headBlockNumber), block_id: headBlockId, expiration: expiration, chain_id: chainId, from_user_id: last_from_uid, to_user_id: last_to_uid, asset_id: last_asset_id, receive_asset_id: last_asset_id, amount: Int64(amount), fee_id: last_fee_id, fee_amount: fee_amount, memo: "", from_memo_key: memoPubKey, to_memo_key: AdminMemoKey)
                 
 
                 print(jsonstr)

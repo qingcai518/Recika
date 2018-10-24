@@ -11,6 +11,7 @@ import Foundation
 // 区块链相关设定.
 let AdminName = "zhuanzhi518"
 let AdminUID = "1.2.4432"
+let AdminMemoKey = "CYB8Qf1LCtL4u7BkAYp5g65yeQ1sHWwsdSKzmsbsu44UGvrYukfBB"
 let BaseAsset = "CYB"
 
 // bc tecth环境
