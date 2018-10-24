@@ -13,6 +13,38 @@ import SVProgressHUD
 
 typealias CallbackDynamic = (DynamicChainData?, String?) -> Void
 
+func getUID(callback: @escaping Callback) {
+    if let uid = UserDefaults.standard.object(forKey: UDKey.uid) as? String {
+        return callback(uid)
+    }
+    
+    guard var api = URLComponents(string: uidAPI) else {
+        return callback(nil)
+    }
+    
+    api.queryItems = [
+        URLQueryItem(name: "name", value: userName)
+    ]
+    
+    Alamofire.request(api, method: .get).responseJSON { response in
+        if let error = response.error {
+            SVProgressHUD.showError(withStatus: error.localizedDescription)
+            return callback(nil)
+        }
+        
+        guard let data = response.data else {
+            SVProgressHUD.showError(withStatus: "fail to get data")
+            return callback(nil)
+        }
+        
+        let json = JSON(data)
+        let uid = json["id"].stringValue
+        UserDefaults.standard.set(uid, forKey: UDKey.uid)
+        UserDefaults.standard.synchronize()
+        return callback(uid)
+    }
+}
+
 func getChainId(callback: @escaping Callback) {
     if let chainId = UserDefaults.standard.object(forKey: UDKey.chainID) as? String {
         return callback(chainId)
@@ -35,6 +67,8 @@ func getChainId(callback: @escaping Callback) {
         
         let json = JSON(data)
         let chainId = json["chain_id"].stringValue
+        UserDefaults.standard.set(chainId, forKey: UDKey.chainID)
+        UserDefaults.standard.synchronize()
         return callback(chainId)
     }
 }
