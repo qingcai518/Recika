@@ -121,11 +121,6 @@ func doTransfer(amount: Int, assetId: String, callback : @escaping Callback) {
                 let headBlockNumber = chainInfo.headBlockNumber
                 let headBlockId = chainInfo.headBlockId
                 
-                print("chain id = \(chainId)")
-                print("uid = \(uid)")
-                print("head block number = \(headBlockNumber)")
-                print("head block id = \(headBlockId)")
-                
                 // asseet id?
                 // receive_asset_id
                 
@@ -137,9 +132,30 @@ func doTransfer(amount: Int, assetId: String, callback : @escaping Callback) {
                 let last_from_uid = getLastNum(from: uid)
                 let last_to_uid = getLastNum(from: AdminUID)
                 let last_asset_id = getLastNum(from: assetId)
+                let fee_id = "1.3.0"
+                let last_fee_id = getLastNum(from: fee_id)
+                let fee_amount = Int64(1000)
                 
-                let jsonstr = BitShareCoordinator.getTransaction(Int32(headBlockNumber), block_id: headBlockId, expiration: expiration, chain_id: chainId, from_user_id: last_from_uid, to_user_id: last_to_uid, asset_id: last_asset_id, receive_asset_id: last_asset_id, amount: Int64(amount), fee_id: last_asset_id, fee_amount: 100000, memo: "", from_memo_key: memoPubKey, to_memo_key: "")
+                print("block num = \(Int32(headBlockNumber))")
+                print("block id = \(headBlockId)")
+                print("expiration = \(expiration)")
+                print("chain id = \(chainId)")
+                print("from user id = \(last_from_uid)")
+                print("to user id = \(last_to_uid)")
+                print("asset id = \(last_asset_id)")
+                print("receive asset id = \(last_asset_id)")
+                print("amount = \(Int64(amount))")
+                print("fee id = \(last_fee_id)")
+                print("fee amount = \(fee_amount)")
+                print("memo = ")
+                print("from memo key = \(memoPubKey)")
+                print("to memo key = ")
                 
+                
+                
+                let jsonstr = BitShareCoordinator.getTransaction(Int32(headBlockNumber), block_id: headBlockId, expiration: expiration, chain_id: chainId, from_user_id: last_from_uid, to_user_id: last_to_uid, asset_id: last_asset_id, receive_asset_id: last_asset_id, amount: Int64(amount), fee_id: last_fee_id, fee_amount: fee_amount, memo: "", from_memo_key: memoPubKey, to_memo_key: "")
+                
+
                 print(jsonstr)
                 
                 return callback(nil)
