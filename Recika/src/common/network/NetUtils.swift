@@ -88,36 +88,62 @@ func getDynamicChainInfo(callback: @escaping CallbackDynamic) {
         }
         
         let json = JSON(data)
+        
+        print(json)
+        
         let chainInfo = DynamicChainData(json: json)
         return callback(chainInfo, nil)
     }
 }
 
-func doTransfer(callback : @escaping Callback) {
+func doTransfer(amount: Int, assetId: String, callback : @escaping Callback) {
     getChainId { chainId in
         guard let chainId = chainId else {
             return callback("fail to get chainId.")
         }
         
-        getDynamicChainInfo { chainInfo, errorMsg in
-            if let errorMsg = errorMsg {
-                return callback(errorMsg)
+        getUID { uid in
+            guard let uid = uid else {
+                return callback("fail to get uid.")
             }
             
-            guard let chainInfo = chainInfo else {
-                return callback("can not found chain info.")
+            getDynamicChainInfo { chainInfo, errorMsg in
+                if let errorMsg = errorMsg {
+                    return callback(errorMsg)
+                }
+                
+                guard let chainInfo = chainInfo else {
+                    return callback("can not found chain info.")
+                }
+                
+                print(chainInfo)
+                
+                let headBlockNumber = chainInfo.headBlockNumber
+                let headBlockId = chainInfo.headBlockId
+                
+                print("chain id = \(chainId)")
+                print("uid = \(uid)")
+                print("head block number = \(headBlockNumber)")
+                print("head block id = \(headBlockId)")
+                
+                // asseet id?
+                // receive_asset_id
+                
+                
+                // do transfer.
+                let expiration = Date().timeIntervalSince1970 + 10 * 3600
+                
+                // dummy
+                let last_from_uid = getLastNum(from: uid)
+                let last_to_uid = getLastNum(from: AdminUID)
+                let last_asset_id = getLastNum(from: assetId)
+                
+                let jsonstr = BitShareCoordinator.getTransaction(Int32(headBlockNumber), block_id: headBlockId, expiration: expiration, chain_id: chainId, from_user_id: last_from_uid, to_user_id: last_to_uid, asset_id: last_asset_id, receive_asset_id: last_asset_id, amount: Int64(amount), fee_id: last_asset_id, fee_amount: 100000, memo: "", from_memo_key: memoPubKey, to_memo_key: "")
+                
+                print(jsonstr)
+                
+                return callback(nil)
             }
-            
-            let headBlockNumber = chainInfo.headBlockNumber
-            let headBlockId = chainInfo.headBlockId
-            
-            print("head block number = \(headBlockNumber)")
-            print("head block id = \(headBlockId)")
-            
-            // do transfer.
-            let expiration = Date().timeIntervalSince1970 + 10 * 3600
-            
-            return callback(nil)
         }
     }
 }

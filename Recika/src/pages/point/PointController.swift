@@ -8,6 +8,7 @@
 
 import UIKit
 import SnapKit
+import SVProgressHUD
 
 class PointController: ViewController {
     let tableView = UITableView()
@@ -17,6 +18,7 @@ class PointController: ViewController {
         super.viewDidLoad()
         
         setSubviews()
+        getData()
     }
     
     private func setSubviews() {
@@ -50,6 +52,18 @@ class PointController: ViewController {
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
             make.left.right.equalToSuperview()
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
+        }
+    }
+    
+    private func getData() {
+        SVProgressHUD.show()
+        viewModel.getPointData { [weak self] msg in
+            SVProgressHUD.dismiss()
+            if let msg = msg {
+                self?.showToast(text: msg)
+            } else {
+                self?.tableView.reloadData()
+            }
         }
     }
 }

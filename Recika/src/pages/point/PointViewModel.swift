@@ -7,11 +7,28 @@
 //
 
 import Foundation
+import SwiftyJSON
+import Alamofire
 
 class PointViewModel {
-    let points = [
-        PointData(symbol: RecikaPoint, name: RecikaPointName, rate: 1, logo: recikaIcon),
-        PointData(symbol: BPoint, name: BPointName, rate: BPT_RCP, logo: bpointIcon),
-        PointData(symbol: DPoint, name: DPointName, rate: DPT_RCP, logo: dpointIcon)
-    ]
+    var points = [PointData]()
+    
+    func getPointData(callback: @escaping Callback) {
+        guard let api = URLComponents(string: assetsAPI) else {return}
+        let headers = ["Content-type": "application/json"]
+        let params = ["assets": [RecikaPoint, BPoint, DPoint]]
+        
+        Alamofire.request(api, method: .post, parameters: params, encoding: JSONEncoding.default, headers: headers).responseJSON { [weak self] response in
+            if let error = response.error {
+                return callback(error.localizedDescription)
+            }
+            
+            guard let data = response.data else {
+                return callback("fail to get data")
+            }
+            
+            self?.points = JSON(data).arrayValue.map{PointData(json: $0)}
+            return callback(nil)
+        }
+    }
 }

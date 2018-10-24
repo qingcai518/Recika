@@ -87,6 +87,13 @@ class PointDetailController: ViewController {
         }
         
         exchangeBtn.rx.tap.bind { [weak self] in
+            guard let pointData = self?.pointData else {
+                return
+            }
+            
+            doTransfer(amount: 10000, assetId: pointData.id) { str in
+                print(str)
+            }
         }.disposed(by: disposeBag)
     }
 }

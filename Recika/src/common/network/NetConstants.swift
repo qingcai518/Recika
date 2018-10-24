@@ -41,7 +41,6 @@ let associateAPI = cybexDomain + v1 + "associate"
 // ユーザー
 let userAPI = domain + v1 + "user/"
 let loginAPI = cybexDomain + v1 + "login"
-//let loginAPI = userAPI + "login"
 let uidAPI = cybexDomain + v1 + "uid"
 
 // 商品.
@@ -76,3 +75,6 @@ let chainAPI = cybexDomain + v1 + "chain"
 
 // 区块链id.
 let chainIdAPI = cybexDomain + v1 + "chain_id"
+
+// 获取资产信息
+let assetsAPI = cybexDomain + v1 + "assets"

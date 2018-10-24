@@ -138,3 +138,17 @@ func createImageByColor(color: UIColor, scale: Double) -> UIImage? {
     UIGraphicsEndImageContext()
     return image
 }
+
+// 得到一个ID获取最后一个数据
+func getLastNum(from userId: String) -> Int32 {
+    if let last = userId.split(separator: ".").last {
+        let lastStr = String.init(last)
+        if let result = Int32(lastStr) {
+            return result
+        } else {
+            return 0
+        }
+    } else {
+        return 0
+    }
+}

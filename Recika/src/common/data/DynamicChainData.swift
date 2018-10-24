@@ -22,8 +22,8 @@ struct DynamicChainData {
     let recentlyMissedCount: Int
     let currentAslot: Int
     let recentSlotsFilled: String
-    let dynamicFlags : Bool
-    let lastIrreversiblkeBlockNum: Int
+    let dynamicFlags : Int
+    let lastIrreversibleBlockNum: Int
     
     init(json: JSON) {
         self.id = json["id"].stringValue
@@ -38,7 +38,7 @@ struct DynamicChainData {
         self.recentlyMissedCount = json["recently_missed_count"].intValue
         self.currentAslot = json["current_aslot"].intValue
         self.recentSlotsFilled = json["recent_slots_filled"].stringValue
-        self.dynamicFlags = json["dynamic_flags"].boolValue
-        self.lastIrreversiblkeBlockNum = json["last_irreversible_block_num"].intValue
+        self.dynamicFlags = json["dynamic_flags"].intValue
+        self.lastIrreversibleBlockNum = json["last_irreversible_block_num"].intValue
     }
 }

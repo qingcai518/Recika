@@ -7,17 +7,33 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 struct PointData {
+    var id: String
     var symbol: String
     var name: String
+    var precision: Int
     var rate: Double
     var logo: UIImage
     
-    init(symbol: String, name: String, rate: Double, logo: UIImage) {
-        self.symbol = symbol
-        self.name = name
-        self.rate = rate
-        self.logo = logo
+    init(json: JSON) {
+        self.id = json["id"].stringValue
+        self.symbol = json["symbol"].stringValue
+        self.precision = json["precision"].intValue
+        
+        if symbol == RecikaPoint {
+            self.name = RecikaPointName
+            self.logo = recikaIcon
+            self.rate = 1
+        } else if symbol == BPoint {
+            self.name = BPointName
+            self.logo = bpointIcon
+            self.rate = BPT_RCP
+        } else {
+            self.name = DPointName
+            self.logo = dpointIcon
+            self.rate = DPT_RCP
+        }
     }
 }
