@@ -20,6 +20,14 @@ var userName : String {
     return ""
 }
 
+var uid : String {
+    if let uid = UserDefaults.standard.string(forKey: UDKey.uid) {
+        return uid
+    }
+    
+    return ""
+}
+
 var ownerPubKey : String {
     if let ownerPubKey = UserDefaults.standard.string(forKey: UDKey.ownerPubKey) {
         return ownerPubKey

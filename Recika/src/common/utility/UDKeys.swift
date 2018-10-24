@@ -11,6 +11,7 @@ import Foundation
 struct UDKey {
     static var isLogin = "isLogin"
     static var userName = "userName"
+    static var uid = "uid"
     static var ownerPubKey = "ownerPubKey"
     static var activePubKey = "activePubKey"
     static var memoPubKey = "memoPubKey"

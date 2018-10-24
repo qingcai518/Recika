@@ -8,6 +8,11 @@
 
 import Foundation
 
+// 区块链相关设定.
+let AdminName = "zhuanzhi518"
+let AdminUID = "1.2.4432"
+let BaseAsset = "CYB"
+
 // bc tecth环境
 // Python API.
 let cybexDomain = "http://52.197.86.134:8081"
@@ -37,6 +42,7 @@ let associateAPI = cybexDomain + v1 + "associate"
 let userAPI = domain + v1 + "user/"
 let loginAPI = cybexDomain + v1 + "login"
 //let loginAPI = userAPI + "login"
+let uidAPI = cybexDomain + v1 + "fetch"
 
 // 商品.
 let giftAPI = domain + v1 + "gift/"

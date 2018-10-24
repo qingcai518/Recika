@@ -34,7 +34,7 @@ func getChainId(callback: @escaping Callback) {
         }
         
         let json = JSON(data)
-        let chainId = json["result"].stringValue
+        let chainId = json["chain_id"].stringValue
         return callback(chainId)
     }
 }
@@ -65,7 +65,7 @@ func doTransfer(callback : @escaping Callback) {
             return callback("fail to get chainId.")
         }
         
-        getDynamicChainInfo(callback: { chainInfo, errorMsg in
+        getDynamicChainInfo { chainInfo, errorMsg in
             if let errorMsg = errorMsg {
                 return callback(errorMsg)
             }
@@ -81,7 +81,9 @@ func doTransfer(callback : @escaping Callback) {
             print("head block id = \(headBlockId)")
             
             // do transfer.
+            let expiration = Date().timeIntervalSince1970 + 10 * 3600
             
+            return callback(nil)
         }
     }
 }
