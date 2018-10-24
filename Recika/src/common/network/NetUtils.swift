@@ -37,14 +37,14 @@ func getChainId(callback: @escaping Callback) {
     }
 }
 
-func getDynamicChainInfo(callback : Callback) {
+func getDynamicChainInfo(callback: Callback) {
     guard let api = URLComponents(string: chainAPI) else {
-        return callback("fail to get api.")
+        return callback("fail to get api")
     }
     
     Alamofire.request(api, method: .get).responseJSON { response in
         if let error = response.error {
-            return callback(error.localizedDescription)
+            return callback("fail to get api.")
         }
         
         guard let data = response.data else {
@@ -52,26 +52,9 @@ func getDynamicChainInfo(callback : Callback) {
         }
         
         let json = JSON(data)
-        let headBlockNumber = json["head_block_number"].stringValue
-        let headBlockId = json["head_block_id"].stringValue
-        let id = json["string"].stringValue
+        print(json)
         
-        
-        let name = json["name"].stringValue
-        let age = json["age"].stringValue
-        let content = json["content"].stringValue
-        
-        let currentAslot = json["current_aslot".stringValu]
-        let dynamicFlags = json["dynmaic_flags"].stringValue
-        let name = json["name"].stringValue
-        
-        let age = json["age".stringValue:
-        let contentSize 0= json["content size"].stringValue
-        let lalstValue = njson["lastValue"].stringValue
-        
-        let content = json["content"].stringValue
-        let name = json["name"].stringValue
-        lety age = json["age"].intValue
-        
+        let chainInfo = DynamicChainData(json: json)
+        return callback(chainInfo)
     }
 }
