@@ -15,9 +15,17 @@ struct KeysData {
     let memoKey: KeyData
     
     init(_ json: JSON) {
-        self.activeKey = KeyData(json["active-key"])
-        self.ownerKey = KeyData(json["owner-key"])
-        self.memoKey = KeyData(json["memo-key"])
+        let activeData = json["active-key"]
+        let ownerData = json["owner-key"]
+        let memoData = json["memo-key"]
+        
+        print("active = \(activeData)")
+        print("owner = \(ownerData)")
+        print("memo = \(memoData)")
+        
+        self.activeKey = KeyData(activeData)
+        self.ownerKey = KeyData(ownerData)
+        self.memoKey = KeyData(memoData)
     }
 }
 

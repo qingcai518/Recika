@@ -79,3 +79,6 @@ let chainIdAPI = cybexDomain + v1 + "chain_id"
 
 // 获取资产信息
 let assetsAPI = cybexDomain + v1 + "assets"
+
+// 转账
+let transferAPI = cybexDomain + v1 + "transfer"

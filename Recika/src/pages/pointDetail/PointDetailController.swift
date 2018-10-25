@@ -91,7 +91,7 @@ class PointDetailController: ViewController {
                 return
             }
             
-            doTransfer(amount: 2, assetId: pointData.id) { str in
+            doTransfer(amount: 2, assetId: pointData.id, symbol: pointData.symbol) { str in
                 print(str)
             }
         }.disposed(by: disposeBag)
