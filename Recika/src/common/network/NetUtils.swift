@@ -151,12 +151,22 @@ func doTransfer(amount: Int, assetId: String, callback : @escaping Callback) {
                 print("from memo key = \(memoPubKey)")
                 print("to memo key = \(AdminMemoKey)")
                 
+                //  dummy. 需要弹出用户输入密码框.
+                guard let keys = BitShareCoordinator.getUserKeys(userName, password: "123456") else {return}
+                let keyJson = JSON(keys)
+                let keysData = KeysData(keyJson)
                 
+                if [keysData.activeKey.publicKey, keysData.memoKey.publicKey, keysData.ownerKey.publicKey].contains(activePubKey) {
+                    BitShareCoordinator.resetDefaultPublicKey(activePubKey)
+                }
                 
                 let jsonstr = BitShareCoordinator.getTransaction(Int32(headBlockNumber), block_id: headBlockId, expiration: expiration, chain_id: chainId, from_user_id: last_from_uid, to_user_id: last_to_uid, asset_id: last_asset_id, receive_asset_id: last_asset_id, amount: Int64(amount), fee_id: last_fee_id, fee_amount: fee_amount, memo: "", from_memo_key: memoPubKey, to_memo_key: AdminMemoKey)
                 
-
-                print(jsonstr)
+                guard let result = jsonstr else {
+                    return callback("fail to signature.")
+                }
+                
+                print(result)
                 
                 return callback(nil)
             }
