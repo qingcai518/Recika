@@ -5,3 +5,4 @@ github "ReactiveX/RxSwift" ~> 4.0
 github "SnapKit/SnapKit" ~> 4.0.0
 github "SwiftyJSON/SwiftyJSON" ~> 4.0
 github "eggswift/pull-to-refresh"
+git "https://github.com/phpmaple/SocketRocket" "master"

@@ -164,10 +164,12 @@ func doTransfer(amount: Int, assetId: String, symbol: String, callback : @escapi
 
                 // 通过C++库来进行签名. 然后再用websocket进行广播.
                 let jsonstr = BitShareCoordinator.getTransaction(Int32(headBlockNumber), block_id: headBlockId, expiration: expiration, chain_id: chainId, from_user_id: last_from_uid, to_user_id: last_to_uid, asset_id: last_asset_id, receive_asset_id: last_asset_id, amount: Int64(amount), fee_id: last_fee_id, fee_amount: fee_amount, memo: "", from_memo_key: memoPubKey, to_memo_key: AdminMemoKey)
-
+                
                 guard let result = jsonstr else {
                     return callback("fail to signature.")
                 }
+                
+                print(result)
 
                 let paramJson = JSON(parseJSON: result)
 
@@ -197,24 +199,13 @@ func doTransfer(amount: Int, assetId: String, symbol: String, callback : @escapi
     }
 }
 
-func doTransfer2(amount: Int, assetId: String, symbol: String, callback: @escaping Callback) {
-    guard let keys = BitShareCoordinator.getUserKeys(userName, password: "123456") else {return}
-    let keyJson = JSON(keys)
-    let keysData = KeysData(keyJson)
+func doWalletTransfer(amount: Int, assetId: String, symbol: String, callback: @escaping Callback) {
+    let privateKey = "5KgoPbPHMV3PN7gYAirinmNScmgxreyj6UDUB6d2oVPZXg9D2je"    // dummy.
+    let publicKey = activePubKey
+    let memo = ""
     
-    if [keysData.activeKey.publicKey, keysData.memoKey.publicKey, keysData.ownerKey.publicKey].contains(activePubKey) {
-        BitShareCoordinator.resetDefaultPublicKey(activePubKey)
-    }
-    
-    
-    //                let privateKey = keysData.activeKey.privateKey
-    //                                print("private key = \(privateKey)")
-    //                 通过websocket来进行转账. (本地钱包模式)
-    let privateKey = "5KgoPbPHMV3PN7gYAirinmNScmgxreyj6UDUB6d2oVPZXg9D2je"   // dummy.
-    let memo = ""  // dummy.
-    
-    guard let transfer_api = URLComponents(string: transferAPI) else {
-        return callback("fail to get transfer api.")
+    guard let api = URLComponents(string: transferAPI) else {
+        return callback("fail to get api.")
     }
     
     let headers = ["Content-type": "application/json"]
@@ -224,19 +215,22 @@ func doTransfer2(amount: Int, assetId: String, symbol: String, callback: @escapi
         "amount": amount,
         "symbol": symbol,
         "private_key": privateKey,
+        "public_key": publicKey,
         "memo": memo
     ]
     
-    Alamofire.request(transfer_api, method: .post, parameters: params, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+    Alamofire.request(api, method: .post, parameters: params, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
         if let error = response.error {
             return callback(error.localizedDescription)
         }
         
         guard let data = response.data else {
-            return callback("fail to get data")
+            return callback("fail to get response data.")
         }
         
         let json = JSON(data)
         print(json)
+        
+        return callback(nil)
     }
 }

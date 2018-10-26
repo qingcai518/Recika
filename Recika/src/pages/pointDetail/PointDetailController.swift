@@ -93,7 +93,8 @@ class PointDetailController: ViewController {
             }
             
             SVProgressHUD.show()
-            doTransfer(amount: 2, assetId: pointData.id, symbol: pointData.symbol) { [weak self] str in
+//            doTransfer(amount: 2, assetId: pointData.id, symbol: pointData.symbol) { [weak self] str in
+            doWalletTransfer(amount: 2, assetId: pointData.id, symbol: pointData.symbol) { [weak self] str in
                 SVProgressHUD.dismiss()
                 if let str = str {
                     self?.showToast(text: str)
