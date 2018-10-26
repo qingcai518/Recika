@@ -168,13 +168,28 @@ func doTransfer(amount: Int, assetId: String, symbol: String, callback : @escapi
                 guard let result = jsonstr else {
                     return callback("fail to signature.")
                 }
-                
-                print(result)
 
                 let paramJson = JSON(parseJSON: result)
-                print(paramJson)
 
                 // broadcast to blockchain.
+                guard let api = URLComponents(string: broadcastAPI) else {
+                    return callback("fail to get api.")
+                }
+                
+                let headers = ["Content-type": "application/json"]
+                let params = ["transaction": result]
+                Alamofire.request(api, method: .post, parameters: params, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+                    if let error = response.error {
+                        return callback(error.localizedDescription)
+                    }
+                    
+                    guard let data = response.data else {
+                        return callback("data")
+                    }
+                    
+                    let json = JSON(data)
+                    print(json)
+                }
                 
                 return callback(nil)
             }
@@ -182,12 +197,10 @@ func doTransfer(amount: Int, assetId: String, symbol: String, callback : @escapi
     }
 }
 
-func doTransfer2(amount: Int, symbol: String, callback: @escaping Callback) {
+func doTransfer2(amount: Int, assetId: String, symbol: String, callback: @escaping Callback) {
     guard let keys = BitShareCoordinator.getUserKeys(userName, password: "123456") else {return}
     let keyJson = JSON(keys)
     let keysData = KeysData(keyJson)
-    
-    print(keysData)
     
     if [keysData.activeKey.publicKey, keysData.memoKey.publicKey, keysData.ownerKey.publicKey].contains(activePubKey) {
         BitShareCoordinator.resetDefaultPublicKey(activePubKey)

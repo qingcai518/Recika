@@ -19,10 +19,6 @@ struct KeysData {
         let ownerData = json["owner-key"]
         let memoData = json["memo-key"]
         
-        print("active = \(activeData)")
-        print("owner = \(ownerData)")
-        print("memo = \(memoData)")
-        
         self.activeKey = KeyData(activeData)
         self.ownerKey = KeyData(ownerData)
         self.memoKey = KeyData(memoData)

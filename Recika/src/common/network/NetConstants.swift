@@ -82,3 +82,6 @@ let assetsAPI = cybexDomain + v1 + "assets"
 
 // 转账
 let transferAPI = cybexDomain + v1 + "transfer"
+
+// 广播
+let broadcastAPI = cybexDomain + v1 + "broadcast"

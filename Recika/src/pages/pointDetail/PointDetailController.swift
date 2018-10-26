@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class PointDetailController: ViewController {
     let topView = UIView()
@@ -91,8 +92,14 @@ class PointDetailController: ViewController {
                 return
             }
             
-            doTransfer(amount: 2, assetId: pointData.id, symbol: pointData.symbol) { str in
-                print(str)
+            SVProgressHUD.show()
+            doTransfer(amount: 2, assetId: pointData.id, symbol: pointData.symbol) { [weak self] str in
+                SVProgressHUD.dismiss()
+                if let str = str {
+                    self?.showToast(text: str)
+                } else {
+                    self?.showToast(text: "success to broadcast transation.")
+                }
             }
         }.disposed(by: disposeBag)
     }
