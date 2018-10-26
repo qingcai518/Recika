@@ -75,6 +75,7 @@ extension PointController: UITableViewDelegate {
         let pointData = viewModel.points[indexPath.row]
         let next = PointDetailController()
         next.pointData = pointData
+        next.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(next, animated: true)
     }
 }

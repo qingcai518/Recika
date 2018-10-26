@@ -34,5 +34,8 @@ class TopController: UITabBarController {
         vc5.tabBarItem = item5
         
         viewControllers = [vc1, vc2, vc3, vc4, vc5]
+        
+        // websocket connect.
+        CybexSocket.shared.connect()
     }
 }
