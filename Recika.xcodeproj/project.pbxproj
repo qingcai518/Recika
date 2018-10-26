@@ -16,7 +16,6 @@
 		4B1DCC90214A4EB60048820C /* CHKLineChartKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4B1DCC8E214A4EB60048820C /* CHKLineChartKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4B1DCC95214A4F370048820C /* Receipt.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4B1DCC93214A4F370048820C /* Receipt.mm */; };
 		4B1DCC96214A4F370048820C /* ScanController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1DCC94214A4F370048820C /* ScanController.swift */; };
-		4B20194B2182A7A3003D52B3 /* CybexWebSocketService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B20194A2182A7A3003D52B3 /* CybexWebSocketService.swift */; };
 		4B358287214B4E4C00F47FF7 /* AnalyzeResultController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B358286214B4E4C00F47FF7 /* AnalyzeResultController.swift */; };
 		4B35828A214B5A4800F47FF7 /* AnalyzeResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B358289214B5A4800F47FF7 /* AnalyzeResultCell.swift */; };
 		4B35828C2150AD0C00F47FF7 /* AnalyzeResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B35828B2150AD0C00F47FF7 /* AnalyzeResultViewModel.swift */; };
@@ -271,7 +270,6 @@
 		4B1DCC93214A4F370048820C /* Receipt.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Receipt.mm; sourceTree = "<group>"; };
 		4B1DCC94214A4F370048820C /* ScanController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanController.swift; sourceTree = "<group>"; };
 		4B1DCC97214A50B20048820C /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
-		4B20194A2182A7A3003D52B3 /* CybexWebSocketService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CybexWebSocketService.swift; sourceTree = "<group>"; };
 		4B358286214B4E4C00F47FF7 /* AnalyzeResultController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyzeResultController.swift; sourceTree = "<group>"; };
 		4B358289214B5A4800F47FF7 /* AnalyzeResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyzeResultCell.swift; sourceTree = "<group>"; };
 		4B35828B2150AD0C00F47FF7 /* AnalyzeResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyzeResultViewModel.swift; sourceTree = "<group>"; };
@@ -11723,14 +11721,6 @@
 			path = RecikaTest;
 			sourceTree = "<group>";
 		};
-		4B2019492182A78F003D52B3 /* cybex */ = {
-			isa = PBXGroup;
-			children = (
-				4B20194A2182A7A3003D52B3 /* CybexWebSocketService.swift */,
-			);
-			path = cybex;
-			sourceTree = "<group>";
-		};
 		4B358288214B5A2E00F47FF7 /* cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -11815,7 +11805,6 @@
 		4B3EBC54212BF2A2002C34C5 /* common */ = {
 			isa = PBXGroup;
 			children = (
-				4B2019492182A78F003D52B3 /* cybex */,
 				4BCE9868213910CF00DFC4B5 /* extension */,
 				4B3EBCA821352C78002C34C5 /* ui */,
 				4B3EBCA321350B91002C34C5 /* network */,
@@ -31536,7 +31525,6 @@
 				4B3EBCAE213543FD002C34C5 /* LoginViewModel.swift in Sources */,
 				4B171E9D212BE85100753EA8 /* TopController.swift in Sources */,
 				4B3EBCB421363854002C34C5 /* GiftData.swift in Sources */,
-				4B20194B2182A7A3003D52B3 /* CybexWebSocketService.swift in Sources */,
 				4BE44FAC217ECA4800E654F6 /* PointDetailController.swift in Sources */,
 				4BCE98B0213E51D300DFC4B5 /* PriceCell.swift in Sources */,
 				4BCE987321391DD900DFC4B5 /* SeriesParam.swift in Sources */,
