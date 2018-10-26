@@ -41,26 +41,36 @@ class CybexSocket {
         socket?.disconnect(forceTimeout: 10, closeCode: CloseCode.normal.rawValue)
     }
     
-    func transfer(transaction: [String: Any], onSuccess: @escaping () -> Void, onFail: @escaping (String) -> Void) {
-        send(loginParams, onSuccess: { [weak self] in
-//            self?.send(broadcastParams, onSuccess: {
-//                let param: [String: Any] = [
-//                    "method": "call",
-//                    "params": [2, "broadcast_transaction", [transaction]],
-//                    "id": 3
-//                ]
-//
-//                self?.send(param, onSuccess: {
-//                    onSuccess()
-//                }, onFail: { msg in
-//                    onFail(msg)
-//                })
-//            }, onFail: { msg in
-//                onFail(msg)
-//            })
+    func login() {
+        send(loginParams, onSuccess: {
+            print("Login OK!")
         }) { msg in
-            onFail(msg)
+            print(msg)
         }
+    }
+    
+    func register() {
+        send(broadcastParams, onSuccess: {
+            print("register success")
+        }) { msg in
+            print(msg)
+        }
+    }
+    
+    func transfer(transaction: [String: Any]) {
+        let param: [String: Any] = [
+            "method": "call",
+            "params": [2, "broadcast_transaction", [transaction]],
+            "id": 3
+        ]
+        
+        print(param)
+        
+        send(param, onSuccess: {
+            print("transfer success")
+        }, onFail: { msg in
+            print(msg)
+        })
     }
     
     private func send(_ value: Any, onSuccess: @escaping () -> Void, onFail: @escaping (String) -> Void) {

@@ -155,6 +155,6 @@ class PointDetailController: ViewController {
                     self?.showToast(text: "Success!")
                 }
             })
-            }.disposed(by: disposeBag)
+        }.disposed(by: disposeBag)
     }
 }

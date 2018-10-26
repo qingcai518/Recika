@@ -140,9 +140,11 @@ func doTransfer(amount: Int, assetId: String, symbol: String, callback : @escapi
                 if [keysData.activeKey.publicKey, keysData.memoKey.publicKey, keysData.ownerKey.publicKey].contains(activePubKey) {
                     BitShareCoordinator.resetDefaultPublicKey(activePubKey)
                 }
+                
+                let test_amount = 20000
 
                 // 通过C++库来进行签名. 然后再用websocket进行广播.
-                let jsonstr = BitShareCoordinator.getTransaction(Int32(headBlockNumber), block_id: headBlockId, expiration: expiration, chain_id: chainId, from_user_id: last_from_uid, to_user_id: last_to_uid, asset_id: last_asset_id, receive_asset_id: last_asset_id, amount: Int64(amount), fee_id: last_fee_id, fee_amount: fee_amount, memo: "", from_memo_key: memoPubKey, to_memo_key: AdminMemoKey)
+                let jsonstr = BitShareCoordinator.getTransaction(Int32(headBlockNumber), block_id: headBlockId, expiration: expiration, chain_id: chainId, from_user_id: last_from_uid, to_user_id: last_to_uid, asset_id: last_asset_id, receive_asset_id: last_asset_id, amount: Int64(test_amount), fee_id: last_fee_id, fee_amount: fee_amount, memo: "", from_memo_key: memoPubKey, to_memo_key: AdminMemoKey)
                 
                 guard let result = jsonstr else {
                     return callback("fail to signature.")
@@ -150,6 +152,9 @@ func doTransfer(amount: Int, assetId: String, symbol: String, callback : @escapi
 
                 let paramJson = JSON(parseJSON: result)
                 print(result)
+                guard let dic = paramJson.dictionaryObject else {
+                    return callback("json error!")
+                }
 
                 // broadcast to blockchain.
                 guard let api = URLComponents(string: broadcastAPI) else {
@@ -157,7 +162,7 @@ func doTransfer(amount: Int, assetId: String, symbol: String, callback : @escapi
                 }
                 
                 let headers = ["Content-type": "application/json"]
-                let params = ["transaction": result]
+                let params = ["transaction": dic]
                 Alamofire.request(api, method: .post, parameters: params, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
                     if let error = response.error {
                         return callback(error.localizedDescription)
@@ -269,12 +274,21 @@ func doTransferLocal(amount: Int, assetId: String, symbol: String, callback : @e
                     return callback("fail to signature.")
                 }
                 
-                if let json = JSON(result).dictionaryObject {
-                    CybexSocket.shared.transfer(transaction: json, onSuccess: {
-                        return callback(nil)
-                    }, onFail: { msg in
-                        return callback(msg)
-                    })
+                CybexSocket.shared.login()
+                CybexSocket.shared.register()
+                
+                let json = JSON(result)
+                print(json)
+                
+                if let data = jsonstr?.data(using: .utf8) {
+                    do {
+                        let object = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any]
+                        if let obj = object {
+                            CybexSocket.shared.transfer(transaction: obj)
+                        }
+                    } catch let error {
+                        return callback(error.localizedDescription)
+                    }
                 }
             }
         }
