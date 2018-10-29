@@ -51,6 +51,7 @@ func saveUser(name: String, ownerKey: String?, activeKey: String?, memoKey: Stri
 }
 
 func clearUser() {
+    UserDefaults.standard.removeObject(forKey: UDKey.uid)
     UserDefaults.standard.removeObject(forKey: UDKey.userName)
     UserDefaults.standard.removeObject(forKey: UDKey.ownerPubKey)
     UserDefaults.standard.removeObject(forKey: UDKey.activePubKey)

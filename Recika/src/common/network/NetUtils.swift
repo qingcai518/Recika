@@ -14,9 +14,9 @@ import SVProgressHUD
 typealias CallbackDynamic = (DynamicChainData?, String?) -> Void
 
 func getUID(callback: @escaping Callback) {
-    if let uid = UserDefaults.standard.object(forKey: UDKey.uid) as? String {
-        return callback(uid)
-    }
+//    if let uid = UserDefaults.standard.object(forKey: UDKey.uid) as? String {
+//        return callback(uid)
+//    }
     
     guard var api = URLComponents(string: uidAPI) else {
         return callback(nil)
@@ -258,14 +258,16 @@ func doTransferLocal(amount: Int, assetId: String, symbol: String, callback : @e
                 let fee_amount = Int64(1000)
    
                 //  dummy. 需要弹出用户输入密码框.
+                print("user = \(userName), uid = \(uid)")
                 guard let keys = BitShareCoordinator.getUserKeys(userName, password: "123456") else {return}
+                print(keys)
                 
                 let keyJson = JSON(keys)
                 let keysData = KeysData(keyJson)
-
-                if [keysData.activeKey.publicKey, keysData.memoKey.publicKey, keysData.ownerKey.publicKey].contains(activePubKey) {
-                    BitShareCoordinator.resetDefaultPublicKey(activePubKey)
-                }
+                
+//                if [keysData.activeKey.publicKey, keysData.memoKey.publicKey, keysData.ownerKey.publicKey].contains(activePubKey) {
+//                    BitShareCoordinator.resetDefaultPublicKey(activePubKey)
+//                }
                 
                 // 通过C++库来进行签名. 然后再用websocket进行广播.
                 let jsonstr = BitShareCoordinator.getTransaction(Int32(headBlockNumber), block_id: headBlockId, expiration: expiration, chain_id: chainId, from_user_id: last_from_uid, to_user_id: last_to_uid, asset_id: last_asset_id, receive_asset_id: last_asset_id, amount: Int64(amount), fee_id: last_fee_id, fee_amount: fee_amount, memo: "", from_memo_key: memoPubKey, to_memo_key: AdminMemoKey)
