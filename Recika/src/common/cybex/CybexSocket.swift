@@ -57,6 +57,10 @@ class CybexSocket {
         }
     }
     
+    func getRequiredFee() {
+        
+    }
+    
     func transfer(transaction: [String: Any]) {
         let param: [String: Any] = [
             "method": "call",
